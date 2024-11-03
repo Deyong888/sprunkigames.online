@@ -8,4 +8,13 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://astroship.web3templates.com",
   integrations: [tailwind(), mdx(), sitemap(), icon()],
+
+  i18n: {
+    defaultLocale: "zh",
+    locales: ["zh", "en", "ja"],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  }
+  
 });

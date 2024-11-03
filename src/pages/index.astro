@@ -1,17 +1,21 @@
 ---
 import Container from "@components/container.astro";
-import Cta from "@components/cta.astro";
-import Features from "@components/features.astro";
-import Hero from "@components/hero.astro";
-import Logos from "@components/logos.astro";
 import Layout from "@layouts/Layout.astro";
+import Gameplay from '../components/Gameplay.astro';
+import Features from "../components/features.astro";
+import HowToPlay from "../components/howtoplay.astro";
+import SocialShare from "../components/SocialShare.astro";
+import FAQ from "../components/FAQ.astro";
+
+const locale = Astro.currentLocale || 'zh';
 ---
 
-<Layout title="">
+<Layout title="Watermelon Game">
   <Container>
-    <Hero />
-    <Features />
-    <Logos />
-    <Cta />
+    <Gameplay locale={locale} />
+    <HowToPlay locale={locale} />
+    <Features locale={locale}/>
+    <SocialShare locale={locale} />
+    <FAQ locale={locale} />
   </Container>
 </Layout>

@@ -1,0 +1,185 @@
+---
+const { locale } = Astro.props;
+
+const translations = {
+  zh: {
+    title: "合成大西瓜",
+    description: "来玩合成大西瓜吧！点击或触摸屏幕开始游戏",
+    loading: "游戏加载中..."
+  },
+  en: {
+    title: "Watermelon Game",
+    description: "Let's play the Watermelon Game! Tap or click to start",
+    loading: "Loading game..."
+  },
+  ja: {
+    title: "スイカゲーム",
+    description: "スイカゲームを楽しもう！タップまたはクリックでスタート",
+    loading: "ゲームを読み込んでいます..."
+  }
+};
+
+const t = translations[locale] || translations.en;
+---
+
+<section class="gameplay-section">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-8">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-red-500 to-green-500 bg-clip-text text-transparent">
+        {t.title}
+      </h2>
+      <p class="text-lg text-gray-600">{t.description}</p>
+    </div>
+
+    <div class="game-wrapper">
+      <div class="game-loading">
+        <div class="loading-spinner"></div>
+        <p>{t.loading}</p>
+      </div>
+      <iframe 
+        src="https://bitlifeonline.github.io/watermelon-drop/" 
+        title={t.title}
+        class="game-frame"
+        frameborder="0"
+        loading="lazy"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gameplay-section {
+    padding: 2rem 0;
+    background: linear-gradient(to bottom, #f0fdf4, #ffffff);
+  }
+
+  .game-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+    overflow: hidden;
+    border: 2px solid #22c55e;
+  }
+
+  /* 默认16:9比例 */
+  @media (min-width: 768px) {
+    .game-wrapper {
+      aspect-ratio: 16/9;
+    }
+  }
+
+  /* 手机端竖屏比例 */
+  @media (max-width: 767px) {
+    .game-wrapper {
+      aspect-ratio: 9/16;
+      height: calc(100vh - 200px); /* 减去头部和其他元素的高度 */
+      max-height: 800px;
+    }
+  }
+
+  .game-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+  }
+
+  .game-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+  }
+
+  .game-frame:loaded + .game-loading {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #dcfce7;
+    border-top: 5px solid #22c55e;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* 响应式优化 */
+  @media (max-width: 640px) {
+    .gameplay-section {
+      padding: 1rem 0;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  /* 深色模式支持 */
+  @media (prefers-color-scheme: dark) {
+    .gameplay-section {
+      background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+    }
+
+    .game-wrapper {
+      background: #2d2d2d;
+    }
+
+    h2 {
+      color: #ffffff;
+    }
+
+    p {
+      color: #d1d1d1;
+    }
+
+    .game-loading {
+      background: #2d2d2d;
+      color: #ffffff;
+    }
+  }
+</style>
+
+<script>
+  // 监听 iframe 加载完成
+  document.addEventListener('DOMContentLoaded', () => {
+    const iframe = document.querySelector('.game-frame');
+    const loading = document.querySelector('.game-loading');
+
+    if (iframe && loading) {
+      iframe.addEventListener('load', () => {
+        loading.style.opacity = '0';
+        setTimeout(() => {
+          loading.style.display = 'none';
+        }, 300);
+      });
+    }
+  });
+</script> 

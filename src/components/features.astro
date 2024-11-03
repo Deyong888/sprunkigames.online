@@ -2,68 +2,151 @@
 // @ts-ignore
 import { Icon } from "astro-icon/components";
 
-const features = [
-  {
-    title: "Bring Your Own Framework",
-    description:
-      "Build your site using React, Svelte, Vue, Preact, web components, or just plain ol' HTML + JavaScript.",
-    icon: "bx:bxs-briefcase",
+const { locale = 'en' } = Astro.props;
+
+// 多语言内容配置
+const translations = {
+  en: {
+    heading: "Discover the Exciting Features of Fruit Merge - Experience Ultimate Casual Gaming Fun",
+    subheading: "Fruit Merge game offers a unique casual gaming experience with its simple and intuitive controls, rich level design, global leaderboard competition, play-online-without-downloading convenience, cross-device compatibility, and an achievement system. Join the game now and enjoy every moment of fun and challenge!",
+    features: [
+      {
+        "title": "Simple and Intuitive Gameplay",
+        "description": "Enjoy the straightforward and user-friendly game mechanics of Fruit Merge, designed for players of all ages to easily grasp and play.",
+        "icon": "bx:bxs-briefcase"
+      },
+      {
+        "title": "Rich Level Design",
+        "description": "Challenge your skills with multiple levels, each with unique obstacles and puzzles to solve, keeping the gameplay fresh and engaging.",
+        "icon": "bx:bxs-window-alt"
+      },
+      {
+        "title": "Global Leaderboards",
+        "description": "Compete with players from around the world and climb the global leaderboards to showcase your merging prowess.",
+        "icon": "bx:bxs-data"
+      },
+      {
+        "title": "Play Online Without Download",
+        "description": "Access Fruit Merge directly in your browser without any downloads or installations, perfect for a quick game on the go.",
+        "icon": "bx:bxs-bot"
+      },
+      {
+        "title": "Cross-Device Compatibility",
+        "description": "Play Fruit Merge on any device, whether it's a smartphone, tablet, or desktop, and enjoy the game seamlessly across all platforms.",
+        "icon": "bx:bxs-file-find"
+      },
+      {
+        "title": "Achievement System",
+        "description": "Unlock achievements and track your progress as you advance through the game, adding an extra layer of challenge and fun.",
+        "icon": "bx:bxs-user"
+      }
+    ]
   },
-  {
-    title: "100% Static HTML, No JS",
-    description:
-      "Astro renders your entire page to static HTML, removing all JavaScript from your final build by default.",
-    icon: "bx:bxs-window-alt",
+  zh: {
+    heading: "探索合成大西瓜的精彩特色 - 体验终极休闲游戏乐趣",
+    subheading: "合成大西瓜游戏以其简单直观的操作、丰富的关卡设计、全球排行榜竞争、无需下载即可在线游玩、跨设备兼容���以及成就系统，为您带来独特的休闲游戏体验。立即加入游戏，尽情享受每一刻的欢乐与挑战！",
+    features: [
+      {
+        "title": "简单直观的游戏玩法",
+        "description": "享受合成大西瓜简单友好的游戏机制，专为各年龄段玩家设计，易于上手和游玩。",
+        "icon": "bx:bxs-briefcase"
+      },
+      {
+        "title": "丰富的关卡设计",
+        "description": "挑战多样化的关卡，每个关卡都有独特的障碍和谜题等待解决，保持游戏的新鲜感和趣味性。",
+        "icon": "bx:bxs-window-alt"
+      },
+      {
+        "title": "全球排行榜",
+        "description": "与来自世界各地的玩家竞争，攀登全球排行榜，展示您的合成技巧。",
+        "icon": "bx:bxs-data"
+      },
+      {
+        "title": "无需下载即可在线游玩",
+        "description": "直接在浏览器中访问合成大西瓜，无需下载或安装，完美适合随时随地快速游戏。",
+        "icon": "bx:bxs-bot"
+      },
+      {
+        "title": "跨设备兼容",
+        "description": "在任何设备上畅玩合成大西瓜，无论是智能手机、平板还是桌面电脑，都能享受流畅的游戏体验。",
+        "icon": "bx:bxs-file-find"
+      },
+      {
+        "title": "成就系统",
+        "description": "在游戏进程中解锁成就并追踪您的进度，为游戏增添额外的挑战和乐趣。",
+        "icon": "bx:bxs-user"
+      }
+    ]
   },
-  {
-    title: "On-Demand Components",
-    description:
-      "Need some JS? Astro can automatically hydrate interactive components when they become visible on the page.  ",
-    icon: "bx:bxs-data",
-  },
-  {
-    title: "Broad Integration",
-    description:
-      "Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any other npm packages.",
-    icon: "bx:bxs-bot",
-  },
-  {
-    title: "SEO Enabled",
-    description:
-      "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!",
-    icon: "bx:bxs-file-find",
-  },
-  {
-    title: "Community",
-    description:
-      "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
-    icon: "bx:bxs-user",
-  },
-];
+  ja: {
+    heading: "スイカゲームの魅力的な特徴を発見 - 究極のカジュアルゲーム体験",
+    subheading: "スイカゲームは、シンプルで直感的な操作、豊富なレベルデザイン、グローバルリーダーボード競争、ダウンロード不要のオンラインプレイ、クロスデバイス互換性、実績システムを備えた独自のカジュアルゲーム体験を提供します。今すぐゲームに参加して、楽しさとチャレンジの瞬間をお楽しみください！",
+    features: [
+      {
+        "title": "シンプルで直感的なゲームプレイ",
+        "description": "すべての年齢層のプレイヤーが簡単に理解してプレイできるよう設計された、シンプルで使いやすいゲームメカニクスをお楽しみください。",
+        "icon": "bx:bxs-briefcase"
+      },
+      {
+        "title": "豊富なレベルデザイン",
+        "description": "ユニークな障害物とパズルを備えた複数のレベルで腕前を試し、ゲームプレイを新鮮で魅力的に保ちます。",
+        "icon": "bx:bxs-window-alt"
+      },
+      {
+        "title": "グローバルリーダーボード",
+        "description": "世界中のプレイヤーと競争し、グローバルリーダーボードで合成の腕前を披露しましょう。",
+        "icon": "bx:bxs-data"
+      },
+      {
+        "title": "ダウンロード不要でオンラインプレイ",
+        "description": "ダウンロードやインストールなしで、ブラウザから直接スイカゲームにアクセス。外出先での手軽なプレイに最適です。",
+        "icon": "bx:bxs-bot"
+      },
+      {
+        "title": "クロスデバイス互換性",
+        "description": "スマートフォン、タブレット、デスクトップなど、どのデバイスでもスイカゲームをプレイでき、すべてのプラットフォームでシームレスに楽しめます。",
+        "icon": "bx:bxs-file-find"
+      },
+      {
+        "title": "実績システム",
+        "description": "ゲームを進めながら実績のロックを解除し、進捗を追跡。さらなるチャレンジと楽しみを追加します。",
+        "icon": "bx:bxs-user"
+      }
+    ]
+  }
+};
+
+// 获取当前语言���翻译内容
+const t = translations[locale] || translations.en;
 ---
 
 <div class="mt-16 md:mt-0">
-  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    Everything you need to start a website
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight bg-gradient-to-r from-green-500 to-red-500 bg-clip-text text-transparent">
+    {t.heading}
   </h2>
-  <p class="text-lg mt-4 text-slate-600">
-    Astro comes batteries included. It takes the best parts of state-of-the-art
-    tools and adds its own innovations.
+  <p class="text-lg mt-4 text-gray-600">
+    {t.subheading}
   </p>
 </div>
 
 <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
   {
-    features.map((item) => (
-      <div class="flex gap-4 items-start">
-        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
+    t.features.map((item) => (
+      <div class="flex gap-4 items-start group hover:bg-green-50 p-4 rounded-xl transition-all duration-300">
+        <div class="mt-1 bg-gradient-to-r from-green-500 to-red-500 rounded-full p-2 w-8 h-8 shrink-0 group-hover:scale-110 transition-transform duration-300">
           <Icon class="text-white" name={item.icon} />
         </div>
         <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
-          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+          <h3 class="font-semibold text-lg text-green-800">{item.title}</h3>
+          <p class="text-gray-600 mt-2 leading-relaxed">{item.description}</p>
         </div>
       </div>
     ))
   }
 </div>
+
+<style>
+  .grid > div:hover {
+    box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+  }
+</style>
