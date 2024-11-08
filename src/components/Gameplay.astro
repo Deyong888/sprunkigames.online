@@ -3,19 +3,19 @@ const { locale } = Astro.props;
 
 const translations = {
   zh: {
-    title: "合成大西瓜",
-    description: "来玩合成大西瓜吧！点击或触摸屏幕开始游戏",
+    title: "Sprunki|极限音乐创作游戏",
+    description: "Sprunki game是一款受 Incredibox 启发的在线游戏，玩家可以通过点击来收集硬币，并在20个充满乐趣的级别中解锁音乐创作。不断点击以收集硬币并升级你的体验。",
     loading: "游戏加载中..."
   },
   en: {
-    title: "Watermelon Game",
-    description: "Let's play the Watermelon Game! Tap or click to start",
+    title: "Sprunki|Ultimate Music Creation Game",
+    description: "Sprunki game is an addictive online game inspired by Incredibox, where players earn coins and unlock musical creativity across 20 exciting levels. Click non-stop to collect coins and upgrade your experience.",
     loading: "Loading game..."
   },
-  ja: {
-    title: "スイカゲーム",
-    description: "スイカゲームを楽しもう！タップまたはクリックでスタート",
-    loading: "ゲームを読み込んでいます..."
+  es: {
+    title: "Sprunki|Juego de Creación musical",
+    description: "Sprunki game es un juego adictivo inspirado en Incredibox, en el que los jugadores ganan monedas y desbloquean la creatividad musical a lo largo de 20 niveles excitantes. Haz click sin parar para recoger monedas y better tu experiencia.",
+    loading: "Cargando el juego..."
   }
 };
 
@@ -25,33 +25,57 @@ const t = translations[locale] || translations.en;
 <section class="gameplay-section">
   <div class="container mx-auto px-4">
     <div class="text-center mb-8">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-red-500 to-green-500 bg-clip-text text-transparent">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#FF61D8] to-[#6B48FF] bg-clip-text text-transparent">
         {t.title}
-      </h2>
-      <p class="text-lg text-gray-600">{t.description}</p>
+      </h1>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">{t.description}</p>
     </div>
 
     <div class="game-wrapper">
       <div class="game-loading">
         <div class="loading-spinner"></div>
-        <p>{t.loading}</p>
+        <p class="loading-text">{t.loading}</p>
       </div>
-      <iframe 
-        src="https://bitlifeonline.github.io/watermelon-drop/" 
-        title={t.title}
-        class="game-frame"
-        frameborder="0"
-        loading="lazy"
-        allowfullscreen
-      ></iframe>
+      <div class="game-container">
+        <iframe 
+          src="https://game.sprunki.com/game.sprunki.html" 
+          title={t.title}
+          class="game-frame"
+          frameborder="0"
+          loading="lazy"
+          allow="autoplay; fullscreen; microphone; camera; midi; encrypted-media"
+          allowfullscreen
+          sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals"
+        ></iframe>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .gameplay-section {
-    padding: 2rem 0;
-    background: linear-gradient(to bottom, #f0fdf4, #ffffff);
+    padding: 4rem 0;
+    background: linear-gradient(135deg, rgba(255, 97, 216, 0.1), rgba(107, 72, 255, 0.1));
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 添加音符背景动画 */
+  .gameplay-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/music-notes-pattern.png') repeat;
+    opacity: 0.05;
+    animation: floatBg 20s linear infinite;
+  }
+
+  @keyframes floatBg {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
   }
 
   .game-wrapper {
@@ -59,36 +83,17 @@ const t = translations[locale] || translations.en;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    background: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(107, 72, 255, 0.15);
     overflow: hidden;
-    border: 2px solid #22c55e;
+    border: 2px solid rgba(255, 97, 216, 0.3);
+    transition: transform 0.3s ease;
   }
 
-  /* 默认16:9比例 */
-  @media (min-width: 768px) {
-    .game-wrapper {
-      aspect-ratio: 16/9;
-    }
-  }
-
-  /* 手机端竖屏比例 */
-  @media (max-width: 767px) {
-    .game-wrapper {
-      aspect-ratio: 9/16;
-      height: calc(100vh - 200px); /* 减去头部和其他元素的高度 */
-      max-height: 800px;
-    }
-  }
-
-  .game-frame {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff;
+  .game-wrapper:hover {
+    transform: translateY(-5px);
   }
 
   .game-loading {
@@ -101,85 +106,151 @@ const t = translations[locale] || translations.en;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     z-index: 1;
-    opacity: 1;
-    transition: opacity 0.3s ease-out;
-  }
-
-  .game-frame:loaded + .game-loading {
-    opacity: 0;
-    pointer-events: none;
   }
 
   .loading-spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #dcfce7;
-    border-top: 5px solid #22c55e;
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(107, 72, 255, 0.1);
+    border-top: 4px solid #FF61D8;
+    border-right: 4px solid #6B48FF;
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin-bottom: 1rem;
   }
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  .loading-text {
+    font-size: 1.2rem;
+    color: #6B48FF;
+    font-weight: 500;
+    animation: pulse 1.5s ease-in-out infinite;
   }
 
-  /* 响应式优化 */
-  @media (max-width: 640px) {
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* 响应式设计优化 */
+  @media (max-width: 768px) {
     .gameplay-section {
-      padding: 1rem 0;
+      padding: 2rem 0;
     }
-    
-    h2 {
-      font-size: 1.5rem;
+
+    .game-wrapper {
+      border-radius: 16px;
     }
-    
-    p {
-      font-size: 1rem;
+
+    .game-container {
+      padding-top: 75%; /* 移动端可以使用更紧凑的 4:3 比例 */
     }
+
+    .game-frame {
+      min-height: 400px; /* 移动端调整最小高度 */
+    }
+  }
+
+  /* 大屏幕优化 */
+  @media (min-width: 1440px) {
+    .game-container {
+      padding-top: 45%; /* 更宽的屏幕可以使用更合适的比例 */
+    }
+
+    .game-frame {
+      min-height: 800px; /* 大屏幕增加最小高度 */
+    }
+  }
+
+  /* 新增游戏容器样式 */
+  .game-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 宽高比 */
+    height: 0;
+  }
+
+  .game-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 600px; /* 设置最小高度 */
   }
 
   /* 深色模式支持 */
   @media (prefers-color-scheme: dark) {
     .gameplay-section {
-      background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+      background: linear-gradient(135deg, rgba(255, 97, 216, 0.05), rgba(107, 72, 255, 0.05));
     }
 
     .game-wrapper {
-      background: #2d2d2d;
-    }
-
-    h2 {
-      color: #ffffff;
-    }
-
-    p {
-      color: #d1d1d1;
+      background: rgba(30, 30, 30, 0.9);
     }
 
     .game-loading {
-      background: #2d2d2d;
-      color: #ffffff;
+      background: rgba(30, 30, 30, 0.95);
+    }
+
+    .loading-text {
+      color: #FF61D8;
     }
   }
 </style>
 
 <script>
-  // 监听 iframe 加载完成
   document.addEventListener('DOMContentLoaded', () => {
     const iframe = document.querySelector('.game-frame');
     const loading = document.querySelector('.game-loading');
+    const gameWrapper = document.querySelector('.game-wrapper');
 
     if (iframe && loading) {
+      // 添加 iframe 加载事件
       iframe.addEventListener('load', () => {
         loading.style.opacity = '0';
         setTimeout(() => {
           loading.style.display = 'none';
         }, 300);
+
+        // 尝试自动播放声音
+        try {
+          const iframeDoc = iframe.contentWindow.document;
+          const audioElements = iframeDoc.getElementsByTagName('audio');
+          Array.from(audioElements).forEach(audio => {
+            audio.play().catch(() => {
+              console.log('Auto-play prevented. User interaction needed.');
+            });
+          });
+        } catch (e) {
+          console.log('Cannot access iframe content due to same-origin policy');
+        }
       });
+
+      // 添加用户交互事件监听
+      gameWrapper.addEventListener('click', () => {
+        try {
+          const iframeDoc = iframe.contentWindow.document;
+          const audioElements = iframeDoc.getElementsByTagName('audio');
+          Array.from(audioElements).forEach(audio => {
+            audio.play().catch(e => console.log('Audio play failed:', e));
+          });
+        } catch (e) {
+          console.log('Cannot access iframe content');
+        }
+      });
+
+      // 添加窗口大小改变事件处理
+      window.addEventListener('resize', () => {
+        const width = gameWrapper.offsetWidth;
+        const height = Math.max(width * 0.5625, 600); // 保持 16:9 的最小高度
+        iframe.style.height = `${height}px`;
+      });
+
+      // 初始化时触发一次
+      window.dispatchEvent(new Event('resize'));
     }
   });
 </script> 

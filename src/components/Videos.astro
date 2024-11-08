@@ -1,0 +1,456 @@
+---
+import { Image } from 'astro:assets';
+
+const { locale = 'en' } = Astro.props;
+
+const translations = {
+  zh: {
+    title: "精彩视频",
+    description: "观看玩家们创作的精彩音乐作品和游戏视频",
+    viewOnYoutube: "在 YouTube 上观看",
+    videos: [
+      {
+        title: "Sprunki Game - 创意音乐创作",
+        description: "探索 Sprunki 游戏的音乐创作功能，看看玩家如何创作出独特的音乐作品。",
+        thumbnail: "https://img.youtube.com/vi/zuaVvpq-X1M/maxresdefault.jpg",
+        youtubeId: "zuaVvpq-X1M"
+      },
+      {
+        title: "最佳音乐组合精选",
+        description: "精选玩家们创作的最佳音乐组合，展示 Sprunki 游戏的无限可能。",
+        thumbnail: "https://img.youtube.com/vi/AK8mu3gcteg/maxresdefault.jpg",
+        youtubeId: "AK8mu3gcteg"
+      },
+      {
+        title: "Sprunki 游戏教程",
+        description: "详细的游戏教程，帮助新手快速掌握 Sprunki 的创作技巧。",
+        thumbnail: "https://img.youtube.com/vi/8uNPfEV2QD0/maxresdefault.jpg",
+        youtubeId: "8uNPfEV2QD0"
+      },
+      {
+        title: "高级音乐创作技巧",
+        description: "深入探讨 Sprunki 的高级创作技巧，解锁更多音乐创作可能。",
+        thumbnail: "https://img.youtube.com/vi/J7HtFwQ1Zk4/maxresdefault.jpg",
+        youtubeId: "J7HtFwQ1Zk4"
+      },
+      {
+        title: "社区精选作品展示",
+        description: "展示来自全球玩家的优秀作品，感受不同文化的音乐创意。",
+        thumbnail: "https://img.youtube.com/vi/xlHMpuaRsHM/maxresdefault.jpg",
+        youtubeId: "xlHMpuaRsHM"
+      },
+      {
+        title: "特殊组合解锁指南",
+        description: "揭秘 Sprunki 中的特殊音效组合，带来独特的视听体验。",
+        thumbnail: "https://img.youtube.com/vi/fJD1ZOIhv9E/maxresdefault.jpg",
+        youtubeId: "fJD1ZOIhv9E"
+      }
+    ]
+  },
+  en: {
+    title: "Featured Videos",
+    description: "Watch amazing musical creations and gameplay videos from our community",
+    viewOnYoutube: "Watch on YouTube",
+    videos: [
+      {
+        title: "Sprunki Game - Creative Music Making",
+        description: "Explore the music creation features of Sprunki and see how players create unique musical pieces.",
+        thumbnail: "https://img.youtube.com/vi/zuaVvpq-X1M/maxresdefault.jpg",
+        youtubeId: "zuaVvpq-X1M"
+      },
+      {
+        title: "Best Music Combinations",
+        description: "A collection of the best music combinations created by players, showcasing endless possibilities.",
+        thumbnail: "https://img.youtube.com/vi/AK8mu3gcteg/maxresdefault.jpg",
+        youtubeId: "AK8mu3gcteg"
+      },
+      {
+        title: "Sprunki Game Tutorial",
+        description: "Detailed game tutorial helping newcomers master the creative techniques in Sprunki.",
+        thumbnail: "https://img.youtube.com/vi/8uNPfEV2QD0/maxresdefault.jpg",
+        youtubeId: "8uNPfEV2QD0"
+      },
+      {
+        title: "Advanced Music Creation Tips",
+        description: "Deep dive into advanced creation techniques, unlocking more musical possibilities.",
+        thumbnail: "https://img.youtube.com/vi/VIDEO_ID_4/maxresdefault.jpg",
+        youtubeId: "J7HtFwQ1Zk4"
+      },
+      {
+        title: "Community Showcase",
+        description: "Featuring outstanding works from players worldwide, experiencing musical creativity across cultures.",
+        thumbnail: "https://img.youtube.com/vi/xlHMpuaRsHM/maxresdefault.jpg",
+        youtubeId: "xlHMpuaRsHM"
+      },
+      {
+        title: "Special Combinations Guide",
+        description: "Discover special sound combinations in Sprunki for unique audiovisual experiences.",
+        thumbnail: "https://img.youtube.com/vi/fJD1ZOIhv9E/maxresdefault.jpg",
+        youtubeId: "fJD1ZOIhv9E"
+      }
+    ]
+  },
+  es: {
+    title: "Videos Destacados",
+    description: "Mira increíbles creaciones musicales y videos de jugabilidad de nuestra comunidad",
+    viewOnYoutube: "Ver en YouTube",
+    videos: [
+      {
+        title: "Sprunki Game - Creación Musical Creativa",
+        description: "Explora las características de creación musical de Sprunki y mira cómo los jugadores crean piezas únicas.",
+        thumbnail: "https://img.youtube.com/vi/zuaVvpq-X1M/maxresdefault.jpg",
+        youtubeId: "zuaVvpq-X1M"
+      },
+      {
+        title: "Mejores Combinaciones Musicales",
+        description: "Una colección de las mejores combinaciones musicales creadas por jugadores.",
+        thumbnail: "https://img.youtube.com/vi/AK8mu3gcteg/maxresdefault.jpg",
+        youtubeId: "AK8mu3gcteg"
+      },
+      {
+        title: "Tutorial de Sprunki Game",
+        description: "Tutorial detallado del juego ayudando a los nuevos jugadores a dominar las técnicas creativas.",
+        thumbnail: "https://img.youtube.com/vi/8uNPfEV2QD0/maxresdefault.jpg",
+        youtubeId: "8uNPfEV2QD0"
+      },
+      {
+        title: "Consejos Avanzados de Creación",
+        description: "Profundiza en técnicas avanzadas de creación, desbloqueando más posibilidades musicales.",
+        thumbnail: "https://img.youtube.com/vi/J7HtFwQ1Zk4/maxresdefault.jpg",
+        youtubeId: "J7HtFwQ1Zk4"
+      },
+      {
+        title: "Exhibición de la Comunidad",
+        description: "Presentando obras destacadas de jugadores de todo el mundo.",
+        thumbnail: "https://img.youtube.com/vi/xlHMpuaRsHM/maxresdefault.jpg",
+        youtubeId: "xlHMpuaRsHM"
+      },
+      {
+        title: "Guía de Combinaciones Especiales",
+        description: "Descubre combinaciones especiales de sonido en Sprunki para experiencias audiovisuales únicas.",
+        thumbnail: "https://img.youtube.com/vi/fJD1ZOIhv9E/maxresdefault.jpg",
+        youtubeId: "fJD1ZOIhv9E"
+      }
+    ]
+  }
+};
+
+const t = translations[locale] || translations.en;
+---
+
+<section class="videos-section">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center mb-12">
+      <h2 class="heading-gradient">
+        {t.title}
+      </h2>
+      <p class="subheading">
+        {t.description}
+      </p>
+    </div>
+
+    <div class="grid">
+      {t.videos.map((video) => (
+        <div class="video-card">
+          <div class="thumbnail-wrapper">
+            <img 
+              src={video.thumbnail} 
+              alt={video.title}
+              class="video-thumbnail"
+              loading="lazy"
+            />
+            <button 
+              class="play-button"
+              aria-label={t.viewOnYoutube}
+              data-video-id={video.youtubeId}
+              onclick="openVideoModal(this.dataset.videoId)"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="video-info">
+            <h3>{video.title}</h3>
+            <p>{video.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <button class="close-button" onclick="closeVideoModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="video-container">
+        <iframe
+          id="videoPlayer"
+          frameborder="0"
+          allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .videos-section {
+    background: linear-gradient(135deg, rgba(255, 97, 216, 0.1), rgba(107, 72, 255, 0.1));
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .heading-gradient {
+    background: linear-gradient(to right, #FF61D8, #6B48FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .subheading {
+    color: #6B48FF;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+
+  .video-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 97, 216, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(107, 72, 255, 0.15);
+  }
+
+  .thumbnail-wrapper {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 比例 */
+    overflow: hidden;
+  }
+
+  .video-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .video-card:hover .video-thumbnail {
+    transform: scale(1.05);
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: rgba(255, 97, 216, 0.9);
+    border-radius: 50%;
+    padding: 1rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .video-card:hover .play-button {
+    opacity: 1;
+  }
+
+  .video-info {
+    padding: 1.5rem;
+  }
+
+  .video-info h3 {
+    color: #FF61D8;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .video-info p {
+    color: #6B48FF;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .youtube-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #FF61D8;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  .youtube-link:hover {
+    color: #6B48FF;
+  }
+
+  @media (max-width: 768px) {
+    .heading-gradient {
+      font-size: 2rem;
+    }
+
+    .subheading {
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+
+    .video-info h3 {
+      font-size: 1.1rem;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1400px;
+    }
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+  }
+
+  .modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 2% auto;
+    background: transparent;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+  }
+
+  .close-button {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    background: #FF61D8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .close-button:hover {
+    background: #6B48FF;
+    transform: rotate(90deg);
+  }
+
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 95%;
+      margin: 10% auto;
+    }
+
+    .close-button {
+      top: -50px;
+      right: 0;
+    }
+  }
+</style>
+
+<script>
+  function openVideoModal(videoId) {
+    const modal = document.getElementById('videoModal');
+    const videoPlayer = document.getElementById('videoPlayer');
+    
+    // 设置 YouTube 嵌入链接
+    videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    
+    // 显示模态框
+    modal.style.display = 'block';
+    
+    // 禁止背景滚动
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const videoPlayer = document.getElementById('videoPlayer');
+    
+    // 停止视频播放
+    videoPlayer.src = '';
+    
+    // 隐藏模态框
+    modal.style.display = 'none';
+    
+    // 恢复背景滚动
+    document.body.style.overflow = 'auto';
+  }
+
+  // 点击模态框背景关闭
+  document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeVideoModal();
+    }
+  });
+
+  // ESC 键关闭模态框
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeVideoModal();
+    }
+  });
+</script> 

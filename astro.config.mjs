@@ -6,12 +6,12 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astroship.web3templates.com",
+  site: "https://sprunkigames.online",
   integrations: [tailwind(), mdx(), sitemap(), icon()],
 
   i18n: {
-    defaultLocale: "zh",
-    locales: ["zh", "en", "ja"],
+    defaultLocale: "en",
+    locales: ["zh", "en", "es"],
     routing: {
       prefixDefaultLocale: false
     }

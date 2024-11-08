@@ -1,152 +1,250 @@
 ---
-// @ts-ignore
-import { Icon } from "astro-icon/components";
+import { Fragment } from 'astro:components';
+
+// 定义图标组件
+const icons = {
+  "musical-note": `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>`,
+  
+  "characters": `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
+  
+  "mixing-desk": `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>`,
+  
+  "creativity": `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>`,
+  
+  "share": `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>`,
+  
+  "update": `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>`
+};
 
 const { locale = 'en' } = Astro.props;
 
-// 多语言内容配置
 const translations = {
   en: {
-    heading: "Discover the Exciting Features of Fruit Merge - Experience Ultimate Casual Gaming Fun",
-    subheading: "Fruit Merge game offers a unique casual gaming experience with its simple and intuitive controls, rich level design, global leaderboard competition, play-online-without-downloading convenience, cross-device compatibility, and an achievement system. Join the game now and enjoy every moment of fun and challenge!",
+    heading: "Discover the Magic of Incredibox - Sprunki: Where Music Meets Creativity",
+    subheading: "Transform into a music maestro with Sprunki's unique blend of rhythm, creativity, and fun. Create captivating beats, mix enchanting melodies, and share your musical masterpieces with players worldwide!",
     features: [
       {
-        "title": "Simple and Intuitive Gameplay",
-        "description": "Enjoy the straightforward and user-friendly game mechanics of Fruit Merge, designed for players of all ages to easily grasp and play.",
-        "icon": "bx:bxs-briefcase"
+        title: "Intuitive Music Creation",
+        description: "Drag and drop sound icons onto characters to create music - no musical experience needed! Simple, fun, and instantly rewarding.",
+        icon: "musical-note"
       },
       {
-        "title": "Rich Level Design",
-        "description": "Challenge your skills with multiple levels, each with unique obstacles and puzzles to solve, keeping the gameplay fresh and engaging.",
-        "icon": "bx:bxs-window-alt"
+        title: "Unique Character Ensemble",
+        description: "Choose from a diverse cast of Sprunki characters, each bringing their own musical elements from beats to melodies and effects.",
+        icon: "characters"
       },
       {
-        "title": "Global Leaderboards",
-        "description": "Compete with players from around the world and climb the global leaderboards to showcase your merging prowess.",
-        "icon": "bx:bxs-data"
+        title: "Dynamic Sound Mixing",
+        description: "Experiment with endless combinations of sounds, unlock special animations, and discover hidden musical surprises.",
+        icon: "mixing-desk"
       },
       {
-        "title": "Play Online Without Download",
-        "description": "Access Fruit Merge directly in your browser without any downloads or installations, perfect for a quick game on the go.",
-        "icon": "bx:bxs-bot"
+        title: "Creative Freedom",
+        description: "Build your compositions layer by layer, mix different musical styles, and create your unique sonic masterpiece.",
+        icon: "creativity"
       },
       {
-        "title": "Cross-Device Compatibility",
-        "description": "Play Fruit Merge on any device, whether it's a smartphone, tablet, or desktop, and enjoy the game seamlessly across all platforms.",
-        "icon": "bx:bxs-file-find"
+        title: "Share & Connect",
+        description: "Save your musical creations, share them with the community, and discover compositions from players worldwide.",
+        icon: "share"
       },
       {
-        "title": "Achievement System",
-        "description": "Unlock achievements and track your progress as you advance through the game, adding an extra layer of challenge and fun.",
-        "icon": "bx:bxs-user"
+        title: "Regular Updates",
+        description: "Enjoy fresh content with new characters, sounds, and special combinations added regularly to keep your creativity flowing.",
+        icon: "update"
       }
     ]
   },
   zh: {
-    heading: "探索合成大西瓜的精彩特色 - 体验终极休闲游戏乐趣",
-    subheading: "合成大西瓜游戏以其简单直观的操作、丰富的关卡设计、全球排行榜竞争、无需下载即可在线游玩、跨设备兼容���以及成就系统，为您带来独特的休闲游戏体验。立即加入游戏，尽情享受每一刻的欢乐与挑战！",
+    heading: "探索 Incredibox - Sprunki：音乐与创意的完美融合",
+    subheading: "通过 Sprunki 独特的节奏、创意和趣味组合，成为音乐大师。创作迷人节拍，混音魔法旋律，与全球玩家分享你的音乐杰作！",
     features: [
       {
-        "title": "简单直观的游戏玩法",
-        "description": "享受合成大西瓜简单友好的游戏机制，专为各年龄段玩家设计，易于上手和游玩。",
-        "icon": "bx:bxs-briefcase"
+        title: "直观的音乐创作",
+        description: "将音效图标拖放到角色上即可创作音乐 - 无需音乐经验！简单、有趣、即时反馈。",
+        icon: "musical-note"
       },
       {
-        "title": "丰富的关卡设计",
-        "description": "挑战多样化的关卡，每个关卡都有独特的障碍和谜题等待解决，保持游戏的新鲜感和趣味性。",
-        "icon": "bx:bxs-window-alt"
+        title: "独特角色阵容",
+        description: "从多样化的 Sprunki 角色中选择，每个角色都带来独特的音乐元素，从节奏到旋律再到音效。",
+        icon: "characters"
       },
       {
-        "title": "全球排行榜",
-        "description": "与来自世界各地的玩家竞争，攀登全球排行榜，展示您的合成技巧。",
-        "icon": "bx:bxs-data"
+        title: "动态混音系统",
+        description: "尝试无限声音组合，解锁特殊动画，发现隐藏的音乐惊喜。",
+        icon: "mixing-desk"
       },
       {
-        "title": "无需下载即可在线游玩",
-        "description": "直接在浏览器中访问合成大西瓜，无需下载或安装，完美适合随时随地快速游戏。",
-        "icon": "bx:bxs-bot"
+        title: "创作自由",
+        description: "逐层构建你的作品，混合不同音乐风格，创造独一无二的声音杰作。",
+        icon: "creativity"
       },
       {
-        "title": "跨设备兼容",
-        "description": "在任何设备上畅玩合成大西瓜，无论是智能手机、平板还是桌面电脑，都能享受流畅的游戏体验。",
-        "icon": "bx:bxs-file-find"
+        title: "分享与连接",
+        description: "保存你的音乐创作，与社区分享，发现来自全球玩家的作品。",
+        icon: "share"
       },
       {
-        "title": "成就系统",
-        "description": "在游戏进程中解锁成就并追踪您的进度，为游戏增添额外的挑战和乐趣。",
-        "icon": "bx:bxs-user"
+        title: "定期更新",
+        description: "定期推出新角色、新音效和特殊组合，持续激发你的创造力。",
+        icon: "update"
       }
     ]
   },
-  ja: {
-    heading: "スイカゲームの魅力的な特徴を発見 - 究極のカジュアルゲーム体験",
-    subheading: "スイカゲームは、シンプルで直感的な操作、豊富なレベルデザイン、グローバルリーダーボード競争、ダウンロード不要のオンラインプレイ、クロスデバイス互換性、実績システムを備えた独自のカジュアルゲーム体験を提供します。今すぐゲームに参加して、楽しさとチャレンジの瞬間をお楽しみください！",
+  es: {
+    heading: "Descubre la Magia de Incredibox - Sprunki: Donde la Música se Une con la Creatividad",
+    subheading: "Conviértete en un maestro musical con la única mezcla de ritmo, creatividad y diversión de Sprunki. ¡Crea ritmos cautivadores, mezcla melodías encantadoras y comparte tus obras maestras musicales con jugadores de todo el mundo!",
     features: [
       {
-        "title": "シンプルで直感的なゲームプレイ",
-        "description": "すべての年齢層のプレイヤーが簡単に理解してプレイできるよう設計された、シンプルで使いやすいゲームメカニクスをお楽しみください。",
-        "icon": "bx:bxs-briefcase"
+        title: "Creación Musical Intuitiva",
+        description: "Arrastra y suelta iconos de sonido en los personajes para crear música - ¡sin experiencia musical necesaria! Simple, divertido y gratificante al instante.",
+        icon: "musical-note"
       },
       {
-        "title": "豊富なレベルデザイン",
-        "description": "ユニークな障害物とパズルを備えた複数のレベルで腕前を試し、ゲームプレイを新鮮で魅力的に保ちます。",
-        "icon": "bx:bxs-window-alt"
+        title: "Elenco Único de Personajes",
+        description: "Elige entre un diverso elenco de personajes Sprunki, cada uno aportando sus propios elementos musicales, desde ritmos hasta melodías y efectos.",
+        icon: "characters"
       },
       {
-        "title": "グローバルリーダーボード",
-        "description": "世界中のプレイヤーと競争し、グローバルリーダーボードで合成の腕前を披露しましょう。",
-        "icon": "bx:bxs-data"
+        title: "Mezcla Dinámica de Sonidos",
+        description: "Experimenta con infinitas combinaciones de sonidos, desbloquea animaciones especiales y descubre sorpresas musicales ocultas.",
+        icon: "mixing-desk"
       },
       {
-        "title": "ダウンロード不要でオンラインプレイ",
-        "description": "ダウンロードやインストールなしで、ブラウザから直接スイカゲームにアクセス。外出先での手軽なプレイに最適です。",
-        "icon": "bx:bxs-bot"
+        title: "Libertad Creativa",
+        description: "Construye tus composiciones capa por capa, mezcla diferentes estilos musicales y crea tu obra maestra sonora única.",
+        icon: "creativity"
       },
       {
-        "title": "クロスデバイス互換性",
-        "description": "スマートフォン、タブレット、デスクトップなど、どのデバイスでもスイカゲームをプレイでき、すべてのプラットフォームでシームレスに楽しめます。",
-        "icon": "bx:bxs-file-find"
+        title: "Comparte y Conéctate",
+        description: "Guarda tus creaciones musicales, compártelas con la comunidad y descubre composiciones de jugadores de todo el mundo.",
+        icon: "share"
       },
       {
-        "title": "実績システム",
-        "description": "ゲームを進めながら実績のロックを解除し、進捗を追跡。さらなるチャレンジと楽しみを追加します。",
-        "icon": "bx:bxs-user"
+        title: "Actualizaciones Regulares",
+        description: "Disfruta de contenido fresco con nuevos personajes, sonidos y combinaciones especiales agregados regularmente para mantener fluyendo tu creatividad.",
+        icon: "update"
       }
     ]
   }
 };
 
-// 获取当前语言���翻译内容
 const t = translations[locale] || translations.en;
 ---
 
-<div class="mt-16 md:mt-0">
-  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight bg-gradient-to-r from-green-500 to-red-500 bg-clip-text text-transparent">
+<div class="features-container">
+  <h2 class="heading-gradient">
     {t.heading}
   </h2>
-  <p class="text-lg mt-4 text-gray-600">
+  <p class="subheading">
     {t.subheading}
   </p>
-</div>
 
-<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
-  {
-    t.features.map((item) => (
-      <div class="flex gap-4 items-start group hover:bg-green-50 p-4 rounded-xl transition-all duration-300">
-        <div class="mt-1 bg-gradient-to-r from-green-500 to-red-500 rounded-full p-2 w-8 h-8 shrink-0 group-hover:scale-110 transition-transform duration-300">
-          <Icon class="text-white" name={item.icon} />
-        </div>
-        <div>
-          <h3 class="font-semibold text-lg text-green-800">{item.title}</h3>
-          <p class="text-gray-600 mt-2 leading-relaxed">{item.description}</p>
-        </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8">
+    {t.features.map((feature) => (
+      <div class="feature-card">
+        <div class="icon-container" set:html={icons[feature.icon]} />
+        <h3 class="text-xl font-bold mb-2">
+          {feature.title}
+        </h3>
+        <p>
+          {feature.description}
+        </p>
       </div>
-    ))
-  }
+    ))}
+  </div>
 </div>
 
 <style>
-  .grid > div:hover {
-    box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+  .features-container {
+    background: linear-gradient(135deg, rgba(255, 97, 216, 0.1), rgba(107, 72, 255, 0.1));
+    padding: 4rem 0;
+    border-radius: 24px;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 移除音符背景图案，改用 CSS 渐变 */
+  .features-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 97, 216, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(107, 72, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .feature-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 97, 216, 0.1);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(107, 72, 255, 0.15);
+  }
+
+  .icon-container {
+    background: linear-gradient(45deg, #FF61D8, #6B48FF);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .heading-gradient {
+    background: linear-gradient(to right, #FF61D8, #6B48FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .subheading {
+    color: #6B48FF;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+
+  .feature-card h3 {
+    color: #FF61D8;
+    font-weight: bold;
+  }
+
+  .feature-card p {
+    color: #6B48FF;
+    line-height: 1.6;
+  }
+
+  .icon-container svg {
+    color: white;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .heading-gradient {
+      font-size: 2rem;
+    }
+
+    .subheading {
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
   }
 </style>

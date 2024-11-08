@@ -1,57 +1,312 @@
 ---
-import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
-import Layout from "@layouts/Layout.astro";
-import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import teamImg from '../assets/team.jpg';
+import studioImg from '../assets/studio.jpg';
 
-// Filter team entries with 'draft: false' & date before current date
-const publishedTeamMembers = await getCollection("team", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
+const { locale = 'en' } = Astro.props;
+
+const translations = {
+  zh: {
+    title: "关于 Sprunki",
+    meta: {
+      title: "关于 Sprunki - 创新音乐游戏工作室",
+      description: "了解 Sprunki 游戏工作室的故事、我们的使命和愿景。探索我们如何将音乐创作的乐趣带给全世界的玩家。"
+    },
+    hero: {
+      title: "用创意定义音乐游戏的未来",
+      subtitle: "我们致力于让音乐创作变得简单有趣"
+    },
+    story: {
+      title: "我们的故事",
+      content: "Sprunki 诞生于对音乐和游戏的热爱。受 Incredibox 的启发，我们希望创造一个人人都能享受音乐创作乐趣的平台。从2023年开始，我们不断探索如何让音乐创作变得更加有趣和易于上手。"
+    },
+    mission: {
+      title: "我们的使命",
+      items: [
+        {
+          title: "让创作更简单",
+          description: "通过直观的界面和创新的玩法，让每个人都能轻松创作音乐"
+        },
+        {
+          title: "激发创意",
+          description: "提供丰富的音乐元素和组合可能，激发玩家的创造力"
+        },
+        {
+          title: "连接社区",
+          description: "建立一个充满活力的创作者社区，分享灵感和作品"
+        }
+      ]
+    },
+    features: {
+      title: "游戏特色",
+      items: [
+        {
+          title: "独特角色",
+          description: "每个角色都有独特的音乐元素和动画效果"
+        },
+        {
+          title: "无限组合",
+          description: "探索无限的声音组合可能，创造独特的音乐作品"
+        },
+        {
+          title: "社区分享",
+          description: "与全球玩家分享你的创作，获得灵感和反馈"
+        },
+        {
+          title: "持续更新",
+          description: "定期推出新角色、新音效和特殊组合"
+        }
+      ]
+    },
+    community: {
+      title: "加入我们的社区",
+      description: "成为 Sprunki 创作者社区的一员，与来自世界各地的音乐爱好者一起创作、分享和交流。",
+      joinButton: "立即加入"
+    }
+  },
+  en: {
+    title: "About Sprunki",
+    meta: {
+      title: "About Sprunki - Innovative Music Game Studio",
+      description: "Learn about Sprunki game studio's story, our mission and vision. Discover how we bring the joy of music creation to players worldwide."
+    },
+    hero: {
+      title: "Defining the Future of Music Gaming",
+      subtitle: "We're dedicated to making music creation simple and fun"
+    },
+    story: {
+      title: "Our Story",
+      content: "Sprunki was born from a love of music and gaming. Inspired by Incredibox, we set out to create a platform where everyone could enjoy the fun of music creation. Since 2023, we've been exploring ways to make music creation more enjoyable and accessible."
+    },
+    mission: {
+      title: "Our Mission",
+      items: [
+        {
+          title: "Simplify Creation",
+          description: "Make music creation accessible to everyone through intuitive interface and innovative gameplay"
+        },
+        {
+          title: "Inspire Creativity",
+          description: "Provide rich musical elements and combination possibilities to spark players' creativity"
+        },
+        {
+          title: "Connect Community",
+          description: "Build a vibrant community of creators to share inspiration and works"
+        }
+      ]
+    },
+    features: {
+      title: "Game Features",
+      items: [
+        {
+          title: "Unique Characters",
+          description: "Each character brings unique musical elements and animations"
+        },
+        {
+          title: "Endless Combinations",
+          description: "Explore endless sound combinations to create unique musical pieces"
+        },
+        {
+          title: "Community Sharing",
+          description: "Share your creations with players worldwide, get inspiration and feedback"
+        },
+        {
+          title: "Regular Updates",
+          description: "Regular new characters, sounds, and special combinations"
+        }
+      ]
+    },
+    community: {
+      title: "Join Our Community",
+      description: "Become part of the Sprunki creator community and connect with music enthusiasts from around the world.",
+      joinButton: "Join Now"
+    }
+  },
+  es: {
+    // ... 西班牙语翻译内容
+  }
+};
+
+const t = translations[locale] || translations.en;
 ---
 
-<Layout title="About">
-  <Container>
-    <Sectionhead>
-      <Fragment slot="title">About</Fragment>
-      <Fragment slot="desc">We are a small passionate team.</Fragment>
-    </Sectionhead>
-
-    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <h2 class="font-bold text-3xl text-gray-800">
-        Empowering the world with Astro.
-      </h2>
-      <p class="text-lg leading-relaxed text-slate-500">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special.
-      </p>
+<Layout title={t.meta.title} description={t.meta.description}>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container mx-auto px-4">
+      <h1 class="heading-gradient">{t.hero.title}</h1>
+      <p class="hero-subtitle">{t.hero.subtitle}</p>
     </div>
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
-      {
-        publishedTeamMembers.map((teamMemberEntry) => (
-          <div class="group">
-            <div class="w-full aspect-square">
-              <Picture
-                src={teamMemberEntry.data.avatar.src}
-                alt={teamMemberEntry.data.avatar.alt}
-                sizes="(max-width: 800px) 100vw, 400px"
-                width={400}
-                height={400}
-                class="w-full rounded-md rounded transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
-              />
-            </div>
+  </section>
 
-            <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
-              <h3 class="text-sm text-slate-500">
-                {teamMemberEntry.data.title}
-              </h3>
-            </div>
+  <!-- Story Section -->
+  <section class="story-section">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="story-content">
+          <h2 class="section-title">{t.story.title}</h2>
+          <p class="story-text">{t.story.content}</p>
+        </div>
+        <div class="story-image">
+          <Image 
+            src={studioImg} 
+            alt="Sprunki Studio"
+            class="rounded-2xl shadow-xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission-section">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title text-center">{t.mission.title}</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {t.mission.items.map(item => (
+          <div class="mission-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
           </div>
-        ))
-      }
+        ))}
+      </div>
     </div>
-  </Container>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title text-center">{t.features.title}</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {t.features.items.map(item => (
+          <div class="feature-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section class="community-section">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="section-title">{t.community.title}</h2>
+      <p class="community-description">{t.community.description}</p>
+      <a href="/community" class="join-button">
+        {t.community.joinButton}
+      </a>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .hero-section {
+    background: linear-gradient(135deg, rgba(255, 97, 216, 0.1), rgba(107, 72, 255, 0.1));
+    padding: 6rem 0;
+    text-align: center;
+  }
+
+  .heading-gradient {
+    background: linear-gradient(to right, #FF61D8, #6B48FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-subtitle {
+    color: #6B48FF;
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    color: #FF61D8;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  .story-section,
+  .mission-section,
+  .features-section,
+  .community-section {
+    padding: 4rem 0;
+  }
+
+  .mission-card,
+  .feature-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 2px solid rgba(255, 97, 216, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .mission-card:hover,
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(107, 72, 255, 0.15);
+  }
+
+  .mission-card h3,
+  .feature-card h3 {
+    color: #FF61D8;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .mission-card p,
+  .feature-card p {
+    color: #6B48FF;
+    line-height: 1.6;
+  }
+
+  .community-section {
+    background: linear-gradient(135deg, rgba(255, 97, 216, 0.1), rgba(107, 72, 255, 0.1));
+    text-align: center;
+  }
+
+  .community-description {
+    color: #6B48FF;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .join-button {
+    display: inline-block;
+    background: linear-gradient(to right, #FF61D8, #6B48FF);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .join-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(107, 72, 255, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .heading-gradient {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+</style>

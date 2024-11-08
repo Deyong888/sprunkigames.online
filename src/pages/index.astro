@@ -5,17 +5,19 @@ import Gameplay from '../components/Gameplay.astro';
 import Features from "../components/features.astro";
 import HowToPlay from "../components/howtoplay.astro";
 import SocialShare from "../components/SocialShare.astro";
-import FAQ from "../components/FAQ.astro";
+import Faq from "../components/FAQ.astro";
+import Videos from "../components/Videos.astro";
 
-const locale = Astro.currentLocale || 'zh';
+const locale = Astro.currentLocale || 'en';
 ---
 
-<Layout title="Watermelon Game">
+<Layout title="Sprunki Game">
   <Container>
     <Gameplay locale={locale} />
+    <SocialShare locale={locale} />
+    <Videos locale={locale} />
     <HowToPlay locale={locale} />
     <Features locale={locale}/>
-    <SocialShare locale={locale} />
-    <FAQ locale={locale} />
+    <Faq locale={locale} />
   </Container>
 </Layout>

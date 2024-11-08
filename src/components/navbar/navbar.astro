@@ -5,77 +5,95 @@ import Dropdown from "./dropdown.astro";
 import LanguagePicker from "../LanguagePicker.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
+const { locale = 'en' } = Astro.props;
 
-const menuitems = [
- /* {
-    title: "Features",
-    path: "#",
-    children: [
-      { title: "Action", path: "/" },
-      { title: "Another action", path: "#" },
-      { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: "/404" },
-    ],
-  },*/
-  
-  {
-    title: "Pricing",
-    path: "/pricing",
+const translations = {
+  zh: {
+    about: "关于",
+    privacy: "隐私政策",
+    new: "新",
+    menuItems: [
+      {
+        title: "关于",
+        path: "/about",
+      },
+      {
+        title: "隐私政策",
+        path: "/privacy",
+      }
+    ]
   },
-  {
-    title: "About",
-    path: "/about",
+  en: {
+    about: "About",
+    privacy: "Privacy Policy",
+    new: "New",
+    menuItems: [
+      {
+        title: "About",
+        path: "/about",
+      },
+      {
+        title: "Privacy Policy",
+        path: "/privacy",
+      }
+    ]
   },
-  {
-    title: "Blog",
-    path: "/blog",
-  },
-  {
-    title: "Contact",
-    path: "/contact",
-  },
-  {
-    title: "Pro Version",
-    badge: true,
-    path: "https://astroship-pro.web3templates.com/",
-  },
-];
+  es: {
+    about: "Sobre Nosotros",
+    privacy: "Política de Privacidad",
+    new: "Nuevo",
+    menuItems: [
+      {
+        title: "Sobre Nosotros",
+        path: "/about",
+      },
+      {
+        title: "Política de Privacidad",
+        path: "/privacy",
+      }
+    ]
+  }
+};
+
+const t = translations[locale] || translations.en;
 ---
 
 <Container>
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <a href="/" class="text-lg">
-          <span class="font-bold text-red-500">Watermelon</span>
-          <span class="text-green-500">game</span>
+        <a href={`/${locale === 'en' ? '' : locale}`} class="text-lg">
+          <span class="font-bold bg-gradient-to-r from-[#FF61D8] to-[#6B48FF] bg-clip-text text-transparent">
+            Sprunki
+          </span>
+          <span class="text-[#6B48FF]">Game</span>
         </a>
         <div class="block lg:hidden">
-          <MenuIcon class="w-4 h-4 text-gray-800" />
+          <MenuIcon class="w-4 h-4 text-[#FF61D8]" />
         </div>
       </div>
       <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
         <ul class="flex flex-col lg:flex-row lg:gap-3">
           {
-            menuitems.map((item, index) => (
+            t.menuItems.map((item, index) => (
               <>
                 {item.children && (
                   <Dropdown
                     title={item.title}
                     children={item.children}
-                    lastItem={index === menuitems.length - 1}
+                    lastItem={index === t.menuItems.length - 1}
                   />
                 )}
 
                 {!item.children && (
                   <li>
                     <a
-                      href={item.path}
-                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
-                      <span> {item.title}</span>
+                      href={`/${locale === 'en' ? '' : locale}${item.path}`}
+                      class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300">
+                      <span>{item.title}</span>
                       {item.badge && (
-                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
-                          New
+                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-[#FF61D8] rounded-full">
+                          {t.new}
                         </span>
                       )}
                     </a>
@@ -92,3 +110,21 @@ const menuitems = [
     </Astronav>
   </header>
 </Container>
+
+<style>
+  header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 97, 216, 0.1);
+  }
+
+  .astronav-toggle {
+    color: #FF61D8;
+  }
+
+  @media (max-width: 768px) {
+    .astronav-toggle {
+      color: #FF61D8;
+    }
+  }
+</style>

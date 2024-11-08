@@ -4,25 +4,20 @@ import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import '@fontsource-variable/bricolage-grotesque';
-
-
+const GOOGLE_ANALYTICS_ID = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID;
 
 export interface Props {
   title: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
-
-const resolvedImageWithDomain = new URL(
-  "/opengraph.jpg",
-  Astro.site
-).toString();
+const resolvedImageWithDomain = new URL("/opengraph.jpg", Astro.site).toString();
 
 const { title } = Astro.props;
 
 const makeTitle = title
-  ? title + " | " + "Astroship"
-  : "Astroship - Starter Template for Astro with Tailwind CSS";
+  ? title + " | " + "Sprunki Game"
+  : "Sprunki Game - Creative Music Game";
 ---
 
 <!DOCTYPE html>
@@ -33,25 +28,33 @@ const makeTitle = title
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZE18JFZZY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PZE18JFZZY');
+    </script>
+
     <SEO
       title={makeTitle}
-      description="Astroship is a starter website template for Astro built with TailwindCSS."
+      description="Sprunki Game is a creative music game where you can create unique musical pieces through fun interactions."
       canonical={canonicalURL}
       twitter={{
-        creator: "@surjithctly",
-        site: "@web3templates",
+        creator: "@sprunkigame",
+        site: "@sprunkigame",
         card: "summary_large_image",
       }}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Astroship - Starter Template for Astro`,
+          title: `Sprunki Game - Creative Music Game`,
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Astroship Homepage Screenshot",
+          alt: "Sprunki Game Homepage Screenshot",
         },
       }}
     />

@@ -1,0 +1,290 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const { locale = 'en' } = Astro.props;
+
+const translations = {
+  zh: {
+    meta: {
+      title: "隐私政策 | Sprunki Game",
+      description: "了解 Sprunki Game 如何收集、使用和保护您的个人信息"
+    },
+    title: "隐私政策",
+    lastUpdated: "最后更新时间：2024年3月",
+    sections: [
+      {
+        title: "信息收集",
+        content: `我们收集的信息包括：
+        • 基本账户信息（用户名、电子邮件地址）
+        • 游戏数据（游戏进度、创作的音乐作品）
+        • 设备信息（浏览器类型、操作系统、IP地址）
+        • Cookies 和类似技术收集的数据`
+      },
+      {
+        title: "信息使用",
+        content: `我们使用收集的信息用于：
+        • 提供、维护和改进游戏服务
+        • 保存您的游戏进度和创作
+        • 发送游戏更新和重要通知
+        • 分析游戏使用情况以优化用户体验
+        • 防止欺诈和滥用行为`
+      },
+      {
+        title: "信息共享",
+        content: `我们不会出售您的个人信息。仅在以下情况下共享信息：
+        • 经您明确同意
+        • 遵守法律要求
+        • 保护 Sprunki Game 及用户的权利和安全`
+      },
+      {
+        title: "数据安全",
+        content: `我们采取多重措施保护您的信息：
+        • 使用加密技术保护数据传输
+        • 定期安全审查和更新
+        • 严格的内部访问控制
+        • 数据备份和恢复机制`
+      },
+      {
+        title: "用户权利",
+        content: `您对个人信息拥有以下权利：
+        • 访问和导出您的数据
+        • 更正不准确的信息
+        • 删除账户和相关数据
+        • 选择退出某些数据收集
+        • 联系我们了解更多隐私相关问题`
+      },
+      {
+        title: "儿童隐私",
+        content: `我们重视儿童的隐私保护：
+        • 不会故意收集13岁以下儿童的个人信息
+        • 若发现误收集儿童信息，将立即删除
+        • 建议父母监督儿童的网络活动`
+      },
+      {
+        title: "政策更新",
+        content: `我们可能会更新本隐私政策：
+        • 重大变更时会通知用户
+        • 继续使用服务即表示同意更新后的政策
+        • 建议定期查看本政策了解最新变化`
+      },
+      {
+        title: "联系我们",
+        content: `如有任何隐私相关问题，请联系我们：
+        • 电子邮件：privacy@sprunki.com
+        • 在线表单：www.sprunki.com/contact
+        • 回应时间：通常在48小时内`
+      }
+    ]
+  },
+  en: {
+    meta: {
+      title: "Privacy Policy | Sprunki Game",
+      description: "Learn how Sprunki Game collects, uses, and protects your personal information"
+    },
+    title: "Privacy Policy",
+    lastUpdated: "Last Updated: March 2024",
+    sections: [
+      {
+        title: "Information Collection",
+        content: `We collect the following information:
+        • Basic account information (username, email address)
+        • Game data (game progress, created music works)
+        • Device information (browser type, operating system, IP address)
+        • Data collected through cookies and similar technologies`
+      },
+      {
+        title: "Information Usage",
+        content: `We use collected information to:
+        • Provide, maintain, and improve game services
+        • Save your game progress and creations
+        • Send game updates and important notifications
+        • Analyze game usage to optimize user experience
+        • Prevent fraud and abuse`
+      },
+      {
+        title: "Information Sharing",
+        content: `We do not sell your personal information. We only share information:
+        • With your explicit consent
+        • To comply with legal requirements
+        • To protect Sprunki Game and users' rights and safety`
+      },
+      {
+        title: "Data Security",
+        content: `We take multiple measures to protect your information:
+        • Use encryption for data transmission
+        • Regular security reviews and updates
+        • Strict internal access controls
+        • Data backup and recovery mechanisms`
+      },
+      {
+        title: "User Rights",
+        content: `You have the following rights regarding your personal information:
+        • Access and export your data
+        • Correct inaccurate information
+        • Delete account and related data
+        • Opt-out of certain data collection
+        • Contact us about privacy concerns`
+      },
+      {
+        title: "Children's Privacy",
+        content: `We take children's privacy protection seriously:
+        • We do not knowingly collect personal information from children under 13
+        • We will delete any accidentally collected children's information
+        • Parents should supervise children's online activities`
+      },
+      {
+        title: "Policy Updates",
+        content: `We may update this privacy policy:
+        • Users will be notified of significant changes
+        • Continued use of services implies acceptance of updated policy
+        • Regular review of this policy is recommended`
+      },
+      {
+        title: "Contact Us",
+        content: `For any privacy-related questions, please contact us:
+        • Email: privacy@sprunki.com
+        • Online form: www.sprunki.com/contact
+        • Response time: typically within 48 hours`
+      }
+    ]
+  },
+  es: {
+    meta: {
+      title: "Política de Privacidad | Sprunki Game",
+      description: "Conozca cómo Sprunki Game recopila, utiliza y protege su información personal"
+    },
+    title: "Política de Privacidad",
+    lastUpdated: "Última actualización: Marzo 2024",
+    sections: [
+      {
+        title: "Recopilación de Información",
+        content: `Recopilamos la siguiente información:
+        • Información básica de la cuenta (nombre de usuario, correo electrónico)
+        • Datos del juego (progreso, obras musicales creadas)
+        • Información del dispositivo (tipo de navegador, sistema operativo, dirección IP)
+        • Datos recopilados a través de cookies y tecnologías similares`
+      },
+      {
+        title: "Uso de la Información",
+        content: `Utilizamos la información recopilada para:
+        • Proporcionar, mantener y mejorar los servicios del juego
+        • Guardar tu progreso y creaciones
+        • Enviar actualizaciones y notificaciones importantes
+        • Analizar el uso del juego para optimizar la experiencia
+        • Prevenir fraudes y abusos`
+      },
+      {
+        title: "Compartir Información",
+        content: `No vendemos tu información personal. Solo compartimos información:
+        • Con tu consentimiento explícito
+        • Para cumplir con requisitos legales
+        • Para proteger los derechos y la seguridad de Sprunki Game y sus usuarios`
+      },
+      {
+        title: "Seguridad de Datos",
+        content: `Tomamos múltiples medidas para proteger tu información:
+        • Uso de encriptación para la transmisión de datos
+        • Revisiones y actualizaciones regulares de seguridad
+        • Controles estrictos de acceso interno
+        • Mecanismos de respaldo y recuperación de datos`
+      },
+      {
+        title: "Derechos del Usuario",
+        content: `Tienes los siguientes derechos sobre tu información personal:
+        • Acceder y exportar tus datos
+        • Corregir información inexacta
+        • Eliminar cuenta y datos relacionados
+        • Optar por no participar en ciertas recopilaciones de datos
+        • Contactarnos sobre preocupaciones de privacidad`
+      },
+      {
+        title: "Privacidad de Menores",
+        content: `Nos tomamos en serio la protección de la privacidad de los menores:
+        • No recopilamos intencionalmente información personal de menores de 13 años
+        • Eliminaremos cualquier información de menores recopilada accidentalmente
+        • Los padres deben supervisar las actividades en línea de los menores`
+      },
+      {
+        title: "Actualizaciones de la Política",
+        content: `Podemos actualizar esta política de privacidad:
+        • Se notificará a los usuarios sobre cambios significativos
+        • El uso continuado implica la aceptación de la política actualizada
+        • Se recomienda revisar regularmente esta política`
+      },
+      {
+        title: "Contáctanos",
+        content: `Para cualquier pregunta relacionada con la privacidad, contáctanos:
+        • Correo electrónico: privacy@sprunki.com
+        • Formulario en línea: www.sprunki.com/contact
+        • Tiempo de respuesta: normalmente dentro de 48 horas`
+      }
+    ]
+  }
+};
+
+const t = translations[locale] || translations.en;
+---
+
+<Layout title={t.meta.title} description={t.meta.description}>
+  <div class="privacy-policy">
+    <div class="container mx-auto px-4 py-12 max-w-4xl">
+      <h1 class="heading-gradient text-center mb-4">
+        {t.title}
+      </h1>
+      <p class="text-center text-gray-600 mb-12">
+        {t.lastUpdated}
+      </p>
+
+      <div class="space-y-12">
+        {t.sections.map((section) => (
+          <section class="policy-section">
+            <h2 class="text-2xl font-bold text-[#6B48FF] mb-4">
+              {section.title}
+            </h2>
+            <div class="prose prose-lg text-gray-600 whitespace-pre-line">
+              {section.content}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .privacy-policy {
+    background: linear-gradient(135deg, rgba(255, 97, 216, 0.1), rgba(107, 72, 255, 0.1));
+  }
+
+  .heading-gradient {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #FF61D8, #6B48FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .policy-section {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 2px solid rgba(255, 97, 216, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .policy-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(107, 72, 255, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .heading-gradient {
+      font-size: 2rem;
+    }
+
+    .policy-section {
+      padding: 1.5rem;
+    }
+  }
+</style> 
