@@ -163,7 +163,6 @@ const t = translations[locale] || translations.en;
               class="play-button"
               aria-label={t.viewOnYoutube}
               data-video-id={video.youtubeId}
-              onclick="openVideoModal(this.dataset.videoId)"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12">
                 <path d="M8 5v14l11-7z"/>
@@ -412,45 +411,41 @@ const t = translations[locale] || translations.en;
 </style>
 
 <script>
-  function openVideoModal(videoId) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const playButtons = document.querySelectorAll('.play-button');
     const modal = document.getElementById('videoModal');
     const videoPlayer = document.getElementById('videoPlayer');
-    
-    // 设置 YouTube 嵌入链接
-    videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-    
-    // 显示模态框
-    modal.style.display = 'block';
-    
-    // 禁止背景滚动
-    document.body.style.overflow = 'hidden';
-  }
+    const closeButton = document.querySelector('.close-button');
 
-  function closeVideoModal() {
-    const modal = document.getElementById('videoModal');
-    const videoPlayer = document.getElementById('videoPlayer');
-    
-    // 停止视频播放
-    videoPlayer.src = '';
-    
-    // 隐藏模态框
-    modal.style.display = 'none';
-    
-    // 恢复背景滚动
-    document.body.style.overflow = 'auto';
-  }
+    playButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const videoId = button.dataset.videoId;
+        videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      });
+    });
 
-  // 点击模态框背景关闭
-  document.getElementById('videoModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-      closeVideoModal();
-    }
-  });
+    closeButton.addEventListener('click', () => {
+      videoPlayer.src = '';
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
 
-  // ESC 键关闭模态框
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeVideoModal();
-    }
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        videoPlayer.src = '';
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        videoPlayer.src = '';
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
   });
 </script> 
