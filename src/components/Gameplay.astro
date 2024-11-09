@@ -25,9 +25,9 @@ const t = translations[locale] || translations.en;
 <section class="gameplay-section">
   <div class="container mx-auto px-4">
     <div class="text-center mb-8">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#FF61D8] to-[#6B48FF] bg-clip-text text-transparent">
+      <a herf="https://sprunkigames.online"> <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#FF61D8] to-[#6B48FF] bg-clip-text text-transparent">
         {t.title}
-      </h1>
+      </h1></a>
       <p class="text-lg text-gray-600 max-w-3xl mx-auto">{t.description}</p>
     </div>
 
@@ -90,6 +90,8 @@ const t = translations[locale] || translations.en;
     overflow: hidden;
     border: 2px solid rgba(255, 97, 216, 0.3);
     transition: transform 0.3s ease;
+    height: calc(100vh - 200px); /* 动态高度 */
+    min-height: 400px;
   }
 
   .game-wrapper:hover {
@@ -137,30 +139,43 @@ const t = translations[locale] || translations.en;
   /* 响应式设计优化 */
   @media (max-width: 768px) {
     .gameplay-section {
-      padding: 2rem 0;
+      padding: 1rem 0;
     }
 
     .game-wrapper {
-      border-radius: 16px;
+      border-radius: 12px;
+      height: calc(100vh - 150px); /* 移动端调整高度 */
+      margin: 0.5rem auto;
     }
 
-    .game-container {
-      padding-top: 75%; /* 移动端可以使用更紧凑的 4:3 比例 */
+    .text-4xl {
+      font-size: 1.5rem;
     }
 
-    .game-frame {
-      min-height: 400px; /* 移动端调整最小高度 */
+    .text-lg {
+      font-size: 1rem;
+    }
+
+    .container {
+      padding: 0 0.5rem;
     }
   }
 
-  /* 大屏幕优化 */
-  @media (min-width: 1440px) {
-    .game-container {
-      padding-top: 45%; /* 更宽的屏幕可以使用更合适的比例 */
+  /* 横屏模式优化 */
+  @media (max-width: 768px) and (orientation: landscape) {
+    .game-wrapper {
+      height: calc(100vh - 100px);
     }
 
-    .game-frame {
-      min-height: 800px; /* 大屏幕增加最小高度 */
+    .text-center {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  /* 平板设备优化 */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .game-wrapper {
+      height: calc(100vh - 180px);
     }
   }
 
@@ -168,8 +183,8 @@ const t = translations[locale] || translations.en;
   .game-container {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 宽高比 */
-    height: 0;
+    height: 100%; /* 改为100%高度 */
+    padding-top: 0; /* 移除固定比例 */
   }
 
   .game-frame {
@@ -178,7 +193,7 @@ const t = translations[locale] || translations.en;
     left: 0;
     width: 100%;
     height: 100%;
-    min-height: 600px; /* 设置最小高度 */
+    min-height: auto; /* 移除最小高度限制 */
   }
 
   /* 深色模式支持 */
@@ -207,50 +222,53 @@ const t = translations[locale] || translations.en;
     const loading = document.querySelector('.game-loading');
     const gameWrapper = document.querySelector('.game-wrapper');
 
+    // 调整游戏容器大小的函数
+    function adjustGameSize() {
+      if (gameWrapper && iframe) {
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        const isLandscape = viewportWidth > viewportHeight;
+        const isMobile = viewportWidth <= 768;
+
+        if (isMobile) {
+          if (isLandscape) {
+            // 横屏模式
+            gameWrapper.style.height = `${viewportHeight - 100}px`;
+          } else {
+            // 竖屏模式
+            gameWrapper.style.height = `${viewportHeight - 150}px`;
+          }
+        } else {
+          // 桌面端
+          gameWrapper.style.height = `${viewportHeight - 200}px`;
+        }
+
+        // 确保 iframe 内容可见
+        iframe.style.height = '100%';
+        iframe.style.width = '100%';
+      }
+    }
+
+    // 监听屏幕方向变化
+    window.addEventListener('orientationchange', () => {
+      setTimeout(adjustGameSize, 100); // 添加延迟以确保正确计算
+    });
+
+    // 监听窗口大小变化
+    window.addEventListener('resize', adjustGameSize);
+
+    // iframe 加载完成后处理
     if (iframe && loading) {
-      // 添加 iframe 加载事件
       iframe.addEventListener('load', () => {
         loading.style.opacity = '0';
         setTimeout(() => {
           loading.style.display = 'none';
+          adjustGameSize(); // 调整大小
         }, 300);
-
-        // 尝试自动播放声音
-        try {
-          const iframeDoc = iframe.contentWindow.document;
-          const audioElements = iframeDoc.getElementsByTagName('audio');
-          Array.from(audioElements).forEach(audio => {
-            audio.play().catch(() => {
-              console.log('Auto-play prevented. User interaction needed.');
-            });
-          });
-        } catch (e) {
-          console.log('Cannot access iframe content due to same-origin policy');
-        }
       });
-
-      // 添加用户交互事件监听
-      gameWrapper.addEventListener('click', () => {
-        try {
-          const iframeDoc = iframe.contentWindow.document;
-          const audioElements = iframeDoc.getElementsByTagName('audio');
-          Array.from(audioElements).forEach(audio => {
-            audio.play().catch(e => console.log('Audio play failed:', e));
-          });
-        } catch (e) {
-          console.log('Cannot access iframe content');
-        }
-      });
-
-      // 添加窗口大小改变事件处理
-      window.addEventListener('resize', () => {
-        const width = gameWrapper.offsetWidth;
-        const height = Math.max(width * 0.5625, 600); // 保持 16:9 的最小高度
-        iframe.style.height = `${height}px`;
-      });
-
-      // 初始化时触发一次
-      window.dispatchEvent(new Event('resize'));
     }
+
+    // 初始调整大小
+    adjustGameSize();
   });
 </script> 

@@ -5,6 +5,26 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 
+const { locale = 'en' } = Astro.props;
+
+// 添加多语言支持
+const translations = {
+  zh: {
+    title: "博客文章",
+    desc: "关于 Sprunki Games 的最新动态",
+  },
+  en: {
+    title: "Our Blog",
+    desc: "We write about Sprunki Games online.",
+  },
+  es: {
+    title: "Nuestro Blog",
+    desc: "Escribimos sobre Sprunki Games en línea.",
+  }
+};
+
+const t = translations[locale] || translations.en;
+
 // Filter blog entries with 'draft: false' & date before current date
 const publishedBlogEntries = await getCollection("blog", ({ data }) => {
   return !data.draft && data.publishDate < new Date();
@@ -19,10 +39,8 @@ publishedBlogEntries.sort(function (a, b) {
 <Layout title="Blog">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Our Blog</Fragment>
-      <Fragment slot="desc">
-        We write about building startups and thoughts going on our mind.
-      </Fragment>
+      <Fragment slot="title">{t.title}</Fragment>
+      <Fragment slot="desc">{t.desc}</Fragment>
     </Sectionhead>
     <main class="mt-16">
       <ul class="grid gap-16 max-w-4xl mx-auto">
