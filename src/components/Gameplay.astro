@@ -1,5 +1,5 @@
 ---
-const { locale } = Astro.props;
+const { locale, currentGame = 'https://sprunki.org/sprikng.embed' } = Astro.props;
 
 const translations = {
   zh: {
@@ -38,7 +38,8 @@ const t = translations[locale] || translations.en;
       </div>
       <div class="game-container">
         <iframe 
-          src="https://game.sprunki.com/game.sprunki.html" 
+          id="gameFrame"
+          src={currentGame}
           title={t.title}
           class="game-frame"
           frameborder="0"
@@ -240,7 +241,7 @@ const t = translations[locale] || translations.en;
           }
         } else {
           // 桌面端
-          gameWrapper.style.height = `${viewportHeight - 200}px`;
+          gameWrapper.style.height = `${viewportHeight - 400}px`;
         }
 
         // 确保 iframe 内容可见

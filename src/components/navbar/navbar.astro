@@ -74,7 +74,7 @@ const t = translations[locale] || translations.en;
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <a href={`/${locale === 'en' ? '' : locale}`} class="text-lg">
+        <a href={`/${locale === 'en' ? '' : locale}`} title="Sprunki Games online"   class="text-lg">
           <span class="font-bold bg-gradient-to-r from-[#FF61D8] to-[#6B48FF] bg-clip-text text-transparent">
             Sprunki
           </span>
@@ -101,6 +101,7 @@ const t = translations[locale] || translations.en;
                   <li>
                     <a
                       href={`/${locale === 'en' ? '' : locale}${item.path}`}
+                      title={item.title}
                       class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300">
                       <span>{item.title}</span>
                       {item.badge && (
