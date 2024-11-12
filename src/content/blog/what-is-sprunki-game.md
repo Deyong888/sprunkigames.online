@@ -12,12 +12,12 @@ author: "Sprunki Incredibox"
 tags: [Sprunki, Sprunki games online, music game]
 ---
 
-
+[![How to Play Sprunki](https://sprunkigame.org/data/image/posts/sprunki-game-banner.jpg "How to Play Sprunki")](https://sprunkigames.online)
 ## Introduction
 In the digital age, music creation is no longer limited to professionals. Sprunki, an online music creation tool inspired by Incredibox, offers music enthusiasts a simple and intuitive platform to create unique musical compositions with ease. This article will provide a detailed introduction to the features, gameplay, and how Sprunki brings new vitality to music creation.
 
 ## Sprunki Game Introduction
-Sprunki is a browser-based online rhythm game that allows players to create music by combining unique sound loops and characters. This game is loved by players for its intuitive drag-and-drop functionality, rich soundscapes, and customizable visuals. Sprunki not only provides a platform for players to mix beats and create tracks but also features weekly challenges and community sharing, making it ideal for those seeking to combine rhythm-based gaming with music exploration.
+[Sprunki Game](https://sprunkigames.online) is a browser-based online rhythm game that allows players to create music by combining unique sound loops and characters. This game is loved by players for its intuitive drag-and-drop functionality, rich soundscapes, and customizable visuals. Sprunki not only provides a platform for players to mix beats and create tracks but also features weekly challenges and community sharing, making it ideal for those seeking to combine rhythm-based gaming with music exploration.
 
 ## Gameplay
 The gameplay of Sprunki is simple yet creative. Players start by selecting sounds from a diverse library of beats, effects, and melodies, represented by different characters. Then, players drag these characters onto the screen, with each character adding a unique sound to build layers and create their own tracks. By experimenting with different arrangements and combinations, players can create unique rhythms and melodies, fine-tune volumes, add effects, and use other editing tools to enhance the mix and achieve the perfect sound.

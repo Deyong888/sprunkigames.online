@@ -12,12 +12,13 @@ author: "Sprunki Incredibox"
 tags: [Sprunki, how to play, Sprunki Games online]
 ---
 
-
+[![How to Play Sprunki](https://sprunkiincredibox.org/data/image/posts/sprunki-incredibox-banner1.jpg "How to Play Sprunki")](https://sprunkigames.online)
 ## Introduction
 Sprunki is an innovative online game that combines the joy of rhythm and music creation. It's a platform where users can express their creativity through the art of beat-making and sound layering. If you're looking to dive into the world of Sprunki, this guide will walk you through the steps to play this engaging game on [https://sprunkigames.online](https://sprunkigames.online).
 
+
 ## Step 1: Accessing the Game
-To start your Sprunki journey, head over to [https://sprunkigames.online](https://sprunkigames.online). The game is browser-based, so no downloads are necessary. Simply click on the game icon or the "Play Now" button to begin.
+To start your Sprunki journey, head over to [Sprunki Games online](https://sprunkigames.online). The game is browser-based, so no downloads are necessary. Simply click on the game icon or the "Play Now" button to begin.
 
 ## Step 2: Understanding the Interface
 Once you're in the game, you'll be greeted with a user-friendly interface. The screen is divided into several sections:

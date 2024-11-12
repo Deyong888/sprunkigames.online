@@ -8,6 +8,7 @@ import HowToPlay from "../components/howtoplay.astro";
 import SocialShare from "../components/SocialShare.astro";
 import Faq from "../components/FAQ.astro";
 import Videos from "../components/Videos.astro";
+import Bloglist from "../components/Bloglist.astro";
 
 const locale = Astro.currentLocale || 'en';
 ---
@@ -21,5 +22,6 @@ const locale = Astro.currentLocale || 'en';
     <HowToPlay locale={locale} />
     <Features locale={locale}/>
     <Faq locale={locale} />
+    <Bloglist locale={locale} />
   </Container>
 </Layout>
