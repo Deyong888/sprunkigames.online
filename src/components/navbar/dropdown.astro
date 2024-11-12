@@ -35,7 +35,9 @@ const { title, lastItem, children } = Astro.props;
             children.map((item) => (
               <a
                 href={item.path}
-                class="py-1 text-gray-600 hover:text-gray-900">
+                target="_blank"
+                rel="noopener noreferrer"
+                class="py-1 text-gray-600 hover:text-gray-900 cursor-pointer transition-colors duration-200 hover:bg-gray-100 px-2 rounded">
                 {item.title}
               </a>
             ))

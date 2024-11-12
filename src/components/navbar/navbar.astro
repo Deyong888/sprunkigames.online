@@ -5,7 +5,7 @@ import Dropdown from "./dropdown.astro";
 import LanguagePicker from "../LanguagePicker.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
-const { locale = 'en' } = Astro.props;
+const { locale = "en" } = Astro.props;
 
 const translations = {
   zh: {
@@ -13,6 +13,15 @@ const translations = {
     privacy: "隐私政策",
     new: "新",
     menuItems: [
+      {
+        title: "更多游戏",
+        path: "#",
+        children: [
+          { title: "subway surfers", path: "https://subwaysurfersgame.run" },
+          { title: "escape road", path: "https://escaperoads.online" },
+          { title: "sudoku", path: "https://sudoku.viggle.fun" },
+        ],
+      },
       {
         title: "Sprunki 新闻",
         path: "../blog",
@@ -24,47 +33,65 @@ const translations = {
       {
         title: "隐私政策",
         path: "../privacy",
-      }
-    ]
+      },
+    ],
   },
   en: {
     about: "About",
     privacy: "Privacy Policy",
     new: "New",
     menuItems: [
-    {
+      {
+        title: "More Games",
+        path: "#",
+        children: [
+          { title: "subway surfers", path: "https://subwaysurfersgame.run" },
+          { title: "escape road", path: "https://escaperoads.online" },
+          { title: "sudoku", path: "https://sudoku.viggle.fun" },
+        ],
+      },
+      {
         title: "Sprunki News",
         path: "../blog",
-      }, 
-    {
+      },
+      {
         title: "About",
         path: "../about",
       },
       {
         title: "Privacy Policy",
         path: "../privacy",
-      }
-    ]
+      },
+    ],
   },
   es: {
     about: "Sobre Nosotros",
     privacy: "Política de Privacidad",
     new: "Nuevo",
     menuItems: [
-    {
+      {
+        title: "More Games",
+        path: "#",
+        children: [
+          { title: "subway surfers", path: "https://subwaysurfersgame.run" },
+          { title: "escape road", path: "https://escaperoads.online" },
+          { title: "sudoku", path: "https://sudoku.viggle.fun" },
+        ],
+      },
+      {
         title: "Noticias de Sprunki",
         path: "../blog",
-      },  
-    {
+      },
+      {
         title: "Sobre Nosotros",
         path: "../about",
       },
       {
         title: "Política de Privacidad",
         path: "../privacy",
-      }
-    ]
-  }
+      },
+    ],
+  },
 };
 
 const t = translations[locale] || translations.en;
@@ -74,8 +101,12 @@ const t = translations[locale] || translations.en;
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <a href={`/${locale === 'en' ? '' : locale}`} title="Sprunki Games online"   class="text-lg">
-          <span class="font-bold bg-gradient-to-r from-[#FF61D8] to-[#6B48FF] bg-clip-text text-transparent">
+        <a
+          href={`/${locale === "en" ? "" : locale}`}
+          title="Sprunki Games online"
+          class="text-lg">
+          <span
+            class="font-bold bg-gradient-to-r from-[#FF61D8] to-[#6B48FF] bg-clip-text text-transparent">
             Sprunki
           </span>
           <span class="text-[#6B48FF]">Game</span>
@@ -100,7 +131,7 @@ const t = translations[locale] || translations.en;
                 {!item.children && (
                   <li>
                     <a
-                      href={`/${locale === 'en' ? '' : locale}${item.path}`}
+                      href={`/${locale === "en" ? "" : locale}${item.path}`}
                       title={item.title}
                       class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300">
                       <span>{item.title}</span>
@@ -132,12 +163,12 @@ const t = translations[locale] || translations.en;
   }
 
   .astronav-toggle {
-    color: #FF61D8;
+    color: #ff61d8;
   }
 
   @media (max-width: 768px) {
     .astronav-toggle {
-      color: #FF61D8;
+      color: #ff61d8;
     }
   }
 </style>

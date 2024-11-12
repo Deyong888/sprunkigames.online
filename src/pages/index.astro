@@ -9,13 +9,14 @@ import SocialShare from "../components/SocialShare.astro";
 import Faq from "../components/FAQ.astro";
 import Videos from "../components/Videos.astro";
 import Bloglist from "../components/Bloglist.astro";
+import Cta from "../components/cta.astro";
 
 const locale = Astro.currentLocale || 'en';
 ---
 
 <Layout title="Sprunki Game">
   <Container>
-    <Gameplay locale={locale} />
+    <Gameplay locale={locale} id="Gameplay" />
     <Gamelist locale={locale} />
     <SocialShare locale={locale} />
     <Videos locale={locale} />
@@ -23,5 +24,6 @@ const locale = Astro.currentLocale || 'en';
     <Features locale={locale}/>
     <Faq locale={locale} />
     <Bloglist locale={locale} />
+    <Cta />
   </Container>
 </Layout>
