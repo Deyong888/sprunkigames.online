@@ -13,11 +13,11 @@ export const gameTranslations = {
       description: "Create amazing beats"
     },
     game4: {
-        title: "Sprunki",
+        title: "Sprunki Game",
         description: "Create your first music"
       },
       game5: {
-        title: "Sprunki",
+        title: "Sprunki Game",
         description: "Experience perfect rhythm"
       },
       game6: {

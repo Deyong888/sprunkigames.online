@@ -11,7 +11,7 @@ export interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
-const resolvedImageWithDomain = new URL("/opengraph.jpg", Astro.site).toString();
+const resolvedImageWithDomain = new URL("/sprunki-game.png", Astro.site).toString();
 
 const { title } = Astro.props;
 
@@ -39,18 +39,19 @@ const makeTitle = title
 
     <SEO
       title={makeTitle}
-      description="Sprunki Game is a creative music game where you can create unique musical pieces through fun interactions."
+      description="Sprunki Game is a creative music game where you can create unique musical pieces through fun interactions.|sprunki game online|sprunki incredibox game|sprunki game free"
       canonical={canonicalURL}
       twitter={{
         creator: "@sprunkigame",
         site: "@sprunkigame",
         card: "summary_large_image",
+        title: `Sprunki Game - Creative Music Game|sprunki game online|sprunki incredibox game|sprunki game free`,
       }}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Sprunki Game - Creative Music Game`,
+          title: `Sprunki Game - Creative Music Game|sprunki game online|sprunki incredibox game|sprunki game free`,
           image: resolvedImageWithDomain,
         },
         image: {
