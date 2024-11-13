@@ -171,6 +171,30 @@ export const gameTranslations = {
             title: "节拍制作人", // "Sprunki Run"
             description: "创作惊人的节拍" // "Create amazing beats"
           },
+          game19: {
+            title: "音乐创作家", // "Sprunki Sonic"
+            description: "在Sprunki游戏中体验Sonic" // "Sonic in Sprunki Game"
+          },
+          game20: {
+            title: "音乐创作家", // "Sprunki retake"
+            description: "Sprunki重制游戏" // "Sprunki retake Game"
+          },
+          game21: {
+            title: "酷冰Incredibox", // "Incredibox Cool Ice"
+            description: "酷冰的Incredibox" // "incredibox-cool-as-ice"
+          },
+          game22: {
+              title: "红色Incredibox", // "Sprunki Incredibox Red"
+              description: "红色的Incredibox" // "incredibox-red-colorbox"
+            },
+            game23: {
+              title: "黄色Incredibox", // "Sprunki Incredibox Yellow"
+              description: "黄色的Incredibox" // "incredibox-yellow-colorbox/"
+            },
+            game24: {
+              title: "Sprunki Sprunkin", // "Sprunki Sprunkin"
+              description: "Sprunki Sprunkin" // "sprunki-sprunkin"
+            },
     // ... 添加更多游戏翻译
   },
   es: {
@@ -248,6 +272,30 @@ export const gameTranslations = {
                 title: "Creador de Ritmos", // "Sprunki Run"
                 description: "Crea ritmos increíbles" // "Create amazing beats"
               },
+              game19: {
+                title: "Creador de Música", // "Sprunki Sonic"
+                description: "Sonic en el juego Sprunki" // "Sonic in Sprunki Game"
+              },
+              game20: {
+                title: "Creador de Música", // "Sprunki retake"
+                description: "Juego de reimaginación de Sprunki" // "Sprunki retake Game"
+              },
+              game21: {
+                title: "Incredibox Hielo Frío", // "Incredibox Cool Ice"
+                description: "incredibox-frío-como-hielo" // "incredibox-cool-as-ice"
+              },
+              game22: {
+                  title: "Incredibox Rojo", // "Sprunki Incredibox Red"
+                  description: "incredibox-caja-color-rojo" // "incredibox-red-colorbox"
+                },
+                game23: {
+                  title: "Incredibox Amarillo", // "Sprunki Incredibox Yellow"
+                  description: "incredibox-caja-color-amarillo/" // "incredibox-yellow-colorbox/"
+                },
+                game24: {
+                  title: "Sprunki Sprunkin", // "Sprunki Sprunkin"
+                  description: "sprunki-sprunkin" // "sprunki-sprunkin"
+                },
     // ... 添加更多游戏翻译
   }
 }; 
