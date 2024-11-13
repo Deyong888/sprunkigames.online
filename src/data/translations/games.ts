@@ -72,6 +72,30 @@ export const gameTranslations = {
             title: "Sprunki Run",
             description: "Create amazing beats"
           },
+          game19: {
+            title: "Sprunki Sonic ",
+            description: "Sonic in Sprunki Game"
+          },
+          game20: {
+            title: "Sprunki retake",
+            description: "Sprunki retake Game"
+          },
+          game21: {
+            title: "Incredibox Cool Ice",
+            description: "incredibox-cool-as-ice"
+          },
+          game22: {
+              title: "Sprunki Incredibox Red",
+              description: "incredibox-red-colorbox"
+            },
+            game23: {
+              title: "Sprunki Incredibox Yellow",
+              description: "incredibox-yellow-colorbox/"
+            },
+            game24: {
+              title: "Sprunki Sprunkin",
+              description: "sprunki-sprunkin"
+            },
     // ... 添加更多游戏翻译
   },
   zh: {

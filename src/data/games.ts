@@ -16,6 +16,17 @@ import game15 from "../assets/sprunki-15.png";
 import game16 from "../assets/sprunki-16.png";
 import game17 from "../assets/sprunki-17.png";
 import game18 from "../assets/sprunki-18.png";
+import game19 from "../assets/sprunki-19.webp";
+import game20 from "../assets/sprunki-20.webp";
+import game21 from "../assets/sprunki-21.webp";
+import game22 from "../assets/sprunki-22.webp";
+import game23 from "../assets/sprunki-23.webp";
+import game24 from "../assets/sprunki-24.webp";
+
+
+
+
+
 
 // ... 导入其他游戏图片
 
@@ -111,6 +122,34 @@ export const games = [
     image: game18,
     url: "https://scratch.mit.edu/projects/1077604830/embed"
   },
-
-  // ... 添加更多游戏
+  {
+    id: "game19",
+    image: game19,
+    url: "https://scratch.mit.edu/projects/1080545694/embed/"
+  },
+  {
+    id: "game20",
+    image: game20,
+    url: "https://wowtbc.net/sprunkin/retake/index.html"
+  },
+  {
+    id: "game21",
+    image: game21,
+    url: "https://kdata1.com/5000/2024/incredibox-cool-as-ice/1/"
+  },
+  {
+    id: "game22",
+    image: game22,
+    url: "https://kdata1.com/2024/10/incredibox-red-colorbox/"
+  },
+  {
+    id: "game23",
+    image: game23,
+    url: "https://kdata1.com/2024/10/incredibox-yellow-colorbox/"
+  },
+  {
+    id: "game24",
+    image: game24,
+    url: "https://fnf.kdata1.com/2024/sprunki-sprunkin/1/"
+  },
 ]; 
