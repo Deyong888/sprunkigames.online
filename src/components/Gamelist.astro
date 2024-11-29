@@ -5,39 +5,56 @@ import { gameTranslations } from "../data/translations/games";
 
 const { locale = 'en' } = Astro.props;
 
-// 获取当前语言的翻译
-const t = gameTranslations[locale] || gameTranslations.en;
+// 添加更严格的错误处理
+const currentTranslations = gameTranslations[locale] || gameTranslations.en;
+
+// 验证翻译数据的完整性
+const validateTranslations = (gameId: string) => {
+  const translation = currentTranslations[gameId];
+  if (!translation) {
+    return gameTranslations.en[gameId]; // 如果当前语言没有翻译，使用英文
+  }
+  return translation;
+};
 ---
 
 <section class="gamelist-section my-8">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-      {games.map((game) => (
-        <div 
-          class="game-card group cursor-pointer"
-          data-game-url={game.url}
-        >
-          <div class="relative overflow-hidden rounded-lg">
-            <Image 
-              src={game.image} 
-              alt={t[game.id].title}
-              width={208}
-              height={208}
-              class="w-full aspect-square object-cover transform group-hover:scale-105 transition-transform duration-300"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div class="absolute bottom-0 left-0 right-0 p-2">
-                <p class="text-white text-xs">{t[game.id].description}</p>
+      {games.map((game) => {
+        if (!game || !game.image) return null; // 跳过无效的游戏数据
+        
+        const translation = validateTranslations(game.id);
+        
+        return (
+          <div 
+            class="game-card group cursor-pointer"
+            data-game-url={game.url}
+          >
+            <div class="relative overflow-hidden rounded-lg">
+              <Image 
+                src={game.image} 
+                alt={translation?.title || 'Game'} // 添加后备值
+                width={208}
+                height={208}
+                class="w-full aspect-square object-cover transform group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-0 left-0 right-0 p-2">
+                  <p class="text-white text-xs">
+                    {translation?.description || 'Play now'} {/* 添加后备值 */}
+                  </p>
+                </div>
               </div>
             </div>
+            <div class="mt-2">
+              <h3 class="text-sm font-semibold text-[#6B48FF] group-hover:text-[#FF61D8] transition-colors duration-300 truncate">
+                {translation?.title || 'Game'} {/* 添加后备值 */}
+              </h3>
+            </div>
           </div>
-          <div class="mt-2">
-            <h3 class="text-sm font-semibold text-[#6B48FF] group-hover:text-[#FF61D8] transition-colors duration-300 truncate">
-              {t[game.id].title}
-            </h3>
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>

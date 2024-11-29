@@ -297,5 +297,104 @@ export const gameTranslations = {
                   description: "sprunki-sprunkin" // "sprunki-sprunkin"
                 },
     // ... 添加更多游戏翻译
+  },
+  fil: {
+    game1: {
+      title: "Sprunki Sprunked",
+      description: "Lumikha ng iyong unang musika"
+    },
+    game2: {
+      title: "Sprunki Incredibox",
+      description: "Maranasan ang perpektong ritmo"
+    },
+    game3: {
+      title: "Sprunki Parasite",
+      description: "Lumikha ng mga kahanga-hangang beats"
+    },
+    game4: {
+      title: "Sprunki Game",
+      description: "Lumikha ng iyong unang musika"
+    },
+    game5: {
+      title: "Sprunki Game",
+      description: "Maranasan ang perpektong ritmo"
+    },
+    game6: {
+      title: "Sprunki Universe",
+      description: "Lumikha ng mga kahanga-hangang beats"
+    },
+    game7: {
+      title: "Sprunki Phase6",
+      description: "Lumikha ng iyong unang musika"
+    },
+    game8: {
+      title: "Sprunki Baldunki",
+      description: "Maranasan ang perpektong ritmo"
+    },
+    game9: {
+      title: "Sprunki phase5",
+      description: "Lumikha ng mga kahanga-hangang beats"
+    },
+    game10: {
+      title: "Sprunki phase3",
+      description: "Lumikha ng iyong unang musika"
+    },
+    game11: {
+      title: "Sprunki remastered",
+      description: "Maranasan ang perpektong ritmo"
+    },
+    game12: {
+      title: "Sprunki Fruity",
+      description: "Lumikha ng mga kahanga-hangang beats"
+    },
+    game13: {
+      title: "Sprunki Digital",
+      description: "Sprunki Digital Circus"
+    },
+    game14: {
+      title: "Sprunki",
+      description: "Maranasan ang perpektong ritmo"
+    },
+    game15: {
+      title: "Sprunki Retake",
+      description: "Lumikha ng mga kahanga-hangang beats"
+    },
+    game16: {
+      title: "Sprunki Mod",
+      description: "Sprunki world mod"
+    },
+    game17: {
+      title: "Sprunki Simon",
+      description: "Sprunki Interactive Simon"
+    },
+    game18: {
+      title: "Sprunki Run",
+      description: "Lumikha ng mga kahanga-hangang beats"
+    },
+    game19: {
+      title: "Sprunki Sonic",
+      description: "Sonic sa Sprunki Game"
+    },
+    game20: {
+      title: "Sprunki retake",
+      description: "Sprunki retake Game"
+    },
+    game21: {
+      title: "Incredibox Cool Ice",
+      description: "incredibox-cool-as-ice"
+    },
+    game22: {
+      title: "Sprunki Incredibox Red",
+      description: "incredibox-red-colorbox"
+    },
+    game23: {
+      title: "Sprunki Incredibox Yellow",
+      description: "incredibox-yellow-colorbox"
+    },
+    game24: {
+      title: "Sprunki Sprunkin",
+      description: "sprunki-sprunkin"
+    }
+    // ... 添加更多游戏翻译
   }
 }; 

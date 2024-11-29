@@ -5,6 +5,7 @@ import mergeImg from '../assets/howtoplay/merge.png';
 import stackImg from '../assets/howtoplay/stack.png';
 import warningImg from '../assets/howtoplay/warning.png';
 import tipImg from '../assets/howtoplay/tip.png';
+import musicPattern from "../assets/path-to-music-pattern.png"; // 确保这个文件存在
 import { Image } from 'astro:assets';
 
 const { locale = 'en' } = Astro.props;
@@ -114,7 +115,42 @@ const translations = {
         "Guarda múltiples versiones de tus mezclas favoritas"
       ]
     }
-  }
+  },
+  fil: {
+    title: "Paano Maglaro ng Sprunki Game",
+    description: "Lumikha ng iyong natatanging musikal na karya sa Sprunki Game!",
+    steps: [
+      {
+        title: "Pumiling Universe",
+        description: "Piliin ang iyong gustong universe mula sa anim na magkakaibang mundo ng Sprunki." ,
+        image: dropImg
+      },
+      {
+        title: "I-drag at I-drop ang Mga Sound",
+        description: "I-drag at i-drop ang mga sound icon sa mga karakter para magsimulang gumawa ng musika.",
+        image: mergeImg 
+      },
+      {
+        title: "Paghaluin ang Mga Tunog",
+        description: "Gumawa ng iyong natatanging komposisyon sa pamamagitan ng pagkombina ng iba't ibang tunog at rhythm.",
+        image: stackImg
+      },
+      {
+        title: "I-save at Ibahagi",
+        description: "I-save ang iyong mga creation at ibahagi ang mga ito sa Sprunki community.",
+        image: warningImg
+      }
+    ],
+    tips: {
+      title: "Sprunki Game Pro Tips",
+      items: [
+        "I-drag at i-drop ang mga sound icon sa mga karakter para magsimula silang tumugtog.",
+        "Gumawa ng iyong natatanging komposisyon sa pamamagitan ng pagkombina ng iba't ibang tunog at rhythm.",
+        "I-save ang iyong mga creation at ibahagi ang mga ito sa Sprunki community.",
+        "I-explore ang mga gawa ng ibang players sa community o tingnan ang aming regular na ina-update na creation tips at tutorials."
+      ]
+    } 
+  },
 };
 
 const t = translations[locale] || translations.en;
