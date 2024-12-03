@@ -1,5 +1,5 @@
 ---
-const { locale, currentGame = 'https://img.sprunki.net/game/index.html' } = Astro.props;
+const { locale, currentGame = 'https://sprunki.org/sprunki-universe-1.embed' } = Astro.props;
 
 const translations = {
   zh: {
@@ -16,6 +16,11 @@ const translations = {
     title: "Sprunki|Juego de Creación musical",
     description: "Sprunki game es un juego adictivo inspirado en Incredibox, en el que los jugadores ganan monedas y desbloquean la creatividad musical a lo largo de 20 niveles excitantes. Haz click sin parar para recoger monedas y better tu experiencia.",
     loading: "Cargando el juego..."
+  },
+  fil: {
+    title: "Sprunki|Ultimate Music Creation Game",
+    description: "Gumawa ng natatanging musika sa pamamagitan ng pagkombina ng iba't ibang mga karakter sa Sprunki Game at lumikha ng iyong sariling musical pieces, mag-enjoy!",
+    loading: "Naglo-load ang laro..."
   }
 };
 
@@ -69,7 +74,6 @@ const t = translations[locale] || translations.en;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/music-notes-pattern.png') repeat;
     opacity: 0.05;
     animation: floatBg 20s linear infinite;
   }
@@ -241,7 +245,7 @@ const t = translations[locale] || translations.en;
           }
         } else {
           // 桌面端
-          gameWrapper.style.height = `${viewportHeight - 400}px`;
+          gameWrapper.style.height = `${viewportHeight - 800}px`;
         }
 
         // 确保 iframe 内容可见

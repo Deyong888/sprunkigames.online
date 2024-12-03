@@ -5,7 +5,7 @@ const { pathname } = Astro.url;
 const currentLocale = Astro.currentLocale;
 
 // 所有支持的语言代码
-const SUPPORTED_LOCALES = ['zh', 'en', 'es'];
+const SUPPORTED_LOCALES = ['zh', 'en', 'es', 'fil'];
 
 // 改进的获取基础路径函数
 const getBasePath = (path: string) => {
@@ -35,14 +35,20 @@ const languages = [
   },
   {
     code: "es",
-    label: "西班牙语",
-    flag: "es"
+    label: "Español",
+    flag: "🇪🇸"
+  },
+  {
+    code: "fil",
+    label: "Filipino",
+    flag: "🇵🇭"
   }
 ];
 
 // 用于调试的日志（可选）
 console.log('Current pathname:', pathname);
 console.log('Processed basePath:', basePath);
+console.log('Current locale:', currentLocale);
 ---
 
 <div class="language-picker">
