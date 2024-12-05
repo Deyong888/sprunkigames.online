@@ -20,6 +20,7 @@ const translations = {
           { title: "subway surfers", path: "https://subwaysurfersgame.run" },
           { title: "escape road", path: "https://escaperoads.online" },
           { title: "sudoku", path: "https://sudoku.viggle.fun" },
+          { title: "24k Web Games", path: "https://24kwebgames.com" },
         ],
       },
       {
@@ -48,6 +49,7 @@ const translations = {
           { title: "subway surfers", path: "https://subwaysurfersgame.run" },
           { title: "escape road", path: "https://escaperoads.online" },
           { title: "sudoku", path: "https://sudoku.viggle.fun" },
+          { title: "24k Web Games", path: "https://24kwebgames.com" },
         ],
       },
       {
@@ -76,6 +78,7 @@ const translations = {
           { title: "subway surfers", path: "https://subwaysurfersgame.run" },
           { title: "escape road", path: "https://escaperoads.online" },
           { title: "sudoku", path: "https://sudoku.viggle.fun" },
+          { title: "24k Web Games", path: "https://24kwebgames.com" },
         ],
       },
       {
@@ -129,15 +132,13 @@ const t = translations[locale] || translations.en;
           {
             t.menuItems.map((item, index) => (
               <>
-                {item.children && (
+                {item.children ? (
                   <Dropdown
                     title={item.title}
                     children={item.children}
                     lastItem={index === t.menuItems.length - 1}
                   />
-                )}
-
-                {!item.children && (
+                ) : (
                   <li>
                     <a
                       href={`/${locale === "en" ? "" : locale}${item.path}`}
