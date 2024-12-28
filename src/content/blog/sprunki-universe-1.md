@@ -3,7 +3,7 @@ draft: false
 title: "Sprunki Universe 1: Explore a Vibrant and Imaginative World"
 snippet: "Welcome to Sprunki Universe 1, a vibrant and imaginative world that serves as the backdrop for the Sprunki games. "
 image: {
-    src: "https://sprunkigame.org/data/image/posts/sprunki-game-banner.jpg",
+    src: "https://sprunkigames.online/sprunki-6.png",
     alt: "Sprunki Game on https://sprunkigames.online"
 }
 publishDate: "2024-12-25 11:39"
