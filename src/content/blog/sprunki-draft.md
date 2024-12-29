@@ -14,15 +14,7 @@ tags: [Sprunki, Sprunki games online, music game]
 
 <a href="https://sprunkigames.online" target="_blank">Click to play Sprunki Incredibox</a> 
 <div class="iframe-wrapper aspect-video w-full max-w-6xl mx-auto">
-        <iframe 
-            src="https://sprunki.org/sprunki-incredibox.embed" 
-            scrolling="no" 
-            seamless
-            title="Sprunki Incredibox Unblocked"
-            class="w-full h-full rounded-lg shadow-lg"
-            allow="fullscreen"
-            style="height: 600px;"
-        ></iframe>
+<iframe src="https://www.jigsawplanet.com/?rc=play&amp;pid=2dc100fb4518&amp;view=iframe" style="width:100%;height:600px" frameborder="0" allowfullscreen></iframe>
 </div>
 
 
