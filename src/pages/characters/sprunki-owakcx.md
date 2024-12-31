@@ -7,7 +7,7 @@ image: {
     src: "https://i.ytimg.com/vi/uGFcFH1TfKs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAoGINng3c-1ptipKtP469rUuXGWA",
     alt: "Sprunki Lime (OWAKCX)"
 }
-publishDate: "2024-12-31 12:39"
+publishDate: "2024-12-24 12:39"
 category: "Characters"
 author: "Sprunki Team"
 tags: [Sprunki, OWAKCX, Lime, Incredibox]

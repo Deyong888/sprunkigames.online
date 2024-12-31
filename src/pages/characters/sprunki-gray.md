@@ -7,7 +7,7 @@ image: {
     src: "https://i.ytimg.com/vi/aqqPRttlqsY/maxresdefault.jpg",
     alt: "Sprunki Gray"
 }
-publishDate: "2024-12-31 12:39"
+publishDate: "2024-12-26 12:39"
 category: "Characters"
 author: "Sprunki Team"
 tags: [Sprunki, Sprunki Gray, effects, Incredibox]

@@ -7,7 +7,7 @@ image: {
     src: "https://i.ytimg.com/vi/5WAXW0XoPHg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB1p0ryK78oRW8ZtMVyNKXTAwMV1A",
     alt: "Sprunki Orange (Oren)"
 }
-publishDate: "2024-12-31 12:39"
+publishDate: "2024-12-25 12:39"
 category: "Characters"
 author: "Sprunki Team"
 tags: [Sprunki, Oren, Sprunki Incredibox, Beats]

@@ -7,7 +7,7 @@ image: {
     src: "https://i.ytimg.com/vi/d6t9tL-w7vc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDFMALVnsTmGMwLXunRj3jiNN4oXQ",
     alt: "Sprunki Sky Blue (Sky)"
 }
-publishDate: "2024-12-31 12:39"
+publishDate: "2024-12-31 17:39"
 category: "Characters"
 author: "Sprunki Team"
 tags: [Sprunki, Sky, Sky Blue, Incredibox]
