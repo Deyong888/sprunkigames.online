@@ -43,49 +43,44 @@ publishedBlogEntries.sort(function (a, b) {
       <Fragment slot="desc">{t.desc}</Fragment>
     </Sectionhead>
     <main class="mt-16">
-      <ul class="grid gap-16 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {
           publishedBlogEntries.map((blogPostEntry, index) => (
-            <li>
-              <a href={`/blog/${blogPostEntry.slug}`}>
-                <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+            <a href={`/blog/${blogPostEntry.slug}`} 
+               class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+              <article class="flex flex-col h-full">
+                <div class="relative aspect-[4/3] overflow-hidden">
                   <Picture
                     src={blogPostEntry.data.image.src}
                     alt={blogPostEntry.data.image.alt}
-                    sizes="(max-width: 800px) 100vw, 800px"
-                    width={800}
-                    height={600}
-                    loading={index <= 2 ? "eager" : "lazy"}
-                    decoding={index <= 2 ? "sync" : "async"}
-                    class="w-full rounded-md object-cover object-center bg-white"
+                    sizes="(max-width: 800px) 100vw, 400px"
+                    width={400}
+                    height={300}
+                    loading={index <= 5 ? "eager" : "lazy"}
+                    decoding={index <= 5 ? "sync" : "async"}
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div>
-                    <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
-                      {blogPostEntry.data.category}
-                    </span>
-
-                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
-                      {blogPostEntry.data.title}
-                    </h2>
-
-                    <div class="flex gap-2 mt-3">
-                      <span class="text-gray-400">
-                        {blogPostEntry.data.author}
-                      </span>
-                      <span class="text-gray-400">• </span>
-                      <time
-                        class="text-gray-400"
-                        datetime={blogPostEntry.data.publishDate.toISOString()}>
-                        {blogPostEntry.data.publishDate.toDateString()}
-                      </time>
-                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                  <span class="text-blue-500 text-sm font-medium uppercase tracking-wider">
+                    {blogPostEntry.data.category}
+                  </span>
+                  <h2 class="text-xl font-semibold mt-2 mb-3 leading-snug group-hover:text-blue-600 transition-colors duration-200">
+                    {blogPostEntry.data.title}
+                  </h2>
+                  <div class="mt-auto flex items-center text-sm text-gray-500 gap-2">
+                    <span>{blogPostEntry.data.author}</span>
+                    <span>•</span>
+                    <time datetime={blogPostEntry.data.publishDate.toISOString()}>
+                      {new Date(blogPostEntry.data.publishDate).toLocaleDateString()}
+                    </time>
                   </div>
                 </div>
-              </a>
-            </li>
+              </article>
+            </a>
           ))
         }
-      </ul>
+      </div>
     </main>
   </Container>
 </Layout>

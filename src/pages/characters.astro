@@ -1,0 +1,234 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
+
+// 角色数据
+const characters = {
+  beats: [
+    {
+      name: "Sprunki Orange (Oren)",
+      image: "/characters/oren.webp",
+      description: "The foundational beat-maker, setting the pace for an energetic and unforgettable musical experience.",
+      link: "/characters/sprunki-oren"
+    },
+    {
+      name: "Sprunki Red (Raddy)",
+      image: "/characters/raddy.webp",
+      description: "Known for his snare drum beats and his temperamental, solitary personality.",
+      link: "/characters/sprunki-raddy"
+    },
+    {
+      name: "Sprunki Silver (Clukr)",
+      image: "/characters/clukr.webp",
+      description: "A silver-hued enigma that brings a unique percussive element to the musical ensemble through his signature cymbal sounds.",
+      link: "/characters/sprunki-clukr"
+    },
+    {
+      name: "Sprunki Fun Bot",
+      image: "/characters/funbot.webp",
+      description: "The rhythmic soul of Sprunki, masterfully controlling the beat.",
+      link: "/characters/sprunki-funbot"
+    },
+    {
+      name: "Sprunki Green (Vineria)",
+      image: "/characters/vineria.webp",
+      description: "The king of rhythm, pulsating the heartbeat of music.",
+      link: "/characters/sprunki-vineria"
+    }
+  ],
+  effects: [
+    {
+      name: "Sprunki Gray",
+      image: "/characters/gray.webp",
+      description: "The echo queen, creating a sense of space in the music.",
+      link: "/characters/sprunki-gray"
+    },
+    {
+      name: "Sprunki Brown (Brud)",
+      image: "/characters/brud.webp",
+      description: "The reverb master, shaping the atmosphere of the music.",
+      link: "/characters/sprunki-brud"
+    },
+    {
+      name: "Sprunki Sky Blue (Sky)",
+      image: "/characters/sky.webp",
+      description: "The filtering expert, indispensable in tuning the mix.",
+      link: "/characters/sprunki-sky"
+    },
+    {
+      name: "Sprunki Lime (OWAKCX)",
+      image: "/characters/owakcx.webp",
+      description: "The delay effect artist, creating layers of sound.",
+      link: "/characters/sprunki-owakcx"
+    },
+    {
+      name: "Sprunki Gold (Garnold)",
+      image: "/characters/garnold.webp",
+      description: "The synthesizer virtuoso, with a repertoire of sound effects.",
+      link: "/characters/sprunki-garnlod"
+    }
+  ],
+  melodies: [
+    {
+      name: "Sprunki Mr. Tree",
+      image: "/characters/tree.webp",
+      description: "The piano sprite, the wellspring of melody.",
+      link: "/characters/sprunki-tree"
+    },
+    {
+      name: "Sprunki Yellow (Simon)",
+      image: "/characters/simon.webp",
+      description: "The guitar goddess, the enchantress of chords.",
+      link: "/characters/sprunki-simon"
+    },
+    {
+      name: "Sprunki Tan (Tunner)",
+      image: "/characters/tunner.webp",
+      description: "The violinist, carrying the mantle of beautiful melodies.",
+      link: "/characters/sprunki-tunner"
+    },
+    {
+      name: "Sprunki: Mr. Sun",
+      image: "/characters/sun.webp",
+      description: "The flute master, weaving light and airy notes.",
+      link: "/characters/sprunki-sun"
+    },
+    {
+      name: "Sprunki Purple (Durple)",
+      image: "/characters/durple.webp",
+      description: "The harp fairy, crafting dreamy notes.",
+      link: "/characters/sprunki-durple"
+    }
+  ],
+  vocals: [
+    {
+      name: "Sprunki Blue (Jevin)",
+      image: "/characters/jevin.webp",
+      description: "The vocal powerhouse, bringing depth to the music.",
+      link: "/characters/sprunki-jevin"
+    },
+    {
+      name: "Sprunki White (Wenda)",
+      image: "/characters/wenda.webp",
+      description: "The harmonizer, blending notes with precision.",
+      link: "/characters/sprunki-wenda"
+    },
+    {
+      name: "Sprunki Black",
+      image: "/characters/black.webp",
+      description: "The bass baritone, providing the low-end foundation.",
+      link: "/characters/sprunki-black"
+    },
+    {
+      name: "Sprunki Pink (Pinki)",
+      image: "/characters/pink.webp",
+      description: "The flute virtuoso, crafting melodies with grace.",
+      link: "/characters/sprunki-pink"
+    },
+    {
+      name: "Sprunki Mr. Fun Computer",
+      image: "/characters/computer.webp",
+      description: "The digital maestro, composing with computational precision.",
+      link: "/characters/sprunki-computer"
+    }
+  ]
+};
+---
+
+<Layout title="Introduction to Sprunki Music Characters - Meet the Pals of the Music World" 
+        description="Explore the musical characters in the Sprunki game, including rhythm masters, sound effect experts, and melody sprites. Each character possesses a unique musical ability and personality.">
+  <Container>
+    <div class="py-16">
+      <h1 class="text-4xl font-bold text-center mb-8">Sprunki Music Characters</h1>
+      <p class="text-xl text-center text-gray-600 mb-16">
+         Meet these adorable music sprites who will take you into a wonderful world of music!
+      </p>
+
+      {/* Beats Section */}
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-purple-600">Beats Master</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {characters.beats.map(character => (
+            <a href={character.link} class="block group">
+              <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transform transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class=" overflow-hidden">
+                  <img 
+                    src={character.image} 
+                    alt={character.name} 
+                    class="w-full h-[360px] object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div class="p-4 flex-1 flex flex-col">
+                  <h3 class="text-lg font-semibold mb-2 line-clamp-2 text-gray-800">{character.name}</h3>
+                  <p class="text-sm text-gray-600 line-clamp-3 flex-1">{character.description}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Effects Section */}
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-blue-600">Effects Master</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 ">
+          {characters.effects.map(character => (
+            <a href={character.link} class="block">
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 ">
+                <img src={character.image} alt={character.name} class="w-full object-cover h-[360px]" />
+                <div class="p-4">
+                  <h3 class="text-xl font-bold mb-2">{character.name}</h3>
+                  <p class="text-gray-600">{character.description}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Melodies Section */}
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-green-600">Melodies Sprite</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {characters.melodies.map(character => (
+            <a href={character.link} class="block">
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 ">
+                <img src={character.image} alt={character.name} class="w-full h-[360px] object-cover" />
+                <div class="p-4">
+                  <h3 class="text-xl font-bold mb-2">{character.name}</h3>
+                  <p class="text-gray-600">{character.description}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  .grid {
+    --auto-grid-min-size: 240px;
+  }
+  
+  @media (max-width: 640px) {
+    .grid {
+      --auto-grid-min-size: 280px;
+    }
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style> 

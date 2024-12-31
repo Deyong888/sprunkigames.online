@@ -1,0 +1,118 @@
+---
+import Layout from "./Layout.astro";
+import Container from "../components/container.astro";
+import { Image } from "astro:assets";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <Container>
+    <div class="mx-auto max-w-3xl mt-14">
+      <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+        {frontmatter.category}
+      </span>
+      <h1
+        class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight">
+        {frontmatter.title}
+      </h1>
+      <div class="flex gap-2 mt-3 items-center flex-wrap md:flex-nowrap">
+        <span class="text-gray-400">
+          {frontmatter.author}
+        </span>
+        <span class="text-gray-400">•</span>
+        <time class="text-gray-400" datetime={frontmatter.publishDate}>
+          {new Date(frontmatter.publishDate).toLocaleDateString("zh-CN", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </time>
+        <span class="text-gray-400 hidden md:block">•</span>
+        <div class="w-full md:w-auto flex flex-wrap gap-3">
+          {
+            frontmatter.tags.map((tag) => (
+              <span class="text-sm text-gray-500">#{tag}</span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto prose prose-lg mt-6 max-w-3xl">
+      <div class="relative">
+        {
+          frontmatter.image && (
+            <Image
+              src={frontmatter.image.src}
+              alt={frontmatter.image.alt}
+              width="1200"
+              height="600"
+              class="rounded-xl w-full object-cover"
+            />
+          )
+        }
+      </div>
+      
+      <div class="mt-8 content">
+        <slot />
+      </div>
+    </div>
+  </Container>
+</Layout>
+
+<style is:global>
+  .content {
+    @apply text-lg leading-relaxed;
+  }
+  .content h1,
+  .content h2,
+  .content h3,
+  .content h4,
+  .content h5,
+  .content h6 {
+    @apply text-gray-900 font-bold my-6;
+  }
+  .content h1 {
+    @apply text-4xl;
+  }
+  .content h2 {
+    @apply text-3xl;
+  }
+  .content h3 {
+    @apply text-2xl;
+  }
+  .content h4 {
+    @apply text-xl;
+  }
+  .content h5 {
+    @apply text-lg;
+  }
+  .content p {
+    @apply my-4;
+  }
+  .content ul {
+    @apply list-disc ml-8 my-4;
+  }
+  .content ol {
+    @apply list-decimal ml-8 my-4;
+  }
+  .content li {
+    @apply mb-2;
+  }
+  .content a {
+    @apply text-blue-600 hover:underline;
+  }
+  .content blockquote {
+    @apply border-l-4 border-gray-200 pl-4 my-4 italic;
+  }
+  .content img {
+    @apply rounded-lg shadow-lg my-8 mx-auto;
+  }
+  .content pre {
+    @apply bg-gray-900 text-white p-4 rounded-lg overflow-x-auto my-4;
+  }
+  .content code {
+    @apply bg-gray-100 text-gray-900 px-1 rounded;
+  }
+</style> 
