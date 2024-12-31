@@ -53,6 +53,6 @@ Durple's role in the Sprunki community is not just as a character; she's a symbo
 
 ### Conclusion: The Strings of Enchantment
 
-Sprunki Purple (Durple), with her distinctive purple appearance and role as the enchanting harpist, is an integral part of the Sprunki universe. Her unique audio signature, combined with her introspective personality and community impact, make her a character that resonates with players. Whether you're a fan of her normal or horror version, Durple's presence is essential to the Sprunki experience, always ready to add the ethereal melodies that make the music enchant.
+Sprunki Purple (Durple), with her distinctive purple appearance and role as the enchanting harpist, is an integral part of the Sprunki universe. Her unique audio signature, combined with her introspective personality and community impact, make her a character that resonates with players. Whether you're a fan of her normal or horror version, Durple's presence is essential to the [Sprunki](https://sprunkigames.online)  experience, always ready to add the ethereal melodies that make the music enchant.
 
 --- 

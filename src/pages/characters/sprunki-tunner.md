@@ -53,7 +53,7 @@ Tunner's role in the Sprunki community is not just as a character; he's a symbol
 
 ### Conclusion: The Strings of the Sprunki Symphony
 
-Sprunki Tan (Tunner), with his distinctive tan appearance and role as the violin virtuoso, is an integral part of the Sprunki universe. His unique audio signature, combined with his emotive personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Tunner's presence is essential to the Sprunki experience, always ready to add the rich melodies that make the music resonate.
+[Sprunki](https://sprunkigames.online)  Tan (Tunner), with his distinctive tan appearance and role as the violin virtuoso, is an integral part of the Sprunki universe. His unique audio signature, combined with his emotive personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Tunner's presence is essential to the Sprunki experience, always ready to add the rich melodies that make the music resonate.
 
 --- 
 

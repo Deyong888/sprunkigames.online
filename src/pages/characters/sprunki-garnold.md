@@ -53,6 +53,6 @@ Garnold's role in the Sprunki community is not just as a character; he's a symbo
 
 ### Conclusion: The Golden Touch
 
-Sprunki Gold (Garnold), with his distinctive gold appearance and role as the synth maestro, is an integral part of the Sprunki universe. His unique audio signature, combined with his innovative personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Garnold's presence is essential to the Sprunki experience, always ready to add the golden touch that makes the music sparkle.
+[Sprunki](https://sprunkigames.online)  Gold (Garnold), with his distinctive gold appearance and role as the synth maestro, is an integral part of the Sprunki universe. His unique audio signature, combined with his innovative personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Garnold's presence is essential to the Sprunki experience, always ready to add the golden touch that makes the music sparkle.
 
 --- 

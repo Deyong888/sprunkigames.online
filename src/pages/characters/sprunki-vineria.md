@@ -53,7 +53,7 @@ Vineria's role in the Sprunki community is not just as a character; it's as a sy
 
 ### Conclusion: The Evergreen Beat
 
-Vineria, with its distinctive green appearance and role as the king of rhythm, is an integral part of the Sprunki universe. Its unique audio signature, combined with its engaging personality and community impact, make it a beloved character among players. Whether you're a fan of its normal or horror version, Vineria's presence is essential to the Sprunki experience, always ready to bring the beat and keep the music alive.
+Vineria, with its distinctive green appearance and role as the king of rhythm, is an integral part of the [Sprunki](https://sprunkigames.online)  universe. Its unique audio signature, combined with its engaging personality and community impact, make it a beloved character among players. Whether you're a fan of its normal or horror version, Vineria's presence is essential to the Sprunki experience, always ready to bring the beat and keep the music alive.
 
 --- 
 

@@ -41,7 +41,7 @@ Sprunki Gray is characterized by her introspective nature and her deep connectio
 
 ### Relationships and Community Impact
 
-Sprunki Gray's relationships within the Sprunki community are as complex as her echoes. She is respected for her ability to add depth to the music, and her fellow Sprunki characters often seek her out for her unique sonic contributions.
+[Sprunki](https://sprunkigames.online)  Gray's relationships within the Sprunki community are as complex as her echoes. She is respected for her ability to add depth to the music, and her fellow Sprunki characters often seek her out for her unique sonic contributions.
 
 ### Technical Mastery
 
@@ -53,6 +53,6 @@ Sprunki Gray's role in the Sprunki community is not just as a character; she's a
 
 ### Conclusion: The Enduring Echo
 
-Sprunki Gray, with her distinctive gray appearance and role as the echo queen, is an integral part of the Sprunki universe. Her unique audio signature, combined with her introspective personality and community impact, make her a character that resonates with players. Whether you're a fan of her normal or horror version, Sprunki Gray's presence is essential to the Sprunki experience, always ready to add the echoes that make the music come alive.
+[Sprunki](https://sprunkigames.online)  Gray, with her distinctive gray appearance and role as the echo queen, is an integral part of the Sprunki universe. Her unique audio signature, combined with her introspective personality and community impact, make her a character that resonates with players. Whether you're a fan of her normal or horror version, Sprunki Gray's presence is essential to the Sprunki experience, always ready to add the echoes that make the music come alive.
 
 --- 

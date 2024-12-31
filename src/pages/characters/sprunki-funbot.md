@@ -53,6 +53,6 @@ Fun Bot's role in the Sprunki community is not just as a character; it's as a sy
 
 ### Conclusion: The Beat Goes On
 
-Sprunki Fun Bot, with its distinctive robotic appearance and role as the joyful rhythmician, is an integral part of the Sprunki universe. Its unique audio signature, combined with its upbeat personality and community impact, make it a character that resonates with players. Whether you're a fan of its normal or horror version, Fun Bot's presence is essential to the Sprunki experience, always ready to bring the fun and keep the beat going.
+Sprunki Fun Bot, with its distinctive robotic appearance and role as the joyful rhythmician, is an integral part of the Sprunki universe. Its unique audio signature, combined with its upbeat personality and community impact, make it a character that resonates with players. Whether you're a fan of its normal or horror version, Fun Bot's presence is essential to the [Sprunki](https://sprunkigames.online)  experience, always ready to bring the fun and keep the beat going.
 
 --- 

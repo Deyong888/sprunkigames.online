@@ -57,6 +57,6 @@ Nyanko has confirmed that Raddy did not hang himself, and while it has not been 
 .
 ## Conclusion: The Impact of Raddy in Sprunki
 
-Red Raddy's presence in Sprunki is more than just a beat; he's a character that adds depth and personality to the game. His unique audio signature, combined with his engaging personality and relationships, make him a beloved character among players. Whether you're a fan of his normal or horror version, Raddy's presence is integral to the Sprunki experience.
+Red Raddy's presence in Sprunki is more than just a beat; he's a character that adds depth and personality to the game. His unique audio signature, combined with his engaging personality and relationships, make him a beloved character among players. Whether you're a fan of his normal or horror version, Raddy's presence is integral to the [Sprunki](https://sprunkigames.online)  experience.
 
 ---

@@ -53,6 +53,6 @@ Mr. Tree's role in the Sprunki community is not just as a character; he's a symb
 
 ### Conclusion: The Roots of Music
 
-Sprunki Mr. Tree, with his distinctive arboreal appearance and role as the melodist of the forest, is an integral part of the Sprunki universe. His unique audio signature, combined with his contemplative personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Mr. Tree's presence is essential to the Sprunki experience, always ready to root the music in the rich soil of nature.
+[Sprunki](https://sprunkigames.online)  Mr. Tree, with his distinctive arboreal appearance and role as the melodist of the forest, is an integral part of the Sprunki universe. His unique audio signature, combined with his contemplative personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Mr. Tree's presence is essential to the Sprunki experience, always ready to root the music in the rich soil of nature.
 
 --- 

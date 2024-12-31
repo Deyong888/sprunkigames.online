@@ -53,7 +53,7 @@ Mr. Sun's role in the Sprunki community is not just as a character; he's a symbo
 
 ### Conclusion: The Sun Never Sets on Sprunki
 
-Sprunki: Mr. Sun, with his distinctive radiant appearance and role as the flutist, is an integral part of the Sprunki universe. His unique audio signature, combined with his positive personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Mr. Sun's presence is essential to the Sprunki experience, always ready to add the light and melody that make the music shine.
+[Sprunki](https://sprunkigames.online) : Mr. Sun, with his distinctive radiant appearance and role as the flutist, is an integral part of the Sprunki universe. His unique audio signature, combined with his positive personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Mr. Sun's presence is essential to the Sprunki experience, always ready to add the light and melody that make the music shine.
 
 --- 
 

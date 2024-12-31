@@ -53,6 +53,6 @@ Simon's role in the Sprunki community is not just as a character; she's a symbol
 
 ### Conclusion: The Strings of Sprunki
 
-Sprunki Yellow (Simon), with her distinctive yellow appearance and role as the chord enchantress, is an integral part of the Sprunki universe. Her unique audio signature, combined with her adventurous personality and community impact, make her a character that resonates with players. Whether you're a fan of her normal or horror version, Simon's presence is essential to the Sprunki experience, always ready to add the melodic magic that makes the music sing.
+Sprunki Yellow (Simon), with her distinctive yellow appearance and role as the chord enchantress, is an integral part of the Sprunki universe. Her unique audio signature, combined with her adventurous personality and community impact, make her a character that resonates with players. Whether you're a fan of her normal or horror version, Simon's presence is essential to the [Sprunki](https://sprunkigames.online)  experience, always ready to add the melodic magic that makes the music sing.
 
 --- 

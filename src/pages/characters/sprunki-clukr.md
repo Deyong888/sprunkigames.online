@@ -56,6 +56,6 @@ In Horror mode, before completely "dying", Clukr is most likely blind, due to hi
 Clurk's Horror mode sound nearly syncs perfectly with Mr. Fun Computer's Horror mode sound, the only exception being when Mr. Fun Computer says "run away" repeatedly 
 .
 ## Conclusion: Clukr's Impact on Sprunki
-Red Raddy's presence in Sprunki is more than just a beat; he's a character that adds depth and personality to the game. His unique audio signature, combined with his engaging personality and relationships, make him a beloved character among players. Whether you're a fan of his normal or horror version, Clukr's presence is integral to the Sprunki experience.
+Red Raddy's presence in [Sprunki](https://sprunkigames.online)  is more than just a beat; he's a character that adds depth and personality to the game. His unique audio signature, combined with his engaging personality and relationships, make him a beloved character among players. Whether you're a fan of his normal or horror version, Clukr's presence is integral to the Sprunki experience.
 
 ---

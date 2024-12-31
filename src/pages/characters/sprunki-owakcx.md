@@ -53,4 +53,4 @@ OWAKCX's role in the Sprunki community is not just as a character; he's a symbol
 
 ### Conclusion: The Melody Continues
 
-Sprunki Lime (OWAKCX), with his distinctive lime-green appearance and role as the layered melodies maker, is an integral part of the Sprunki universe. His unique audio signature, combined with his adventurous personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, OWAKCX's presence is essential to the Sprunki experience, always ready to add the layers that make the music come alive.
+Sprunki Lime (OWAKCX), with his distinctive lime-green appearance and role as the layered melodies maker, is an integral part of the [Sprunki](https://sprunkigames.online)  universe. His unique audio signature, combined with his adventurous personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, OWAKCX's presence is essential to the Sprunki experience, always ready to add the layers that make the music come alive.

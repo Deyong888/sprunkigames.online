@@ -53,7 +53,7 @@ Sky's role in the Sprunki community is not just as a character; he's a symbol of
 
 ### Conclusion: The Sky's the Limit
 
-Sprunki Sky Blue (Sky), with his distinctive sky blue appearance and role as the aerial harmony, is an integral part of the Sprunki universe. His unique audio signature, combined with his adventurous personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Sky's presence is essential to the Sprunki experience, always ready to take the music to new heights.
+[Sprunki](https://sprunkigames.online)  Sky Blue (Sky), with his distinctive sky blue appearance and role as the aerial harmony, is an integral part of the Sprunki universe. His unique audio signature, combined with his adventurous personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Sky's presence is essential to the Sprunki experience, always ready to take the music to new heights.
 
 --- 
 

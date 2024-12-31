@@ -54,6 +54,6 @@ Oren is more than just a beat in Sprunki; he's a character that brings depth and
 .
 
 ## Conclusion
-Oren, with his distinctive orange appearance and role as the beat-maker, is a central figure in the Sprunki universe. His unique audio signature, combined with his engaging personality and relationships, make him a beloved character among players. Whether you're a fan of his normal or horror version, Oren's presence is integral to the Sprunki experience.
+Oren, with his distinctive orange appearance and role as the beat-maker, is a central figure in the [Sprunki](https://sprunkigames.online)  universe. His unique audio signature, combined with his engaging personality and relationships, make him a beloved character among players. Whether you're a fan of his normal or horror version, Oren's presence is integral to the Sprunki experience.
 
 ---

@@ -53,7 +53,7 @@ Brud's role in the Sprunki community is not just as a character; he's a symbol o
 
 ### Conclusion: The Timeless Reverb
 
-Sprunki Brown (Brud), with his distinctive brown appearance and role as the reverb master, is an integral part of the Sprunki universe. His unique audio signature, combined with his introspective personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Brud's presence is essential to the Sprunki experience, always ready to add the reverb that makes the music resonate.
+Sprunki Brown (Brud), with his distinctive brown appearance and role as the reverb master, is an integral part of the Sprunki universe. His unique audio signature, combined with his introspective personality and community impact, make him a character that resonates with players. Whether you're a fan of his normal or horror version, Brud's presence is essential to the [Sprunki](https://sprunkigames.online)  experience, always ready to add the reverb that makes the music resonate.
 
 --- 
 
