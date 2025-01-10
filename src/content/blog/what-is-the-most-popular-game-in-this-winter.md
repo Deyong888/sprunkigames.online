@@ -7,7 +7,7 @@ image: {
     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiGcFMhMzAyiejnGgFxg03GWWH7o5N9JqALw&s",
     alt: "What is the Most Popular Game This Winter? Sprunki Games"
 }
-publishDate: "2024-11-012 12:39"
+publishDate: "2024-11-01 12:39"
 category: "News"
 author: "Sprunki Incredibox"
 tags: [Sprunki Incredibox, Sprunki Game, Sprunki music]
