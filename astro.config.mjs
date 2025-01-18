@@ -7,7 +7,11 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   site: "https://sprunkigames.online",
-  integrations: [tailwind(), mdx(), sitemap(), icon()],
+  integrations: [tailwind(), mdx(), sitemap(), icon({
+    include: {
+      mdi: ['*']
+    }
+  })],
 
   i18n: {
     defaultLocale: "en",

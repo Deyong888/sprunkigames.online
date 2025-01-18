@@ -4,6 +4,8 @@ import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import LanguagePicker from "../LanguagePicker.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import { Icon } from 'astro-icon/components';
+import Image from "astro/components/Image.astro";
 
 const { locale = "en" } = Astro.props;
 
@@ -13,23 +15,30 @@ const translations = {
     privacy: "隐私政策",
     new: "新",
     menuItems: [
-      {
-        title: "更多游戏",
-        path: "#",
-        children: [
-          { title: "subway surfers", path: "https://subwaysurfersgame.run" },
-          { title: "escape road", path: "https://escaperoads.online" },
-          { title: "sudoku", path: "https://sudoku.viggle.fun" },
-          { title: "24k Web Games", path: "https://24kwebgames.com" },
-        ],
-      },
+    //  {
+    //    title: "更多游戏",
+    //    path: "#",
+    //    children: [
+    //      { title: "subway surfers", path: "https://subwaysurfersgame.run" },
+    //      { title: "escape road", path: "https://escaperoads.online" },
+    //      { title: "sudoku", path: "https://sudoku.viggle.fun" },
+    //      { title: "24k Web Games", path: "https://24kwebgames.com" },
+    //    ],
+    //  },
       {
         title: "Sprunki 最新游戏",
         path: "../blog",
+        icon: "heroicons:play-circle"
       },
       {
         title: "角色",
         path: "../characters",
+        icon: "heroicons:users"
+      },
+      {
+        title: "更多游戏",
+        path: "https://24kwebgames.com",
+        icon: "heroicons:gift-solid"
       },
 //      {
 //        title: "隐私政策",
@@ -42,23 +51,30 @@ const translations = {
     privacy: "Privacy Policy",
     new: "New",
     menuItems: [
-      {
-        title: "More Games",
-        path: "#",
-        children: [
-          { title: "subway surfers", path: "https://subwaysurfersgame.run" },
-          { title: "escape road", path: "https://escaperoads.online" },
-          { title: "sudoku", path: "https://sudoku.viggle.fun" },
-          { title: "24k Web Games", path: "https://24kwebgames.com" },
-        ],
-      },
+ //     {
+ //       title: "More Games",
+ //       path: "#",
+ //       children: [
+ //         { title: "subway surfers", path: "https://subwaysurfersgame.run" },
+ //         { title: "escape road", path: "https://escaperoads.online" },
+ //         { title: "sudoku", path: "https://sudoku.viggle.fun" },
+ //         { title: "24k Web Games", path: "https://24kwebgames.com" },
+ //       ],
+ //     },
       {
         title: "Newest Games",
         path: "../blog",
+        icon: "heroicons:play-circle"
       },
       {
         title: "Characters",
         path: "../characters",
+        icon: "heroicons:users"
+      },
+      {
+        title: "More Games",
+        path: "https://24kwebgames.com",
+        icon: "heroicons:gift-solid"
       },
  //     {
  //       title: "Privacy Policy",
@@ -74,6 +90,7 @@ const translations = {
       {
         title: "More Games",
         path: "#",
+        icon: "heroicons:ellipsis-horizontal",
         children: [
           { title: "subway surfers", path: "https://subwaysurfersgame.run" },
           { title: "escape road", path: "https://escaperoads.online" },
@@ -84,10 +101,12 @@ const translations = {
       {
         title: "Noticias de Sprunki",
         path: "../blog",
+        icon: "heroicons:play-circle"
       },
       {
         title: "Personajes",
         path: "../characters",
+        icon: "heroicons:users"
       },
    //   {
    //     title: "Política de Privacidad",
@@ -116,7 +135,14 @@ const t = translations[locale] || translations.en;
         <a
           href={`/${locale === "en" ? "" : locale}`}
           title="Sprunki Games online"
-          class="text-lg">
+          class="text-lg flex items-center">
+          <Image
+            src="/android-chrome-512x512.png"
+            alt="Sprunki Games"
+            width={80}
+            height={80}
+            class="mr-2"
+          />
           <span
             class="font-bold bg-gradient-to-r from-[#FF61D8] to-[#6B48FF] bg-clip-text text-transparent">
             Sprunki
@@ -144,9 +170,10 @@ const t = translations[locale] || translations.en;
                       href={`/${locale === "en" ? "" : locale}${item.path}`}
                       title={item.title}
                       class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300">
+                      <Icon name={item.icon} class="w-5 h-5 mr-2" />
                       <span>{item.title}</span>
                       {item.badge && (
-                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-[#FF61D8] rounded-full">
+                        <span class="ml-1 px-2 py-0.5 text-[20px] animate-pulse font-semibold uppercase text-white bg-[#FF61D8] rounded-full">
                           {t.new}
                         </span>
                       )}
