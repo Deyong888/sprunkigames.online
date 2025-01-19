@@ -166,20 +166,36 @@ const t = translations[locale] || translations.en;
                   />
                 ) : (
                   <li>
-                    <a
-                      href={item.path.startsWith('https') ? item.path : `/${locale === "en" ? "" : locale}${item.path}`}
-                      title={item.title}
-                      class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300"
-                      target={item.path.startsWith('http') ? '_blank' : '_self'}
-                      rel="noopener noreferrer">
-                      <Icon name={item.icon} class="w-5 h-5 mr-2" />
-                      <span>{item.title}</span>
-                      {item.badge && (
-                        <span class="ml-1 px-2 py-0.5 text-[20px] animate-pulse font-semibold uppercase text-white bg-[#FF61D8] rounded-full">
-                          {t.new}
-                        </span>
-                      )}
-                    </a>
+                    {/* 检查是否是外部链接 */}
+                    {item.path.startsWith("http") ? (
+                      <a
+                        href={item.path}
+                        title={item.title}
+                        target="_blank"   
+                        rel="noopener noreferrer" 
+                        class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300">
+                        <Icon name={item.icon} class="w-5 h-5 mr-2" />
+                        <span>{item.title}</span>
+                        {item.badge && (
+                          <span class="ml-1 px-2 py-0.5 text-[20px] animate-pulse font-semibold uppercase text-white bg-[#FF61D8] rounded-full">
+                            {t.new}
+                          </span>
+                        )}
+                      </a>
+                    ) : (
+                      <a
+                        href={`/${locale === "en" ? "" : locale}${item.path}`}
+                        title={item.title}
+                        class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300">
+                        <Icon name={item.icon} class="w-5 h-5 mr-2" />
+                        <span>{item.title}</span>
+                        {item.badge && (
+                          <span class="ml-1 px-2 py-0.5 text-[20px] animate-pulse font-semibold uppercase text-white bg-[#FF61D8] rounded-full">
+                            {t.new}
+                          </span>
+                        )}
+                      </a>
+                    )}
                   </li>
                 )}
               </>
@@ -189,7 +205,8 @@ const t = translations[locale] || translations.en;
             <LanguagePicker />
           </li>
         </ul>
-      </MenuItems>      
+      </MenuItems>
+        
     </Astronav>
   </header>
 </Container>
