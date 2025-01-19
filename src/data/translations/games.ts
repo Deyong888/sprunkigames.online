@@ -96,6 +96,38 @@ export const gameTranslations = {
               title: "Sprunki Sprunkin",
               description: "sprunki-sprunkin"
             },
+            game25: {
+              title: "Incredibox Party Frozen Sprunki Beat",
+              description: "Incredibox Party Frozen Sprunki Beat"
+            },
+            game26: {
+              title: "Huggy Mix Sprunki Music Box",
+              description: "Huggy Mix Sprunki Music Box"
+            },
+            game27: {
+                title: "Sprunki Music Scary Beat Box",
+                description: "Sprunki Music Scary Beat Box"
+              },
+              game28: {
+                title: "Sprunki Clicker Game",
+                description: "Sprunki Clicker Game"
+              },
+              game29: {
+                title: "Sprunki Snake.Io",
+                description: "Sprunki Snake.Io"
+              },
+              game30: {
+                title: "Sprunki Find The Differences",
+                description: "Sprunki Find The Differences"
+              },
+              game31: {
+                title: "Sprunki Pop It",
+                description: "Sprunki Pop It"
+              },
+              game32: {
+                title: "Sprunki Whack A Mole",
+                description: "Sprunki Whack A Mole"
+              },
     // ... 添加更多游戏翻译
   },
   zh: {
@@ -195,6 +227,38 @@ export const gameTranslations = {
               title: "Sprunki Sprunkin", // "Sprunki Sprunkin"
               description: "Sprunki Sprunkin" // "sprunki-sprunkin"
             },
+            game25: {
+              title: "不可思议盒子派对 冰冻斯普尼克节奏",
+              description: "不可思议盒子派对 冰冻斯普尼克节奏"
+            },
+            game26: {
+              title: "拥抱混合斯普尼克音乐盒",
+              description: "拥抱混合斯普尼克音乐盒"
+            },
+            game27: {
+                title: "斯普尼克音乐恐怖节奏盒",
+                description: "斯普尼克音乐恐怖节奏盒"
+              },
+              game28: {
+                title: "斯普尼克点击游戏",
+                description: "斯普尼克点击游戏"
+              },
+              game29: {
+                title: "斯普尼克贪吃蛇.Io",
+                description: "斯普尼克贪吃蛇.Io"
+              },
+              game30: {
+                title: "斯普尼克找出不同",
+                description: "斯普尼克找出不同"
+              },
+              game31: {
+                title: "斯普尼克泡泡消消乐",
+                description: "斯普尼克泡泡消消乐"
+              },
+              game32: {
+                title: "斯普尼克打地鼠",
+                description: "斯普尼克打地鼠"
+              },
     // ... 添加更多游戏翻译
   },
   es: {
@@ -296,6 +360,38 @@ export const gameTranslations = {
                   title: "Sprunki Sprunkin", // "Sprunki Sprunkin"
                   description: "sprunki-sprunkin" // "sprunki-sprunkin"
                 },
+                game25: {
+                  title: "Incredibox Fiesta Frozen Sprunki Beat",
+                  description: "Incredibox Fiesta Frozen Sprunki Beat"
+                },
+                game26: {
+                  title: "Huggy Mix Caja de Música Sprunki",
+                  description: "Huggy Mix Caja de Música Sprunki"
+                },
+                game27: {
+                  title: "Sprunki Música Caja de Ritmos Escalofriante",
+                  description: "Sprunki Música Caja de Ritmos Escalofriante"
+                },
+                game28: {
+                  title: "Sprunki Juego de Clics",
+                  description: "Sprunki Juego de Clics"
+                },
+                game29: {
+                  title: "Sprunki Serpiente.IO",
+                  description: "Sprunki Serpiente.IO"
+                },
+                game30: {
+                  title: "Sprunki Encuentra las Diferencias",
+                  description: "Sprunki Encuentra las Diferencias"
+                },
+                game31: {
+                  title: "Sprunki Pop It",
+                  description: "Sprunki Pop It"
+                },
+                game32: {
+                  title: "Sprunki Golpea al Topo",
+                  description: "Sprunki Golpea al Topo"
+                }
     // ... 添加更多游戏翻译
   },
   fil: {
@@ -394,7 +490,40 @@ export const gameTranslations = {
     game24: {
       title: "Sprunki Sprunkin",
       description: "sprunki-sprunkin"
+    },
+    game25: {
+      title: "Incredibox Party Frozen Sprunki Beat",
+      description: "Incredibox Party Frozen Sprunki Beat"
+    },
+    game26: {
+      title: "Huggy Mix Sprunki Music Box",
+      description: "Huggy Mix Sprunki Music Box"
+    },
+    game27: {
+      title: "Sprunki Music Scary Beat Box",
+      description: "Sprunki Music Scary Beat Box"
+    },
+    game28: {
+      title: "Sprunki Clicker Game",
+      description: "Sprunki Clicker Game"
+    },
+    game29: {
+      title: "Sprunki Snake.IO",
+      description: "Sprunki Snake.IO"
+    },
+    game30: {
+      title: "Sprunki Hanapin ang mga Pagkakaiba",
+      description: "Sprunki Hanapin ang mga Pagkakaiba"
+    },
+    game31: {
+      title: "Sprunki Pop It",
+      description: "Sprunki Pop It"
+    },
+    game32: {
+      title: "Sprunki Sipain ang Mole",
+      description: "Sprunki Sipain ang Mole"
     }
+    
     // ... 添加更多游戏翻译
   }
 }; 

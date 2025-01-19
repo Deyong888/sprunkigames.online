@@ -26,8 +26,6 @@ import game24 from "../assets/sprunki-24.webp";
 
 
 
-
-
 // ... 导入其他游戏图片
 
 export const games = [
@@ -151,5 +149,45 @@ export const games = [
     id: "game24",
     image: game24,
     url: "https://fnf.kdata1.com/2024/sprunki-sprunkin/1/"
+  },
+  {
+    id: "game25",
+    image: "https://img.gamepix.com/games/incredibox-party-frozen-sprunki-beat/icon/incredibox-party-frozen-sprunki-beat.png?w=105",
+    url: "https://play.gamepix.com/incredibox-party-frozen-sprunki-beat/embed?sid=1"
+  },
+  {
+    id: "game26",
+    image: "https://img.gamepix.com/games/huggy-mix-sprunki-music-box/icon/huggy-mix-sprunki-music-box.png?w=105",
+    url: "https://play.gamepix.com/huggy-mix-sprunki-music-box/embed?sid=1"
+  },
+  {
+    id: "game27",
+    image: "https://img.gamepix.com/games/sprunki-music-scary-beat-box/icon/sprunki-music-scary-beat-box.png?w=105",
+    url: "https://play.gamepix.com/sprunki-music-scary-beat-box/embed?sid=1"
+  },
+  {
+    id: "game28",
+    image: "https://img.gamepix.com/games/sprunki-clicker-game/icon/sprunki-clicker-game.png?w=105",
+    url: "https://play.gamepix.com/sprunki-clicker-game/embed?sid=1"
+  },
+  {
+    id: "game29",
+    image: "https://img.gamepix.com/games/sprunki-snake-io/icon/sprunki-snake-io.png?w=105",
+    url: "https://play.gamepix.com/sprunki-snake-io/embed?sid=1"
+  },
+  {
+    id: "game30",
+    image: "https://img.gamepix.com/games/sprunki-find-the-differences/icon/sprunki-find-the-differences.png?w=105",
+    url: "https://play.gamepix.com/sprunki-find-the-differences/embed?sid=1"
+  },
+  {
+    id: "game31",
+    image: "https://img.gamepix.com/games/sprunki-pop-it/icon/sprunki-pop-it.png?w=105",
+    url: "https://play.gamepix.com/sprunki-pop-it/embed?sid=1"
+  },
+  {
+    id: "game32",
+    image: "https://img.gamepix.com/games/sprunki-whack-a-mole/icon/sprunki-whack-a-mole.png?w=105",
+    url: "https://play.gamepix.com/sprunki-whack-a-mole/embed?sid=1"
   },
 ]; 
