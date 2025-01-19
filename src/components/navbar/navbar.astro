@@ -167,9 +167,11 @@ const t = translations[locale] || translations.en;
                 ) : (
                   <li>
                     <a
-                      href={`/${locale === "en" ? "" : locale}${item.path}`}
+                      href={item.path.startsWith('https') ? item.path : `/${locale === "en" ? "" : locale}${item.path}`}
                       title={item.title}
-                      class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300">
+                      class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300"
+                      target={item.path.startsWith('http') ? '_blank' : '_self'}
+                      rel="noopener noreferrer">
                       <Icon name={item.icon} class="w-5 h-5 mr-2" />
                       <span>{item.title}</span>
                       {item.badge && (
@@ -187,7 +189,7 @@ const t = translations[locale] || translations.en;
             <LanguagePicker />
           </li>
         </ul>
-      </MenuItems>
+      </MenuItems>      
     </Astronav>
   </header>
 </Container>
