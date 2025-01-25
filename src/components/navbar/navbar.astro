@@ -169,7 +169,7 @@ const t = translations[locale] || translations.en;
                     {/* 检查是否是外部链接 */}
                     {item.path.startsWith("http") ? (
                       <a
-                        href={item.path}
+                        href={item.path}  
                         title={item.title}
                         target="_blank"   
                         rel="noopener noreferrer" 
@@ -184,7 +184,7 @@ const t = translations[locale] || translations.en;
                       </a>
                     ) : (
                       <a
-                        href={`/${locale === "en" ? "" : locale}${item.path}`}
+                        href={`/${locale === "en" ? "" : locale}${item.path}`}  
                         title={item.title}
                         class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300">
                         <Icon name={item.icon} class="w-5 h-5 mr-2" />
@@ -206,6 +206,7 @@ const t = translations[locale] || translations.en;
           </li>
         </ul>
       </MenuItems>
+      
         
     </Astronav>
   </header>

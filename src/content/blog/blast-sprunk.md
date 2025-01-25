@@ -13,16 +13,23 @@ tags: [Sprunki, Blast Sprunki games online, music game]
 ---
 
 <a href="https://sprunkigames.online" target="_blank">Click to play Blast Sprunki Game</a> 
-<div class="iframe-wrapper aspect-video w-full max-w-6xl mx-auto">
-        <iframe 
-            src="https://play.gamepix.com/blast-sprunki/embed?sid=1" 
-            scrolling="no" 
-            seamless
-            title="Blast Sprunki Game"
-            class="w-full h-full rounded-lg shadow-lg"
-            allow="fullscreen"
-            style="height: 600px;"
-        ></iframe>
+<div class="iframe-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+    <iframe 
+        src="https://play.gamepix.com/blast-sprunki/embed?sid=1" 
+        scrolling="no" 
+        seamless
+        title="Blast Sprunki Game"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;"
+        allow="fullscreen"
+    ></iframe>
+    <button 
+        onclick="document.querySelector('.iframe-container iframe').requestFullscreen()" 
+        style="position: absolute; bottom: 10px; right: 10px; background-color: rgba(0, 0, 0, 0.7); color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background-color 0.3s ease;"
+        onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.9)'"
+        onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.7)'"
+    >
+        Full Screen
+    </button>
 </div>
 
 
