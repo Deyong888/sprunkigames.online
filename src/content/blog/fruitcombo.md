@@ -3,7 +3,7 @@ draft: false
 title: "Gold Date Palm Trees and Watermelon Combos in Synthetic Gold Date Palm Tree"
 snippet: "Experience unparalleled fun with synthetic fruit gaming! Cultivate your own Gold Date Palm Trees and create innovative watermelon combinations!"
 image: {
-    src: "https://sprunkigames.online/sprunki-4.png",
+    src: "https://upload.wikimedia.org/wikipedia/en/9/98/Sukia_Game_main_artwork.png",
     alt: "Fruit Combo"
 }
 publishDate: "2025-1-1 21:19"
