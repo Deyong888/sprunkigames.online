@@ -54,3 +54,13 @@ Casual Gamers: The simple yet engaging gameplay is perfect for casual gamers loo
 Remix Culture: Admirers of remix culture and fan-made content will delight in the innovation and dedication behind this version.
 ## Conclusion
 [Sprunki](https://sprunkigames.online) Version Katshup is a spirited remix that celebrates the essence of Incredibox while adding a layer of excitement and color. It’s a testament to the creativity of the gaming community and the endless possibilities of music creation. Whether you’re a long-time Incredibox fan or a newcomer to the scene, Sprunki Version Katshup is a spicy addition to your gaming library that’s sure to liven up your music-making adventures.
+
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

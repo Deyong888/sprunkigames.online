@@ -72,3 +72,13 @@ The Sprunki Clicker Game may include optional in-app purchases to unlock additio
 Absolutely, the [Sprunki](https://sprunkigames.online) Clicker Game supports offline play, allowing you to challenge yourself anytime, anywhere.
 
 Ready to embark on your clicking adventure with the Sprunki Clicker Game? Download now, push your limits, and become the fastest clicker out there!
+
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

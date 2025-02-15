@@ -58,3 +58,12 @@ References:
 [rivalscodes.com](https://rivalscodes.com)
 
 
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

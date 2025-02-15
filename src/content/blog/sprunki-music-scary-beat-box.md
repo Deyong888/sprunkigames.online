@@ -84,3 +84,12 @@ Absolutely! You can share your achievements and challenge your friends to beat y
 
 **Sprunki Music Scary Beat Box** is a unique blend of rhythm gaming and horror that will keep you entertained and on the edge of your seat. Whether you're a fan of music games or just looking for a spooky good time, this game has something for everyone. Are you ready to face the beat and the fear?
 
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

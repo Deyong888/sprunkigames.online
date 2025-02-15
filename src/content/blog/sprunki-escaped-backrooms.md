@@ -107,3 +107,13 @@ Yes, Squid Game: Sprunki Escaped Backrooms supports offline play, allowing you t
 The combination of the Squid Game theme, the Backrooms setting, and Sprunki’s unique abilities sets this game apart, offering a fresh and thrilling experience.
 
 Squid Game: Sprunki Escaped Backrooms is a must-play for fans of survival horror and action-adventure games. With its immersive atmosphere, challenging gameplay, and unique features, it’s a game that will keep you hooked from start to finish. Whether you’re a seasoned gamer or new to the genre, this game offers something for everyone. Dive into the Backrooms and help Sprunki escape today!
+
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

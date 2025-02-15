@@ -90,3 +90,12 @@ Absolutely! Share your chilling compositions with friends and challenge them to 
 
 Incredibox Party Frozen Sprunki Beat is a thrilling adventure that combines the love for music with the thrill of horror. Whether you're a music enthusiast or a horror aficionado, this game is sure to captivate and entertain. Are you ready to embrace the darkness and create your own chilling beats?
 
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

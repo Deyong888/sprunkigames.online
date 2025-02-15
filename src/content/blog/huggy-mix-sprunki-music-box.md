@@ -80,3 +80,13 @@ While the game is free to play, there may be optional in-game purchases for addi
 Yes, you can share your unique tunes with friends or on social media, showcasing your creativity.
 
 **Huggy Mix Sprunki Music Box** is a game that celebrates the joy of music and rhythm. Whether you're a seasoned musician or simply a lover of casual gaming, this title offers a refreshing and dynamic experience. Get ready to tap, create, and immerse yourself in a world where every beat matters.
+
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

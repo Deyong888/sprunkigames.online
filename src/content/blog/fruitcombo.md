@@ -86,3 +86,13 @@ Q5: How often is Fruit Combo updated?
 A5: Fruit Combo is regularly updated with new features, challenges, and events. The developers are committed to providing a fresh and exciting experience for players.
 
 In conclusion, Fruit Combo offers an immersive and exciting gaming experience that combines the joy of cultivation with the thrill of synthetic fruit gaming. With its realistic graphics, innovative gameplay, and regular updates, this game is a must-try for fans of the genre. So, what are you waiting for? Download Fruit Combo now and embark on an unforgettable journey filled with fun, challenges, and endless possibilities.
+
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

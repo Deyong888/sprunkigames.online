@@ -66,3 +66,13 @@ A: No, Sprunki Incredibox - Colorbox Mustard is designed for all players, regard
 
 ## Conclusion
 Sprunki Incredibox - Colorbox Mustard is a game that brings a vibrant and energetic twist to music creation, offering players a unique and engaging experience. Whether you’re a music lover or just looking for a creative outlet, this game will provide endless fun and inspiration. Dive in now and start your colorful musical journey!
+
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

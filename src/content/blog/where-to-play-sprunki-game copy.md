@@ -43,5 +43,15 @@ If you encounter any issues while trying to access [https://sprunkigames.online]
 ## Conclusion
 Sprunki is waiting for you at [Sprunki Games online](https://sprunkigames.online). Whether you're a seasoned musician or just starting your journey, this game offers a fun and engaging way to explore music creation. Don't let technical issues hold you back—take the steps to troubleshoot, and you'll be composing your own tracks in no time.
 
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
 ---
 

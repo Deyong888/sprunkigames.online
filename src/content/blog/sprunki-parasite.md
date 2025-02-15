@@ -57,3 +57,13 @@ Expansion of the Incredibox Universe: Fans of the original Incredibox will enjoy
 
 ## Conclusion
 Sprunki Parasite is a bold and imaginative modification that turns the music creation game Incredibox on its head. It’s a journey into the unknown, where players can craft music that resonates with the supernatural. Whether you’re looking to set the mood for a horror story or simply want to explore the darker side of music, Sprunki Parasite is a thrilling and innovative experience that will leave you both captivated and chilled to the bone.
+
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>

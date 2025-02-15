@@ -44,5 +44,15 @@ In Sprunki Jigsaw, players can immerse themselves in the world of Sprunki by pie
 Sprunki Jigsaw is more than a puzzle game; it's an extension of the Sprunki universe, allowing players to engage with the characters and stories they love in a new way. With its customizable gameplay and the depth of its background story, Sprunki Jigsaw offers a unique and enjoyable experience for fans and puzzle enthusiasts alike
 。
 
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
 ---
 

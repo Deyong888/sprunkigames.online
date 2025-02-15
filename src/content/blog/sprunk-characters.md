@@ -63,5 +63,15 @@ Finally, the vocal characters bring the music to life with their powerful and ex
 
 [Sprunki](https://sprunkigames.online) is more than just a music game; it's a vibrant community of characters, each with their own unique sound and style. Whether you're drawn to the beats, effects, melodies, or vocals, Sprunki offers a character for every musical taste. Discover your favorites and start creating your own unique compositions today.
 
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
 --- 
 
