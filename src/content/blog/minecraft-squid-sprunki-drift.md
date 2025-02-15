@@ -3,10 +3,10 @@ draft: false
 title: "Minecraft Squid Sprunki Drift Multiplayer: The Ultimate Speed Challenge"
 snippet: "Minecraft Squid Sprunki Drift Multiplayer is a thrilling racing game that seamlessly blends the world of Minecraft with the adrenaline-pumping experience of high-speed racing.Play Minecraft Squid Sprunki Drift Multiplayer on Sprunkigames Online"
 image: {
-    src: "https://img.gamepix.com/games/incredibox-party-frozen-sprunki-beat/cover/incredibox-party-frozen-sprunki-beat.png?w=256",
-    alt: "Incredibox Party Frozen Sprunki Beat Game on https://sprunkigames.online"
+    src: "https://img.gamepix.com/games/minecraft-squid-sprunki-drift-multiplayer/cover/minecraft-squid-sprunki-drift-multiplayer.png?w=256",
+    alt: "Minecraft Squid Sprunki Drift Multiplayer Game on https://sprunkigames.online"
 }
-publishDate: "2025-2-15 11:39"
+publishDate: "2025-2-14 11:39"
 category: "Sprunki Games"
 author: "Sprunki Incredibox"
 tags: [Sprunki, Minecraft Squid Sprunki Drift Multiplayer, game]

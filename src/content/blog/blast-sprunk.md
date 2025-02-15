@@ -90,3 +90,13 @@ To earn three stars, you must complete the level with the least number of attemp
 Yes, as you progress through the game, you may unlock various power-ups that can assist you in completing levels.
 
 In conclusion, **Blast Sprunki** is a game that will test your precision, timing, and strategy. With its engaging gameplay and progressively challenging levels, it's a must-play for puzzle enthusiasts. Whether you're a casual gamer or a seasoned puzzle solver, **Blast Sprunki** offers a unique and enjoyable experience. Download now and join the adventure to help Sprunki find its way to safety.
+
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
