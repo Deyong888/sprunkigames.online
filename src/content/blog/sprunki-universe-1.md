@@ -76,12 +76,3 @@ Q: How do I unlock new characters in Sprunki Universe 1? A: New characters can b
 
 Sprunki Universe 1 is a gaming experience that offers a perfect blend of adventure, creativity, and fun. With its engaging gameplay, vibrant world, and unique features, it’s a game that will keep you entertained for hours on end. Whether you’re a fan of platformers, RPGs, or simply looking for a new world to explore, Sprunki Universe 1 is the game for you. Dive into this imaginative universe and let the adventure begin!
 
-<div class="comments-area">
-<script src="https://utteranc.es/client.js"
-        repo="Deyong888/game-comments"
-        issue-term="pathname"
-        theme="github-light"  
-        crossorigin="anonymous"
-        async>
-</script>
-</div>

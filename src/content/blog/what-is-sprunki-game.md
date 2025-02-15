@@ -44,12 +44,3 @@ With modes such as "Infected" and "Dandy's World," each offering unique sounds a
 ## Conclusion
 Sprunki is not just a game; it is a platform for music creation that enables everyone to become a music producer. Whether you are a music novice or a seasoned enthusiast, Sprunki offers endless fun and creativity. Through this game, players can explore the infinite possibilities of music, discover hidden rewards, and share their creations with the global music community. Sprunki makes music creation simple and enjoyable.
 
-<div class="comments-area">
-<script src="https://utteranc.es/client.js"
-        repo="Deyong888/game-comments"
-        issue-term="pathname"
-        theme="github-light"  
-        crossorigin="anonymous"
-        async>
-</script>
-</div>

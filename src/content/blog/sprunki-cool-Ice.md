@@ -67,12 +67,3 @@ A: No, Sprunki Incredibox - Cool As Ice is designed for all players, regardless 
 ## Conclusion
 Sprunki Incredibox - Cool As Ice is a game that perfectly blends music creation with horror elements, offering players a unique and immersive experience. Whether you’re a music lover or a horror fan, this game will provide endless fun and inspiration. Dive in now and start your chilling musical journey!
 
-<div class="comments-area">
-<script src="https://utteranc.es/client.js"
-        repo="Deyong888/game-comments"
-        issue-term="pathname"
-        theme="github-light"  
-        crossorigin="anonymous"
-        async>
-</script>
-</div>

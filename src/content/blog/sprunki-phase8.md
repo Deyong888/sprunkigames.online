@@ -56,12 +56,3 @@ Incredibox Admirers: Players who enjoy the music creation aspect of Incredibox w
 ## Conclusion
 Sprunki Phase 8 is a groundbreaking entry in the Sprunki series, merging the excitement of platforming with the creative joy of music composition. It’s a game that not only tests your gaming skills but also your musical imagination. Whether you’re a seasoned gamer or a music aficionado, Sprunki Phase 8 offers a unique and harmonious experience that’s sure to resonate with players of all backgrounds. Get ready to jump, jam, and create your own symphony in this innovative installment of the Sprunki saga.
 
-<div class="comments-area">
-<script src="https://utteranc.es/client.js"
-        repo="Deyong888/game-comments"
-        issue-term="pathname"
-        theme="github-light"  
-        crossorigin="anonymous"
-        async>
-</script>
-</div>

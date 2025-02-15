@@ -48,12 +48,3 @@ As the temperatures drop, Sprunki Games is heating up the gaming scene. With its
 
 *Note: If you're having trouble accessing [https://sprunkigames.online](https://sprunkigames.online), please ensure the URL is correct and your internet connection is stable. Sometimes, issues with the website or network can cause temporary access problems. If the issue persists, consider reaching out to the site's support for assistance.*
 
-<div class="comments-area">
-<script src="https://utteranc.es/client.js"
-        repo="Deyong888/game-comments"
-        issue-term="pathname"
-        theme="github-light"  
-        crossorigin="anonymous"
-        async>
-</script>
-</div>

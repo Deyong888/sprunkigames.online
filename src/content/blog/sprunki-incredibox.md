@@ -60,12 +60,3 @@ Social Interaction: Connect with others through the shared experience of creatin
 
 Sprunki-Incredibox is a refreshing and imaginative game that turns music composition into a playful and interactive experience. With its unique blend of gaming and music-making, it encourages creativity and provides endless hours of entertainment. Whether you’re a seasoned musician or a complete beginner, Sprunki-Incredibox is your gateway to composing your own musical masterpieces. Get ready to make some noise and have a blast in the vibrant world of Sprunki!
 
-<div class="comments-area">
-<script src="https://utteranc.es/client.js"
-        repo="Deyong888/game-comments"
-        issue-term="pathname"
-        theme="github-light"  
-        crossorigin="anonymous"
-        async>
-</script>
-</div>

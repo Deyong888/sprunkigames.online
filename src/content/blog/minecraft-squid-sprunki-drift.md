@@ -56,12 +56,3 @@ A: Minecraft Squid Sprunki Drift Multiplayer features a variety of supercars, wh
 Q: How do I upgrade cars in Minecraft Squid Sprunki Drift Multiplayer?
 A: You can earn rewards by winning races and completing missions, which can be used to upgrade car performance in Minecraft Squid Sprunki Drift Multiplayer.
 
-<div class="comments-area">
-<script src="https://utteranc.es/client.js"
-        repo="Deyong888/game-comments"
-        issue-term="pathname"
-        theme="github-light"  
-        crossorigin="anonymous"
-        async>
-</script>
-</div>
