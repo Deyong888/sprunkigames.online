@@ -53,20 +53,22 @@ const { frontmatter } = Astro.props;
   </Container>
 
   <script>
-    // @ts-ignore
-    Artalk.init({
-      el: '#Comments',
-      pageKey: window.location.pathname,
-      pageTitle: document.title,
-      server: 'https://data.24kwebgames.com',
-      site: 'Sprunki',
-      // 自定义头像
-      avatarURLBuilder: (comment) => {
-        if (comment.is_admin) {
-          return "https://static.vecteezy.com/system/resources/thumbnails/027/951/137/small_2x/stylish-spectacles-guy-3d-avatar-character-illustrations-png.png"; // 替换为您的管理员头像URL
+    document.addEventListener('DOMContentLoaded', () => {
+      // @ts-ignore
+      Artalk.init({
+        el: '#Comments',
+        pageKey: window.location.pathname,
+        pageTitle: document.title,
+        server: 'https://data.24kwebgames.com',
+        site: 'Sprunki',
+
+        avatarURLBuilder: (comment) => {
+          if (comment.is_admin) {
+            return "https://static.vecteezy.com/system/resources/thumbnails/027/951/137/small_2x/stylish-spectacles-guy-3d-avatar-character-illustrations-png.png";
+          }
+          return `https://cravatar.cn/avatar/${comment.email_encrypted}`;
         }
-        return `https://cravatar.cn/avatar/${comment.email_encrypted}`;
-      }
+      });
     });
   </script>
 </Layout>

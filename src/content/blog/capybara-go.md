@@ -52,21 +52,6 @@ The visuals are stunning, with vibrant landscapes and beautifully designed creat
 
 "Capybara Go" is a must-play for everyone. It's a game that appeals to both casual gamers and those looking for something more meaningful and relaxing. It's pure joy from start to finish, reminding you of the beauty of simplicity and the wonder of nature。So, are you ready to dive headfirst into bizarre adventures with some whimsy, some irreverence, and a shovelful of good ol’ madness in this cute capy caper? "Capybara Go" awaits you。
 
-<div id="Comments"></div> <!-- 创建一个用于显示评论的div元素，id为Comments -->
-<script>
-Artalk.init({
-  	el:        '#Comments',  // 指定评论系统的容器元素，使用CSS选择器'#Comments'
-  	pageKey:   '{{article.url}}',  // casper主题的文章链接选择器
-  	pageTitle: '{{article.title}}',  // casper主题的标题选择器
-  	server:    'https://data.24kwebgames.com',  // 自己搭建的Artalk评论服务器域名地址
-  	site:      'Sprunki',  // 网站名称
-  	avatarURLBuilder: (c) => {  // 自定义头像URL生成器函数
-		if (c.is_admin) {
-			return "管理员头像 URL";  // 如果是管理员，使用指定的管理员头像URL
-		}
-		return `https://cravatar.cn/avatar/${c.email_encrypted}`;  // 否则，使用加密的邮箱生成Gravatar头像URL
-	}
-})
-</script>
+
 ---
 
