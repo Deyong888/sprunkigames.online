@@ -69,6 +69,6 @@ The Sprunki Clicker Game may include optional in-app purchases to unlock additio
 
 ### Can I play without an internet connection?
 
-Absolutely, the Sprunki Clicker Game supports offline play, allowing you to challenge yourself anytime, anywhere.
+Absolutely, the [Sprunki](https://sprunkigames.online) Clicker Game supports offline play, allowing you to challenge yourself anytime, anywhere.
 
 Ready to embark on your clicking adventure with the Sprunki Clicker Game? Download now, push your limits, and become the fastest clicker out there!

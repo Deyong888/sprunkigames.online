@@ -47,3 +47,14 @@ Sprunki also offers weekly challenges that provide a theme or set of rules to fo
 ## Conclusion
 Sprunki is more than just a game; it's a creative outlet for music lovers of all skill levels. By following these simple steps, you can start creating your own unique compositions and join a community of musicians and creators. So, visit [https://sprunkigames.online](https://sprunkigames.online) and let your musical journey begin!
 
+<div class="comments-area">
+<script src="https://utteranc.es/client.js"
+        repo="Deyong888/game-comments"
+        issue-term="pathname"
+        theme="github-light"  
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+
+
