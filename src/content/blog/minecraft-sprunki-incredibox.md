@@ -118,12 +118,3 @@ The combination of Minecraft’s blocky aesthetics, Sprunki’s quirky charm, an
 
 **Minecraft Sprunki Incredibox** is a must-play for fans of hidden-object games, Minecraft, and Sprunki. With its stunning visuals, engaging gameplay, and endless surprises, it’s a game that will keep you entertained for hours. Dive into this vibrant world and uncover its hidden treasures today!
 
-<div class="comments-area">
-<script src="https://utteranc.es/client.js"
-        repo="Deyong888/game-comments"
-        issue-term="pathname"
-        theme="github-light"  
-        crossorigin="anonymous"
-        async>
-</script>
-</div>
