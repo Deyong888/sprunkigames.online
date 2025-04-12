@@ -1,0 +1,95 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+const { locale = 'zh' } = Astro.props;
+
+// 添加多语言支持
+const translations = {
+  zh: {
+    title: "最新Sprunki游戏",
+    desc: "关于 Sprunki Games 的最新动态",
+    category: "类别",
+    author: "作者",
+    readMore: "阅读更多"
+  },
+  en: {
+    title: "Our Newest Sprunki Games",
+    desc: "We write about Sprunki Games online.",
+    category: "Category",
+    author: "Author",
+    readMore: "Read More"
+  },
+  es: {
+    title: "Nuestro Blog",
+    desc: "Escribimos sobre Sprunki Games en línea.",
+    category: "Categoría",
+    author: "Autor",
+    readMore: "Leer Más"
+  }
+};
+
+const t = translations[locale] || translations.zh;
+
+// Filter blog entries with 'draft: false' & date before current date
+const publishedBlogEntries = await getCollection("blog", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+
+// Sort content entries by publication date
+publishedBlogEntries.sort(function (a, b) {
+  return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+});
+---
+
+<Layout title="博客">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">{t.title}</Fragment>
+      <Fragment slot="desc">{t.desc}</Fragment>
+    </Sectionhead>
+    <main class="mt-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {
+          publishedBlogEntries.map((blogPostEntry, index) => (
+            <a href={`/zh/blog/${blogPostEntry.slug}`} 
+               class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+              <article class="flex flex-col h-full">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                  <Picture
+                    src={blogPostEntry.data.image.src}
+                    alt={blogPostEntry.data.image.alt}
+                    sizes="(max-width: 800px) 100vw, 400px"
+                    width={400}
+                    height={300}
+                    loading={index <= 5 ? "eager" : "lazy"}
+                    decoding={index <= 5 ? "sync" : "async"}
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                  <span class="text-blue-500 text-sm font-medium uppercase tracking-wider">
+                    {blogPostEntry.data.category}
+                  </span>
+                  <h2 class="text-xl font-semibold mt-2 mb-3 leading-snug group-hover:text-blue-600 transition-colors duration-200">
+                    {blogPostEntry.data.title}
+                  </h2>
+                  <div class="mt-auto flex items-center text-sm text-gray-500 gap-2">
+                    <span>{blogPostEntry.data.author}</span>
+                    <span>•</span>
+                    <time datetime={blogPostEntry.data.publishDate.toISOString()}>
+                      {new Date(blogPostEntry.data.publishDate).toLocaleDateString('zh-CN')}
+                    </time>
+                  </div>
+                </div>
+              </article>
+            </a>
+          ))
+        }
+      </div>
+    </main>
+  </Container>
+</Layout> 

@@ -1,0 +1,234 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+
+// 角色数据
+const characters = {
+  beats: [
+    {
+      name: "Sprunki 橙色 (Oren)",
+      image: "/characters/oren.webp",
+      description: "节奏的奠基者，为充满活力的音乐体验设定节奏。",
+      link: "/zh/characters/sprunki-oren"
+    },
+    {
+      name: "Sprunki 红色 (Raddy)",
+      image: "/characters/raddy.webp",
+      description: "以军鼓节奏和孤僻的性格著称。",
+      link: "/zh/characters/sprunki-raddy"
+    },
+    {
+      name: "Sprunki 银色 (Clukr)",
+      image: "/characters/clukr.webp",
+      description: "一个神秘的银色角色，通过标志性的钹声为音乐合奏带来独特的打击乐元素。",
+      link: "/zh/characters/sprunki-clukr"
+    },
+    {
+      name: "Sprunki 趣味机器人",
+      image: "/characters/funbot.webp",
+      description: "Sprunki的节奏灵魂，巧妙地控制着节拍。",
+      link: "/zh/characters/sprunki-funbot"
+    },
+    {
+      name: "Sprunki 绿色 (Vineria)",
+      image: "/characters/vineria.webp",
+      description: "节奏之王，跳动着音乐的心跳。",
+      link: "/zh/characters/sprunki-vineria"
+    }
+  ],
+  effects: [
+    {
+      name: "Sprunki 灰色",
+      image: "/characters/gray.webp",
+      description: "回声女王，在音乐中创造空间感。",
+      link: "/zh/characters/sprunki-gray"
+    },
+    {
+      name: "Sprunki 棕色 (Brud)",
+      image: "/characters/brud.webp",
+      description: "混响大师，塑造音乐的氛围。",
+      link: "/zh/characters/sprunki-brud"
+    },
+    {
+      name: "Sprunki 天蓝色 (Sky)",
+      image: "/characters/sky.webp",
+      description: "滤波专家，在调音中不可或缺。",
+      link: "/zh/characters/sprunki-sky"
+    },
+    {
+      name: "Sprunki 青柠色 (OWAKCX)",
+      image: "/characters/owakcx.webp",
+      description: "延迟效果艺术家，创造声音层次。",
+      link: "/zh/characters/sprunki-owakcx"
+    },
+    {
+      name: "Sprunki 金色 (Garnold)",
+      image: "/characters/garnold.webp",
+      description: "合成器大师，拥有丰富的声音效果库。",
+      link: "/zh/characters/sprunki-garnold"
+    }
+  ],
+  melodies: [
+    {
+      name: "Sprunki 树先生",
+      image: "/characters/tree.webp",
+      description: "钢琴精灵，旋律的源泉。",
+      link: "/zh/characters/sprunki-tree"
+    },
+    {
+      name: "Sprunki 黄色 (Simon)",
+      image: "/characters/simon.webp",
+      description: "吉他女神，和弦的魔法师。",
+      link: "/zh/characters/sprunki-simon"
+    },
+    {
+      name: "Sprunki 棕褐色 (Tunner)",
+      image: "/characters/tunner.webp",
+      description: "小提琴手，承载着优美旋律的使命。",
+      link: "/zh/characters/sprunki-tunner"
+    },
+    {
+      name: "Sprunki: 太阳先生",
+      image: "/characters/sun.webp",
+      description: "长笛大师，编织轻盈飘逸的音符。",
+      link: "/zh/characters/sprunki-sun"
+    },
+    {
+      name: "Sprunki 紫色 (Durple)",
+      image: "/characters/durple.webp",
+      description: "竖琴精灵，创作梦幻般的音符。",
+      link: "/zh/characters/sprunki-durple"
+    }
+  ],
+  vocals: [
+    {
+      name: "Sprunki 蓝色 (Jevin)",
+      image: "/characters/jevin.webp",
+      description: "声乐力量，为音乐带来深度。",
+      link: "/zh/characters/sprunki-jevin"
+    },
+    {
+      name: "Sprunki 白色 (Wenda)",
+      image: "/characters/wenda.webp",
+      description: "和声专家，精确地融合音符。",
+      link: "/zh/characters/sprunki-wenda"
+    },
+    {
+      name: "Sprunki 黑色",
+      image: "/characters/black.webp",
+      description: "低音男中音，提供低音基础。",
+      link: "/zh/characters/sprunki-black"
+    },
+    {
+      name: "Sprunki 粉色 (Pinki)",
+      image: "/characters/pink.webp",
+      description: "长笛大师，优雅地创作旋律。",
+      link: "/zh/characters/sprunki-pink"
+    },
+    {
+      name: "Sprunki 趣味电脑先生",
+      image: "/characters/computer.webp",
+      description: "数字大师，用计算精度作曲。",
+      link: "/zh/characters/sprunki-computer"
+    }
+  ]
+};
+---
+
+<Layout title="Sprunki音乐角色介绍 - 认识音乐世界的伙伴们" 
+        description="探索Sprunki游戏中的音乐角色，包括节奏大师、音效专家和旋律精灵。每个角色都拥有独特的音乐能力和个性。">
+  <Container>
+    <div class="py-16">
+      <h1 class="text-4xl font-bold text-center mb-8"><a href="https://sprunkigames.online">Sprunki音乐角色</a></h1>
+      <p class="text-xl text-center text-gray-600 mb-16">
+         认识这些可爱的音乐精灵，他们将带你进入美妙的音乐世界！点击角色了解更多！
+      </p>
+
+      {/* 节奏部分 */}
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-purple-600">节奏大师</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {characters.beats.map(character => (
+            <a href={character.link} class="block group">
+              <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transform transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="overflow-hidden">
+                  <img 
+                    src={character.image} 
+                    alt={character.name} 
+                    class="w-full h-[360px] object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div class="p-4 flex-1 flex flex-col">
+                  <h3 class="text-lg font-semibold mb-2 line-clamp-2 text-gray-800">{character.name}</h3>
+                  <p class="text-sm text-gray-600 line-clamp-3 flex-1">{character.description}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* 音效部分 */}
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-blue-600">音效大师</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {characters.effects.map(character => (
+            <a href={character.link} class="block">
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                <img src={character.image} alt={character.name} class="w-full object-cover h-[360px]" />
+                <div class="p-4">
+                  <h3 class="text-xl font-bold mb-2">{character.name}</h3>
+                  <p class="text-gray-600">{character.description}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* 旋律部分 */}
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-green-600">旋律精灵</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {characters.melodies.map(character => (
+            <a href={character.link} class="block">
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                <img src={character.image} alt={character.name} class="w-full h-[360px] object-cover" />
+                <div class="p-4">
+                  <h3 class="text-xl font-bold mb-2">{character.name}</h3>
+                  <p class="text-gray-600">{character.description}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  .grid {
+    --auto-grid-min-size: 240px;
+  }
+  
+  @media (max-width: 640px) {
+    .grid {
+      --auto-grid-min-size: 280px;
+    }
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style> 

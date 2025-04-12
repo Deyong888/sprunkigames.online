@@ -53,7 +53,7 @@ console.log('Current locale:', currentLocale);
 
 <div class="language-picker">
   <select 
-    onChange="window.location.href=this.value"
+    onchange="window.location.href=this.value"
     class="lang-select"
   >
     {languages.map(({ code, label, flag }) => {

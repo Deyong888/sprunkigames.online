@@ -12,20 +12,6 @@ author: "Sprunki Incredibox"
 tags: [Sprunki, Incredibox Party Frozen Sprunki Beat, music game]
 ---
 
-<a href="https://sprunkigames.online" target="_blank">Click to play Incredibox Party Frozen Sprunki Beat Game</a> 
-<div class="iframe-wrapper aspect-video w-full max-w-6xl mx-auto">
-        <iframe 
-            src="https://play.gamepix.com/incredibox-party-frozen-sprunki-beat/embed?sid=1" 
-            scrolling="no" 
-            seamless
-            title="Incredibox Party Frozen Sprunki Beat"
-            class="w-full h-full rounded-lg shadow-lg"
-            allow="fullscreen"
-            style="height: 600px;"
-        ></iframe>
-</div>
-
-
 
 ## Game Introduction
 
