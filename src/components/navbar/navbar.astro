@@ -27,12 +27,12 @@ const translations = {
     //  },
       {
         title: "Sprunki 最新游戏",
-        path: "/blog",
+        path: "../blog",
         icon: "heroicons:play-circle"
       },
       {
         title: "角色",
-        path: "/characters",
+        path: "../characters",
         icon: "heroicons:users"
       },
       {
@@ -63,12 +63,12 @@ const translations = {
  //     },
       {
         title: "Newest Games",
-        path: "/blog",
+        path: "../blog",
         icon: "heroicons:play-circle"
       },
       {
         title: "Characters",
-        path: "/characters",
+        path: "../characters",
         icon: "heroicons:users"
       },
       {
@@ -100,12 +100,12 @@ const translations = {
       },
       {
         title: "Noticias de Sprunki",
-        path: "/blog",
+        path: "../blog",
         icon: "heroicons:play-circle"
       },
       {
         title: "Personajes",
-        path: "/characters",
+        path: "../characters",
         icon: "heroicons:users"
       },
    //   {
@@ -115,14 +115,39 @@ const translations = {
     ],
   },
   fil: {
-    home: "Home",
-    games: "Mga Laro",
-    blog: "Blog",
-    about: "Tungkol Sa Amin",
-    contact: "Makipag-ugnayan",
-    play: "Maglaro Ngayon",
-    language: "Wika"
+    bout: "Sobre Nosotros",
+    privacy: "Política de Privacidad",
+    new: "Nuevo",
+    menuItems: [
+      {
+        title: "More Games ",
+        path: "#",
+        icon: "heroicons:ellipsis-horizontal",
+        children: [
+          { title: "subway surfers", path: "https://subwaysurfersgame.run" },
+          { title: "escape road", path: "https://escaperoads.online" },
+          { title: "sudoku", path: "https://sudoku.viggle.fun" },
+          { title: "24k Web Games", path: "https://24kwebgames.com" },
+        ],
+      },
+      {
+        title: " ",
+        path: "../blog",
+        icon: "heroicons:play-circle"
+      },
+      {
+        title: " ",
+        path: "../characters",
+        icon: "heroicons:users"
+      },
+   //   {
+   //     title: "Política de Privacidad",
+   //     path: "../privacy",
+  //    },
+    ],
+   
   }
+
 };
 
 const t = translations[locale] || translations.en;
