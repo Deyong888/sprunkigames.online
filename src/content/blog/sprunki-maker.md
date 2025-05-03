@@ -3,7 +3,7 @@ draft: false
 title: "Create Your Own Sprunki with Sprunki Maker"
 snippet: "Sprunki Maker is an innovative platform that allows users to quickly craft their own unique Sprunki characters. "
 image: {
-    src: "https://upload.wikimedia.org/wikipedia/en/9/98/Sukia_Game_main_artwork.png",
+    src: "https://s.sprunkiscrunkly.com/games/sprunki-maker-update/sprunki-maker-update-2.png",
     alt: "Sprunki Maker"
 }
 publishDate: "2025-5-1 21:19"
@@ -15,7 +15,7 @@ tags: [Fruit Combo, Synthetic Fruit Gaming, Gold Date Palm Trees, Watermelon Com
 <a href="https://sprunkigames.online" target="_blank">Click to play Sprunki Games</a> 
 <div class="iframe-wrapper aspect-video w-full max-w-6xl mx-auto">
         <iframe 
-            src="https://sprunkigames.online/games/sprunki-maker" 
+            src="https://sprunkigames.online/games/sprunki-maker.html" 
             scrolling="no" 
             seamless
             title="Sprunki Maker Craft your own unique Sprunki characters"
