@@ -7,9 +7,9 @@ image: {
     alt: "Sprunki Maker"
 }
 publishDate: "2025-5-1 21:19"
-category: "Fruit Combo"
+category: "Games"
 author: "Sprunki Incredibox"
-tags: [Fruit Combo, Synthetic Fruit Gaming, Gold Date Palm Trees, Watermelon Combos]
+tags: [Sprunki Incredibox, Sprunki Maker, Sprunki Character]
 ---
 
 <a href="https://sprunkigames.online" target="_blank">Click to play Sprunki Games</a> 
