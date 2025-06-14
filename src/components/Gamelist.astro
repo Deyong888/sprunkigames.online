@@ -20,8 +20,45 @@ const validateTranslations = (gameId: string) => {
 
 <section class="gamelist-section my-4">
   <div class="container mx-auto px-4">
-    <div> <h3 class="text-2xl font-bold text-center mb-4">Click The Game Card below to play</h3></div>
-    <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
+    <div class="mb-8">
+      <h3 class="text-2xl font-bold text-center mb-4">
+        {locale === 'zh' ? '点击下方游戏卡片开始游戏' : 'Click The Game Card below to play'}
+      </h3>
+      
+      <!-- 搜索区域 -->
+      <div class="flex flex-col md:flex-row gap-4 mb-6">
+        <div class="flex-1 relative">
+          <div class="relative">
+            <input 
+              type="text" 
+              id="gameSearch"
+              class="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:border-[#6B48FF] focus:ring-2 focus:ring-[#6B48FF] focus:ring-opacity-50 bg-white shadow-sm"
+              placeholder={locale === 'zh' ? '搜索游戏...' : 'Search games...'}
+            />
+            <svg 
+              class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+        <button 
+          id="randomGameBtn"
+          class="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#6B48FF] to-[#FF61D8] text-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+          </svg>
+          <span>{locale === 'zh' ? '随机游戏' : 'Random Game'}</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 游戏网格 -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="gameGrid">
       {games.map((game) => {
         if (!game || !game.image) return null;
         
@@ -29,51 +66,201 @@ const validateTranslations = (gameId: string) => {
         
         return (
           <div 
-            class="game-card group cursor-pointer"
+            class="game-card group cursor-pointer transform hover:scale-105 transition-all duration-300"
             data-game-url={game.url}
           >
-            <div class="relative overflow-hidden rounded-lg">
+            <div class="relative overflow-hidden rounded-lg shadow-lg">
               <Image 
                 src={game.image} 
                 alt={translation?.title || 'Game'}
-                width={120}
-                height={120}
-                class="w-full aspect-square object-cover transform group-hover:scale-105 transition-transform duration-300"
+                width={200}
+                height={200}
+                class="w-full aspect-square object-cover"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div class="absolute bottom-0 left-0 right-0 p-2">
-                  <p class="text-white text-xs">
+                <div class="absolute bottom-0 left-0 right-0 p-3">
+                  <p class="text-white text-sm font-medium">
+                    {translation?.title || 'Game'}
+                  </p>
+                  <p class="text-white text-xs mt-1">
                     {translation?.description || 'Play now'}
                   </p>
                 </div>
               </div>
             </div>
-            <div class="mt-1">
-              <h3 class="text-xs font-semibold text-[#6B48FF] group-hover:text-[#FF61D8] transition-colors duration-300 truncate">
-                {translation?.title || 'Game'}
-              </h3>
-            </div>
           </div>
         );
       })}
+    </div>
+
+    <!-- 分页控件 -->
+    <div class="flex justify-center mt-8 gap-2" id="pagination">
+      <button class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-[#6B48FF] hover:text-white transition-colors duration-300" id="prevPage">
+        {locale === 'zh' ? '上一页' : 'Previous'}
+      </button>
+      <div class="flex gap-2" id="pageNumbers"></div>
+      <button class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-[#6B48FF] hover:text-white transition-colors duration-300" id="nextPage">
+        {locale === 'zh' ? '下一页' : 'Next'}
+      </button>
     </div>
   </div>
 </section>
 
 <style>
-  /* 保持原有样式不变 */
+  .game-card {
+    transition: all 0.3s ease;
+  }
+  
+  .game-card:hover {
+    transform: translateY(-5px);
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .shake {
+    animation: shake 0.5s ease-in-out;
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const gameCards = document.querySelectorAll('.game-card');
     const gameFrame = document.getElementById('gameFrame');
+    const searchInput = document.getElementById('gameSearch');
+    const pageNumbers = document.getElementById('pageNumbers');
+    const prevPageBtn = document.getElementById('prevPage');
+    const nextPageBtn = document.getElementById('nextPage');
+    const randomGameBtn = document.getElementById('randomGameBtn');
 
+    // 分页设置
+    const gamesPerPage = 12;
+    let currentPage = 1;
+    let filteredGames = Array.from(gameCards);
+
+    // 初始化分页
+    function initializePagination() {
+      updatePagination();
+      showPage(1);
+    }
+
+    // 更新分页按钮
+    function updatePagination() {
+      const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
+      if (!pageNumbers) return;
+      
+      pageNumbers.innerHTML = '';
+      
+      for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.className = `px-4 py-2 rounded-lg ${
+          i === currentPage ? 'bg-[#6B48FF] text-white' : 'bg-gray-100 hover:bg-[#6B48FF] hover:text-white'
+        } transition-colors duration-300`;
+        pageButton.textContent = i.toString();
+        pageButton.onclick = () => showPage(i);
+        pageNumbers.appendChild(pageButton);
+      }
+    }
+
+    // 显示指定页面的游戏
+    function showPage(page) {
+      currentPage = page;
+      const start = (page - 1) * gamesPerPage;
+      const end = start + gamesPerPage;
+      
+      gameCards.forEach(card => {
+        if (card instanceof HTMLElement) {
+          card.style.display = 'none';
+        }
+      });
+      
+      filteredGames.slice(start, end).forEach(card => {
+        if (card instanceof HTMLElement) {
+          card.style.display = 'block';
+        }
+      });
+      
+      updatePagination();
+    }
+
+    // 随机游戏功能
+    if (randomGameBtn) {
+      randomGameBtn.addEventListener('click', () => {
+        // 添加抖动动画
+        randomGameBtn.classList.add('shake');
+        setTimeout(() => {
+          randomGameBtn.classList.remove('shake');
+        }, 500);
+
+        // 随机选择一个游戏
+        const randomIndex = Math.floor(Math.random() * gameCards.length);
+        const randomCard = gameCards[randomIndex];
+
+        // 隐藏所有游戏卡片
+        gameCards.forEach(card => {
+          if (card instanceof HTMLElement) {
+            card.style.display = 'none';
+          }
+        });
+
+        // 显示随机选中的游戏卡片
+        if (randomCard instanceof HTMLElement) {
+          randomCard.style.display = 'block';
+          
+          // 滚动到随机游戏卡片
+          randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // 添加高亮效果
+          randomCard.classList.add('animate-pulse');
+          setTimeout(() => {
+            randomCard.classList.remove('animate-pulse');
+          }, 1000);
+        }
+      });
+    }
+
+    // 搜索功能
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const target = e.target as HTMLInputElement;
+        const searchTerm = target.value.toLowerCase();
+        filteredGames = Array.from(gameCards).filter(card => {
+          const titleElement = card.querySelector('p');
+          if (!titleElement) return false;
+          return titleElement.textContent?.toLowerCase().includes(searchTerm);
+        });
+        currentPage = 1;
+        showPage(1);
+      });
+    }
+
+    // 分页按钮事件
+    if (prevPageBtn) {
+      prevPageBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          showPage(currentPage - 1);
+        }
+      });
+    }
+
+    if (nextPageBtn) {
+      nextPageBtn.addEventListener('click', () => {
+        const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
+        if (currentPage < totalPages) {
+          showPage(currentPage + 1);
+        }
+      });
+    }
+
+    // 游戏卡片点击事件
     gameCards.forEach(card => {
       card.addEventListener('click', () => {
-        const gameUrl = card.dataset.gameUrl;
+        const gameUrl = card.getAttribute('data-game-url');
         if (gameFrame && gameUrl) {
-          gameFrame.src = gameUrl;
+          (gameFrame as HTMLIFrameElement).src = gameUrl;
           
           // 平滑滚动到游戏区域
           const gameWrapper = document.querySelector('.game-wrapper');
@@ -83,5 +270,8 @@ const validateTranslations = (gameId: string) => {
         }
       });
     });
+
+    // 初始化
+    initializePagination();
   });
 </script> 
