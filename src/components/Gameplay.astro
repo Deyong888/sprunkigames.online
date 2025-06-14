@@ -29,11 +29,11 @@ const t = translations[locale] || translations.en;
 
 <section class="gameplay-section">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-8">
-      <a href="https://sprunkigames.online"> <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#FF61D8] to-[#6B48FF] bg-clip-text text-transparent">
+    <div class="text-center mb-2"> <!-- 将mb-8改为mb-2减少间距 -->
+      <a href="https://sprunkigames.online"> <h1 class="text-3xl md:text-4xl font-bold mb-1 bg-gradient-to-r from-[#FF61D8] to-[#6B48FF] bg-clip-text text-transparent">
         {t.title}
       </h1></a>
-      <p class="text-lg text-gray-600 max-w-3xl mx-auto">{t.description}</p>
+      <p class="text-sm text-gray-600 max-w-3xl mx-auto">{t.description}</p> <!-- 将text-lg改为text-sm减小字体 -->
     </div>
 
     <div class="game-wrapper">
@@ -60,7 +60,7 @@ const t = translations[locale] || translations.en;
 
 <style>
   .gameplay-section {
-    padding: 4rem 0;
+    padding: 1rem 0; /* 将4rem改为1rem减少上下间距 */
     background: white;
     position: relative;
     overflow: hidden;
@@ -276,4 +276,4 @@ const t = translations[locale] || translations.en;
     // 初始调整大小
     adjustGameSize();
   });
-</script> 
+</script>

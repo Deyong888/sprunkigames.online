@@ -40,6 +40,11 @@ export const games = [
     url: "https://sprunki.org/sprikng.embed"
   },
   {
+    "id": "game66",
+    "image": "https://cdn2.scratch.mit.edu/get_image/project/1117151711_480x360.png",
+    "url": "https://turbowarp.org/1117151711/embed"
+  },
+  {
     id: "game3",
     image: game3,
     url: "https://sprunki.org/sprunki-parasite.embed"
@@ -355,11 +360,7 @@ export const games = [
       "image": "https://cdn2.scratch.mit.edu/get_image/project/1107624728_480x360.png",
       "url": "https://turbowarp.org/1107624728/embed"
     },
-    {
-      "id": "game66",
-      "image": "https://cdn2.scratch.mit.edu/get_image/project/1117151711_480x360.png",
-      "url": "https://turbowarp.org/1117151711/embed"
-    },
+
     {
       "id": "game67",
       "image": "https://cdn2.scratch.mit.edu/get_image/project/1103168273_480x360.png",
