@@ -3,7 +3,8 @@ import { SEO } from "astro-seo";
 import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
-import '@fontsource-variable/bricolage-grotesque';
+import "@fontsource-variable/bricolage-grotesque";
+import "../styles/global.css";
 const GOOGLE_ANALYTICS_ID = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID;
 
 export interface Props {
@@ -63,9 +64,12 @@ const makeTitle = title
     <link href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.9.1/Artalk.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.9.1/Artalk.js"></script>
   </head>
-  <body>
+  <body class="site-body">
+    <div class="noise-overlay" aria-hidden="true"></div>
     <Navbar />
-    <slot />
+    <main class="site-main">
+      <slot />
+    </main>
     <Footer />
     <style is:global>
       /* Improve Page speed */

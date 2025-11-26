@@ -1,6 +1,5 @@
 ---
 import Container from "@components/container.astro";
-import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import LanguagePicker from "../LanguagePicker.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
@@ -153,33 +152,33 @@ const translations = {
 const t = translations[locale] || translations.en;
 ---
 
-<Container>
-  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
+<div class="nav-shell">
+  <Container class="w-full">
+    <header class="nav-inner">
     <Astronav>
-      <div class="flex w-full lg:w-auto items-center justify-between">
+      <div class="brand-block">
         <a
           href={`/${locale === "en" ? "" : locale}`}
           title="Sprunki Games online"
-          class="text-lg flex items-center">
+          class="brand-link">
           <Image
             src="/android-chrome-512x512.png"
             alt="Sprunki Games"
-            width={80}
-            height={80}
-            class="mr-2"
+            width={64}
+            height={64}
+            class="logo-image"
           />
-          <span
-            class="font-bold bg-gradient-to-r from-[#FF61D8] to-[#6B48FF] bg-clip-text text-transparent">
-            <a href="/."  title="Sprunki Games online">Sprunki</a>
-          </span>
-          <span class="text-[#6B48FF]">Game</span>
+          <div class="brand-text">
+            <span class="gradient-text text-xl font-semibold leading-none">Sprunki</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60">Playground</span>
+          </div>
         </a>
-        <div class="block lg:hidden">
-          <MenuIcon class="w-4 h-4 text-[#FF61D8]" />
+        <div class="lg:hidden">
+          <MenuIcon class="w-5 h-5 text-white" />
         </div>
       </div>
-      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
-        <ul class="flex flex-col lg:flex-row lg:gap-3">
+      <MenuItems class="hidden w-full lg:w-auto mt-4 lg:flex lg:mt-0">
+        <ul class="flex flex-col lg:flex-row lg:items-center lg:gap-4 w-full">
           {
             t.menuItems.map((item, index) => (
               <>
@@ -198,27 +197,17 @@ const t = translations[locale] || translations.en;
                         title={item.title}
                         target="_blank"   
                         rel="noopener noreferrer" 
-                        class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300">
-                        <Icon name={item.icon} class="w-5 h-5 mr-2" />
+                        class="nav-link external">
+                        <Icon name={item.icon} class="w-5 h-5" />
                         <span>{item.title}</span>
-                        {item.badge && (
-                          <span class="ml-1 px-2 py-0.5 text-[20px] animate-pulse font-semibold uppercase text-white bg-[#FF61D8] rounded-full">
-                            {t.new}
-                          </span>
-                        )}
                       </a>
                     ) : (
                       <a
                         href={`/${locale === "en" ? "" : locale}${item.path}`}  
                         title={item.title}
-                        class="flex lg:px-3 py-2 items-center text-[#6B48FF] hover:text-[#FF61D8] transition-colors duration-300">
-                        <Icon name={item.icon} class="w-5 h-5 mr-2" />
+                        class="nav-link">
+                        <Icon name={item.icon} class="w-5 h-5" />
                         <span>{item.title}</span>
-                        {item.badge && (
-                          <span class="ml-1 px-2 py-0.5 text-[20px] animate-pulse font-semibold uppercase text-white bg-[#FF61D8] rounded-full">
-                            {t.new}
-                          </span>
-                        )}
                       </a>
                     )}
                   </li>
@@ -229,28 +218,87 @@ const t = translations[locale] || translations.en;
           <li class="flex items-center">
             <LanguagePicker />
           </li>
+          <li>
+            <a href="#Gameplay" class="neon-button nav-cta">
+              <Icon name="heroicons:play" class="w-5 h-5" />
+              {locale === "zh" ? "立即开玩" : "Start Playing"}
+            </a>
+          </li>
         </ul>
       </MenuItems>
-      
-        
     </Astronav>
-  </header>
-</Container>
+    </header>
+  </Container>
+</div>
 
 <style>
-  header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 2px solid rgba(255, 97, 216, 0.1);
+  .nav-shell {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 1rem 0;
+    background: linear-gradient(180deg, rgba(15,15,18,0.95), rgba(15,15,18,0.65));
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  .astronav-toggle {
-    color: #ff61d8;
+  .nav-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  @media (max-width: 768px) {
-    .astronav-toggle {
-      color: #ff61d8;
+  .brand-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-image {
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1.1rem;
+    border-radius: 999px;
+    text-transform: none;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+
+  .nav-link.external {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-cta {
+    padding-inline: 1.8rem;
+  }
+
+  @media (min-width: 1024px) {
+    .nav-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
     }
   }
 </style>

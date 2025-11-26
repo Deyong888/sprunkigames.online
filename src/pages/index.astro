@@ -15,8 +15,8 @@ const locale = Astro.currentLocale || 'en';
 ---
 
 <Layout title="Sprunki Game">
+  <Gameplay locale={locale} id="Gameplay" />
   <Container>
-    <Gameplay locale={locale} id="Gameplay" />
     <Gamelist locale={locale} />
     <SocialShare locale={locale} />
     <Bloglist locale={locale} />

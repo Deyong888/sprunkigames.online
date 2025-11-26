@@ -25,45 +25,155 @@ const translations = {
 
 const t = translations[locale] || translations.en;
 
-// 获取最新的4篇博客文章
+// 获取最新的 3 篇博客文章
 const publishedBlogEntries = await getCollection("blog", ({ data }) => {
   return !data.draft && data.publishDate < new Date();
 });
 
 const recentPosts = publishedBlogEntries
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-  .slice(0, 4);
+  .slice(0, 3);
 ---
 
-<section class="py-16">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-8">{t.title}</h2>
-    <p class="text-center text-gray-600 mb-12">{t.desc}</p>
+<section class="bloglist-section">
+  <div class="section-shell --full">
+    <div class="text-center mb-10">
+      <h2 class="heading-gradient">{t.title}</h2>
+      <p class="muted">{t.desc}</p>
+    </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="blog-grid">
       {recentPosts.map((post) => (
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <a href={`/blog/${post.slug}`} class="block">
-            <Picture
-              src={post.data.image.src}
-              alt={post.data.image.alt}
-              sizes="(max-width: 800px) 100vw, 800px"
-              width={400}
-              height={300}
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2 hover:text-blue-600">
+        <article class="blog-card glass-panel">
+          <a href={`/blog/${post.slug}`} class="blog-link">
+            <div class="blog-image-wrapper">
+              <Picture
+                src={post.data.image.src}
+                alt={post.data.image.alt}
+                sizes="(max-width: 800px) 100vw, 800px"
+                width={400}
+                height={300}
+                class="blog-image"
+              />
+            </div>
+            <div class="blog-content">
+              <h3 class="blog-title">
                 {post.data.title}
               </h3>
-              <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              <p class="blog-excerpt muted">
                 {post.data.excerpt || post.data.description}
               </p>
-              <span class="text-blue-500 text-sm">{t.readMore} →</span>
+              <span class="blog-readmore">
+                {t.readMore} →
+              </span>
             </div>
           </a>
-        </div>
+        </article>
       ))}
     </div>
   </div>
-</section> 
+</section>
+
+<style>
+  .bloglist-section {
+    padding-top: clamp(2rem, 4vw, 4rem);
+    background: var(--bg-base);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .blog-card {
+    overflow: hidden;
+    transition: var(--transition-base);
+    background: linear-gradient(145deg, rgba(26, 24, 38, 0.95), rgba(16, 16, 24, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  }
+
+  .blog-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 224, 255, 0.25);
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.55);
+  }
+
+  .blog-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .blog-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .blog-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .blog-card:hover .blog-image {
+    transform: scale(1.08);
+  }
+
+  .blog-content {
+    padding: 1.5rem;
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.02), transparent 60%);
+  }
+
+  .blog-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+    line-height: 1.4;
+  }
+
+  .blog-card:hover .blog-title {
+    color: var(--accent-cyan);
+  }
+
+  .blog-excerpt {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.65;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .blog-content .muted {
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .blog-readmore {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: gap 0.3s ease;
+  }
+
+  .blog-card:hover .blog-readmore {
+    gap: 0.6rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style> 

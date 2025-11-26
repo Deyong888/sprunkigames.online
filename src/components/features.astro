@@ -168,119 +168,88 @@ const translations = {
 const t = translations[locale] || translations.en;
 ---
 
-<div class="features-container">
-  <h2 class="heading-gradient">
-    {t.heading}
-  </h2>
-  <p class="subheading">
-    {t.subheading}
-  </p>
+<section class="features-section">
+  <div class="section-shell --full">
+    <h2 class="text-center">
+      {t.heading}
+    </h2>
+    <p class="subheading text-center">
+      {t.subheading}
+    </p>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8">
-    {t.features.map((feature) => (
-      <div class="feature-card">
-        <div class="icon-container" set:html={icons[feature.icon]} />
-        <h3 class="text-xl font-bold mb-2">
-          {feature.title}
-        </h3>
-        <p>
-          {feature.description}
-        </p>
-      </div>
-    ))}
+    <div class="bento-grid --large">
+      {t.features.map((feature, index) => (
+        <div class:list={["feature-card", index % 3 === 0 ? "feature-card--tall" : ""]}>
+          <div class="icon-container" set:html={icons[feature.icon]} />
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+        </div>
+      ))}
+    </div>
   </div>
-</div>
+</section>
 
 <style>
-  .features-container {
-    background: linear-gradient(135deg, rgba(255, 97, 216, 0.1), rgba(107, 72, 255, 0.1));
-    padding: 4rem 0;
-    border-radius: 24px;
-    margin: 2rem 0;
-    position: relative;
-    overflow: hidden;
+  .features-section {
+    padding-top: clamp(4rem, 6vw, 6rem);
+    padding-bottom: clamp(4rem, 6vw, 6rem);
+    background: var(--bg-alt);
+    margin-top: clamp(4rem, 5vw, 5rem);
   }
 
-  /* 移除音符背景图案，改用 CSS 渐变 */
-  .features-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 97, 216, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(107, 72, 255, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .feature-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-    border: 2px solid rgba(255, 97, 216, 0.1);
-  }
-
-  .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(107, 72, 255, 0.15);
-  }
-
-  .icon-container {
-    background: linear-gradient(45deg, #FF61D8, #6B48FF);
-    border-radius: 12px;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-
-  .heading-gradient {
-    background: linear-gradient(to right, #FF61D8, #6B48FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 1.5rem;
+  h2 {
+    color: var(--text-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.4rem;
+    font-weight: 700;
   }
 
   .subheading {
-    color: #6B48FF;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 3rem auto;
-    line-height: 1.6;
-    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 780px;
+    margin: 0.5rem auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .feature-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .feature-card--tall {
+    grid-row: span 2;
+    min-height: 320px;
   }
 
   .feature-card h3 {
-    color: #FF61D8;
-    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-heading);
   }
 
   .feature-card p {
-    color: #6B48FF;
-    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .icon-container {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(108, 93, 211, 0.3), rgba(139, 92, 246, 0.3));
+    border: 1px solid rgba(108, 93, 211, 0.2);
   }
 
   .icon-container svg {
-    color: white;
-    width: 2rem;
-    height: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .heading-gradient {
-      font-size: 2rem;
-    }
-
-    .subheading {
-      font-size: 1rem;
-      padding: 0 1rem;
-    }
+    width: 28px;
+    height: 28px;
+    color: #fff;
   }
 </style>

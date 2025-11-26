@@ -1,16 +1,54 @@
 ---
-import Link from "./ui/link.astro";
 ---
 
-<div
-  class="bg-purple-600 p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center">
-  <h2 class="text-white text-4xl md:text-6xl tracking-tight">
-    Play Sprunki Games now!.
-  </h2>
-  <p class="text-slate-400 mt-4 text-lg md:text-xl">
-    enjoy the pleasure of creating music.
-  </p>
-  <div class="flex mt-5">
-    <Link href="https://sprunkigames.online" style="inverted">Get Started</Link>
+<section class="cta-section">
+  <div class="cta-shell glass-panel">
+    <div>
+      <p class="pill">Ready to mix?</p>
+      <h2>Plug in. Remix. Drop the beat.</h2>
+      <p>Create Your Sound. Anytime. Anywhere.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://sprunkigames.online" class="neon-button">Launch Game Hub</a>
+      <a href="/blog" class="ghost-link">Browse updates →</a>
+    </div>
   </div>
-</div>
+</section>
+
+<style>
+  .cta-section {
+    padding: clamp(2rem, 4vw, 4rem) 0;
+    background: var(--bg-alt);
+  }
+
+  .cta-shell {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid rgba(0, 224, 255, 0.2);
+  }
+
+  .cta-shell h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0.4rem 0 0.6rem;
+  }
+
+  .cta-shell p {
+    color: var(--text-secondary);
+    max-width: 30rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .ghost-link {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-weight: 600;
+  }
+</style>

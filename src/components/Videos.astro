@@ -182,24 +182,19 @@ const t = translations[locale] || translations.en;
 ---
 
 <section class="videos-section">
-  <div class="container mx-auto px-4 max-w-6xl">
-    <div class="text-center mb-12">
-      <h2 class="heading-gradient">
-        {t.title}
-      </h2>
-      <p class="subheading">
-        {t.description}
-      </p>
+  <div class="section-shell --full">
+    <div class="text-center mb-10">
+      <h2 class="heading-gradient">{t.title}</h2>
+      <p class="muted">{t.description}</p>
     </div>
 
-    <div class="grid">
+    <div class="video-grid">
       {t.videos.map((video) => (
-        <div class="video-card">
-          <div class="thumbnail-wrapper">
+        <article class="video-card">
+          <div class="video-media">
             <img 
               src={video.thumbnail} 
               alt={video.title}
-              class="video-thumbnail"
               loading="lazy"
             />
             <button 
@@ -207,16 +202,17 @@ const t = translations[locale] || translations.en;
               aria-label={t.viewOnYoutube}
               data-video-id={video.youtubeId}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12">
-                <path d="M8 5v14l11-7z"/>
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 4v16l13-8z" fill="currentColor" />
               </svg>
             </button>
           </div>
-          <div class="video-info">
+          <div class="video-meta">
+            <p class="pill">{locale === 'zh' ? '精选视频' : 'Featured clip'}</p>
             <h3>{video.title}</h3>
-            <p>{video.description}</p>
+            <p class="muted">{video.description}</p>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   </div>
@@ -242,214 +238,113 @@ const t = translations[locale] || translations.en;
 
 <style>
   .videos-section {
-    background: linear-gradient(135deg, rgba(255, 97, 216, 0.1), rgba(107, 72, 255, 0.1));
-    padding: 4rem 0;
-    position: relative;
-    overflow: hidden;
+    padding-top: clamp(2rem, 4vw, 4rem);
+    background: var(--bg-base);
   }
 
-  .heading-gradient {
-    background: linear-gradient(to right, #FF61D8, #6B48FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .subheading {
-    color: #6B48FF;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 3rem auto;
-    line-height: 1.6;
-    font-size: 1.1rem;
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
   }
 
   .video-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     overflow: hidden;
-    border: 2px solid rgba(255, 97, 216, 0.1);
-    transition: all 0.3s ease;
+    background: rgba(16, 16, 24, 0.9);
+    display: flex;
+    flex-direction: column;
   }
 
-  .video-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(107, 72, 255, 0.15);
-  }
-
-  .thumbnail-wrapper {
+  .video-media {
     position: relative;
-    padding-top: 56.25%; /* 16:9 比例 */
-    overflow: hidden;
   }
 
-  .video-thumbnail {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .video-media img {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-
-  .video-card:hover .video-thumbnail {
-    transform: scale(1.05);
   }
 
   .play-button {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    background: rgba(255, 97, 216, 0.9);
+    inset: 0;
+    margin: auto;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
-    padding: 1rem;
-    opacity: 0;
-    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: grid;
+    place-items: center;
+    transition: var(--transition-base);
   }
 
   .video-card:hover .play-button {
-    opacity: 1;
+    transform: scale(1.08);
+    border-color: rgba(0, 224, 255, 0.7);
   }
 
-  .video-info {
-    padding: 1.5rem;
+  .video-meta {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
   }
 
-  .video-info h3 {
-    color: #FF61D8;
-    font-weight: bold;
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .video-info p {
-    color: #6B48FF;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-
-  .youtube-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #FF61D8;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-
-  .youtube-link:hover {
-    color: #6B48FF;
-  }
-
-  @media (max-width: 768px) {
-    .heading-gradient {
-      font-size: 2rem;
-    }
-
-    .subheading {
-      font-size: 1rem;
-      padding: 0 1rem;
-    }
-
-    .video-info h3 {
-      font-size: 1.1rem;
-    }
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  @media (min-width: 1024px) {
-    .grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @media (min-width: 1536px) {
-    .container {
-      max-width: 1400px;
-    }
+  .video-meta h3 {
+    font-size: 1.2rem;
   }
 
   .modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
     z-index: 1000;
-    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
   }
 
   .modal-content {
     position: relative;
-    width: 90%;
-    max-width: 1000px;
-    margin: 2% auto;
-    background: transparent;
+    width: min(90vw, 900px);
   }
 
   .video-container {
     position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
+    padding-top: 56.25%;
+    border-radius: 20px;
     overflow: hidden;
   }
 
   .video-container iframe {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    border-radius: 16px;
+    border: none;
   }
 
   .close-button {
     position: absolute;
-    top: -40px;
-    right: -40px;
-    background: #FF61D8;
-    color: white;
+    top: -50px;
+    right: 0;
     border: none;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    transition: var(--transition-base);
   }
 
   .close-button:hover {
-    background: #6B48FF;
     transform: rotate(90deg);
-  }
-
-  @media (max-width: 768px) {
-    .modal-content {
-      width: 95%;
-      margin: 10% auto;
-    }
-
-    .close-button {
-      top: -50px;
-      right: 0;
-    }
   }
 </style>
 
@@ -464,7 +359,7 @@ const t = translations[locale] || translations.en;
       button.addEventListener('click', () => {
         const videoId = button.dataset.videoId;
         videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
       });
     });
@@ -484,7 +379,7 @@ const t = translations[locale] || translations.en;
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.style.display === 'block') {
+      if (e.key === 'Escape' && modal.style.display !== 'none') {
         videoPlayer.src = '';
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';

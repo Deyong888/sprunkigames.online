@@ -18,101 +18,395 @@ const validateTranslations = (gameId: string) => {
 };
 ---
 
-<section class="gamelist-section my-4">
-  <div class="container mx-auto px-4">
-    <div class="mb-8">
-      <h3 class="text-2xl font-bold text-center mb-4">
-        {locale === 'zh' ? '点击下方游戏卡片开始游戏' : 'Click The Game Card below to play'}
-      </h3>
-      
-      <!-- 搜索区域 -->
-      <div class="flex flex-col md:flex-row gap-4 mb-6">
-        <div class="flex-1 relative">
-          <div class="relative">
-            <input 
-              type="text" 
-              id="gameSearch"
-              class="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:border-[#6B48FF] focus:ring-2 focus:ring-[#6B48FF] focus:ring-opacity-50 bg-white shadow-sm"
-              placeholder={locale === 'zh' ? '搜索游戏...' : 'Search games...'}
-            />
-            <svg 
-              class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-        </div>
-        <button 
-          id="randomGameBtn"
-          class="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#6B48FF] to-[#FF61D8] text-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-          </svg>
-          <span>{locale === 'zh' ? '随机游戏' : 'Random Game'}</span>
-        </button>
+<section class="gamelist-section" id="GameList">
+  <div class="section-shell --full stacked">
+    <div class="gamelist-head">
+      <div>
+        <p class="pill">{locale === 'zh' ? '高热度游戏库' : 'Always-on Arcade'}</p>
+        <h3>{locale === 'zh' ? '点击卡片，立即载入主舞台' : 'Tap a card to load it inside the main stage'}</h3>
+        <p class="muted">
+          {locale === 'zh'
+            ? '每张卡片都是一个新的 Sprunki 宇宙，精选多种玩法、音色与挑战。'
+            : 'Every card opens a new Sprunki universe packed with unique kits, visuals, and challenges.'}
+        </p>
+      </div>
+      <button 
+        id="randomGameBtn"
+        class="neon-button random-btn"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+        </svg>
+        <span>{locale === 'zh' ? '惊喜随机' : 'Surprise me'}</span>
+      </button>
+    </div>
+
+    <div class="gamelist-filters">
+      <label class="search-field">
+        <span class="sr-only">Search Games</span>
+        <svg viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input 
+          type="text" 
+          id="gameSearch"
+          placeholder={locale === 'zh' ? '搜索 Sprunki 宇宙...' : 'Search Sprunki universes...'}
+        />
+      </label>
+      <div class="filter-note">
+        {locale === 'zh' ? '精选 180+ 模组 · 全部支持桌面与移动端' : '180+ modules · Desktop & Mobile ready'}
       </div>
     </div>
 
-    <!-- 游戏网格 -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="gameGrid">
-      {games.map((game) => {
-        if (!game || !game.image) return null;
-        
-        const translation = validateTranslations(game.id);
-        
-        return (
-          <div 
-            class="game-card group cursor-pointer transform hover:scale-105 transition-all duration-300"
-            data-game-url={game.url}
-          >
-            <div class="relative overflow-hidden rounded-lg shadow-lg">
-              <Image 
-                src={game.image} 
-                alt={translation?.title || 'Game'}
-                width={200}
-                height={200}
-                class="w-full aspect-square object-cover"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div class="absolute bottom-0 left-0 right-0 p-3">
-                  <p class="text-white text-sm font-medium">
-                    {translation?.title || 'Game'}
-                  </p>
-                  <p class="text-white text-xs mt-1">
-                    {translation?.description || 'Play now'}
-                  </p>
+    <div class="games-grid-wrapper">
+      <div class="games-grid" id="gameGrid" data-initial-count="15">
+        {games.filter(game => game && game.image).map((game, index) => {
+          const translation = validateTranslations(game.id);
+          const badgeType = game.id.endsWith("1") ? "hot" : game.id.endsWith("2") ? "new" : null;
+          
+          return (
+            <div 
+              class="game-card-grid"
+              data-game-url={game.url}
+              data-index={index}
+              style={`display: ${index < 15 ? 'flex' : 'none'};`}
+            >
+              <div class="card-media">
+                {badgeType && (
+                  <span class:list={["badge", badgeType === "hot" ? "--hot" : "--new"]}>
+                    {badgeType === "hot" ? (locale === 'zh' ? '热门' : 'Hot') : (locale === 'zh' ? '上新' : 'New')}
+                  </span>
+                )}
+                <Image 
+                  src={game.image} 
+                  alt={translation?.title || 'Game'}
+                  width={400}
+                  height={225}
+                  class="game-thumb"
+                />
+                <div class="card-overlay">
+                  <div class="overlay-content">
+                    <p class="overlay-title">{translation?.title || 'Game'}</p>
+                    <p class="overlay-desc">{translation?.description || 'Play now'}</p>
+                    <button class="play-indicator">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
+              <div class="card-title">
+                <p>{translation?.title || 'Game'}</p>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
+      {games.filter(game => game && game.image).length > 15 && (
+        <div class="load-more-wrapper">
+          <button id="loadMoreBtn" class="load-more-btn" data-locale={locale}>
+            <span>{locale === 'zh' ? '查看所有游戏' : 'View All Games'}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
 
-    <!-- 分页控件 -->
-    <div class="flex justify-center mt-8 gap-2" id="pagination">
-      <button class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-[#6B48FF] hover:text-white transition-colors duration-300" id="prevPage">
-        {locale === 'zh' ? '上一页' : 'Previous'}
-      </button>
-      <div class="flex gap-2" id="pageNumbers"></div>
-      <button class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-[#6B48FF] hover:text-white transition-colors duration-300" id="nextPage">
-        {locale === 'zh' ? '下一页' : 'Next'}
-      </button>
-    </div>
   </div>
 </section>
 
 <style>
-  .game-card {
+  .gamelist-section {
+    padding-top: clamp(3rem, 5vw, 5rem);
+    padding-bottom: clamp(3rem, 5vw, 5rem);
+    background: var(--bg-base);
+  }
+
+  .gamelist-head {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .gamelist-head h3 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin: 0.6rem 0;
+    color: var(--text-heading);
+  }
+
+  .gamelist-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .search-field {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.25rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    transition: var(--transition-base);
+    cursor: text;
+  }
+
+  .search-field:focus-within {
+    border-color: rgba(0, 224, 255, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 3px rgba(0, 224, 255, 0.1);
+  }
+
+  .search-field svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
+  }
+
+  .search-field input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 400;
+  }
+
+  .search-field input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .filter-note {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .games-grid-wrapper {
+    position: relative;
+    margin: 2rem 0;
+  }
+
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    padding: 0;
+  }
+
+  @media (min-width: 768px) {
+    .games-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .games-grid {
+      grid-template-columns: repeat(5, 1fr);
+      max-width: 100%;
+    }
+  }
+
+  .game-card-grid {
+    cursor: pointer;
+    border-radius: 12px;
+    background: rgba(18, 18, 25, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .game-card-grid:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #8B5CF6;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+    z-index: 2;
+  }
+
+  .game-card-grid.active {
+    border-color: #8B5CF6;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  }
+
+  .card-media {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .game-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+  }
+
+  .game-card-grid:hover .game-thumb {
+    transform: scale(1.05);
+  }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(5, 8, 15, 0.95), rgba(5, 8, 15, 0.4) 40%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .game-card-grid:hover .card-overlay,
+  .game-card-grid.active .card-overlay {
+    opacity: 1;
+  }
+
+  .card-title {
+    padding: 0.75rem;
+    background: rgba(18, 18, 25, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .card-title p {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .load-more-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  .load-more-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #7F5AF0 0%, #8B5CF6 100%);
+    border: none;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(127, 90, 240, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .load-more-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .load-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(127, 90, 240, 0.5);
+  }
+
+  .load-more-btn:hover::before {
+    opacity: 1;
+  }
+
+  .load-more-btn span,
+  .load-more-btn svg {
+    position: relative;
+    z-index: 1;
+  }
+
+  .load-more-btn svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .load-more-btn:hover svg {
+    transform: translateY(2px);
+  }
+
+  .load-more-btn.is-disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  .overlay-content {
+    text-align: center;
+    width: 100%;
+  }
+
+  .overlay-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    color: #fff;
+  }
+
+  .overlay-desc {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .play-indicator {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(0, 224, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
     transition: all 0.3s ease;
   }
-  
-  .game-card:hover {
-    transform: translateY(-5px);
+
+  .play-indicator svg {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+    margin-left: 2px;
+  }
+
+  .play-indicator:hover {
+    transform: scale(1.1);
+    background: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 224, 255, 0.6);
+  }
+
+
+
+  .random-btn {
+    width: fit-content;
   }
 
   @keyframes shake {
@@ -124,154 +418,247 @@ const validateTranslations = (gameId: string) => {
   .shake {
     animation: shake 0.5s ease-in-out;
   }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  @media (min-width: 900px) {
+    .gamelist-head {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const gameCards = document.querySelectorAll('.game-card');
+    const gameGrid = document.getElementById('gameGrid');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const initialVisibleCount = Number(gameGrid?.getAttribute('data-initial-count') || '15');
+    const gameCards = Array.from(document.querySelectorAll('.game-card-grid'));
+    const loadMoreLocale = loadMoreBtn?.getAttribute('data-locale') || 'en';
+    const labelMap = {
+      view: loadMoreLocale === 'zh' ? '查看所有游戏' : 'View All Games',
+      collapse: loadMoreLocale === 'zh' ? '收起游戏' : 'Show Less'
+    };
+    let allGamesVisible = false;
+    let isSearching = false;
+
+    const syncLoadMoreState = () => {
+      if (!loadMoreBtn) return;
+      if (isSearching) {
+        loadMoreBtn.classList.add('is-disabled');
+        loadMoreBtn.setAttribute('aria-disabled', 'true');
+      } else {
+        loadMoreBtn.classList.remove('is-disabled');
+        loadMoreBtn.removeAttribute('aria-disabled');
+      }
+    };
+
+    const updateButtonLabel = (expanded: boolean) => {
+      if (!loadMoreBtn) return;
+      loadMoreBtn.innerHTML = `
+        <span>${expanded ? labelMap.collapse : labelMap.view}</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="${expanded ? 'M5 15l7-7 7 7' : 'M19 9l-7 7-7-7'}"/>
+        </svg>
+      `;
+    };
+
+    const applyVisibility = () => {
+      gameCards.forEach((card, index) => {
+        if (!(card instanceof HTMLElement)) return;
+        const shouldShow = allGamesVisible || index < initialVisibleCount;
+        card.style.display = shouldShow ? '' : 'none';
+        if (!shouldShow) {
+          card.classList.remove('active');
+        }
+      });
+    };
+
+    if (!allGamesVisible) {
+      applyVisibility();
+      updateButtonLabel(false);
+      syncLoadMoreState();
+    }
+
+    if (loadMoreBtn && gameCards.length > initialVisibleCount) {
+      loadMoreBtn.addEventListener('click', () => {
+        if (isSearching) {
+          const searchInput = document.getElementById('gameSearch') as HTMLInputElement | null;
+          if (searchInput) searchInput.value = '';
+          isSearching = false;
+          syncLoadMoreState();
+        }
+
+        allGamesVisible = !allGamesVisible;
+        applyVisibility();
+        updateButtonLabel(allGamesVisible);
+
+        if (!allGamesVisible && gameGrid) {
+          gameGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
     const gameFrame = document.getElementById('gameFrame');
     const searchInput = document.getElementById('gameSearch');
-    const pageNumbers = document.getElementById('pageNumbers');
-    const prevPageBtn = document.getElementById('prevPage');
-    const nextPageBtn = document.getElementById('nextPage');
     const randomGameBtn = document.getElementById('randomGameBtn');
 
-    // 分页设置
-    const gamesPerPage = 12;
-    let currentPage = 1;
-    let filteredGames = Array.from(gameCards);
+    let filteredGames = gameCards;
 
-    // 初始化分页
-    function initializePagination() {
-      updatePagination();
-      showPage(1);
-    }
-
-    // 更新分页按钮
-    function updatePagination() {
-      const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
-      if (!pageNumbers) return;
+    // 初始化
+    function initialize() {
+      filteredGames = Array.from(gameCards);
       
-      pageNumbers.innerHTML = '';
-      
-      for (let i = 1; i <= totalPages; i++) {
-        const pageButton = document.createElement('button');
-        pageButton.className = `px-4 py-2 rounded-lg ${
-          i === currentPage ? 'bg-[#6B48FF] text-white' : 'bg-gray-100 hover:bg-[#6B48FF] hover:text-white'
-        } transition-colors duration-300`;
-        pageButton.textContent = i.toString();
-        pageButton.onclick = () => showPage(i);
-        pageNumbers.appendChild(pageButton);
+      // 如果有搜索输入框，监听清除事件
+      if (searchInput) {
+        searchInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            (e.target as HTMLInputElement).value = '';
+            (e.target as HTMLInputElement).dispatchEvent(new Event('input'));
+          }
+        });
       }
-    }
-
-    // 显示指定页面的游戏
-    function showPage(page) {
-      currentPage = page;
-      const start = (page - 1) * gamesPerPage;
-      const end = start + gamesPerPage;
-      
-      gameCards.forEach(card => {
-        if (card instanceof HTMLElement) {
-          card.style.display = 'none';
-        }
-      });
-      
-      filteredGames.slice(start, end).forEach(card => {
-        if (card instanceof HTMLElement) {
-          card.style.display = 'block';
-        }
-      });
-      
-      updatePagination();
     }
 
     // 随机游戏功能
     if (randomGameBtn) {
       randomGameBtn.addEventListener('click', () => {
-        // 添加抖动动画
         randomGameBtn.classList.add('shake');
         setTimeout(() => {
           randomGameBtn.classList.remove('shake');
         }, 500);
 
-        // 随机选择一个游戏
         const randomIndex = Math.floor(Math.random() * gameCards.length);
-        const randomCard = gameCards[randomIndex];
+        const randomCard = gameCards[randomIndex] as HTMLElement | undefined;
 
-        // 隐藏所有游戏卡片
-        gameCards.forEach(card => {
-          if (card instanceof HTMLElement) {
-            card.style.display = 'none';
-          }
-        });
+        if (!randomCard) return;
 
-        // 显示随机选中的游戏卡片
-        if (randomCard instanceof HTMLElement) {
-          randomCard.style.display = 'block';
-          
-          // 滚动到随机游戏卡片
-          randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          
-          // 添加高亮效果
-          randomCard.classList.add('animate-pulse');
-          setTimeout(() => {
-            randomCard.classList.remove('animate-pulse');
-          }, 1000);
-        }
+        allGamesVisible = true;
+        applyVisibility();
+        updateButtonLabel(true);
+        syncLoadMoreState();
+
+        randomCard.click();
+        randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        randomCard.classList.add('animate-pulse');
+        setTimeout(() => {
+          randomCard.classList.remove('animate-pulse');
+        }, 1000);
       });
     }
 
-    // 搜索功能
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         const target = e.target as HTMLInputElement;
-        const searchTerm = target.value.toLowerCase();
-        filteredGames = Array.from(gameCards).filter(card => {
-          const titleElement = card.querySelector('p');
-          if (!titleElement) return false;
-          return titleElement.textContent?.toLowerCase().includes(searchTerm);
-        });
-        currentPage = 1;
-        showPage(1);
-      });
-    }
+        const searchTerm = target.value.toLowerCase().trim();
+        filteredGames = [];
+        
+        if (searchTerm === '') {
+          isSearching = false;
+          filteredGames = Array.from(gameCards);
+          applyVisibility();
+          updateButtonLabel(allGamesVisible);
+          syncLoadMoreState();
+        } else {
+          isSearching = true;
+          syncLoadMoreState();
+          filteredGames = Array.from(gameCards).filter(card => {
+            const overlayTitle = card.querySelector('.overlay-title');
+            const overlayDesc = card.querySelector('.overlay-desc');
+            const titleText = overlayTitle?.textContent?.toLowerCase() || '';
+            const descText = overlayDesc?.textContent?.toLowerCase() || '';
+            return titleText.includes(searchTerm) || descText.includes(searchTerm);
+          });
 
-    // 分页按钮事件
-    if (prevPageBtn) {
-      prevPageBtn.addEventListener('click', () => {
-        if (currentPage > 1) {
-          showPage(currentPage - 1);
+          gameCards.forEach((card) => {
+            const isVisible = filteredGames.includes(card);
+            if (card instanceof HTMLElement) {
+              card.style.display = isVisible ? '' : 'none';
+            }
+          });
+          if (loadMoreBtn) {
+            loadMoreBtn.innerHTML = `
+              <span>${labelMap.view}</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            `;
+          }
+        }
+        
+        if (searchTerm !== '' && filteredGames.length > 0) {
+          const firstVisible = filteredGames[0];
+          if (firstVisible instanceof HTMLElement) {
+            setTimeout(() => {
+              firstVisible.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+          }
         }
       });
     }
 
-    if (nextPageBtn) {
-      nextPageBtn.addEventListener('click', () => {
-        const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
-        if (currentPage < totalPages) {
-          showPage(currentPage + 1);
-        }
-      });
-    }
 
     // 游戏卡片点击事件
     gameCards.forEach(card => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
         const gameUrl = card.getAttribute('data-game-url');
         if (gameFrame && gameUrl) {
-          (gameFrame as HTMLIFrameElement).src = gameUrl;
+          // 移除所有active类
+          gameCards.forEach(c => c.classList.remove('active'));
+          // 添加active类到当前卡片
+          card.classList.add('active');
+          
+          // 更新iframe的src
+          const iframe = gameFrame as HTMLIFrameElement;
+          
+          // 显示加载状态
+          const loading = document.querySelector('.game-loading') as HTMLElement;
+          if (loading) {
+            loading.style.opacity = '1';
+            loading.style.visibility = 'visible';
+            loading.style.pointerEvents = 'auto';
+          }
+          
+          // 更新游戏URL，添加暗色主题参数
+          const separator = gameUrl.includes('?') ? '&' : '?';
+          iframe.src = `${gameUrl}${separator}theme=dark`;
+          
+          // 监听iframe加载完成
+          iframe.addEventListener('load', function onLoad() {
+            if (loading) {
+              setTimeout(() => {
+                loading.style.opacity = '0';
+                loading.style.visibility = 'hidden';
+                loading.style.pointerEvents = 'none';
+              }, 500);
+            }
+            iframe.removeEventListener('load', onLoad);
+          }, { once: true });
           
           // 平滑滚动到游戏区域
-          const gameWrapper = document.querySelector('.game-wrapper');
-          if (gameWrapper) {
-            gameWrapper.scrollIntoView({ behavior: 'smooth' });
+          const gameSection = document.getElementById('Gameplay');
+          if (gameSection) {
+            gameSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         }
       });
     });
 
+
     // 初始化
-    initializePagination();
+    initialize();
   });
 </script> 

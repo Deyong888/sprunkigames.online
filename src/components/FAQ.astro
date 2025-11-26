@@ -127,16 +127,14 @@ const translations = {
 const t = translations[locale] || translations.en;
 ---
 
-<section class="faq">
-  <div class="container mx-auto px-4 max-w-4xl">
-    <div class="text-center mb-12">
-      <h2 class="heading-gradient">
-        {t.title}
-      </h2>
-      <p class="subheading">{t.description}</p>
+<section class="faq-section">
+  <div class="section-shell max-w-4xl">
+    <div class="text-center mb-10">
+      <h2 class="heading-gradient">{t.title}</h2>
+      <p class="muted">{t.description}</p>
     </div>
 
-    <div class="space-y-4">
+    <div class="faq-list">
       {t.questions.map((item, index) => (
         <div class="faq-item">
           <button
@@ -144,11 +142,7 @@ const t = translations[locale] || translations.en;
             aria-expanded="false"
             aria-controls={`faq-answer-${index}`}>
             <span>{item.question}</span>
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24">
+            <svg viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -169,67 +163,43 @@ const t = translations[locale] || translations.en;
 </section>
 
 <style>
-  .faq {
-    background: linear-gradient(135deg, rgba(255, 97, 216, 0.1), rgba(107, 72, 255, 0.1));
-    padding: 4rem 0;
-    border-radius: 24px;
-    margin: 2rem 0;
-    position: relative;
-    overflow: hidden;
+  .faq-section {
+    padding-top: clamp(2rem, 4vw, 4rem);
+    background: var(--bg-base);
   }
 
-  .heading-gradient {
-    background: linear-gradient(to right, #FF61D8, #6B48FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .subheading {
-    color: #6B48FF;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 3rem auto;
-    line-height: 1.6;
-    font-size: 1.1rem;
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .faq-item {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    margin-bottom: 1rem;
-    border: 2px solid rgba(255, 97, 216, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .faq-item:hover {
-    transform: translateX(4px);
-    box-shadow: 0 15px 30px rgba(107, 72, 255, 0.15);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(17, 18, 28, 0.9);
+    overflow: hidden;
   }
 
   .faq-question {
     width: 100%;
-    padding: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: transparent;
+    border: none;
+    color: inherit;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #FF61D8;
-    font-weight: bold;
-    font-size: 1.1rem;
     text-align: left;
-    transition: all 0.3s ease;
-  }
-
-  .faq-question:hover {
-    background: linear-gradient(135deg, rgba(255, 97, 216, 0.1), rgba(107, 72, 255, 0.1));
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
   }
 
   .faq-question svg {
-    color: #FF61D8;
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
     transition: transform 0.3s ease;
   }
 
@@ -238,36 +208,20 @@ const t = translations[locale] || translations.en;
   }
 
   .faq-answer {
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: max-height 0.35s ease;
     padding: 0 1.5rem;
   }
 
   .faq-answer p {
-    color: #6B48FF;
-    line-height: 1.6;
-    padding-bottom: 1.5rem;
+    margin: 0;
+    padding-bottom: 1.25rem;
+    color: var(--text-secondary);
   }
 
   .faq-question[aria-expanded="true"] + .faq-answer {
-    height: auto;
-  }
-
-  @media (max-width: 768px) {
-    .heading-gradient {
-      font-size: 2rem;
-    }
-
-    .subheading {
-      font-size: 1rem;
-      padding: 0 1rem;
-    }
-
-    .faq-question {
-      font-size: 1rem;
-      padding: 1.25rem;
-    }
+    max-height: 400px;
   }
 </style>
 
@@ -280,21 +234,19 @@ const t = translations[locale] || translations.en;
         const isExpanded = question.getAttribute('aria-expanded') === 'true';
         const answer = question.nextElementSibling;
         
-        // 关闭其他所有答案
         faqQuestions.forEach(q => {
           if (q !== question) {
             q.setAttribute('aria-expanded', 'false');
-            q.nextElementSibling.style.height = '0';
+            q.nextElementSibling.style.maxHeight = '0px';
           }
         });
 
-        // 切换当前答案
-        question.setAttribute('aria-expanded', !isExpanded);
+        question.setAttribute('aria-expanded', (!isExpanded).toString());
         if (!isExpanded) {
           const height = answer.scrollHeight;
-          answer.style.height = `${height}px`;
+          answer.style.maxHeight = `${height}px`;
         } else {
-          answer.style.height = '0';
+          answer.style.maxHeight = '0px';
         }
       });
     });
