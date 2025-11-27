@@ -1,3 +1,67 @@
+---
+const locale = Astro.currentLocale || 'en';
+const translations = {
+  en: {
+    brand: 'Create, mix, share — at Sprunki, your inspiration is always on. Keep your headphones charged; late night is the best.',
+    columns: {
+      play: 'Play',
+      support: 'Support',
+      network: 'Network',
+      characters: 'Characters',
+      blog: 'Newest universes',
+      pricing: 'VIP modes',
+      privacy: 'Privacy',
+      contact: 'Contact',
+      about: 'About Sprunki'
+    }
+  },
+  zh: {
+    brand: '创造、混音、分享——在 Sprunki，你的灵感永远在线。保持耳机电量，夜深时最佳。',
+    columns: {
+      play: '游玩',
+      support: '支持',
+      network: '网络',
+      characters: '角色',
+      blog: '最新宇宙',
+      pricing: 'VIP 模式',
+      privacy: '隐私',
+      contact: '联系我们',
+      about: '关于 Sprunki'
+    }
+  },
+  es: {
+    brand: 'Crear, mezclar y compartir: en Sprunki tu inspiración siempre está encendida. Mantén tus auriculares cargados; la noche es el mejor momento.',
+    columns: {
+      play: 'Jugar',
+      support: 'Soporte',
+      network: 'Red',
+      characters: 'Personajes',
+      blog: 'Universos más nuevos',
+      pricing: 'Modos VIP',
+      privacy: 'Privacidad',
+      contact: 'Contacto',
+      about: 'Acerca de Sprunki'
+    }
+  },
+  fil: {
+    brand: 'Lumikha, mag-mix, magbahagi — sa Sprunki, laging bukas ang inspirasyon mo. Panatilihing may karga ang headphones; pinakamaganda ang gabi.',
+    columns: {
+      play: 'Maglaro',
+      support: 'Suporta',
+      network: 'Network',
+      characters: 'Mga Tauhan',
+      blog: 'Pinakabagong uniberso',
+      pricing: 'VIP modes',
+      privacy: 'Privacy',
+      contact: 'Contact',
+      about: 'Tungkol sa Sprunki'
+    }
+  }
+};
+const t = translations[locale] || translations.en;
+const prefix = locale === 'en' ? '' : `/${locale}`;
+---
+
 <footer class="site-footer">
   <div class="section-shell --full footer-grid">
     <div class="footer-brand">
@@ -9,7 +73,7 @@
         </div>
       </div>
       <p>
-        创造、混音、分享——在 Sprunki，你的灵感永远在线。保持耳机电量，夜深时最佳。
+        {t.brand}
       </p>
       <div class="footer-social">
         <a href="https://twitter.com/sprunkigame" aria-label="Twitter">𝕏</a>
@@ -20,23 +84,23 @@
 
     <div class="footer-columns">
       <div>
-        <p class="column-title">Play</p>
+        <p class="column-title">{t.columns.play}</p>
         <ul>
-          <li><a href="/characters">Characters</a></li>
-          <li><a href="/blog">Newest universes</a></li>
-          <li><a href="/pricing">VIP modes</a></li>
+          <li><a href={`${prefix}/characters`}>{t.columns.characters}</a></li>
+          <li><a href={`${prefix}/blog`}>{t.columns.blog}</a></li>
+          <li><a href={`${prefix}/pricing`}>{t.columns.pricing}</a></li>
         </ul>
       </div>
       <div>
-        <p class="column-title">Support</p>
+        <p class="column-title">{t.columns.support}</p>
         <ul>
-          <li><a href="/privacy">Privacy</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/about">About Sprunki</a></li>
+          <li><a href={`${prefix}/privacy`}>{t.columns.privacy}</a></li>
+          <li><a href={`${prefix}/contact`}>{t.columns.contact}</a></li>
+          <li><a href={`${prefix}/about`}>{t.columns.about}</a></li>
         </ul>
       </div>
       <div>
-        <p class="column-title">Network</p>
+        <p class="column-title">{t.columns.network}</p>
         <ul>
           <li><a href="https://24kwebgames.com" target="_blank" rel="noopener">24k Web Games</a></li>
           <li><a href="https://rivalscodes.com" target="_blank" rel="noopener">Rivals Codes</a></li>

@@ -18,7 +18,7 @@ const validateTranslations = (gameId: string) => {
 };
 ---
 
-<section class="gamelist-section" id="GameList">
+<section class="gamelist-section">
   <div class="section-shell --full stacked">
     <div class="gamelist-head">
       <div>
@@ -350,13 +350,6 @@ const validateTranslations = (gameId: string) => {
     transform: translateY(2px);
   }
 
-  .load-more-btn.is-disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-    box-shadow: none;
-    pointer-events: none;
-  }
-
   .overlay-content {
     text-align: center;
     width: 100%;
@@ -453,17 +446,6 @@ const validateTranslations = (gameId: string) => {
     let allGamesVisible = false;
     let isSearching = false;
 
-    const syncLoadMoreState = () => {
-      if (!loadMoreBtn) return;
-      if (isSearching) {
-        loadMoreBtn.classList.add('is-disabled');
-        loadMoreBtn.setAttribute('aria-disabled', 'true');
-      } else {
-        loadMoreBtn.classList.remove('is-disabled');
-        loadMoreBtn.removeAttribute('aria-disabled');
-      }
-    };
-
     const updateButtonLabel = (expanded: boolean) => {
       if (!loadMoreBtn) return;
       loadMoreBtn.innerHTML = `
@@ -488,7 +470,6 @@ const validateTranslations = (gameId: string) => {
     if (!allGamesVisible) {
       applyVisibility();
       updateButtonLabel(false);
-      syncLoadMoreState();
     }
 
     if (loadMoreBtn && gameCards.length > initialVisibleCount) {
@@ -497,7 +478,6 @@ const validateTranslations = (gameId: string) => {
           const searchInput = document.getElementById('gameSearch') as HTMLInputElement | null;
           if (searchInput) searchInput.value = '';
           isSearching = false;
-          syncLoadMoreState();
         }
 
         allGamesVisible = !allGamesVisible;
@@ -533,30 +513,40 @@ const validateTranslations = (gameId: string) => {
     // 随机游戏功能
     if (randomGameBtn) {
       randomGameBtn.addEventListener('click', () => {
+        // 添加抖动动画
         randomGameBtn.classList.add('shake');
         setTimeout(() => {
           randomGameBtn.classList.remove('shake');
         }, 500);
 
+        // 随机选择一个游戏
         const randomIndex = Math.floor(Math.random() * gameCards.length);
-        const randomCard = gameCards[randomIndex] as HTMLElement | undefined;
+        const randomCard = gameCards[randomIndex];
 
-        if (!randomCard) return;
+        // 隐藏所有游戏卡片
+        gameCards.forEach(card => {
+          if (card instanceof HTMLElement) {
+            card.style.display = 'none';
+          }
+        });
 
-        allGamesVisible = true;
-        applyVisibility();
-        updateButtonLabel(true);
-        syncLoadMoreState();
-
-        randomCard.click();
-        randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        randomCard.classList.add('animate-pulse');
-        setTimeout(() => {
-          randomCard.classList.remove('animate-pulse');
-        }, 1000);
+        // 显示随机选中的游戏卡片
+        if (randomCard instanceof HTMLElement) {
+          randomCard.style.display = 'block';
+          
+          // 滚动到随机游戏卡片
+          randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // 添加高亮效果
+          randomCard.classList.add('animate-pulse');
+          setTimeout(() => {
+            randomCard.classList.remove('animate-pulse');
+          }, 1000);
+        }
       });
     }
 
+    // 搜索功能
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         const target = e.target as HTMLInputElement;
@@ -568,10 +558,8 @@ const validateTranslations = (gameId: string) => {
           filteredGames = Array.from(gameCards);
           applyVisibility();
           updateButtonLabel(allGamesVisible);
-          syncLoadMoreState();
         } else {
           isSearching = true;
-          syncLoadMoreState();
           filteredGames = Array.from(gameCards).filter(card => {
             const overlayTitle = card.querySelector('.overlay-title');
             const overlayDesc = card.querySelector('.overlay-desc');
@@ -586,14 +574,6 @@ const validateTranslations = (gameId: string) => {
               card.style.display = isVisible ? '' : 'none';
             }
           });
-          if (loadMoreBtn) {
-            loadMoreBtn.innerHTML = `
-              <span>${labelMap.view}</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M19 9l-7 7-7-7"/>
-              </svg>
-            `;
-          }
         }
         
         if (searchTerm !== '' && filteredGames.length > 0) {

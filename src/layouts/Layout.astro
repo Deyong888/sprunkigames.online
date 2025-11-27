@@ -9,12 +9,14 @@ const GOOGLE_ANALYTICS_ID = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID;
 
 export interface Props {
   title: string;
+  description?: string;
+  image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const resolvedImageWithDomain = new URL("/sprunki-game.png", Astro.site).toString();
 
-const { title } = Astro.props;
+const { title, description, image } = Astro.props;
 
 const makeTitle = title
   ? title + " | " + "Sprunki Game"
@@ -22,12 +24,13 @@ const makeTitle = title
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={Astro.currentLocale || 'en'}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow" />
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZE18JFZZY"></script>
@@ -41,26 +44,54 @@ const makeTitle = title
 
     <SEO
       title={makeTitle}
-      description="Create unique music masterpieces with Sprunki, the creative music game! Explore endless sound combinations and share your creations with the community."
+      description={description ?? "Create unique music masterpieces with Sprunki, the creative music game! Explore endless sound combinations and share your creations with the community."}
       canonical={canonicalURL}
       twitter={{
         creator: "@sprunkigame",
         site: "@sprunkigame",
         card: "summary_large_image",
-        title: `Sprunki Game - Creative Music Game|sprunki game online|sprunki incredibox game|sprunki game free`,
+        title: makeTitle,
       }}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Sprunki Game - Creative Music Game|sprunki game online|sprunki incredibox game|sprunki game free`,
-          image: resolvedImageWithDomain,
+          title: makeTitle,
+          image: image ? new URL(image, Astro.site).toString() : resolvedImageWithDomain,
         },
         image: {
           alt: "Sprunki Game Homepage Screenshot",
         },
       }}
     />
+    <slot name="head" />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        url: Astro.site?.toString() || 'https://sprunkigames.online',
+        name: 'Sprunki Game',
+        inLanguage: Astro.currentLocale || 'en',
+        publisher: {
+          '@type': 'Organization',
+          name: 'Sprunki Game',
+          url: Astro.site?.toString() || 'https://sprunkigames.online',
+          logo: new URL('/favicon.svg', Astro.site).toString(),
+        }
+      })}
+    </script>
+    <script type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Sprunki Game',
+        url: Astro.site?.toString() || 'https://sprunkigames.online',
+        logo: new URL('/sprunki-game.png', Astro.site).toString(),
+        sameAs: [
+          'https://twitter.com/sprunkigame'
+        ]
+      })}
+    </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.9.1/Artalk.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.9.1/Artalk.js"></script>
   </head>
