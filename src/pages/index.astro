@@ -15,6 +15,33 @@ const locale = Astro.currentLocale || 'en';
 ---
 
 <Layout title="Sprunki Game">
+  <script slot="head" type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Subway Surfers",
+      "url": "https://subwaysurfersgame.run",
+      "image": "https://subwaysurfersgame.run/assets/cover.jpg",
+      "description": "Play the original Subway Surfers online directly in your browser. Dash as fast as you can!",
+      "genre": ["Endless Runner", "Action"],
+      "gamePlatform": ["Web Browser", "PC", "Mobile"],
+      "applicationCategory": "Game",
+      "operatingSystem": "Any",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "15024",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "category": "free"
+      }
+    })}
+  </script>
   <Gameplay locale={locale} id="Gameplay" />
   <Container>
     <Gamelist locale={locale} />
