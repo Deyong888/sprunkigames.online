@@ -125,9 +125,25 @@ const translations = {
 };
 
 const t = translations[locale] || translations.en;
+
+// 生成FAQPage结构化数据
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": t.questions.map(q => ({
+    "@type": "Question",
+    "name": q.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": q.answer
+    }
+  }))
+};
+
 ---
 
 <section class="faq-section">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <div class="section-shell max-w-4xl">
     <div class="text-center mb-10">
       <h2 class="heading-gradient">{t.title}</h2>

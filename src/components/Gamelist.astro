@@ -42,6 +42,12 @@ const validateTranslations = (gameId: string) => {
     </div>
 
     <div class="gamelist-filters">
+      <div class="category-tabs">
+        <button class="tab-btn active" data-filter="all">{locale === 'zh' ? '全部' : 'ALL'}</button>
+        <button class="tab-btn" data-filter="hot">{locale === 'zh' ? '热门' : 'HOT'}</button>
+        <button class="tab-btn" data-filter="new">{locale === 'zh' ? '上新' : 'NEW'}</button>
+        <button class="tab-btn" data-filter="trending">{locale === 'zh' ? '趋势' : 'TRENDING'}</button>
+      </div>
       <label class="search-field">
         <span class="sr-only">Search Games</span>
         <svg viewBox="0 0 24 24">
@@ -83,6 +89,8 @@ const validateTranslations = (gameId: string) => {
                   width={400}
                   height={225}
                   class="game-thumb"
+                  loading={index < 8 ? "eager" : "lazy"}
+                  decoding={index < 8 ? "sync" : "async"}
                 />
                 <div class="card-overlay">
                   <div class="overlay-content">
@@ -141,6 +149,37 @@ const validateTranslations = (gameId: string) => {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+  }
+
+  .category-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .tab-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tab-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+
+  .tab-btn.active {
+    background: linear-gradient(135deg, #7F5AF0 0%, #8B5CF6 100%);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(127, 90, 240, 0.3);
   }
 
   .search-field {
@@ -640,5 +679,74 @@ const validateTranslations = (gameId: string) => {
 
     // 初始化
     initialize();
+
+    // 分类筛选功能
+    const categoryTabs = document.querySelectorAll('.tab-btn');
+    let currentFilter = 'all';
+
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // 更新按钮状态
+        categoryTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const filter = tab.getAttribute('data-filter') || 'all';
+        currentFilter = filter;
+
+        // 重置搜索状态
+        if (searchInput) {
+          (searchInput as HTMLInputElement).value = '';
+        }
+        isSearching = false;
+
+        // 根据筛选条件显示游戏
+        gameCards.forEach((card, index) => {
+          if (!(card instanceof HTMLElement)) return;
+
+          let shouldShow = false;
+          const badge = card.querySelector('.badge');
+          const hasHotBadge = badge?.classList.contains('--hot');
+          const hasNewBadge = badge?.classList.contains('--new');
+
+          switch (filter) {
+            case 'all':
+              shouldShow = index < initialVisibleCount;
+              break;
+            case 'hot':
+              shouldShow = hasHotBadge;
+              break;
+            case 'new':
+              shouldShow = hasNewBadge;
+              break;
+            case 'trending':
+              // 热门和新游戏都显示为趋势
+              shouldShow = hasHotBadge || hasNewBadge;
+              break;
+          }
+
+          card.style.display = shouldShow ? '' : 'none';
+        });
+
+        // 更新"查看更多"按钮状态
+        if (loadMoreBtn) {
+          const visibleCount = gameCards.filter(card => 
+            (card as HTMLElement).style.display !== 'none'
+          ).length;
+          
+          if (filter === 'all' && gameCards.length > initialVisibleCount) {
+            loadMoreBtn.style.display = 'flex';
+            allGamesVisible = false;
+            updateButtonLabel(false);
+          } else {
+            loadMoreBtn.style.display = visibleCount > initialVisibleCount ? 'flex' : 'none';
+          }
+        }
+
+        // 滚动到游戏网格
+        if (gameGrid) {
+          gameGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
   });
 </script> 

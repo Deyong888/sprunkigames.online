@@ -1,0 +1,338 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+const { locale = 'en' } = Astro.props;
+
+// 多语言翻译
+const translations = {
+  en: {
+    title: "Complete Sprunki Tutorial for Beginners",
+    desc: "Learn how to play Sprunki with our comprehensive step-by-step guide. Master music creation from your first beat to advanced techniques.",
+    step1: "Getting Started",
+    step2: "Understanding Characters",
+    step3: "Creating Your First Beat",
+    step4: "Advanced Techniques",
+    step5: "Sharing Your Music",
+    ctaTitle: "Ready to Start Creating?",
+    ctaButton: "Play Sprunki Now",
+    playNow: "Start Playing"
+  },
+  zh: {
+    title: "Sprunki 新手完整教程",
+    desc: "通过我们全面的分步指南学习如何玩Sprunki。从第一个节拍到高级技巧，掌握音乐创作。",
+    step1: "开始使用",
+    step2: "了解角色",
+    step3: "创建你的第一个节拍",
+    step4: "高级技巧",
+    step5: "分享你的音乐",
+    ctaTitle: "准备好开始创作了吗？",
+    ctaButton: "立即玩Sprunki",
+    playNow: "开始游玩"
+  },
+  es: {
+    title: "Tutorial Completo de Sprunki para Principiantes",
+    desc: "Aprende a jugar Sprunki con nuestra guía completa paso a paso. Domina la creación musical desde tu primer ritmo hasta técnicas avanzadas.",
+    step1: "Empezando",
+    step2: "Entendiendo Personajes",
+    step3: "Creando Tu Primer Ritmo",
+    step4: "Técnicas Avanzadas",
+    step5: "Compartiendo Tu Música",
+    ctaTitle: "¿Listo para Empezar a Crear?",
+    ctaButton: "Jugar Sprunki Ahora",
+    playNow: "Empezar a Jugar"
+  },
+  fil: {
+    title: "Kumpletong Tutorial ng Sprunki para sa mga Baguhan",
+    desc: "Matuto kung paano maglaro ng Sprunki sa aming komprehensibong gabay. Masterhin ang paglikha ng musika mula sa unang beat hanggang sa mga advanced na teknik.",
+    step1: "Pagsisimula",
+    step2: "Pag-unawa sa mga Karakter",
+    step3: "Paglikha ng Iyong Unang Beat",
+    step4: "Mga Advanced na Teknik",
+    step5: "Pagbabahagi ng Iyong Musika",
+    ctaTitle: "Handa nang Mag-umpisang Lumikha?",
+    ctaButton: "Maglaro ng Sprunki Ngayon",
+    playNow: "Magsimulang Maglaro"
+  }
+};
+
+const t = translations[locale] || translations.en;
+
+// 教程步骤内容
+const tutorialSteps = [
+  {
+    number: "01",
+    title: t.step1,
+    content: locale === 'zh' 
+      ? "访问 sprunkigames.online，无需下载即可开始游戏。界面直观友好，即使是音乐新手也能轻松上手。"
+      : locale === 'es'
+      ? "Visita sprunkigames.online y comienza a jugar sin descargas. La interfaz es intuitiva y amigable, perfecta incluso para principiantes en música."
+      : locale === 'fil'
+      ? "Bisitahin ang sprunkigames.online at magsimulang maglaro nang walang download. Ang interface ay intuitive at friendly, perpekto kahit para sa mga baguhan sa musika."
+      : "Visit sprunkigames.online and start playing instantly without downloads. The interface is intuitive and friendly, perfect even for music beginners.",
+    icon: "🚀"
+  },
+  {
+    number: "02",
+    title: t.step2,
+    content: locale === 'zh'
+      ? "每个角色代表不同的声音：节拍、旋律、效果和和声。拖动角色到舞台上即可激活他们的声音。"
+      : locale === 'es'
+      ? "Cada personaje representa un sonido diferente: beats, melodías, efectos y armonías. Arrastra los personajes al escenario para activar sus sonidos."
+      : locale === 'fil'
+      ? "Bawat karakter ay kumakatawan sa ibang tunog: beats, melodies, effects, at harmonies. I-drag ang mga karakter sa entablado para i-activate ang kanilang mga tunog."
+      : "Each character represents a different sound: beats, melodies, effects, and harmonies. Drag characters onto the stage to activate their sounds.",
+    icon: "🎭"
+  },
+  {
+    number: "03",
+    title: t.step3,
+    content: locale === 'zh'
+      ? "从基础开始：先添加一个节拍角色，然后叠加低音和旋律。尝试不同的组合，找到你喜欢的声音。"
+      : locale === 'es'
+      ? "Comienza con lo básico: agrega primero un personaje de ritmo, luego superpone bajos y melodías. Experimenta con diferentes combinaciones para encontrar tu sonido."
+      : locale === 'fil'
+      ? "Magsimula sa mga pangunahin: magdagdag muna ng beat character, pagkatapos ay maglagay ng bass at melodies. Subukan ang iba't ibang combinations para mahanap ang iyong tunog."
+      : "Start with the basics: add a beat character first, then layer bass and melodies. Experiment with different combinations to find your sound.",
+    icon: "🎵"
+  },
+  {
+    number: "04",
+    title: t.step4,
+    content: locale === 'zh'
+      ? "掌握音量控制、效果添加和角色组合。尝试恐怖模式获得独特音效，或使用Colorbox版本创造多彩音乐。"
+      : locale === 'es'
+      ? "Domina el control de volumen, agregación de efectos y combinaciones de personajes. Prueba el modo horror para sonidos únicos, o usa versiones Colorbox para música colorida."
+      : locale === 'fil'
+      ? "Masterhin ang volume control, pagdagdag ng effects, at combinations ng mga karakter. Subukan ang horror mode para sa mga natatanging tunog, o gamitin ang Colorbox versions para sa makulay na musika."
+      : "Master volume control, effect addition, and character combinations. Try horror mode for unique sounds, or use Colorbox versions for colorful music.",
+    icon: "⚡"
+  },
+  {
+    number: "05",
+    title: t.step5,
+    content: locale === 'zh'
+      ? "录制你的作品并分享到社区。与其他创作者交流，获得灵感，不断提升你的音乐创作技巧。"
+      : locale === 'es'
+      ? "Graba tu creación y compártela con la comunidad. Interactúa con otros creadores, obtén inspiración y mejora continuamente tus habilidades de creación musical."
+      : locale === 'fil'
+      ? "I-record ang iyong creation at ibahagi ito sa komunidad. Makipag-interact sa ibang creators, kumuha ng inspirasyon, at patuloy na pagbutihin ang iyong music creation skills."
+      : "Record your creation and share it with the community. Interact with other creators, get inspired, and continuously improve your music creation skills.",
+    icon: "🌟"
+  }
+];
+
+// Schema.org structured data
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": t.title,
+  "description": t.desc,
+  "totalTime": "PT15M",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "0"
+  },
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": "Web Browser"
+    }
+  ],
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "Computer or Mobile Device"
+    }
+  ],
+  "step": tutorialSteps.map((step, index) => ({
+    "@type": "HowToStep",
+    "position": index + 1,
+    "name": step.title,
+    "text": step.content,
+    "url": `https://sprunkigames.online/tutorial#step-${index + 1}`
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sprunkigames.online"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": t.title,
+      "item": `https://sprunkigames.online/${locale === 'en' ? '' : locale + '/'}tutorial`
+    }
+  ]
+};
+---
+
+<Layout title={t.title} description={t.desc}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(howToSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
+  
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">{t.title}</Fragment>
+      <Fragment slot="desc">{t.desc}</Fragment>
+    </Sectionhead>
+
+    <main class="mt-16">
+      <!-- 教程步骤 -->
+      <div class="tutorial-container">
+        {tutorialSteps.map((step, index) => (
+          <div class="tutorial-step" id={`step-${index + 1}`}>
+            <div class="step-number-wrapper">
+              <span class="step-number">{step.number}</span>
+              <div class="step-icon">{step.icon}</div>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">{step.title}</h3>
+              <p class="step-description">{step.content}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="tutorial-cta">
+        <h2 class="cta-title">{t.ctaTitle}</h2>
+        <a href="/" class="cta-button">
+          {t.playNow}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </main>
+  </Container>
+</Layout>
+
+<style>
+  .tutorial-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .tutorial-step {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+  }
+
+  .tutorial-step:hover {
+    border-color: rgba(139, 92, 246, 0.3);
+    transform: translateX(8px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .step-number-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .step-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #7F5AF0, #8B5CF6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .step-icon {
+    font-size: 2rem;
+    filter: grayscale(0.3);
+    transition: all 0.3s ease;
+  }
+
+  .tutorial-step:hover .step-icon {
+    filter: grayscale(0);
+    transform: scale(1.1);
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .step-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .tutorial-cta {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(127, 90, 240, 0.15) 0%, rgba(139, 92, 246, 0.08) 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .cta-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #7F5AF0 0%, #8B5CF6 100%);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(127, 90, 240, 0.4);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(127, 90, 240, 0.6);
+  }
+
+  @media (max-width: 640px) {
+    .tutorial-step {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .step-number {
+      font-size: 2rem;
+    }
+  }
+</style>

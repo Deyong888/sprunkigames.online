@@ -14,32 +14,86 @@ import Cta from "../components/cta.astro";
 const locale = Astro.currentLocale || 'en';
 ---
 
-<Layout title="Sprunki Game">
+<Layout 
+  title="Sprunki Game | Create Music Online - Free Music Creation Studio"
+  description="Create amazing music with Sprunki! Mix beats, melodies & effects using unique characters. Free online music game inspired by Incredibox. No download required - play now!"
+>
   <script slot="head" type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "VideoGame",
-      "name": "Subway Surfers",
-      "url": "https://subwaysurfersgame.run",
-      "image": "https://subwaysurfersgame.run/assets/cover.jpg",
-      "description": "Play the original Subway Surfers online directly in your browser. Dash as fast as you can!",
-      "genre": ["Endless Runner", "Action"],
-      "gamePlatform": ["Web Browser", "PC", "Mobile"],
-      "applicationCategory": "Game",
-      "operatingSystem": "Any",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "15024",
-        "bestRating": "5",
-        "worstRating": "1"
+      "@type": ["VideoGame", "WebApplication"],
+      "name": "Sprunki Game - Online Music Creation Studio",
+      "alternateName": "Sprunki",
+      "url": "https://sprunkigames.online",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://sprunkigames.online/og-image.jpg",
+        "width": 1200,
+        "height": 630
       },
+      "description": "Create music online with Sprunki. Mix beats, melodies, and effects using unique characters. Free music creation game inspired by Incredibox. Play instantly in your browser!",
+      "genre": ["Music", "Creative", "Casual", "Rhythm"],
+      "gamePlatform": ["Web Browser", "PC", "Mobile", "Tablet"],
+      "applicationCategory": "Game",
+      "applicationSubCategory": "MusicGame",
+      "operatingSystem": "Any",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "category": "free"
-      }
+        "category": "free",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "2500",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Synthflow Digital LTD",
+        "url": "https://sprunkigames.online"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Synthflow Digital LTD",
+        "url": "https://sprunkigames.online"
+      },
+      "inLanguage": ["en", "zh", "es", "fil"],
+      "datePublished": "2024-01-01",
+      "dateModified": "2025-02-08"
+    })}
+  </script>
+
+  <script slot="head" type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Synthflow Digital LTD",
+      "alternateName": "Sprunki Games",
+      "url": "https://sprunkigames.online",
+      "logo": "https://sprunkigames.online/android-chrome-512x512.png",
+      "email": "support@synthflowdigital.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Office 16430, 182-184 High Street North",
+        "addressLocality": "East Ham, London",
+        "postalCode": "E6 2JA",
+        "addressCountry": "UK"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@synthflowdigital.com",
+        "contactType": "customer support",
+        "availableLanguage": ["English", "Chinese", "Spanish", "Filipino"]
+      },
+      "sameAs": [
+        "https://sprunkigames.online"
+      ],
+      "foundingDate": "2024",
+      "description": "Synthflow Digital LTD is the creator of Sprunki Game, an online music creation platform inspired by Incredibox."
     })}
   </script>
   <Gameplay locale={locale} id="Gameplay" />

@@ -1,0 +1,381 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import { Image } from "astro:assets";
+
+const { locale = 'en' } = Astro.props;
+
+// 多语言翻译
+const translations = {
+  en: {
+    title: "Sprunki Game Versions",
+    desc: "Explore all versions and mods of Sprunki - from Original to Horror to Colorbox",
+    original: "Original",
+    horror: "Horror/Scary",
+    colorbox: "Colorbox",
+    mods: "Mods",
+    phases: "Phases",
+    playNow: "Play Now",
+    discoverMore: "Discover More Versions",
+    viewAll: "View All Games",
+    description: {
+      original: "The classic Sprunki experience with original characters and sounds. Perfect for beginners!",
+      horror: "Dive into the dark side with horror-themed characters and eerie soundscapes. Not for the faint of heart!",
+      colorbox: "Vibrant, color-themed versions with unique visual styles and fresh sound combinations.",
+      mods: "Community-created modifications that expand the Sprunki universe with new possibilities.",
+      phases: "Explore different phases of Sprunki evolution, each with unique features and characters."
+    }
+  },
+  zh: {
+    title: "Sprunki 游戏版本",
+    desc: "探索所有Sprunki版本和模组 - 从原版到恐怖版到Colorbox",
+    original: "原版",
+    horror: "恐怖版",
+    colorbox: "Colorbox",
+    mods: "模组",
+    phases: "阶段",
+    playNow: "立即游玩",
+    discoverMore: "发现更多版本",
+    viewAll: "查看所有游戏",
+    description: {
+      original: "经典的Sprunki体验，包含原始角色和音效。非常适合新手！",
+      horror: "探索黑暗面，包含恐怖主题角色和诡异音景。胆小者慎入！",
+      colorbox: "充满活力的色彩主题版本，具有独特的视觉风格和新鲜的声音组合。",
+      mods: "社区创建的模组，以新的可能性扩展Sprunki宇宙。",
+      phases: "探索Sprunki演化的不同阶段，每个阶段都有独特的功能和角色。"
+    }
+  },
+  es: {
+    title: "Versiones de Sprunki",
+    desc: "Explora todas las versiones y mods de Sprunki - desde Original hasta Horror hasta Colorbox",
+    original: "Original",
+    horror: "Horror/Miedo",
+    colorbox: "Colorbox",
+    mods: "Mods",
+    phases: "Fases",
+    playNow: "Jugar Ahora",
+    discoverMore: "Descubre Más Versiones",
+    viewAll: "Ver Todos los Juegos",
+    description: {
+      original: "La experiencia clásica de Sprunki con personajes y sonidos originales. ¡Perfecto para principiantes!",
+      horror: "Sumérgete en el lado oscuro con personajes de terror y paisajes sonoros espeluznantes. ¡No para cardíacos!",
+      colorbox: "Versiones vibrantes con temas de color, estilos visuales únicos y combinaciones de sonido frescas.",
+      mods: "Modificaciones creadas por la comunidad que expanden el universo Sprunki con nuevas posibilidades.",
+      phases: "Explora diferentes fases de la evolución de Sprunki, cada una con características y personajes únicos."
+    }
+  },
+  fil: {
+    title: "Mga Bersyon ng Sprunki",
+    desc: "Tuklasin ang lahat ng bersyon at mods ng Sprunki - mula Original hanggang Horror hanggang Colorbox",
+    original: "Orihinal",
+    horror: "Horror/Takot",
+    colorbox: "Colorbox",
+    mods: "Mods",
+    phases: "Mga Yugto",
+    playNow: "Maglaro Ngayon",
+    discoverMore: "Tuklasin ang Higit pang Bersyon",
+    viewAll: "Tingnan ang Lahat ng Laro",
+    description: {
+      original: "Ang klasikong karanasan sa Sprunki na may mga orihinal na karakter at tunog. Perpekto para sa mga nagsisimula!",
+      horror: "Sumisid sa madilim na side na may mga karakter na may temang horror at mga nakatatakot na soundscapes.",
+      colorbox: "Mga vibrant na bersyon na may temang kulay, natatanging visual style at sariwang sound combinations.",
+      mods: "Mga modification na ginawa ng komunidad na nagpapalawak sa uniberso ng Sprunki.",
+      phases: "Tuklasin ang iba't ibang yugto ng ebolusyon ng Sprunki."
+    }
+  }
+};
+
+const t = translations[locale] || translations.en;
+
+// 游戏版本分类
+const gameVariants = [
+  {
+    id: "original",
+    title: t.original,
+    description: t.description.original,
+    image: "https://cdn2.scratch.mit.edu/get_image/project/1101344003_480x360.png",
+    url: "https://img.sprunki.net/game/index.html",
+    badge: "classic",
+    color: "#7F5AF0"
+  },
+  {
+    id: "horror",
+    title: t.horror,
+    description: t.description.horror,
+    image: "https://game.sprunki-incredibox.org/sprunki/sprunki-phase-3.html",
+    url: "https://game.sprunki-incredibox.org/sprunki/sprunki-phase-3.html",
+    badge: "scary",
+    color: "#DC2626"
+  },
+  {
+    id: "colorbox",
+    title: t.colorbox,
+    description: t.description.colorbox,
+    image: "https://sprunki.org/sprunki-universe-1.embed",
+    url: "https://sprunki.org/sprunki-universe-1.embed",
+    badge: "colorful",
+    color: "#10B981"
+  },
+  {
+    id: "phases",
+    title: t.phases,
+    description: t.description.phases,
+    image: "https://game.sprunki-incredibox.org/sprunki/sprunki-phase-5.html",
+    url: "https://game.sprunki-incredibox.org/sprunki/sprunki-phase-5.html",
+    badge: "phases",
+    color: "#F59E0B"
+  },
+  {
+    id: "mods",
+    title: t.mods,
+    description: t.description.mods,
+    image: "https://sprunki.org/sprunki-parasite.embed",
+    url: "https://sprunki.org/sprunki-parasite.embed",
+    badge: "community",
+    color: "#8B5CF6"
+  }
+];
+
+// Schema.org structured data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": locale === 'zh' ? '首页' : locale === 'es' ? 'Inicio' : locale === 'fil' ? 'Home' : 'Home',
+      "item": "https://sprunkigames.online"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": t.title,
+      "item": `https://sprunkigames.online/${locale === 'en' ? '' : locale + '/'}versions`
+    }
+  ]
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": gameVariants.map((variant, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": variant.title,
+    "description": variant.description,
+    "url": variant.url
+  }))
+};
+---
+
+<Layout title={t.title} description={t.desc}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(itemListSchema)} />
+  
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">{t.title}</Fragment>
+      <Fragment slot="desc">{t.desc}</Fragment>
+    </Sectionhead>
+
+    <main class="mt-16">
+      <!-- 版本网格 -->
+      <div class="variants-grid">
+        {gameVariants.map((variant, index) => (
+          <div class="variant-card" style={`--variant-color: ${variant.color}`}>
+            <div class="variant-image-wrapper">
+              <img 
+                src={variant.image} 
+                alt={variant.title}
+                class="variant-image"
+                loading={index < 3 ? "eager" : "lazy"}
+                width="400"
+                height="225"
+              />
+              <span class="variant-badge" style={`background: ${variant.color}`}>
+                {variant.badge}
+              </span>
+            </div>
+            <div class="variant-content">
+              <h3 class="variant-title">{variant.title}</h3>
+              <p class="variant-description">{variant.description}</p>
+              <a 
+                href={variant.url} 
+                class="play-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                </svg>
+                {t.playNow}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2 class="cta-title">{t.discoverMore}</h2>
+        <a href="/" class="cta-button">
+          {t.viewAll}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </main>
+  </Container>
+</Layout>
+
+<style>
+  .variants-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .variants-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .variants-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .variant-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .variant-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--variant-color, #8B5CF6);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px var(--variant-color, #8B5CF6),
+      0 0 30px rgba(139, 92, 246, 0.2);
+  }
+
+  .variant-image-wrapper {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .variant-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .variant-card:hover .variant-image {
+    transform: scale(1.05);
+  }
+
+  .variant-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .variant-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .variant-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin: 0;
+  }
+
+  .variant-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .play-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, #7F5AF0 0%, #8B5CF6 100%);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .play-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(127, 90, 240, 0.4);
+  }
+
+  .cta-section {
+    text-align: center;
+    margin-top: 5rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(127, 90, 240, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .cta-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #7F5AF0 0%, #8B5CF6 100%);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(127, 90, 240, 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(127, 90, 240, 0.5);
+  }
+</style>

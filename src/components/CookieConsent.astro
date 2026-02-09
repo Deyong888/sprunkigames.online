@@ -1,0 +1,238 @@
+---
+const { locale = 'en' } = Astro.props;
+
+const translations = {
+  en: {
+    title: "Cookie Consent",
+    message: "We use cookies to enhance your experience, serve personalized ads, and analyze our traffic. By clicking 'Accept All', you consent to our use of cookies.",
+    acceptAll: "Accept All",
+    acceptNecessary: "Only Necessary",
+    learnMore: "Learn more",
+    privacyLink: "/en/privacy"
+  },
+  zh: {
+    title: "Cookie 同意",
+    message: "我们使用 Cookie 来提升您的体验、提供个性化广告和分析流量。点击「全部接受」即表示您同意我们使用 Cookie。",
+    acceptAll: "全部接受",
+    acceptNecessary: "仅必要",
+    learnMore: "了解更多",
+    privacyLink: "/zh/privacy"
+  },
+  es: {
+    title: "Consentimiento de Cookies",
+    message: "Utilizamos cookies para mejorar su experiencia, mostrar anuncios personalizados y analizar nuestro tráfico. Al hacer clic en 'Aceptar todo', acepta nuestro uso de cookies.",
+    acceptAll: "Aceptar todo",
+    acceptNecessary: "Solo necesarias",
+    learnMore: "Más información",
+    privacyLink: "/es/privacy"
+  },
+  fil: {
+    title: "Cookie Consent",
+    message: "Gumagamit kami ng cookies para mapabuti ang iyong karanasan, magpakita ng personalized ads, at suriin ang aming traffic. Sa pag-click ng 'Tanggapin Lahat', pumapayag ka sa aming paggamit ng cookies.",
+    acceptAll: "Tanggapin Lahat",
+    acceptNecessary: "Kailangan Lang",
+    learnMore: "Matuto pa",
+    privacyLink: "/fil/privacy"
+  }
+};
+
+const t = translations[locale] || translations.en;
+---
+
+<div id="cookieConsent" class="cookie-consent-banner" role="dialog" aria-label={t.title} style="display: none;">
+  <div class="cookie-consent-content">
+    <div class="cookie-consent-text">
+      <p>{t.message}</p>
+      <a href={t.privacyLink} class="cookie-learn-more">{t.learnMore}</a>
+    </div>
+    <div class="cookie-consent-actions">
+      <button class="cookie-btn cookie-btn-necessary" data-action="necessary">
+        {t.acceptNecessary}
+      </button>
+      <button class="cookie-btn cookie-btn-accept" data-action="all">
+        {t.acceptAll}
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(15, 15, 20, 0.98), rgba(20, 20, 30, 0.98));
+    border-top: 1px solid rgba(139, 92, 246, 0.3);
+    backdrop-filter: blur(20px);
+    z-index: 9999;
+    padding: 1rem;
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .cookie-consent-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .cookie-consent-content {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .cookie-consent-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .cookie-consent-text p {
+    margin: 0 0 0.5rem 0;
+  }
+
+  .cookie-learn-more {
+    color: #8B5CF6;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .cookie-learn-more:hover {
+    color: #A78BFA;
+    text-decoration: underline;
+  }
+
+  .cookie-consent-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cookie-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    white-space: nowrap;
+  }
+
+  .cookie-btn-necessary {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .cookie-btn-necessary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .cookie-btn-accept {
+    background: linear-gradient(135deg, #7F5AF0 0%, #8B5CF6 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(127, 90, 240, 0.3);
+  }
+
+  .cookie-btn-accept:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(127, 90, 240, 0.5);
+  }
+</style>
+
+<script>
+  (function() {
+    const COOKIE_CONSENT_KEY = 'cookieConsent';
+    const banner = document.getElementById('cookieConsent');
+    
+    // Check if user has already made a choice
+    function hasConsent() {
+      return localStorage.getItem(COOKIE_CONSENT_KEY) !== null;
+    }
+
+    // Get consent value
+    function getConsent() {
+      return localStorage.getItem(COOKIE_CONSENT_KEY);
+    }
+
+    // Set consent
+    function setConsent(value: string) {
+      localStorage.setItem(COOKIE_CONSENT_KEY, value);
+      hideBanner();
+      
+      // Dispatch event for other scripts
+      window.dispatchEvent(new CustomEvent('cookieConsentChanged', { 
+        detail: { consent: value } 
+      }));
+    }
+
+    // Show banner
+    function showBanner() {
+      if (banner) {
+        banner.style.display = 'block';
+        // Animate in
+        setTimeout(() => {
+          banner.style.opacity = '1';
+          banner.style.transform = 'translateY(0)';
+        }, 100);
+      }
+    }
+
+    // Hide banner
+    function hideBanner() {
+      if (banner) {
+        banner.style.opacity = '0';
+        banner.style.transform = 'translateY(100%)';
+        setTimeout(() => {
+          banner.style.display = 'none';
+        }, 300);
+      }
+    }
+
+    // Initialize
+    function init() {
+      if (!hasConsent()) {
+        // Set initial styles for animation
+        if (banner) {
+          banner.style.opacity = '0';
+          banner.style.transform = 'translateY(100%)';
+          banner.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        }
+        
+        // Show after a short delay
+        setTimeout(showBanner, 1000);
+      }
+
+      // Add click handlers
+      const necessaryBtn = banner?.querySelector('[data-action="necessary"]');
+      const acceptAllBtn = banner?.querySelector('[data-action="all"]');
+
+      necessaryBtn?.addEventListener('click', () => {
+        setConsent('necessary');
+      });
+
+      acceptAllBtn?.addEventListener('click', () => {
+        setConsent('all');
+      });
+    }
+
+    // Run initialization
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>

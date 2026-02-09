@@ -193,8 +193,29 @@ const t = translations[locale] || translations.en;
   .features-section {
     padding-top: clamp(4rem, 6vw, 6rem);
     padding-bottom: clamp(4rem, 6vw, 6rem);
-    background: var(--bg-alt);
+    background: linear-gradient(180deg, var(--bg-alt) 0%, rgba(15, 15, 25, 0.8) 100%);
     margin-top: clamp(4rem, 5vw, 5rem);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 舞台灯光效果 */
+  .features-section::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(127, 90, 240, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section-shell {
+    position: relative;
+    z-index: 1;
   }
 
   h2 {
@@ -218,6 +239,19 @@ const t = translations[locale] || translations.en;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(139, 92, 246, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
   }
 
   .feature-card--tall {
@@ -233,6 +267,7 @@ const t = translations[locale] || translations.en;
 
   .feature-card p {
     color: var(--text-secondary);
+    line-height: 1.6;
   }
 
   .icon-container {
@@ -243,13 +278,26 @@ const t = translations[locale] || translations.en;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(108, 93, 211, 0.3), rgba(139, 92, 246, 0.3));
-    border: 1px solid rgba(108, 93, 211, 0.2);
+    background: linear-gradient(135deg, rgba(108, 93, 211, 0.4), rgba(139, 92, 246, 0.4));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+  }
+
+  .feature-card:hover .icon-container {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, rgba(127, 90, 240, 0.6), rgba(139, 92, 246, 0.6));
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
   }
 
   .icon-container svg {
     width: 28px;
     height: 28px;
     color: #fff;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover .icon-container svg {
+    transform: scale(1.1);
   }
 </style>

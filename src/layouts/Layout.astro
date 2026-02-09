@@ -2,6 +2,7 @@
 import { SEO } from "astro-seo";
 import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
+import CookieConsent from "@components/CookieConsent.astro";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
@@ -44,7 +45,7 @@ const makeTitle = title
 
     <SEO
       title={makeTitle}
-      description={description ?? "Create unique music masterpieces with Sprunki, the creative music game! Explore endless sound combinations and share your creations with the community."}
+      description={description ?? "Create amazing music with Sprunki! Mix beats, melodies & effects using unique characters. Free online music game inspired by Incredibox. No download required - play now in your browser!"}
       canonical={canonicalURL}
       twitter={{
         creator: "@sprunkigame",
@@ -82,13 +83,28 @@ const makeTitle = title
     </script>
     <script type="application/ld+json">
       {JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
-        name: 'Sprunki Game',
-        url: Astro.site?.toString() || 'https://sprunkigames.online',
-        logo: new URL('/sprunki-game.png', Astro.site).toString(),
-        sameAs: [
-          'https://twitter.com/sprunkigame'
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Synthflow Digital LTD",
+        "alternateName": "Sprunki Games",
+        "url": Astro.site?.toString() || "https://sprunkigames.online",
+        "logo": new URL("/sprunki-game.png", Astro.site).toString(),
+        "email": "support@synthflowdigital.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Office 16430, 182-184 High Street North",
+          "addressLocality": "East Ham, London",
+          "postalCode": "E6 2JA",
+          "addressCountry": "UK"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "support@synthflowdigital.com",
+          "contactType": "customer support",
+          "availableLanguage": ["English", "Chinese", "Spanish", "Filipino"]
+        },
+        "sameAs": [
+          "https://twitter.com/sprunkigame"
         ]
       })}
     </script>
@@ -102,6 +118,7 @@ const makeTitle = title
       <slot />
     </main>
     <Footer />
+    <CookieConsent locale={Astro.currentLocale || 'en'} />
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */

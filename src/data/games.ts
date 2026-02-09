@@ -23,12 +23,272 @@ import game22 from "../assets/sprunki-22.webp";
 import game23 from "../assets/sprunki-23.webp";
 import game24 from "../assets/sprunki-24.webp";
 
-
-
-
 // ... 导入其他游戏图片
 
 export const games = [
+  // ===== Gamepix 新游戏 (52个) - 排在最前面 =====
+  {
+    "id": "game191",
+    "image": "https://img.gamepix.com/games/stunt-sprunki/icon/stunt-sprunki.png?w=105",
+    "url": "https://play.gamepix.com/stunt-sprunki/embed?sid=1"
+  },
+  {
+    "id": "game192",
+    "image": "https://img.gamepix.com/games/minecraft-squid-sprunki-drift-multiplayer/icon/minecraft-squid-sprunki-drift-multiplayer.png?w=105",
+    "url": "https://play.gamepix.com/minecraft-squid-sprunki-drift-multiplayer/embed?sid=1"
+  },
+  {
+    "id": "game193",
+    "image": "https://img.gamepix.com/games/retro-sprunki/icon/retro-sprunki.png?w=105",
+    "url": "https://play.gamepix.com/retro-sprunki/embed?sid=1"
+  },
+  {
+    "id": "game194",
+    "image": "https://img.gamepix.com/games/sprunki-and-squid-game-difference/icon/sprunki-and-squid-game-difference.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-and-squid-game-difference/embed?sid=1"
+  },
+  {
+    "id": "game195",
+    "image": "https://img.gamepix.com/games/help-sprunky/icon/help-sprunky.png?w=105",
+    "url": "https://play.gamepix.com/help-sprunky/embed?sid=1"
+  },
+  {
+    "id": "game196",
+    "image": "https://img.gamepix.com/games/sprunki-jump-adventure/icon/sprunki-jump-adventure.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-jump-adventure/embed?sid=1"
+  },
+  {
+    "id": "game197",
+    "image": "https://img.gamepix.com/games/sprunki-toca/icon/sprunki-toca.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-toca/embed?sid=1"
+  },
+  {
+    "id": "game198",
+    "image": "https://img.gamepix.com/games/sprunki-ketchup-mod/icon/sprunki-ketchup-mod.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-ketchup-mod/embed?sid=1"
+  },
+  {
+    "id": "game199",
+    "image": "https://img.gamepix.com/games/flappy-sprunki/icon/flappy-sprunki.png?w=105",
+    "url": "https://play.gamepix.com/flappy-sprunki/embed?sid=1"
+  },
+  {
+    "id": "game200",
+    "image": "https://img.gamepix.com/games/sprunki-lava-escape-2player/icon/sprunki-lava-escape-2player.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-lava-escape-2player/embed?sid=1"
+  },
+  {
+    "id": "game201",
+    "image": "https://img.gamepix.com/games/sprunki-456-squid-cookie/icon/sprunki-456-squid-cookie.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-456-squid-cookie/embed?sid=1"
+  },
+  {
+    "id": "game202",
+    "image": "https://img.gamepix.com/games/sprunki-coloring-pages/icon/sprunki-coloring-pages.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-coloring-pages/embed?sid=1"
+  },
+  {
+    "id": "game203",
+    "image": "https://img.gamepix.com/games/sprunki-ball-juggling/icon/sprunki-ball-juggling.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-ball-juggling/embed?sid=1"
+  },
+  {
+    "id": "game204",
+    "image": "https://img.gamepix.com/games/sprunki-sliding-puzzle/icon/sprunki-sliding-puzzle.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-sliding-puzzle/embed?sid=1"
+  },
+  {
+    "id": "game205",
+    "image": "https://img.gamepix.com/games/sprunki-build-tower/icon/sprunki-build-tower.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-build-tower/embed?sid=1"
+  },
+  {
+    "id": "game206",
+    "image": "https://img.gamepix.com/games/sprunki-team/icon/sprunki-team.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-team/embed?sid=1"
+  },
+  {
+    "id": "game207",
+    "image": "https://img.gamepix.com/games/sprunki-dead-rails/icon/sprunki-dead-rails.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-dead-rails/embed?sid=1"
+  },
+  {
+    "id": "game208",
+    "image": "https://img.gamepix.com/games/sprunki-whooo/icon/sprunki-whooo.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-whooo/embed?sid=1"
+  },
+  {
+    "id": "game209",
+    "image": "https://img.gamepix.com/games/sprunki-find-tung-tung-tung-sahur/icon/sprunki-find-tung-tung-tung-sahur.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-find-tung-tung-tung-sahur/embed?sid=1"
+  },
+  {
+    "id": "game210",
+    "image": "https://img.gamepix.com/games/sprunki-tennis/icon/sprunki-tennis.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-tennis/embed?sid=1"
+  },
+  {
+    "id": "game211",
+    "image": "https://img.gamepix.com/games/sprunki-santa-rescue/icon/sprunki-santa-rescue.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-santa-rescue/embed?sid=1"
+  },
+  {
+    "id": "game212",
+    "image": "https://img.gamepix.com/games/sprunky-rich-rich-rich/icon/sprunky-rich-rich-rich.png?w=105",
+    "url": "https://play.gamepix.com/sprunky-rich-rich-rich/embed?sid=1"
+  },
+  {
+    "id": "game213",
+    "image": "https://img.gamepix.com/games/ratomilton-meets-sprunki-physics-puzzle-adventure/icon/ratomilton-meets-sprunki-physics-puzzle-adventure.png?w=105",
+    "url": "https://play.gamepix.com/ratomilton-meets-sprunki-physics-puzzle-adventure/embed?sid=1"
+  },
+  {
+    "id": "game214",
+    "image": "https://img.gamepix.com/games/squid-game-x-sprunki-anomaly/icon/squid-game-x-sprunki-anomaly.png?w=105",
+    "url": "https://play.gamepix.com/squid-game-x-sprunki-anomaly/embed?sid=1"
+  },
+  {
+    "id": "game215",
+    "image": "https://img.gamepix.com/games/sprunki-in-squid-game-chamber/icon/sprunki-in-squid-game-chamber.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-in-squid-game-chamber/embed?sid=1"
+  },
+  {
+    "id": "game216",
+    "image": "https://img.gamepix.com/games/sprunki-games-player-456/icon/sprunki-games-player-456.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-games-player-456/embed?sid=1"
+  },
+  {
+    "id": "game217",
+    "image": "https://img.gamepix.com/games/find-the-sprunki/icon/find-the-sprunki.png?w=105",
+    "url": "https://play.gamepix.com/find-the-sprunki/embed?sid=1"
+  },
+  {
+    "id": "game218",
+    "image": "https://img.gamepix.com/games/squid-sprunki-game-red-light/icon/squid-sprunki-game-red-light.png?w=105",
+    "url": "https://play.gamepix.com/squid-sprunki-game-red-light/embed?sid=1"
+  },
+  {
+    "id": "game219",
+    "image": "https://img.gamepix.com/games/sprunki-memory-game/icon/sprunki-memory-game.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-memory-game/embed?sid=1"
+  },
+  {
+    "id": "game220",
+    "image": "https://img.gamepix.com/games/sprunki-coloring-book/icon/sprunki-coloring-book.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-coloring-book/embed?sid=1"
+  },
+  {
+    "id": "game221",
+    "image": "https://img.gamepix.com/games/sprunki-vs-mccraft/icon/sprunki-vs-mccraft.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-vs-mccraft/embed?sid=1"
+  },
+  {
+    "id": "game222",
+    "image": "https://img.gamepix.com/games/tox-sprunki-mod/icon/tox-sprunki-mod.png?w=105",
+    "url": "https://play.gamepix.com/tox-sprunki-mod/embed?sid=1"
+  },
+  {
+    "id": "game223",
+    "image": "https://img.gamepix.com/games/sprunki-popit/icon/sprunki-popit.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-popit/embed?sid=1"
+  },
+  {
+    "id": "game224",
+    "image": "https://img.gamepix.com/games/squid-game-sprunki-escaped-backrooms/icon/squid-game-sprunki-escaped-backrooms.png?w=105",
+    "url": "https://play.gamepix.com/squid-game-sprunki-escaped-backrooms/embed?sid=1"
+  },
+  {
+    "id": "game225",
+    "image": "https://img.gamepix.com/games/sprunki-tung-sahur/icon/sprunki-tung-sahur.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-tung-sahur/embed?sid=1"
+  },
+  {
+    "id": "game226",
+    "image": "https://img.gamepix.com/games/sprunki-rage-stickman-incredibox/icon/sprunki-rage-stickman-incredibox.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-rage-stickman-incredibox/embed?sid=1"
+  },
+  {
+    "id": "game227",
+    "image": "https://img.gamepix.com/games/sprunki-drop/icon/sprunki-drop.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-drop/embed?sid=1"
+  },
+  {
+    "id": "game228",
+    "image": "https://img.gamepix.com/games/sprunki-wood-cutter/icon/sprunki-wood-cutter.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-wood-cutter/embed?sid=1"
+  },
+  {
+    "id": "game229",
+    "image": "https://img.gamepix.com/games/sprunki-coloring-books/icon/sprunki-coloring-books.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-coloring-books/embed?sid=1"
+  },
+  {
+    "id": "game230",
+    "image": "https://img.gamepix.com/games/sprunki-stick/icon/sprunki-stick.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-stick/embed?sid=1"
+  },
+  {
+    "id": "game231",
+    "image": "https://img.gamepix.com/games/italian-brainrot-sprunki/icon/italian-brainrot-sprunki.png?w=105",
+    "url": "https://play.gamepix.com/italian-brainrot-sprunki/embed?sid=1"
+  },
+  {
+    "id": "game232",
+    "image": "https://img.gamepix.com/games/pogo-obby-sprunki/icon/pogo-obby-sprunki.png?w=105",
+    "url": "https://play.gamepix.com/pogo-obby-sprunki/embed?sid=1"
+  },
+  {
+    "id": "game233",
+    "image": "https://img.gamepix.com/games/draw-and-create-sprunki-road/icon/draw-and-create-sprunki-road.png?w=105",
+    "url": "https://play.gamepix.com/draw-and-create-sprunki-road/embed?sid=1"
+  },
+  {
+    "id": "game234",
+    "image": "https://img.gamepix.com/games/sprunki-eater-the-cursed-mod/icon/sprunki-eater-the-cursed-mod.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-eater-the-cursed-mod/embed?sid=1"
+  },
+  {
+    "id": "game235",
+    "image": "https://img.gamepix.com/games/blast-sprunki/icon/blast-sprunki.png?w=105",
+    "url": "https://play.gamepix.com/blast-sprunki/embed?sid=1"
+  },
+  {
+    "id": "game236",
+    "image": "https://img.gamepix.com/games/sprunki-launch/icon/sprunki-launch.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-launch/embed?sid=1"
+  },
+  {
+    "id": "game237",
+    "image": "https://img.gamepix.com/games/sprunki-horror/icon/sprunki-horror.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-horror/embed?sid=1"
+  },
+  {
+    "id": "game238",
+    "image": "https://img.gamepix.com/games/sprunki-squid-gaming/icon/sprunki-squid-gaming.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-squid-gaming/embed?sid=1"
+  },
+  {
+    "id": "game239",
+    "image": "https://img.gamepix.com/games/nextbots-on-minecraft-squid-game-sprunki/icon/nextbots-on-minecraft-squid-game-sprunki.png?w=105",
+    "url": "https://play.gamepix.com/nextbots-on-minecraft-squid-game-sprunki/embed?sid=1"
+  },
+  {
+    "id": "game240",
+    "image": "https://img.gamepix.com/games/huggy-mix-sprunki-music-box/icon/huggy-mix-sprunki-music-box.png?w=105",
+    "url": "https://play.gamepix.com/huggy-mix-sprunki-music-box/embed?sid=1"
+  },
+  {
+    "id": "game241",
+    "image": "https://img.gamepix.com/games/sprunki-music-scary-beat-box/icon/sprunki-music-scary-beat-box.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-music-scary-beat-box/embed?sid=1"
+  },
+  {
+    "id": "game242",
+    "image": "https://img.gamepix.com/games/sprunki-find-the-differences/icon/sprunki-find-the-differences.png?w=105",
+    "url": "https://play.gamepix.com/sprunki-find-the-differences/embed?sid=1"
+  },
+
+  // ===== 原有游戏 (190个) =====
   {
     id: "game52",
     image:  "https://cdn2.scratch.mit.edu/get_image/project/1101344003_480x360.png",
@@ -360,7 +620,6 @@ export const games = [
       "image": "https://cdn2.scratch.mit.edu/get_image/project/1107624728_480x360.png",
       "url": "https://turbowarp.org/1107624728/embed"
     },
-
     {
       "id": "game67",
       "image": "https://cdn2.scratch.mit.edu/get_image/project/1103168273_480x360.png",
@@ -981,7 +1240,4 @@ export const games = [
       "image": "https://cdn2.scratch.mit.edu/get_image/project/1157820764_480x360.png",
       "url": "https://turbowarp.org/1157820764/embed"
     },
-
-
-
-]; 
+];

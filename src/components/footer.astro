@@ -11,6 +11,7 @@ const translations = {
       blog: 'Newest universes',
       pricing: 'VIP modes',
       privacy: 'Privacy',
+      terms: 'Terms of Service',
       contact: 'Contact',
       about: 'About Sprunki'
     }
@@ -24,7 +25,8 @@ const translations = {
       characters: '角色',
       blog: '最新宇宙',
       pricing: 'VIP 模式',
-      privacy: '隐私',
+      privacy: '隐私政策',
+      terms: '服务条款',
       contact: '联系我们',
       about: '关于 Sprunki'
     }
@@ -38,7 +40,8 @@ const translations = {
       characters: 'Personajes',
       blog: 'Universos más nuevos',
       pricing: 'Modos VIP',
-      privacy: 'Privacidad',
+      privacy: 'Política de Privacidad',
+      terms: 'Términos de Servicio',
       contact: 'Contacto',
       about: 'Acerca de Sprunki'
     }
@@ -95,6 +98,7 @@ const prefix = locale === 'en' ? '' : `/${locale}`;
         <p class="column-title">{t.columns.support}</p>
         <ul>
           <li><a href={`${prefix}/privacy`}>{t.columns.privacy}</a></li>
+          <li><a href={`${prefix}/terms-of-service`}>{t.columns.terms}</a></li>
           <li><a href={`${prefix}/contact`}>{t.columns.contact}</a></li>
           <li><a href={`${prefix}/about`}>{t.columns.about}</a></li>
         </ul>
