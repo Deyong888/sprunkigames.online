@@ -6,7 +6,7 @@ image: {
     src: "https://i.ytimg.com/vi/VSpsOdD48iI/maxresdefault.jpg",
     alt: "Sprunki Phase 3 gameplay showing creepy eyeball characters and nightmare mode interface"
 }
-publishDate: "2025-1-20 11:39"
+publishDate: "2026-2-10 11:39"
 category: "Sprunki Games"
 author: "Sprunki Incredibox"
 tags: [Sprunki, Huggy Mix Sprunki Music Box, music game, Phase 3, Incredibox, game guide]

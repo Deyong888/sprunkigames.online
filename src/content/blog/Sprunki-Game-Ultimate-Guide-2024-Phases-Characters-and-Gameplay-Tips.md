@@ -6,7 +6,7 @@ image: {
     src: "https://img.gamepix.com/games/huggy-mix-sprunki-music-box/cover/huggy-mix-sprunki-music-box.png?w=256",
     alt: "Sprunki Incredibox Game Complete Guide on https://sprunkigames.online"
 }
-publishDate: "2025-1-20 11:39"
+publishDate: "2026-2-11 11:39"
 category: "Sprunki Games"
 author: "Sprunki Incredibox"
 tags: [Sprunki, Sprunki Incredibox, Sprunki phases, Sprunki characters, Sprunki gameplay, Sprunki tips, Sprunki 2024]
