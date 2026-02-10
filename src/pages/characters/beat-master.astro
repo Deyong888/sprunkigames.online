@@ -1,0 +1,578 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+const { locale = 'en' } = Astro.props;
+
+// 多语言翻译
+const translations = {
+  en: {
+    title: "Beat Master - Sprunki Rhythm Character",
+    desc: "Meet Beat Master, the foundational rhythm character in Sprunki. Learn about his deep kick and snare sounds, and how to use him in your music creation.",
+    characterName: "Beat Master",
+    role: "Rhythm Foundation",
+    intro: "The Heartbeat of Your Music",
+    introDesc: "Beat Master is the essential rhythm character that provides the backbone for every great Sprunki composition. With his deep kick drums and crisp snare beats, he establishes the groove that drives your entire musical piece.",
+    soundProfile: "Sound Profile",
+    sound1: "Deep Kick Drum",
+    sound1Desc: "Powerful low-frequency bass drum that anchors your rhythm",
+    sound2: "Crisp Snare",
+    sound2Desc: "Sharp snare hits that add definition to your beats",
+    sound3: "Hi-Hat Patterns",
+    sound3Desc: "Subtle hi-hat sounds that fill the rhythm gaps",
+    personality: "Character Personality",
+    personalityDesc: "Beat Master is reliable, steady, and always on time. He's the disciplined drummer who never misses a beat, providing the consistent foundation that allows other characters to shine.",
+    howToUse: "How to Use Beat Master",
+    tip1: "Start with Beat Master",
+    tip1Desc: "Always add Beat Master first to establish your rhythm foundation",
+    tip2: "Layer with Melodies",
+    tip2Desc: "Once the beat is set, add melody characters to create harmony",
+    tip3: "Adjust the Mix",
+    tip3Desc: "Control the volume to ensure the beat supports but doesn't overpower",
+    relatedCharacters: "Related Characters",
+    ctaTitle: "Ready to Create with Beat Master?",
+    ctaButton: "Start Creating Now"
+  },
+  zh: {
+    title: "节拍大师 - Sprunki节奏角色",
+    desc: "认识节拍大师，Sprunki中基础的节奏角色。了解他深沉的底鼓和军鼓声音，以及如何在音乐创作中使用他。",
+    characterName: "节拍大师",
+    role: "节奏基础",
+    intro: "你音乐的心跳",
+    introDesc: "节拍大师是提供每个伟大Sprunki作品骨架的必需节奏角色。凭借他深沉的底鼓和清脆的军鼓节拍，他确立了驱动你整个音乐作品的律动。",
+    soundProfile: "声音配置",
+    sound1: "深沉底鼓",
+    sound1Desc: "有力的低频底鼓，锚定你的节奏",
+    sound2: "清脆军鼓",
+    sound2Desc: "锐利的军鼓击打，增添节拍清晰度",
+    sound3: "踩镲节奏型",
+    sound3Desc: "微妙的踩镲声音，填补节奏间隙",
+    personality: "角色个性",
+    personalityDesc: "节拍大师可靠、稳定、总是准时。他是从不错过节拍的有纪律的鼓手，提供了一致的基础，让其他角色能够发光。",
+    howToUse: "如何使用节拍大师",
+    tip1: "从节拍大师开始",
+    tip1Desc: "总是先添加节拍大师来确立你的节奏基础",
+    tip2: "叠加旋律",
+    tip2Desc: "一旦节拍确立，添加旋律角色创造和声",
+    tip3: "调整混音",
+    tip3Desc: "控制音量确保节拍支持但不压倒其他声音",
+    relatedCharacters: "相关角色",
+    ctaTitle: "准备好与节拍大师一起创作了吗？",
+    ctaButton: "立即开始创作"
+  },
+  es: {
+    title: "Maestro del Ritmo - Personaje de Ritmo de Sprunki",
+    desc: "Conoce al Maestro del Ritmo, el personaje de ritmo fundamental en Sprunki. Aprende sobre sus sonidos de bombo profundo y caja, y cómo usarlo en tu creación musical.",
+    characterName: "Maestro del Ritmo",
+    role: "Fundación del Ritmo",
+    intro: "El Latido de tu Música",
+    introDesc: "El Maestro del Ritmo es el personaje esencial que proporciona la columna vertebral para cada gran composición de Sprunki. Con sus bombos profundos y golpes nítidos de caja, establece el groove que impulsa toda tu pieza musical.",
+    soundProfile: "Perfil de Sonido",
+    sound1: "Bombo Profundo",
+    sound1Desc: "Bombo de baja frecuencia potente que ancla tu ritmo",
+    sound2: "Caja Nítida",
+    sound2Desc: "Golpes afilados de caja que añaden definición",
+    sound3: "Patrones de Hi-Hat",
+    sound3Desc: "Sonidos sutiles de hi-hat que llenan los espacios",
+    personality: "Personalidad del Personaje",
+    personalityDesc: "El Maestro del Ritmo es confiable, constante y siempre puntual. Es el baterista disciplinado que nunca pierde el ritmo.",
+    howToUse: "Cómo Usar el Maestro del Ritmo",
+    tip1: "Comienza con el Maestro",
+    tip1Desc: "Agrega primero el Maestro del Ritmo para establecer la base",
+    tip2: "Superpon Melodías",
+    tip2Desc: "Una vez establecido el ritmo, agrega personajes de melodía",
+    tip3: "Ajusta la Mezcla",
+    tip3Desc: "Controla el volumen para que el ritmo apoye sin dominar",
+    relatedCharacters: "Personajes Relacionados",
+    ctaTitle: "¿Listo para Crear con el Maestro?",
+    ctaButton: "Comenzar a Crear"
+  },
+  fil: {
+    title: "Master ng Beat - Karakter ng Ritmo ng Sprunki",
+    desc: "Kilalanin ang Master ng Beat, ang pundasyonal na karakter ng ritmo sa Sprunki. Alamin ang kanyang mga tunog ng kick at snare, at paano gamitin sa paglikha ng musika.",
+    characterName: "Master ng Beat",
+    role: "Pundasyon ng Ritmo",
+    intro: "Ang Tibok ng Iyong Musika",
+    introDesc: "Ang Master ng Beat ay ang mahalagang karakter ng ritmo na nagbibigay ng gulugod para sa bawat dakilang komposisyon ng Sprunki.",
+    soundProfile: "Profile ng Tunog",
+    sound1: "Malalim na Kick",
+    sound1Desc: "Malakas na kick drum na nag-aangkla sa iyong ritmo",
+    sound2: "Crisp na Snare",
+    sound2Desc: "Matatalim na snare hits na nagdadagdag ng depinisyon",
+    sound3: "Hi-Hat Patterns",
+    sound3Desc: "Mga banayad na hi-hat na punumuno sa mga puwang",
+    personality: "Personalidad ng Karakter",
+    personalityDesc: "Ang Master ng Beat ay maaasahan, matatag, at laging nasa oras. Siya ang disiplinadong drummer na hindi kailanman namimiss ang isang beat.",
+    howToUse: "Paano Gamitin ang Master ng Beat",
+    tip1: "Magsimula sa Master",
+    tip1Desc: "Laging idagdag muna ang Master ng Beat para magtatag ng pundasyon",
+    tip2: "Maglagay ng Melodies",
+    tip2Desc: "Kapag naitatag na ang beat, magdagdag ng mga karakter ng melody",
+    tip3: "I-adjust ang Mix",
+    tip3Desc: "Kontrolin ang volume para suportahan ng beat ngunit hindi maging dominante",
+    relatedCharacters: "Kaugnay na mga Karakter",
+    ctaTitle: "Handa nang Lumikha kasama ang Master?",
+    ctaButton: "Simulang Lumikha"
+  }
+};
+
+const t = translations[locale] || translations.en;
+
+// 相关角色
+const relatedCharacters = [
+  {
+    name: locale === 'zh' ? "旋律精灵" : locale === 'es' ? "Hada de la Melodía" : locale === 'fil' ? "Diwata ng Melody" : "Melody Sprite",
+    type: "melody",
+    icon: "🎵",
+    color: "#8B5CF6",
+    link: "/characters/melody-sprite"
+  },
+  {
+    name: locale === 'zh' ? "音效巫师" : locale === 'es' ? "Mago de Efectos" : locale === 'fil' ? "Wizard ng Effects" : "Effect Wizard",
+    type: "effect",
+    icon: "✨",
+    color: "#10B981",
+    link: "/characters/effect-wizard"
+  },
+  {
+    name: locale === 'zh' ? "歌者" : locale === 'es' ? "Cantante" : locale === 'fil' ? "Mang-aawit" : "Vocalist",
+    type: "vocal",
+    icon: "🎤",
+    color: "#F59E0B",
+    link: "/characters/vocalist"
+  }
+];
+
+// Schema.org structured data
+const characterSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": t.characterName,
+  "description": t.desc,
+  "url": "https://sprunkigames.online/characters/beat-master",
+  "knowsAbout": ["Music", "Rhythm", "Beat Making"],
+  "memberOf": {
+    "@type": "Organization",
+    "name": "Sprunki Characters"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": locale === 'zh' ? '首页' : locale === 'es' ? 'Inicio' : locale === 'fil' ? 'Home' : 'Home',
+      "item": "https://sprunkigames.online"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": locale === 'zh' ? '角色' : locale === 'es' ? 'Personajes' : locale === 'fil' ? 'Mga Karakter' : 'Characters',
+      "item": "https://sprunkigames.online/characters"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": t.characterName,
+      "item": `https://sprunkigames.online/${locale === 'en' ? '' : locale + '/'}characters/beat-master`
+    }
+  ]
+};
+---
+
+<Layout title={t.title} description={t.desc}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(characterSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
+  
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">{t.characterName}</Fragment>
+      <Fragment slot="desc">{t.role}</Fragment>
+    </Sectionhead>
+
+    <main class="mt-16">
+      <!-- Character Hero -->
+      <section class="character-hero">
+        <div class="character-avatar-large">
+          <span class="avatar-emoji">🥁</span>
+        </div>
+        <h2 class="section-title">{t.intro}</h2>
+        <p class="intro-text">{t.introDesc}</p>
+      </section>
+
+      <!-- Sound Profile -->
+      <section class="sounds-section">
+        <h2 class="section-title">{t.soundProfile}</h2>
+        <div class="sounds-grid">
+          <div class="sound-card">
+            <div class="sound-icon">🥁</div>
+            <h3 class="sound-title">{t.sound1}</h3>
+            <p class="sound-desc">{t.sound1Desc}</p>
+          </div>
+          <div class="sound-card">
+            <div class="sound-icon">🎯</div>
+            <h3 class="sound-title">{t.sound2}</h3>
+            <p class="sound-desc">{t.sound2Desc}</p>
+          </div>
+          <div class="sound-card">
+            <div class="sound-icon">🎩</div>
+            <h3 class="sound-title">{t.sound3}</h3>
+            <p class="sound-desc">{t.sound3Desc}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Personality -->
+      <section class="personality-section">
+        <h2 class="section-title">{t.personality}</h2>
+        <div class="personality-card">
+          <div class="personality-avatar">🎭</div>
+          <p class="personality-text">{t.personalityDesc}</p>
+        </div>
+      </section>
+
+      <!-- How to Use -->
+      <section class="tips-section">
+        <h2 class="section-title">{t.howToUse}</h2>
+        <div class="tips-grid">
+          <div class="tip-item">
+            <div class="tip-number">1</div>
+            <div class="tip-content">
+              <h3 class="tip-title">{t.tip1}</h3>
+              <p class="tip-desc">{t.tip1Desc}</p>
+            </div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-number">2</div>
+            <div class="tip-content">
+              <h3 class="tip-title">{t.tip2}</h3>
+              <p class="tip-desc">{t.tip2Desc}</p>
+            </div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-number">3</div>
+            <div class="tip-content">
+              <h3 class="tip-title">{t.tip3}</h3>
+              <p class="tip-desc">{t.tip3Desc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Characters -->
+      <section class="related-section">
+        <h2 class="section-title">{t.relatedCharacters}</h2>
+        <div class="related-grid">
+          {relatedCharacters.map((char) => (
+            <a href={char.link} class="related-card" style={`--char-color: ${char.color}`}>
+              <div class="related-icon" style={`background: ${char.color}20; border-color: ${char.color}`}>
+                <span>{char.icon}</span>
+              </div>
+              <h3 class="related-name">{char.name}</h3>
+              <span class="related-type">{char.type}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2 class="cta-title">{t.ctaTitle}</h2>
+        <a href="/" class="cta-button">
+          {t.ctaButton}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </main>
+  </Container>
+</Layout>
+
+<style>
+  .character-hero {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .character-avatar-large {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(239, 68, 68, 0.05) 100%);
+    border: 3px solid #EF4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+  }
+
+  .avatar-emoji {
+    font-size: 5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .sounds-section {
+    margin-bottom: 4rem;
+  }
+
+  .sounds-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .sounds-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .sound-card {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.02) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .sound-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(239, 68, 68, 0.4);
+  }
+
+  .sound-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .sound-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .sound-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .personality-section {
+    margin-bottom: 4rem;
+  }
+
+  .personality-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .personality-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border: 2px solid #8B5CF6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+  }
+
+  .personality-text {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .tips-section {
+    margin-bottom: 4rem;
+  }
+
+  .tips-grid {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .tip-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .tip-item:hover {
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  .tip-number {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .tip-content {
+    flex: 1;
+  }
+
+  .tip-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .tip-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .related-section {
+    margin-bottom: 4rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .related-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .related-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .related-card:hover {
+    border-color: var(--char-color, #8B5CF6);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .related-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+
+  .related-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0;
+  }
+
+  .related-type {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+
+  .cta-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.5);
+  }
+</style>

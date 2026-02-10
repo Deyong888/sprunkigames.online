@@ -1,0 +1,640 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+const { locale = 'en' } = Astro.props;
+
+// 多语言翻译
+const translations = {
+  en: {
+    title: "Sprunki Mods - Community-Created Music Experiences",
+    desc: "Explore the best Sprunki mods created by our community. From unique sound packs to custom characters, discover new ways to create music with community-driven modifications.",
+    intro: "What are Sprunki Mods?",
+    introDesc: "Sprunki Mods are community-created modifications that expand the original Sprunki experience with new sounds, characters, and visual themes. These fan-made creations bring fresh creativity to the music-making platform, offering unique twists on the classic gameplay that you won't find anywhere else.",
+    features: "Why Play Modded Sprunki?",
+    feature1: "Fresh Content",
+    feature1Desc: "Discover new sound combinations and character designs not available in the original game",
+    feature2: "Creative Variety",
+    feature2Desc: "Each mod offers a unique aesthetic and musical style, from retro to futuristic",
+    feature3: "Community Driven",
+    feature3Desc: "Support talented creators who expand the Sprunki universe with their passion",
+    popularMods: "Popular Mod Categories",
+    category1: "Sound Pack Mods",
+    category1Desc: "New audio elements and beats",
+    category2: "Character Mods",
+    category2Desc: "Custom character designs and animations",
+    category3: "Theme Mods",
+    category3Desc: "Complete visual overhauls",
+    category4: "Gameplay Mods",
+    category4Desc: "New mechanics and features",
+    featuredMods: "Featured Community Mods",
+    playNow: "Play Now",
+    ctaTitle: "Ready to Explore New Sounds?",
+    ctaButton: "Browse All Mods"
+  },
+  zh: {
+    title: "Sprunki模组 - 社区创作的音乐体验",
+    desc: "探索我们社区创作的最佳Sprunki模组。从独特的声音包到自定义角色，发现用社区驱动的模组创作音乐的新方式。",
+    intro: "什么是Sprunki模组？",
+    introDesc: "Sprunki模组是由社区创建的修改版本，通过新的声音、角色和视觉主题扩展原始Sprunki体验。这些粉丝制作的创作为音乐制作平台带来新鲜的创意，提供你在其他地方找不到的经典游戏的独特变体。",
+    features: "为什么要玩模组版Sprunki？",
+    feature1: "新鲜内容",
+    feature1Desc: "发现原始游戏中没有的新声音组合和角色设计",
+    feature2: "创意多样性",
+    feature2Desc: "每个模组都提供独特的美学和音乐风格，从复古到未来",
+    feature3: "社区驱动",
+    feature3Desc: "支持那些用热情扩展Sprunki宇宙的有才华的创作者",
+    popularMods: "热门模组分类",
+    category1: "声音包模组",
+    category1Desc: "新的音频元素和节拍",
+    category2: "角色模组",
+    category2Desc: "自定义角色设计和动画",
+    category3: "主题模组",
+    category3Desc: "完整的视觉改造",
+    category4: "游戏机制模组",
+    category4Desc: "新的机制和功能",
+    featuredMods: "精选社区模组",
+    playNow: "立即游玩",
+    ctaTitle: "准备好探索新声音了吗？",
+    ctaButton: "浏览所有模组"
+  },
+  es: {
+    title: "Sprunki Mods - Experiencias Musicales Creadas por la Comunidad",
+    desc: "Explora los mejores mods de Sprunki creados por nuestra comunidad. Desde paquetes de sonido únicos hasta personajes personalizados, descubre nuevas formas de crear música con modificaciones impulsadas por la comunidad.",
+    intro: "¿Qué son los Sprunki Mods?",
+    introDesc: "Los Sprunki Mods son modificaciones creadas por la comunidad que expanden la experiencia original de Sprunki con nuevos sonidos, personajes y temas visuales. Estas creaciones de fans aportan creatividad fresca a la plataforma de creación musical.",
+    features: "¿Por Qué Jugar Sprunki Modificado?",
+    feature1: "Contenido Fresco",
+    feature1Desc: "Descubre nuevas combinaciones de sonido y diseños de personajes",
+    feature2: "Variedad Creativa",
+    feature2Desc: "Cada mod ofrece una estética y estilo musical único",
+    feature3: "Impulsado por la Comunidad",
+    feature3Desc: "Apoya a creadores talentosos que expanden el universo Sprunki",
+    popularMods: "Categorías Populares de Mods",
+    category1: "Mods de Paquetes de Sonido",
+    category1Desc: "Nuevos elementos de audio y ritmos",
+    category2: "Mods de Personajes",
+    category2Desc: "Diseños y animaciones personalizadas",
+    category3: "Mods de Temas",
+    category3Desc: "Renovaciones visuales completas",
+    category4: "Mods de Gameplay",
+    category4Desc: "Nuevas mecánicas y características",
+    featuredMods: "Mods Destacados de la Comunidad",
+    playNow: "Jugar Ahora",
+    ctaTitle: "¿Listo para Explorar Nuevos Sonidos?",
+    ctaButton: "Explorar Todos los Mods"
+  },
+  fil: {
+    title: "Sprunki Mods - Mga Karanasan sa Musika na Ginawa ng Komunidad",
+    desc: "Tuklasin ang pinakamagagandang Sprunki mods na ginawa ng aming komunidad. Mula sa mga natatanging sound pack hanggang sa custom na mga karakter, tuklasin ang mga bagong paraan para lumikha ng musika.",
+    intro: "Ano ang mga Sprunki Mods?",
+    introDesc: "Ang mga Sprunki Mods ay mga modification na ginawa ng komunidad na nagpapalawak sa orihinal na karanasan sa Sprunki na may mga bagong tunog, karakter, at visual themes. Ang mga creation na ito ng fans ay nagdadala ng sariwang pagkamalikhain.",
+    features: "Bakit Maglaro ng Modded Sprunki?",
+    feature1: "Sariwang Content",
+    feature1Desc: "Tuklasin ang mga bagong sound combinations at character designs",
+    feature2: "Creative Variety",
+    feature2Desc: "Bawat mod ay nag-aalok ng natatanging aesthetic at musical style",
+    feature3: "Community Driven",
+    feature3Desc: "Suportahan ang mga talented creators na nagpapalawak sa uniberso ng Sprunki",
+    popularMods: "Mga Sikat na Kategorya ng Mods",
+    category1: "Sound Pack Mods",
+    category1Desc: "Mga bagong audio elements at beats",
+    category2: "Character Mods",
+    category2Desc: "Custom character designs at animations",
+    category3: "Theme Mods",
+    category3Desc: "Kumpletong visual overhauls",
+    category4: "Gameplay Mods",
+    category4Desc: "Mga bagong mechanics at features",
+    featuredMods: "Mga Featured na Mods ng Komunidad",
+    playNow: "Maglaro Ngayon",
+    ctaTitle: "Handa nang Tuklasin ang mga Bagong Tunog?",
+    ctaButton: "Tingnan ang Lahat ng Mods"
+  }
+};
+
+const t = translations[locale] || translations.en;
+
+// Mod categories
+const modCategories = [
+  {
+    id: "sound",
+    title: t.category1,
+    description: t.category1Desc,
+    icon: "🎵",
+    color: "#8B5CF6"
+  },
+  {
+    id: "character",
+    title: t.category2,
+    description: t.category2Desc,
+    icon: "👤",
+    color: "#EC4899"
+  },
+  {
+    id: "theme",
+    title: t.category3,
+    description: t.category3Desc,
+    icon: "🎨",
+    color: "#10B981"
+  },
+  {
+    id: "gameplay",
+    title: t.category4,
+    description: t.category4Desc,
+    icon: "⚙️",
+    color: "#F59E0B"
+  }
+];
+
+// Featured mods games
+const featuredMods = [
+  {
+    id: "tox-mod",
+    title: "Tox Sprunki Mod",
+    image: "https://img.gamepix.com/games/tox-sprunki-mod/icon/tox-sprunki-mod.png?w=105",
+    url: "https://play.gamepix.com/tox-sprunki-mod/embed?sid=1",
+    description: locale === 'zh' ? "毒性主题模组" : locale === 'es' ? "Mod con temática tóxica" : locale === 'fil' ? "Toxic theme mod" : "Toxic-themed mod"
+  },
+  {
+    id: "ketchup-mod",
+    title: "Sprunki Ketchup Mod",
+    image: "https://img.gamepix.com/games/sprunki-ketchup-mod/icon/sprunki-ketchup-mod.png?w=105",
+    url: "https://play.gamepix.com/sprunki-ketchup-mod/embed?sid=1",
+    description: locale === 'zh' ? "番茄酱趣味模组" : locale === 'es' ? "Mod divertido de ketchup" : locale === 'fil' ? "Ketchup fun mod" : "Ketchup fun mod"
+  },
+  {
+    id: "eater-mod",
+    title: "Sprunki Eater - The Cursed Mod",
+    image: "https://img.gamepix.com/games/sprunki-eater-the-cursed-mod/icon/sprunki-eater-the-cursed-mod.png?w=105",
+    url: "https://play.gamepix.com/sprunki-eater-the-cursed-mod/embed?sid=1",
+    description: locale === 'zh' ? "诅咒主题恐怖模组" : locale === 'es' ? "Mod de terror maldito" : locale === 'fil' ? "Cursed horror mod" : "Cursed horror mod"
+  },
+  {
+    id: "sprunky-rich",
+    title: "Sprunky Rich Rich Rich",
+    image: "https://img.gamepix.com/games/sprunky-rich-rich-rich/icon/sprunky-rich-rich-rich.png?w=105",
+    url: "https://play.gamepix.com/sprunky-rich-rich-rich/embed?sid=1",
+    description: locale === 'zh' ? "财富主题模组" : locale === 'es' ? "Mod temático de riqueza" : locale === 'fil' ? "Wealth theme mod" : "Wealth-themed mod"
+  }
+];
+
+// Schema.org structured data
+const videoGameSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Sprunki Mods",
+  "description": t.desc,
+  "url": "https://sprunkigames.online/mods",
+  "genre": ["Music", "Creative", "Casual"],
+  "gamePlatform": ["Web Browser", "PC", "Mobile", "Tablet"],
+  "applicationCategory": "Game",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Synthflow Digital LTD"
+  },
+  "isPartOf": {
+    "@type": "VideoGame",
+    "name": "Sprunki Game"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": locale === 'zh' ? '首页' : locale === 'es' ? 'Inicio' : locale === 'fil' ? 'Home' : 'Home',
+      "item": "https://sprunkigames.online"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": t.title,
+      "item": `https://sprunkigames.online/${locale === 'en' ? '' : locale + '/'}mods`
+    }
+  ]
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": featuredMods.map((mod, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": mod.title,
+    "description": mod.description,
+    "url": mod.url
+  }))
+};
+---
+
+<Layout title={t.title} description={t.desc}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(videoGameSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(itemListSchema)} />
+  
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">{t.title}</Fragment>
+      <Fragment slot="desc">{t.desc}</Fragment>
+    </Sectionhead>
+
+    <main class="mt-16">
+      <!-- Introduction -->
+      <section class="intro-section">
+        <h2 class="section-title">{t.intro}</h2>
+        <p class="intro-text">{t.introDesc}</p>
+      </section>
+
+      <!-- Features -->
+      <section class="features-section">
+        <h2 class="section-title">{t.features}</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3 class="feature-title">{t.feature1}</h3>
+            <p class="feature-desc">{t.feature1Desc}</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3 class="feature-title">{t.feature2}</h3>
+            <p class="feature-desc">{t.feature2Desc}</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h3 class="feature-title">{t.feature3}</h3>
+            <p class="feature-desc">{t.feature3Desc}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mod Categories -->
+      <section class="categories-section">
+        <h2 class="section-title">{t.popularMods}</h2>
+        <div class="categories-grid">
+          {modCategories.map((category) => (
+            <div class="category-card" style={`--category-color: ${category.color}`}>
+              <div class="category-icon-wrapper" style={`background: ${category.color}20; border-color: ${category.color}40`}>
+                <span class="category-icon">{category.icon}</span>
+              </div>
+              <h3 class="category-title">{category.title}</h3>
+              <p class="category-desc">{category.description}</p>
+              <div class="category-color-bar" style={`background: ${category.color}`}></div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Featured Mods -->
+      <section class="mods-section">
+        <h2 class="section-title">{t.featuredMods}</h2>
+        <div class="mods-grid">
+          {featuredMods.map((mod, index) => (
+            <div class="mod-card">
+              <div class="mod-image-wrapper">
+                <img 
+                  src={mod.image} 
+                  alt={mod.title}
+                  class="mod-image"
+                  loading={index < 2 ? "eager" : "lazy"}
+                  width="200"
+                  height="200"
+                />
+                <span class="mod-badge">MOD</span>
+              </div>
+              <div class="mod-content">
+                <h3 class="mod-title">{mod.title}</h3>
+                <p class="mod-description">{mod.description}</p>
+                <a 
+                  href={mod.url} 
+                  class="play-button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                  </svg>
+                  {t.playNow}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2 class="cta-title">{t.ctaTitle}</h2>
+        <a href="/" class="cta-button">
+          {t.ctaButton}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </main>
+  </Container>
+</Layout>
+
+<style>
+  .intro-section {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .features-section {
+    margin-bottom: 4rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .feature-card {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(236, 72, 201, 0.03) 100%);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    border-color: rgba(139, 92, 246, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .feature-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .categories-section {
+    margin-bottom: 4rem;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .categories-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .category-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .category-card:hover {
+    border-color: var(--category-color, #8B5CF6);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .category-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .category-card:hover .category-icon-wrapper {
+    transform: scale(1.1);
+  }
+
+  .category-icon {
+    font-size: 2.5rem;
+  }
+
+  .category-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .category-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .category-color-bar {
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .mods-section {
+    margin-bottom: 4rem;
+  }
+
+  .mods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .mods-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .mod-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .mod-card:hover {
+    border-color: rgba(139, 92, 246, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+  }
+
+  .mod-image-wrapper {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  }
+
+  .mod-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .mod-card:hover .mod-image {
+    transform: scale(1.05);
+  }
+
+  .mod-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 0.25rem 0.5rem;
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+    color: white;
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+  }
+
+  .mod-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mod-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mod-description {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .play-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+    color: white;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .play-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 201, 0.05) 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .cta-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+  }
+</style>

@@ -76,8 +76,40 @@ const recentPosts = publishedBlogEntries
 
 <style>
   .bloglist-section {
-    padding-top: clamp(2rem, 4vw, 4rem);
-    background: var(--bg-base);
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: linear-gradient(180deg, 
+      rgba(15, 15, 25, 0.3) 0%,
+      rgba(108, 93, 211, 0.05) 50%,
+      rgba(15, 15, 25, 0.3) 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bloglist-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(139, 92, 246, 0.3), 
+      rgba(0, 224, 255, 0.3), 
+      rgba(139, 92, 246, 0.3), 
+      transparent
+    );
+  }
+
+  .heading-gradient {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 0%, #e0e0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .blog-grid {
@@ -89,8 +121,8 @@ const recentPosts = publishedBlogEntries
   .blog-card {
     overflow: hidden;
     transition: var(--transition-base);
-    background: linear-gradient(145deg, rgba(26, 24, 38, 0.95), rgba(16, 16, 24, 0.9));
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(145deg, rgba(42, 38, 58, 0.9), rgba(32, 28, 46, 0.85));
+    border: 1px solid rgba(139, 92, 246, 0.15);
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
   }
 
@@ -133,7 +165,7 @@ const recentPosts = publishedBlogEntries
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
-    color: var(--text-primary);
+    color: #e0e7ff;
     transition: color 0.3s ease;
     line-height: 1.4;
   }
@@ -150,11 +182,11 @@ const recentPosts = publishedBlogEntries
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(224, 231, 255, 0.75);
   }
 
   .blog-content .muted {
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(224, 231, 255, 0.75);
   }
 
   .blog-readmore {

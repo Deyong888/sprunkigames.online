@@ -1,0 +1,754 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+const { locale = 'en' } = Astro.props;
+
+// 多语言翻译
+const translations = {
+  en: {
+    title: "Sprunki Colorbox - Vibrant Music Creation Experience",
+    desc: "Discover the colorful world of Sprunki Colorbox. Create vibrant music with color-themed characters, fresh sound combinations, and stunning visual styles.",
+    intro: "What is Sprunki Colorbox?",
+    introDesc: "Sprunki Colorbox is a vibrant, color-themed variant of the classic Sprunki music creation game. Each color edition brings unique visual styles and fresh sound combinations, allowing creators to craft music with a distinctive chromatic flair. From warm oranges to cool blues, every color tells its own sonic story.",
+    features: "Colorbox Features",
+    feature1: "Color-Themed Characters",
+    feature1Desc: "Each edition features characters designed around specific color palettes with matching aesthetics",
+    feature2: "Unique Sound Profiles",
+    feature2Desc: "Different color editions offer distinct sonic characteristics and musical elements",
+    feature3: "Visual Harmony",
+    feature3Desc: "Stunning color-coordinated visuals that enhance the music creation experience",
+    colorEditions: "Available Color Editions",
+    redTitle: "Colorbox Red",
+    redDesc: "Warm, energetic beats with passionate melodies",
+    yellowTitle: "Colorbox Yellow",
+    yellowDesc: "Bright, cheerful tones with sunny disposition",
+    blueTitle: "Colorbox Blue",
+    blueDesc: "Cool, calming rhythms with serene harmonies",
+    greenTitle: "Colorbox Green",
+    greenDesc: "Natural, organic sounds with earthy vibes",
+    howToPlay: "How to Play Colorbox",
+    step1: "Choose Your Color",
+    step1Desc: "Select a Colorbox edition that matches your creative mood",
+    step2: "Mix Colors & Sounds",
+    step2Desc: "Combine different color characters for unique musical palettes",
+    step3: "Create Vibrant Music",
+    step3Desc: "Layer sounds to create chromatic musical compositions",
+    relatedGames: "Related Colorbox Games",
+    playNow: "Play Now",
+    ctaTitle: "Ready to Add Color to Your Music?",
+    ctaButton: "Play Colorbox Now"
+  },
+  zh: {
+    title: "Sprunki Colorbox - 充满活力的音乐创作体验",
+    desc: "探索色彩缤纷的Sprunki Colorbox世界。使用色彩主题角色、新鲜的声音组合和令人惊叹的视觉风格创作充满活力的音乐。",
+    intro: "什么是Sprunki Colorbox？",
+    introDesc: "Sprunki Colorbox是经典Sprunki音乐创作游戏的充满活力的色彩主题变体。每个色彩版本都带来独特的视觉风格和新鲜的声音组合，让创作者能够制作出具有独特色彩魅力的音乐。从温暖的橙色到凉爽的蓝色，每种色彩都诉说着自己独特的声音故事。",
+    features: "Colorbox特色",
+    feature1: "色彩主题角色",
+    feature1Desc: "每个版本都包含围绕特定色彩调色板设计的角色，配以匹配的美学风格",
+    feature2: "独特的声音配置",
+    feature2Desc: "不同的色彩版本提供独特的声音特征和音乐元素",
+    feature3: "视觉和谐",
+    feature3Desc: "令人惊叹的协调配色视觉效果，增强音乐创作体验",
+    colorEditions: "可用色彩版本",
+    redTitle: "Colorbox 红色版",
+    redDesc: "温暖、充满活力的节拍，搭配激情四射的旋律",
+    yellowTitle: "Colorbox 黄色版",
+    yellowDesc: "明亮、欢快的音调，充满阳光的气质",
+    blueTitle: "Colorbox 蓝色版",
+    blueDesc: "凉爽、平静的律动，搭配宁静的和谐音",
+    greenTitle: "Colorbox 绿色版",
+    greenDesc: "自然、有机的声音，带有泥土气息的氛围",
+    howToPlay: "如何玩Colorbox",
+    step1: "选择你的色彩",
+    step1Desc: "选择一个与你创作心情匹配的Colorbox版本",
+    step2: "混合色彩与声音",
+    step2Desc: "结合不同色彩角色，创造独特的音乐调色板",
+    step3: "创作充满活力的音乐",
+    step3Desc: "叠加声音，创造色彩缤纷的音乐作品",
+    relatedGames: "相关Colorbox游戏",
+    playNow: "立即游玩",
+    ctaTitle: "准备好为你的音乐增添色彩了吗？",
+    ctaButton: "立即玩Colorbox"
+  },
+  es: {
+    title: "Sprunki Colorbox - Experiencia Vibrante de Creación Musical",
+    desc: "Descubre el colorido mundo de Sprunki Colorbox. Crea música vibrante con personajes temáticos de colores, combinaciones de sonido frescas y estilos visuales impresionantes.",
+    intro: "¿Qué es Sprunki Colorbox?",
+    introDesc: "Sprunki Colorbox es una variante vibrante y temática de colores del clásico juego de creación musical Sprunki. Cada edición de color trae estilos visuales únicos y combinaciones de sonido frescas, permitiendo a los creadores crear música con un toque cromático distintivo.",
+    features: "Características de Colorbox",
+    feature1: "Personajes Temáticos de Color",
+    feature1Desc: "Cada edición presenta personajes diseñados alrededor de paletas de colores específicas",
+    feature2: "Perfiles de Sonido Únicos",
+    feature2Desc: "Diferentes ediciones de color ofrecen características sónicas distintivas",
+    feature3: "Armonía Visual",
+    feature3Desc: "Visuales coordinados por color que mejoran la experiencia de creación musical",
+    colorEditions: "Ediciones de Color Disponibles",
+    redTitle: "Colorbox Rojo",
+    redDesc: "Ritmos cálidos y energéticos con melodías apasionadas",
+    yellowTitle: "Colorbox Amarillo",
+    yellowDesc: "Tonos brillantes y alegres con disposición soleada",
+    blueTitle: "Colorbox Azul",
+    blueDesc: "Ritmos frescos y calmados con armonías serenas",
+    greenTitle: "Colorbox Verde",
+    greenDesc: "Sonidos naturales y orgánicos con vibras terrosas",
+    howToPlay: "Cómo Jugar Colorbox",
+    step1: "Elige Tu Color",
+    step1Desc: "Selecciona una edición Colorbox que coincida con tu estado de ánimo creativo",
+    step2: "Mezcla Colores y Sonidos",
+    step2Desc: "Combina diferentes personajes de color para paletas musicales únicas",
+    step3: "Crea Música Vibrante",
+    step3Desc: "Superpone sonidos para crear composiciones musicales cromáticas",
+    relatedGames: "Juegos Colorbox Relacionados",
+    playNow: "Jugar Ahora",
+    ctaTitle: "¿Listo para Agregar Color a tu Música?",
+    ctaButton: "Jugar Colorbox Ahora"
+  },
+  fil: {
+    title: "Sprunki Colorbox - Vibrant na Karanasan sa Paglikha ng Musika",
+    desc: "Tuklasin ang makulay na mundo ng Sprunki Colorbox. Lumikha ng vibrant na musika sa may temang kulay na mga karakter, sariwang sound combinations, at nakamamanghang visual styles.",
+    intro: "Ano ang Sprunki Colorbox?",
+    introDesc: "Ang Sprunki Colorbox ay isang vibrant at may temang kulay na variant ng klasikong laro sa paglikha ng musikang Sprunki. Bawat edisyon ng kulay ay nagdadala ng natatanging visual styles at sariwang sound combinations.",
+    features: "Mga Tampok ng Colorbox",
+    feature1: "Mga Karakter na may Temang Kulay",
+    feature1Desc: "Bawat edisyon ay nagtatampok ng mga karakter na idinisenyo sa paligid ng mga tiyak na paleta ng kulay",
+    feature2: "Natatanging Sound Profiles",
+    feature2Desc: "Iba't ibang edisyon ng kulay ay nag-aalok ng natatanging sonic characteristics",
+    feature3: "Visual Harmony",
+    feature3Desc: "Nakamamanghang color-coordinated visuals na nagpapahusay sa karanasan",
+    colorEditions: "Magagamit na Edisyon ng Kulay",
+    redTitle: "Colorbox Pula",
+    redDesc: "Mainit, energetic beats na may mararangyang melodies",
+    yellowTitle: "Colorbox Dilaw",
+    yellowDesc: "Maliwanag, cheerful tones na may sunny disposition",
+    blueTitle: "Colorbox Asul",
+    blueDesc: "Cool, calming rhythms na may serene harmonies",
+    greenTitle: "Colorbox Berde",
+    greenDesc: "Natural, organic sounds na may earthy vibes",
+    howToPlay: "Paano Maglaro ng Colorbox",
+    step1: "Piliin ang Iyong Kulay",
+    step1Desc: "Pumili ng isang edisyon ng Colorbox na tumutugma sa iyong creative mood",
+    step2: "Ihalo ang mga Kulay at Tunog",
+    step2Desc: "Pagsamahin ang iba't ibang kulay na mga karakter para sa natatanging musical palettes",
+    step3: "Lumikha ng Vibrant na Musika",
+    step3Desc: "Maglagay ng mga tunog para lumikha ng chromatic musical compositions",
+    relatedGames: "Mga Kaugnay na Laro ng Colorbox",
+    playNow: "Maglaro Ngayon",
+    ctaTitle: "Handa nang Magdagdag ng Kulay sa Iyong Musika?",
+    ctaButton: "Maglaro ng Colorbox Ngayon"
+  }
+};
+
+const t = translations[locale] || translations.en;
+
+// Colorbox editions data
+const colorEditions = [
+  {
+    id: "red",
+    title: t.redTitle,
+    description: t.redDesc,
+    color: "#EF4444",
+    icon: "🔴"
+  },
+  {
+    id: "yellow",
+    title: t.yellowTitle,
+    description: t.yellowDesc,
+    color: "#F59E0B",
+    icon: "🟡"
+  },
+  {
+    id: "blue",
+    title: t.blueTitle,
+    description: t.blueDesc,
+    color: "#3B82F6",
+    icon: "🔵"
+  },
+  {
+    id: "green",
+    title: t.greenTitle,
+    description: t.greenDesc,
+    color: "#10B981",
+    icon: "🟢"
+  }
+];
+
+// Related Colorbox games
+const colorboxGames = [
+  {
+    id: "incredibox-red",
+    title: "Incredibox Red Colorbox",
+    image: "https://img.gamepix.com/games/incredibox-party-frozen-sprunki-beat/icon/incredibox-party-frozen-sprunki-beat.png?w=105",
+    url: "https://kdata1.com/2024/10/incredibox-red-colorbox/",
+    description: locale === 'zh' ? "经典红色版本" : locale === 'es' ? "Versión roja clásica" : locale === 'fil' ? "Klasikong pula bersyon" : "Classic red edition"
+  },
+  {
+    id: "incredibox-yellow",
+    title: "Incredibox Yellow Colorbox",
+    image: "https://img.gamepix.com/games/sprunki-coloring-pages/icon/sprunki-coloring-pages.png?w=105",
+    url: "https://kdata1.com/2024/10/incredibox-yellow-colorbox/",
+    description: locale === 'zh' ? "明亮黄色版本" : locale === 'es' ? "Versión amarilla brillante" : locale === 'fil' ? "Maliwanag na dilaw bersyon" : "Bright yellow edition"
+  },
+  {
+    id: "sprunki-coloring",
+    title: "Sprunki Coloring Pages",
+    image: "https://img.gamepix.com/games/sprunki-coloring-pages/icon/sprunki-coloring-pages.png?w=105",
+    url: "https://play.gamepix.com/sprunki-coloring-pages/embed?sid=1",
+    description: locale === 'zh' ? "创意涂色游戏" : locale === 'es' ? "Juego de colorear creativo" : locale === 'fil' ? "Creative coloring game" : "Creative coloring game"
+  },
+  {
+    id: "sprunki-retro",
+    title: "Retro Sprunki",
+    image: "https://img.gamepix.com/games/retro-sprunki/icon/retro-sprunki.png?w=105",
+    url: "https://play.gamepix.com/retro-sprunki/embed?sid=1",
+    description: locale === 'zh' ? "复古风格版本" : locale === 'es' ? "Edición estilo retro" : locale === 'fil' ? "Retro style edisyon" : "Retro style edition"
+  }
+];
+
+// Schema.org structured data
+const videoGameSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Sprunki Colorbox",
+  "description": t.desc,
+  "url": "https://sprunkigames.online/colorbox",
+  "genre": ["Music", "Creative", "Casual"],
+  "gamePlatform": ["Web Browser", "PC", "Mobile", "Tablet"],
+  "applicationCategory": "Game",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Synthflow Digital LTD"
+  },
+  "isPartOf": {
+    "@type": "VideoGame",
+    "name": "Sprunki Game"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": locale === 'zh' ? '首页' : locale === 'es' ? 'Inicio' : locale === 'fil' ? 'Home' : 'Home',
+      "item": "https://sprunkigames.online"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": t.title,
+      "item": `https://sprunkigames.online/${locale === 'en' ? '' : locale + '/'}colorbox`
+    }
+  ]
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": colorboxGames.map((game, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": game.title,
+    "description": game.description,
+    "url": game.url
+  }))
+};
+---
+
+<Layout title={t.title} description={t.desc}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(videoGameSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(itemListSchema)} />
+  
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">{t.title}</Fragment>
+      <Fragment slot="desc">{t.desc}</Fragment>
+    </Sectionhead>
+
+    <main class="mt-16">
+      <!-- Introduction -->
+      <section class="intro-section">
+        <h2 class="section-title">{t.intro}</h2>
+        <p class="intro-text">{t.introDesc}</p>
+      </section>
+
+      <!-- Features -->
+      <section class="features-section">
+        <h2 class="section-title">{t.features}</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3 class="feature-title">{t.feature1}</h3>
+            <p class="feature-desc">{t.feature1Desc}</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎵</div>
+            <h3 class="feature-title">{t.feature2}</h3>
+            <p class="feature-desc">{t.feature2Desc}</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3 class="feature-title">{t.feature3}</h3>
+            <p class="feature-desc">{t.feature3Desc}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Color Editions -->
+      <section class="editions-section">
+        <h2 class="section-title">{t.colorEditions}</h2>
+        <div class="editions-grid">
+          {colorEditions.map((edition) => (
+            <div class="edition-card" style={`--edition-color: ${edition.color}`}>
+              <div class="edition-icon-wrapper" style={`background: ${edition.color}20; border-color: ${edition.color}40`}>
+                <span class="edition-icon">{edition.icon}</span>
+              </div>
+              <h3 class="edition-title">{edition.title}</h3>
+              <p class="edition-desc">{edition.description}</p>
+              <div class="edition-color-bar" style={`background: ${edition.color}`}></div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- How to Play -->
+      <section class="how-to-section">
+        <h2 class="section-title">{t.howToPlay}</h2>
+        <div class="steps-container">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3 class="step-title">{t.step1}</h3>
+              <p class="step-desc">{t.step1Desc}</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3 class="step-title">{t.step2}</h3>
+              <p class="step-desc">{t.step2Desc}</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3 class="step-title">{t.step3}</h3>
+              <p class="step-desc">{t.step3Desc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Games -->
+      <section class="games-section">
+        <h2 class="section-title">{t.relatedGames}</h2>
+        <div class="games-grid">
+          {colorboxGames.map((game, index) => (
+            <div class="game-card">
+              <div class="game-image-wrapper">
+                <img 
+                  src={game.image} 
+                  alt={game.title}
+                  class="game-image"
+                  loading={index < 2 ? "eager" : "lazy"}
+                  width="200"
+                  height="200"
+                />
+                <span class="game-badge">Colorbox</span>
+              </div>
+              <div class="game-content">
+                <h3 class="game-title">{game.title}</h3>
+                <p class="game-description">{game.description}</p>
+                <a 
+                  href={game.url} 
+                  class="play-button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                  </svg>
+                  {t.playNow}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2 class="cta-title">{t.ctaTitle}</h2>
+        <a href="https://kdata1.com/2024/10/incredibox-red-colorbox/" class="cta-button" target="_blank" rel="noopener noreferrer">
+          {t.ctaButton}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </main>
+  </Container>
+</Layout>
+
+<style>
+  .intro-section {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .features-section {
+    margin-bottom: 4rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .feature-card {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(16, 185, 129, 0.03) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.15);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    border-color: rgba(245, 158, 11, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .feature-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .editions-section {
+    margin-bottom: 4rem;
+  }
+
+  .editions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .editions-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .edition-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .edition-card:hover {
+    border-color: var(--edition-color, #F59E0B);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .edition-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .edition-card:hover .edition-icon-wrapper {
+    transform: scale(1.1);
+  }
+
+  .edition-icon {
+    font-size: 2.5rem;
+  }
+
+  .edition-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .edition-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .edition-color-bar {
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .how-to-section {
+    margin-bottom: 4rem;
+  }
+
+  .steps-container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .step-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .step-item:hover {
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+
+  .step-number {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .step-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .games-section {
+    margin-bottom: 4rem;
+  }
+
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .games-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .game-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .game-card:hover {
+    border-color: rgba(245, 158, 11, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15);
+  }
+
+  .game-image-wrapper {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  }
+
+  .game-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .game-card:hover .game-image {
+    transform: scale(1.05);
+  }
+
+  .game-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 0.25rem 0.5rem;
+    background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+    color: white;
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+  }
+
+  .game-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .game-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .game-description {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .play-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+    color: white;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .play-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  .cta-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+  }
+</style>

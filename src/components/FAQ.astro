@@ -180,8 +180,40 @@ const faqSchema = {
 
 <style>
   .faq-section {
-    padding-top: clamp(2rem, 4vw, 4rem);
-    background: var(--bg-base);
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: linear-gradient(180deg, 
+      rgba(15, 15, 25, 0.3) 0%,
+      rgba(108, 93, 211, 0.05) 50%,
+      rgba(15, 15, 25, 0.3) 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  .faq-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(139, 92, 246, 0.3), 
+      rgba(0, 224, 255, 0.3), 
+      rgba(139, 92, 246, 0.3), 
+      transparent
+    );
+  }
+
+  .heading-gradient {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 0%, #e0e0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .faq-list {

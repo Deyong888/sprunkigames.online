@@ -1,0 +1,417 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+const { locale = 'en' } = Astro.props;
+
+const translations = {
+  en: {
+    title: "How to Make Professional Beats in Sprunki",
+    desc: "Learn professional music production techniques using Sprunki. Master beat creation, sound layering, and arrangement to create studio-quality tracks.",
+    heading: "Professional Beat Making Guide",
+    subheading: "From bedroom producer to studio quality",
+    intro: "Professional Beat Making in Sprunki",
+    introDesc: "Think you need expensive software and years of training to make professional beats? Think again. Sprunki puts powerful music production tools at your fingertips. This guide reveals the techniques pro producers use - adapted perfectly for Sprunki's unique interface.",
+    fundamentals: "The Fundamentals",
+    fundamentalsDesc: "Before diving into advanced techniques, let's establish the foundation of great beat-making:",
+    fundamental1: "Rhythm is Everything",
+    fundamental1Desc: "A great beat makes people move before they even realize it. The key is groove - that irresistible feeling that makes heads nod and feet tap.",
+    fundamental2: "Space is Sound",
+    fundamental2Desc: "The notes you don't play are as important as the ones you do. Silence creates anticipation and makes the beats that hit harder.",
+    fundamental3: "Consistency + Variation",
+    fundamental3Desc: "Professional beats balance repetition (so listeners can lock into the groove) with variation (so they stay interested).",
+    step1Title: "Step 1: Build Your Foundation",
+    step1Desc: "Every professional beat starts with a solid foundation. This is your kick drum and basic rhythm pattern.",
+    step1Tip: "Start with Beat Master for a deep, punchy kick that you can feel in your chest. This is your anchor.",
+    step2Title: "Step 2: Add the Groove Layer",
+    step2Desc: "Now add percussion that complements your kick. These are your hi-hats, snares, and rhythmic elements.",
+    step2Tip: "Layer multiple beat characters with slightly different patterns. This creates the 'pocket' - that sweet spot where everything locks together.",
+    step3Title: "Step 3: Create Space with Melody",
+    step3Desc: "Add melodic elements that interact with your beat, not just play over it.",
+    step3Tip: "Use Melody Sprite to add synth hooks that leave space for your drums to breathe. The best melodies work with the beat, not against it.",
+    step4Title: "Step 4: Polish with Effects",
+    step4Desc: "Professional beats use effects not as decoration, but as essential elements that add character.",
+    step4Tip: "Effect Wizard's transitions can turn a simple beat switch into a moment. Use effects to mark sections and create excitement.",
+    advancedTitle: "Advanced Techniques",
+    technique1: "The Drop Technique",
+    technique1Desc: "Remove all elements except the kick for 2-4 beats, then bring everything back. This creates massive impact and is used in professional EDM constantly.",
+    technique2: "Sidechain Simulation",
+    technique2Desc: "Even without traditional sidechain compression, you can create the 'pumping' effect by manually removing melody elements on kick hits, then bringing them back immediately after.",
+    technique3: "Layering for Depth",
+    technique3Desc: "Use multiple similar-sounding characters with slightly different timing. This creates a 'wall of sound' that feels professional and full.",
+    mistakesTitle: "Common Mistakes to Avoid",
+    mistake1: "Overcrowding",
+    mistake1Desc: "Adding too many characters doesn't make your beat better - it makes it muddy. Professional beats are often surprisingly simple.",
+    mistake2: "Ignoring Dynamics",
+    mistake2Desc: "A beat that hits the same intensity throughout gets boring. Create sections: intro, build, drop, breakdown, climax.",
+    mistake3: "Neglecting the Low End",
+    mistake3Desc: "Without solid bass and kick, your beat feels weak. Always check that your foundation is strong before adding layers.",
+    checklistTitle: "Professional Beat Checklist",
+    checklistItem1: "✓ Strong kick that punches through the mix",
+    checklistItem2: "✓ Groove that makes you want to move",
+    checklistItem3: "✓ Melodic elements that complement (not compete with) the beat",
+    checklistItem4: "✓ Variation between sections to maintain interest",
+    checklistItem5: "✓ Clean low end without muddiness",
+    ctaTitle: "Ready to Make Professional Beats?",
+    ctaButton: "Start Creating Now"
+  },
+  zh: {
+    title: "如何在Sprunki中制作专业节拍",
+    desc: "学习使用Sprunki的专业音乐制作技巧。掌握节拍创作、声音分层和编排，制作录音室品质的曲目。",
+    heading: "专业节拍制作指南",
+    subheading: "从卧室制作人进化到录音室品质",
+    intro: "在Sprunki中制作专业节拍",
+    introDesc: "认为需要昂贵的软件和多年的培训才能制作专业节拍？再想想吧。Sprunki将强大的音乐制作工具放在您的指尖。本指南揭示了专业制作人使用的技巧——完美地适配Sprunki独特的界面。",
+    fundamentals: "基础知识",
+    fundamentalsDesc: "在深入高级技巧之前，让我们建立出色的节拍制作基础：",
+    fundamental1: "节奏是一切",
+    fundamental1Desc: "一个出色的节拍会让人们在意识到之前就跟着动起来。关键是律动——那种让人点头、跺脚的不可抗拒的感觉。",
+    fundamental2: "空间也是声音",
+    fundamental2Desc: "你不演奏的音符和你演奏的音符一样重要。沉默创造期待，让击打更加有力。",
+    fundamental3: "一致性 + 变化",
+    fundamental3Desc: "专业节拍平衡重复（让听众可以锁定律动）与变化（让他们保持兴趣）。",
+    step1Title: "步骤1：建立基础",
+    step1Desc: "每个专业节拍都从坚实的基础开始。这是你的底鼓和基本节奏模式。",
+    step1Tip: "从Beat Master开始，获得深沉、有力的底鼓，你能感受到它在胸腔中的震动。这是你的锚点。",
+    step2Title: "步骤2：添加律动层",
+    step2Desc: "现在添加补充你底鼓的打击乐。这些是你的踩镲、军鼓和节奏元素。",
+    step2Tip: "叠加多个节拍角色，使用略有不同的模式。这创造了'口袋'——一切锁定在一起的甜蜜点。",
+    step3Title: "步骤3：用旋律创造空间",
+    step3Desc: "添加与节拍互动的旋律元素，而不是仅仅在它之上演奏。",
+    step3Tip: "使用Melody Sprite添加合成器hook，为你的鼓留出呼吸空间。最好的旋律与节拍配合，而不是对抗。",
+    step4Title: "步骤4：用效果润色",
+    step4Desc: "专业节拍使用效果不只是装饰，而是作为增添特色的必要元素。",
+    step4Tip: "Effect Wizard的过渡可以将简单的节拍切换变成一个时刻。使用效果标记部分并创造兴奋感。",
+    advancedTitle: "高级技巧",
+    technique1: "掉落技巧",
+    technique1Desc: "移除所有元素，只保留底鼓2-4拍，然后让一切回来。这创造了巨大的冲击感，在专业EDM中经常使用。",
+    technique2: "侧链模拟",
+    technique2Desc: "即使没有传统的侧链压缩，你也可以通过手动在底鼓击打时移除旋律元素，然后立即带回来，创造'泵动'效果。",
+    technique3: "分层创造深度",
+    technique3Desc: "使用多个声音相似的角色，时机略有不同。这创造了'声音墙'，感觉专业而饱满。",
+    mistakesTitle: "常见错误避免",
+    mistake1: "过度拥挤",
+    mistake1Desc: "添加太多角色不会让你的节拍更好——它会让它浑浊。专业节拍通常出奇地简单。",
+    mistake2: "忽视动态",
+    mistake2Desc: "一个从头到尾强度相同的节拍会很无聊。创造段落：前奏、积累、掉落、分解、高潮。",
+    mistake3: "忽视低频",
+    mistake3Desc: "没有坚实的低音和底鼓，你的节拍感觉无力。在添加层之前，始终检查你的基础是否牢固。",
+    checklistTitle: "专业节拍检查清单",
+    checklistItem1: "✓ 强有力的底鼓能穿透混音",
+    checklistItem2: "✓ 让你想要动起来的律动",
+    checklistItem3: "✓ 补充（而不是竞争）节拍的旋律元素",
+    checklistItem4: "✓ 段落之间的变化以保持兴趣",
+    checklistItem5: "✓ 干净的不浑浊的低频",
+    ctaTitle: "准备好制作专业节拍了吗？",
+    ctaButton: "立即开始创作"
+  },
+  es: {
+    title: "Cómo Hacer Beats Profesionales en Sprunki",
+    desc: "Aprende técnicas profesionales de producción musical usando Sprunki. Domina la creación de beats, capas de sonido y arreglos.",
+    heading: "Guía de Beats Profesionales",
+    subheading: "De productor de dormitorio a calidad de estudio",
+    intro: "Beats Profesionales en Sprunki",
+    introDesc: "¿Crees que necesitas software caro y años de entrenamiento para hacer beats profesionales? Piensa de nuevo. Sprunki pone potentes herramientas en tus manos.",
+    fundamentals: "Los Fundamentos",
+    fundamentalsDesc: "Antes de técnicas avanzadas, establezcamos la base:",
+    fundamental1: "El Ritmo lo es Todo",
+    fundamental1Desc: "Un gran beat hace que la gente se mueva antes de darse cuenta. La clave es el groove.",
+    fundamental2: "El Espacio es Sonido",
+    fundamental2Desc: "Las notas que no tocas son tan importantes como las que sí. El silencio crea anticipación.",
+    fundamental3: "Consistencia + Variación",
+    fundamental3Desc: "Los beats profesionales equilibran la repetición con la variación para mantener el interés.",
+    step1Title: "Paso 1: Construye tu Base",
+    step1Desc: "Cada beat profesional comienza con una base sólida. Este es tu kick y patrón rítmico básico.",
+    step1Tip: "Comienza con Beat Master para un kick profundo y contundente. Esta es tu ancla.",
+    step2Title: "Paso 2: Agrega la Capa de Groove",
+    step2Desc: "Ahora agrega percusión que complemente tu kick. Estos son tus hi-hats, snares.",
+    step2Tip: "Superpon múltiples personajes de beat con patrones ligeramente diferentes. Esto crea el 'pocket'.",
+    step3Title: "Paso 3: Crea Espacio con Melodía",
+    step3Desc: "Agrega elementos melódicos que interactúen con tu beat.",
+    step3Tip: "Usa Melody Sprite para agregar hooks de sintetizador que dejen espacio para tus drums.",
+    step4Title: "Paso 4: Pulir con Efectos",
+    step4Desc: "Los beats profesionales usan efectos como elementos esenciales que agregan carácter.",
+    step4Tip: "Las transiciones de Effect Wizard pueden convertir un cambio simple en un momento especial.",
+    advancedTitle: "Técnicas Avanzadas",
+    technique1: "La Técnica del Drop",
+    technique1Desc: "Elimina todos los elementos excepto el kick por 2-4 tiempos, luego trae todo de vuelta. Esto crea impacto masivo.",
+    technique2: "Simulación de Sidechain",
+    technique2Desc: "Incluso sin compresión sidechain tradicional, puedes crear el efecto 'pumping' manualmente.",
+    technique3: "Capas para Profundidad",
+    technique3Desc: "Usa múltiples personajes con timing ligeramente diferente. Esto crea una 'pared de sonido' profesional.",
+    mistakesTitle: "Errores Comunes a Evitar",
+    mistake1: "Hacinamiento",
+    mistake1Desc: "Agregar demasiados personajes no mejora tu beat - lo hace confuso. Los beats profesionales son sorprendentemente simples.",
+    mistake2: "Ignorar Dinámicas",
+    mistake2Desc: "Un beat con la misma intensidad se vuelve aburrido. Crea secciones: intro, build, drop, breakdown.",
+    mistake3: "Descuidar los Graves",
+    mistake3Desc: "Sin bajos sólidos, tu beat se siente débil. Verifica siempre que tu base sea fuerte.",
+    checklistTitle: "Checklist de Beats Profesionales",
+    checklistItem1: "✓ Kick fuerte que atraviesa la mezcla",
+    checklistItem2: "✓ Groove que te hace querer moverte",
+    checklistItem3: "✓ Elementos melódicos que complementan el beat",
+    checklistItem4: "✓ Variación entre secciones",
+    checklistItem5: "✓ Extremos graves limpios sin confusión",
+    ctaTitle: "¿Listo para Hacer Beats Profesionales?",
+    ctaButton: "Comenzar a Crear"
+  },
+  fil: {
+    title: "Paano Gumawa ng Propesyonal na Beats sa Sprunki",
+    desc: "Matuto ng mga teknik sa produksyon ng musika gamit ang Sprunki. Master ang paglikha ng beats, sound layering, at arrangement.",
+    heading: "Gabay sa Propesyonal na Beat Making",
+    subheading: "Mula sa bedroom producer tungo sa studio quality",
+    intro: "Propesyonal na Beat Making sa Sprunki",
+    introDesc: "Sa tingin mo kailangan mo ng mahal na software at taon ng pagsasanay? Isipin muli. Ang Sprunki ay naglalagay ng makapangyarihang mga tool sa iyong mga daliri.",
+    fundamentals: "Ang mga Pangunahing Kaalaman",
+    fundamentalsDesc: "Bago ang mga advanced na teknik, itatag muna natin ang pundasyon:",
+    fundamental1: "Ang Ritmo ang Lahat",
+    fundamental1Desc: "Ang isang magandang beat ay nagpapagalaw sa mga tao bago pa man nila malaman. Ang susi ay ang groove.",
+    fundamental2: "Ang Espasyo ay Tunog",
+    fundamental2Desc: "Ang mga nota na hindi mo tinutugtog ay mahalaga rin. Ang katahimikan ay lumilikha ng anticipasyon.",
+    fundamental3: "Pagkakapare-pareho + Pagbabago",
+    fundamental3Desc: "Ang mga propesyonal na beat ay nagbabalanse ng pag-uulit at pagbabago.",
+    step1Title: "Hakbang 1: Itatag ang Iyong pundasyon",
+    step1Desc: "Ang bawat propesyonal na beat ay nagsisimula sa matibay na pundasyon. Ito ay ang iyong kick drum.",
+    step1Tip: "Magsimula sa Beat Master para sa malalim, malakas na kick. Ito ang iyong anchor.",
+    step2Title: "Hakbang 2: Magdagdag ng Groove Layer",
+    step2Desc: "Magdagdag ng percussion na nagko-complement sa iyong kick. Ito ay ang iyong hi-hats, snares.",
+    step2Tip: "Maglagay ng maraming beat characters na may kakaibang patterns. Ito ang lumilikha ng 'pocket'.",
+    step3Title: "Hakbang 3: Lumikha ng Espasyo sa Melody",
+    step3Desc: "Magdagdag ng mga melodic element na nakikipag-ugnayan sa iyong beat.",
+    step3Tip: "Gamitin ang Melody Sprite para sa mga synth hook na nag-iiwan ng espasyo.",
+    step4Title: "Hakbang 4: Polish gamit ang Effects",
+    step4Desc: "Ang mga propesyonal na beat ay gumagamit ng effects bilang mga mahahalagang elemento.",
+    step4Tip: "Ang mga transitions ng Effect Wizard ay maaaring gawing espesyal ang simpleng beat switch.",
+    advancedTitle: "Mga Advanced na Teknik",
+    technique1: "Ang Drop Technique",
+    technique1Desc: "Alisin ang lahat maliban sa kick para sa 2-4 na beats, pagkatapos ay ibalik ang lahat. Lumilikha ito ng malaking impact.",
+    technique2: "Sidechain Simulation",
+    technique2Desc: "Kahit walang tradisyonal na sidechain compression, maaari mong likhain ang 'pumping' effect sa pamamagitan ng manual.",
+    technique3: "Layering para sa Lalim",
+    technique3Desc: "Gumamit ng maraming katulad na tunog na characters na may kakaibang timing. Lumilikha ito ng 'wall of sound'.",
+    mistakesTitle: "Mga Karaniwang Mali na Iiwasan",
+    mistake1: "Overcrowding",
+    mistake1Desc: "Ang pagdaragdag ng maraming characters ay hindi nagpapabuti - nagpapalabo ito. Ang mga propesyonal na beat ay simple.",
+    mistake2: "Pag-ignore ng Dynamics",
+    mistake2Desc: "Ang beat na pare-pareho ang intensity ay nakakabagot. Lumikha ng sections: intro, build, drop, breakdown.",
+    mistake3: "Pagpapabaya sa Low End",
+    mistake3Desc: "Walang solid na bass, ang iyong beat ay mahina. Siguraduhing matibay ang pundasyon bago magdagdag ng layers.",
+    checklistTitle: "Checklist para sa Propesyonal na Beats",
+    checklistItem1: "✓ Malakas na kick na tumatagos sa mix",
+    checklistItem2: "✓ Groove na nagpapagalaw sa iyo",
+    checklistItem3: "✓ Mga melodic element na nagko-complement sa beat",
+    checklistItem4: "✓ Pagbabago sa pagitan ng mga seksyon",
+    checklistItem5: "✓ Malinis na low end na walang kalabuan",
+    ctaTitle: "Handa nang Gumawa ng Propesyonal na Beats?",
+    ctaButton: "Simulang Lumikha"
+  }
+};
+
+const t = translations[locale] || translations.en;
+
+const guideSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": t.title,
+  "description": t.desc,
+  "step": [
+    { "@type": "HowToStep", "name": t.step1Title, "text": t.step1Desc },
+    { "@type": "HowToStep", "name": t.step2Title, "text": t.step2Desc },
+    { "@type": "HowToStep", "name": t.step3Title, "text": t.step3Desc },
+    { "@type": "HowToStep", "name": t.step4Title, "text": t.step4Desc }
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": locale === 'zh' ? '首页' : locale === 'es' ? 'Inicio' : locale === 'fil' ? 'Home' : 'Home', "item": "https://sprunkigames.online" },
+    { "@type": "ListItem", "position": 2, "name": locale === 'zh' ? '教程' : locale === 'es' ? 'Tutorial' : locale === 'fil' ? 'Tutorial' : 'Tutorial', "item": "https://sprunkigames.online/tutorial" },
+    { "@type": "ListItem", "position": 3, "name": t.heading, "item": `https://sprunkigames.online/${locale === 'en' ? '' : locale + '/'}guide/professional-beats` }
+  ]
+};
+---
+
+<Layout title={t.title} description={t.desc}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(guideSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">{t.heading}</Fragment>
+      <Fragment slot="desc">{t.subheading}</Fragment>
+    </Sectionhead>
+    <main class="mt-16">
+      <section class="guide-hero">
+        <h2 class="section-title">{t.intro}</h2>
+        <p class="intro-text">{t.introDesc}</p>
+      </section>
+      <section class="fundamentals-section">
+        <h2 class="section-title">{t.fundamentals}</h2>
+        <p class="section-desc">{t.fundamentalsDesc}</p>
+        <div class="fundamentals-grid">
+          <div class="fundamental-card">
+            <div class="fundamental-icon">🥁</div>
+            <h3>{t.fundamental1}</h3>
+            <p>{t.fundamental1Desc}</p>
+          </div>
+          <div class="fundamental-card">
+            <div class="fundamental-icon">🎵</div>
+            <h3>{t.fundamental2}</h3>
+            <p>{t.fundamental2Desc}</p>
+          </div>
+          <div class="fundamental-card">
+            <div class="fundamental-icon">🔄</div>
+            <h3>{t.fundamental3}</h3>
+            <p>{t.fundamental3Desc}</p>
+          </div>
+        </div>
+      </section>
+      <section class="steps-section">
+        <h2 class="section-title">4-Step Process</h2>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>{t.step1Title}</h3>
+              <p>{t.step1Desc}</p>
+              <div class="step-tip">💡 {t.step1Tip}</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>{t.step2Title}</h3>
+              <p>{t.step2Desc}</p>
+              <div class="step-tip">💡 {t.step2Tip}</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>{t.step3Title}</h3>
+              <p>{t.step3Desc}</p>
+              <div class="step-tip">💡 {t.step3Tip}</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>{t.step4Title}</h3>
+              <p>{t.step4Desc}</p>
+              <div class="step-tip">💡 {t.step4Tip}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="advanced-section">
+        <h2 class="section-title">{t.advancedTitle}</h2>
+        <div class="advanced-grid">
+          <div class="advanced-card">
+            <div class="advanced-icon">⬇️</div>
+            <h3>{t.technique1}</h3>
+            <p>{t.technique1Desc}</p>
+          </div>
+          <div class="advanced-card">
+            <div class="advanced-icon">💓</div>
+            <h3>{t.technique2}</h3>
+            <p>{t.technique2Desc}</p>
+          </div>
+          <div class="advanced-card">
+            <div class="advanced-icon">🎛️</div>
+            <h3>{t.technique3}</h3>
+            <p>{t.technique3Desc}</p>
+          </div>
+        </div>
+      </section>
+      <section class="mistakes-section">
+        <h2 class="section-title">{t.mistakesTitle}</h2>
+        <div class="mistakes-list">
+          <div class="mistake-item">
+            <span class="mistake-icon">❌</span>
+            <div class="mistake-content">
+              <h3>{t.mistake1}</h3>
+              <p>{t.mistake1Desc}</p>
+            </div>
+          </div>
+          <div class="mistake-item">
+            <span class="mistake-icon">📉</span>
+            <div class="mistake-content">
+              <h3>{t.mistake2}</h3>
+              <p>{t.mistake2Desc}</p>
+            </div>
+          </div>
+          <div class="mistake-item">
+            <span class="mistake-icon">🔉</span>
+            <div class="mistake-content">
+              <h3>{t.mistake3}</h3>
+              <p>{t.mistake3Desc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="checklist-section">
+        <h2 class="section-title">{t.checklistTitle}</h2>
+        <div class="checklist-box">
+          <ul class="checklist">
+            <li>{t.checklistItem1}</li>
+            <li>{t.checklistItem2}</li>
+            <li>{t.checklistItem3}</li>
+            <li>{t.checklistItem4}</li>
+            <li>{t.checklistItem5}</li>
+          </ul>
+        </div>
+      </section>
+      <div class="cta-section">
+        <h2 class="cta-title">{t.ctaTitle}</h2>
+        <a href="/" class="cta-button">{t.ctaButton}</a>
+      </div>
+    </main>
+  </Container>
+</Layout>
+
+<style>
+  .guide-hero { max-width: 800px; margin: 0 auto 4rem; text-align: center; }
+  .section-title { font-size: 2rem; font-weight: 700; color: var(--text-heading); margin-bottom: 1rem; text-align: center; }
+  .intro-text { font-size: 1.125rem; color: var(--text-secondary); line-height: 1.8; max-width: 600px; margin: 0 auto; }
+  .section-desc { text-align: center; color: var(--text-secondary); margin-bottom: 2rem; }
+  .fundamentals-section { margin-bottom: 4rem; }
+  .fundamentals-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+  @media (min-width: 768px) { .fundamentals-grid { grid-template-columns: repeat(3, 1fr); } }
+  .fundamental-card { background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(139, 92, 246, 0.02) 100%); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 20px; padding: 2rem; text-align: center; }
+  .fundamental-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .fundamental-card h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-heading); margin: 0 0 0.75rem 0; }
+  .fundamental-card p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+  .steps-section { margin-bottom: 4rem; }
+  .steps-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+  .step-item { display: flex; gap: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; }
+  .step-number { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; font-weight: 700; font-size: 1.25rem; border-radius: 12px; flex-shrink: 0; }
+  .step-content { flex: 1; }
+  .step-content h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-heading); margin: 0 0 0.75rem 0; }
+  .step-content p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0 0 1rem 0; }
+  .step-tip { background: rgba(139, 92, 246, 0.1); border-left: 3px solid #8B5CF6; padding: 1rem; border-radius: 0 8px 8px 0; font-size: 0.9rem; color: var(--text-secondary); }
+  .advanced-section { margin-bottom: 4rem; }
+  .advanced-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+  @media (min-width: 768px) { .advanced-grid { grid-template-columns: repeat(3, 1fr); } }
+  .advanced-card { background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.02) 100%); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 20px; padding: 2rem; text-align: center; }
+  .advanced-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .advanced-card h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-heading); margin: 0 0 0.75rem 0; }
+  .advanced-card p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+  .mistakes-section { margin-bottom: 4rem; }
+  .mistakes-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+  .mistake-item { display: flex; gap: 1rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0.02) 100%); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 16px; }
+  .mistake-icon { font-size: 1.5rem; }
+  .mistake-content { flex: 1; }
+  .mistake-content h3 { font-size: 1.125rem; font-weight: 600; color: var(--text-heading); margin: 0 0 0.5rem 0; }
+  .mistake-content p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+  .checklist-section { margin-bottom: 4rem; }
+  .checklist-box { max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.02) 100%); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 20px; padding: 2rem; }
+  .checklist { list-style: none; padding: 0; margin: 0; }
+  .checklist li { padding: 0.75rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 1rem; color: var(--text-secondary); }
+  .checklist li:last-child { border-bottom: none; }
+  .cta-section { text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 201, 0.05) 100%); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 24px; }
+  .cta-title { font-size: 2rem; font-weight: 700; color: var(--text-heading); margin-bottom: 1.5rem; }
+  .cta-button { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2.5rem; background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); color: white; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3); }
+  .cta-button:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5); }
+</style>

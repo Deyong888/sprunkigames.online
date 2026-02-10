@@ -161,18 +161,45 @@ const shareRows = [shareOptions.slice(0, 3), shareOptions.slice(3, 6)];
 <style>
   .share-section {
     position: relative;
-    background: #16161e;
-    padding: clamp(5rem, 6vw, 6rem) 0;
-    margin-top: clamp(4rem, 5vw, 5rem);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: linear-gradient(180deg, 
+      rgba(15, 15, 25, 0.3) 0%,
+      rgba(108, 93, 211, 0.05) 50%,
+      rgba(15, 15, 25, 0.3) 100%
+    );
+    overflow: hidden;
   }
 
   .share-section::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(108, 93, 211, 0.1) 0%, transparent 70%);
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(139, 92, 246, 0.4), 
+      rgba(0, 224, 255, 0.4), 
+      rgba(139, 92, 246, 0.4), 
+      transparent
+    );
+  }
+
+  .share-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(139, 92, 246, 0.4), 
+      rgba(0, 224, 255, 0.4), 
+      rgba(139, 92, 246, 0.4), 
+      transparent
+    );
   }
 
   .share-shell {
@@ -196,6 +223,22 @@ const shareRows = [shareOptions.slice(0, 3), shareOptions.slice(3, 6)];
     font-size: clamp(2rem, 3vw, 2.6rem);
     margin: 0.4rem 0 0.8rem;
     color: var(--text-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 0%, #e0e0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .share-copy .pill {
+    background: linear-gradient(135deg, rgba(108, 93, 211, 0.2), rgba(139, 92, 246, 0.15));
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    color: #a5b4fc;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    letter-spacing: 0.1em;
   }
 
   .share-grid {

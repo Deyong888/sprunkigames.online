@@ -128,21 +128,66 @@ const validateTranslations = (gameId: string) => {
 
 <style>
   .gamelist-section {
-    padding-top: clamp(3rem, 5vw, 5rem);
-    padding-bottom: clamp(3rem, 5vw, 5rem);
-    background: var(--bg-base);
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: linear-gradient(180deg, 
+      rgba(15, 15, 25, 0.5) 0%,
+      rgba(10, 10, 18, 0.8) 50%,
+      rgba(15, 15, 25, 0.5) 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gamelist-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(139, 92, 246, 0.3), 
+      rgba(0, 224, 255, 0.3), 
+      rgba(139, 92, 246, 0.3), 
+      transparent
+    );
   }
 
   .gamelist-head {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .gamelist-head h3 {
-    font-size: clamp(2rem, 4vw, 2.6rem);
-    margin: 0.6rem 0;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin: 0.5rem 0 0;
     color: var(--text-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 0%, #e0e0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gamelist-head .pill {
+    background: linear-gradient(135deg, rgba(108, 93, 211, 0.2), rgba(139, 92, 246, 0.15));
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    color: #a5b4fc;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .gamelist-head .muted {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 600px;
+    line-height: 1.6;
   }
 
   .gamelist-filters {
@@ -254,26 +299,57 @@ const validateTranslations = (gameId: string) => {
 
   .game-card-grid {
     cursor: pointer;
-    border-radius: 12px;
-    background: rgba(18, 18, 25, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(22, 22, 32, 0.9) 0%, rgba(15, 15, 25, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     display: flex;
     flex-direction: column;
   }
 
+  .game-card-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(135deg, 
+      rgba(139, 92, 246, 0) 0%, 
+      rgba(139, 92, 246, 0.3) 50%, 
+      rgba(0, 224, 255, 0.3) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
   .game-card-grid:hover {
-    transform: translateY(-5px) scale(1.02);
-    border-color: #8B5CF6;
-    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 
+      0 20px 40px rgba(139, 92, 246, 0.3),
+      0 0 60px rgba(139, 92, 246, 0.1);
     z-index: 2;
   }
 
+  .game-card-grid:hover::before {
+    opacity: 1;
+  }
+
   .game-card-grid.active {
-    border-color: #8B5CF6;
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 
+      0 0 20px rgba(139, 92, 246, 0.4),
+      inset 0 0 20px rgba(139, 92, 246, 0.05);
+  }
+
+  .game-card-grid.active::before {
+    opacity: 1;
   }
 
   .card-media {
@@ -313,14 +389,14 @@ const validateTranslations = (gameId: string) => {
   }
 
   .card-title {
-    padding: 0.75rem;
-    background: rgba(18, 18, 25, 0.95);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    background: linear-gradient(180deg, rgba(22, 22, 32, 0.95) 0%, rgba(15, 15, 25, 0.98) 100%);
+    border-top: 1px solid rgba(139, 92, 246, 0.1);
   }
 
   .card-title p {
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     margin: 0;
     line-height: 1.4;
@@ -328,6 +404,7 @@ const validateTranslations = (gameId: string) => {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    letter-spacing: 0.02em;
   }
 
   .load-more-wrapper {

@@ -1,0 +1,275 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+const { locale = 'en' } = Astro.props;
+
+const translations = {
+  en: {
+    title: "Vocalist - Sprunki Voice Character",
+    desc: "Meet the Vocalist, the soulful voice character in Sprunki. Learn about his emotive vocal sounds and how he brings human soul to your music.",
+    characterName: "Vocalist",
+    role: "Voice & Soul",
+    intro: "The Human Touch in Your Music",
+    introDesc: "The Vocalist is the character who brings the human element to your digital compositions. With emotive vocalizations, soulful hums, and atmospheric chants, he transforms mechanical beats into music that resonates with the heart.",
+    soundProfile: "Sound Profile",
+    sound1: "Soulful Hums",
+    sound1Desc: "Warm, resonant vocal hums that add emotional depth",
+    sound2: "Atmospheric Chants",
+    sound2Desc: "Ethereal vocal textures that create atmosphere",
+    sound3: "Vocal Percussion",
+    sound3Desc: "Beatbox-style vocal rhythms that complement drums",
+    personality: "Character Personality",
+    personalityDesc: "Soulful, emotional, and deeply expressive. The Vocalist wears his heart on his sleeve, conveying feelings that instruments alone cannot express.",
+    howToUse: "How to Use Vocalist",
+    tip1: "Add for Emotional Impact",
+    tip1Desc: "Use when you want to add human emotion and soul to your track",
+    tip2: "Layer with Melodies",
+    tip2Desc: "Combine with melody characters for rich harmonic vocals",
+    tip3: "Create Contrast",
+    tip3Desc: "Use sparingly to create contrast against instrumental sections",
+    relatedCharacters: "Related Characters",
+    ctaTitle: "Ready to Add Soul to Your Music?",
+    ctaButton: "Start Creating Now"
+  },
+  zh: {
+    title: "歌者 - Sprunki人声角色",
+    desc: "认识歌者，Sprunki中充满灵魂的声音角色。了解他感人的声音表现，以及如何为你的音乐带来人性的温暖。",
+    characterName: "歌者",
+    role: "声音与灵魂",
+    intro: "音乐中的人性触感",
+    introDesc: "歌者是将人性元素带入数字作品的角物。凭借情感丰富的声音、深情的哼唱和氛围吟唱，他将机械的节拍转化为能触动心灵的音乐。",
+    soundProfile: "声音配置",
+    sound1: "深情哼唱",
+    sound1Desc: "温暖、共鸣的声线哼唱，增添情感深度",
+    sound2: "氛围吟唱",
+    sound2Desc: "空灵的声线纹理，创造独特氛围",
+    sound3: "人声打击",
+    sound3Desc: "B-Box风格的人声节奏，补充鼓点",
+    personality: "角色个性",
+    personalityDesc: "充满灵魂、情感深沉、极具表现力。歌者敞开心扉，传达乐器 alone 无法表达的感受。",
+    howToUse: "如何使用歌者",
+    tip1: "增添情感冲击",
+    tip1Desc: "当你想为曲目添加人类情感和灵魂时使用",
+    tip2: "与旋律叠加",
+    tip2Desc: "与旋律角色组合创造丰富的和声人声",
+    tip3: "创造对比",
+    tip3Desc: "谨慎使用，与器乐部分形成对比",
+    relatedCharacters: "相关角色",
+    ctaTitle: "准备好为你的音乐增添灵魂了吗？",
+    ctaButton: "立即开始创作"
+  },
+  es: {
+    title: "Cantante - Personaje de Voz de Sprunki",
+    desc: "Conoce al Cantante, el personaje vocal con alma en Sprunki. Aprende sobre sus sonidos vocales emotivos.",
+    characterName: "Cantante",
+    role: "Voz y Alma",
+    intro: "El Tacto Humano en tu Música",
+    introDesc: "El Cantante es el personaje que aporta el elemento humano a tus composiciones digitales.",
+    soundProfile: "Perfil de Sonido",
+    sound1: "Tarareos con Alma",
+    sound1Desc: "Tarareos vocales cálidos y resonantes",
+    sound2: "Cantos Atmosféricos",
+    sound2Desc: "Texturas vocales etéreas que crean atmósfera",
+    sound3: "Percusión Vocal",
+    sound3Desc: "Ritmos vocales estilo beatbox",
+    personality: "Personalidad del Personaje",
+    personalityDesc: "Conmovedor, emocional y profundamente expresivo. El Cantante lleva el corazón en la manga.",
+    howToUse: "Cómo Usar el Cantante",
+    tip1: "Añade Impacto Emocional",
+    tip1Desc: "Usa cuando quieras añadir emoción humana a tu pista",
+    tip2: "Superpon con Melodías",
+    tip2Desc: "Combina con personajes de melodía",
+    tip3: "Crea Contraste",
+    tip3Desc: "Usa con moderación para crear contraste",
+    relatedCharacters: "Personajes Relacionados",
+    ctaTitle: "¿Listo para Agregar Alma a tu Música?",
+    ctaButton: "Comenzar a Crear"
+  },
+  fil: {
+    title: "Mang-aawit - Karakter ng Boses ng Sprunki",
+    desc: "Kilalanin ang Mang-aawit, ang may soul na karakter ng boses sa Sprunki. Alamin ang kanyang mga emotibong vocal sounds.",
+    characterName: "Mang-aawit",
+    role: "Boses at Kaluluwa",
+    intro: "Ang Pagkakatawang-tao sa Iyong Musika",
+    introDesc: "Ang Mang-aawit ay ang karakter na nagdadala ng elementong pantao sa iyong digital compositions.",
+    soundProfile: "Profile ng Tunog",
+    sound1: "Mga Hum na may Kaluluwa",
+    sound1Desc: "Mainit at resonant na mga vocal hum",
+    sound2: "Atmospheric Chants",
+    sound2Desc: "Ethereal vocal textures na lumilikha ng atmosphere",
+    sound3: "Vocal Percussion",
+    sound3Desc: "Beatbox-style vocal rhythms",
+    personality: "Personalidad ng Karakter",
+    personalityDesc: "May kaluluwa, emosyonal, at malalim na expressive. Ang Mang-aawit ay nagpapakita ng kanyang puso.",
+    howToUse: "Paano Gamitin ang Mang-aawit",
+    tip1: "Magdagdag ng Emotional Impact",
+    tip1Desc: "Gamitin kapag gusto mong magdagdag ng emosyong pantao",
+    tip2: "I-layer sa mga Melody",
+    tip2Desc: "Pagsamahin sa mga karakter ng melody",
+    tip3: "Lumikha ng Contrast",
+    tip3Desc: "Gamitin nang bahagya para lumikha ng contrast",
+    relatedCharacters: "Kaugnay na mga Karakter",
+    ctaTitle: "Handa nang Magdagdag ng Kaluluwa sa Iyong Musika?",
+    ctaButton: "Simulang Lumikha"
+  }
+};
+
+const t = translations[locale] || translations.en;
+
+const relatedCharacters = [
+  { name: locale === 'zh' ? "节拍大师" : locale === 'es' ? "Maestro del Ritmo" : locale === 'fil' ? "Master ng Beat" : "Beat Master", type: "beat", icon: "🥁", color: "#EF4444", link: "/characters/beat-master" },
+  { name: locale === 'zh' ? "旋律精灵" : locale === 'es' ? "Hada de la Melodía" : locale === 'fil' ? "Diwata ng Melody" : "Melody Sprite", type: "melody", icon: "🎵", color: "#8B5CF6", link: "/characters/melody-sprite" },
+  { name: locale === 'zh' ? "音效巫师" : locale === 'es' ? "Mago de Efectos" : locale === 'fil' ? "Wizard ng Effects" : "Effect Wizard", type: "effect", icon: "✨", color: "#10B981", link: "/characters/effect-wizard" }
+];
+
+const characterSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": t.characterName,
+  "description": t.desc,
+  "url": "https://sprunkigames.online/characters/vocalist",
+  "knowsAbout": ["Music", "Voice", "Singing"],
+  "memberOf": { "@type": "Organization", "name": "Sprunki Characters" }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": locale === 'zh' ? '首页' : locale === 'es' ? 'Inicio' : locale === 'fil' ? 'Home' : 'Home', "item": "https://sprunkigames.online" },
+    { "@type": "ListItem", "position": 2, "name": locale === 'zh' ? '角色' : locale === 'es' ? 'Personajes' : locale === 'fil' ? 'Mga Karakter' : 'Characters', "item": "https://sprunkigames.online/characters" },
+    { "@type": "ListItem", "position": 3, "name": t.characterName, "item": `https://sprunkigames.online/${locale === 'en' ? '' : locale + '/'}characters/vocalist` }
+  ]
+};
+---
+
+<Layout title={t.title} description={t.desc}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(characterSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">{t.characterName}</Fragment>
+      <Fragment slot="desc">{t.role}</Fragment>
+    </Sectionhead>
+    <main class="mt-16">
+      <section class="character-hero">
+        <div class="character-avatar-large" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.05) 100%); border-color: #F59E0B;">
+          <span class="avatar-emoji">🎤</span>
+        </div>
+        <h2 class="section-title">{t.intro}</h2>
+        <p class="intro-text">{t.introDesc}</p>
+      </section>
+      <section class="sounds-section">
+        <h2 class="section-title">{t.soundProfile}</h2>
+        <div class="sounds-grid">
+          <div class="sound-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.02) 100%); border-color: rgba(245, 158, 11, 0.2);">
+            <div class="sound-icon">🎵</div>
+            <h3 class="sound-title">{t.sound1}</h3>
+            <p class="sound-desc">{t.sound1Desc}</p>
+          </div>
+          <div class="sound-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.02) 100%); border-color: rgba(245, 158, 11, 0.2);">
+            <div class="sound-icon">🌊</div>
+            <h3 class="sound-title">{t.sound2}</h3>
+            <p class="sound-desc">{t.sound2Desc}</p>
+          </div>
+          <div class="sound-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.02) 100%); border-color: rgba(245, 158, 11, 0.2);">
+            <div class="sound-icon">🥁</div>
+            <h3 class="sound-title">{t.sound3}</h3>
+            <p class="sound-desc">{t.sound3Desc}</p>
+          </div>
+        </div>
+      </section>
+      <section class="personality-section">
+        <h2 class="section-title">{t.personality}</h2>
+        <div class="personality-card">
+          <div class="personality-avatar" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.05) 100%); border-color: #F59E0B;">❤️</div>
+          <p class="personality-text">{t.personalityDesc}</p>
+        </div>
+      </section>
+      <section class="tips-section">
+        <h2 class="section-title">{t.howToUse}</h2>
+        <div class="tips-grid">
+          <div class="tip-item">
+            <div class="tip-number" style="background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);">1</div>
+            <div class="tip-content">
+              <h3 class="tip-title">{t.tip1}</h3>
+              <p class="tip-desc">{t.tip1Desc}</p>
+            </div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-number" style="background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);">2</div>
+            <div class="tip-content">
+              <h3 class="tip-title">{t.tip2}</h3>
+              <p class="tip-desc">{t.tip2Desc}</p>
+            </div>
+          </div>
+          <div class="tip-item">
+            <div class="tip-number" style="background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);">3</div>
+            <div class="tip-content">
+              <h3 class="tip-title">{t.tip3}</h3>
+              <p class="tip-desc">{t.tip3Desc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="related-section">
+        <h2 class="section-title">{t.relatedCharacters}</h2>
+        <div class="related-grid">
+          {relatedCharacters.map((char) => (
+            <a href={char.link} class="related-card" style={`--char-color: ${char.color}`}>
+              <div class="related-icon" style={`background: ${char.color}20; border-color: ${char.color}`}><span>{char.icon}</span></div>
+              <h3 class="related-name">{char.name}</h3>
+              <span class="related-type">{char.type}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+      <div class="cta-section" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(236, 72, 201, 0.05) 100%); border-color: rgba(245, 158, 11, 0.2);">
+        <h2 class="cta-title">{t.ctaTitle}</h2>
+        <a href="/" class="cta-button" style="background: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);">{t.ctaButton}</a>
+      </div>
+    </main>
+  </Container>
+</Layout>
+
+<style>
+  .character-hero { max-width: 800px; margin: 0 auto 4rem; text-align: center; }
+  .character-avatar-large { width: 150px; height: 150px; border-radius: 50%; border: 3px solid; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; }
+  .avatar-emoji { font-size: 5rem; }
+  .section-title { font-size: 2rem; font-weight: 700; color: var(--text-heading); margin-bottom: 1rem; text-align: center; }
+  .intro-text { font-size: 1.125rem; color: var(--text-secondary); line-height: 1.8; max-width: 600px; margin: 0 auto; }
+  .sounds-section { margin-bottom: 4rem; }
+  .sounds-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+  @media (min-width: 768px) { .sounds-grid { grid-template-columns: repeat(3, 1fr); } }
+  .sound-card { border: 1px solid; border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; }
+  .sound-card:hover { transform: translateY(-4px); }
+  .sound-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .sound-title { font-size: 1.25rem; font-weight: 600; color: var(--text-heading); margin: 0 0 0.75rem 0; }
+  .sound-desc { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+  .personality-section { margin-bottom: 4rem; }
+  .personality-card { max-width: 700px; margin: 0 auto; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+  .personality-avatar { width: 80px; height: 80px; border-radius: 50%; border: 2px solid; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+  .personality-text { font-size: 1.125rem; color: var(--text-secondary); line-height: 1.8; margin: 0; }
+  .tips-section { margin-bottom: 4rem; }
+  .tips-grid { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+  .tip-item { display: flex; gap: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; transition: all 0.3s ease; }
+  .tip-item:hover { border-color: rgba(245, 158, 11, 0.3); }
+  .tip-number { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem; border-radius: 12px; flex-shrink: 0; }
+  .tip-content { flex: 1; }
+  .tip-title { font-size: 1.125rem; font-weight: 600; color: var(--text-heading); margin: 0 0 0.5rem 0; }
+  .tip-desc { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+  .related-section { margin-bottom: 4rem; }
+  .related-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+  @media (min-width: 768px) { .related-grid { grid-template-columns: repeat(3, 1fr); } }
+  .related-card { background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 1.5rem; text-align: center; text-decoration: none; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+  .related-card:hover { border-color: var(--char-color, #F59E0B); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+  .related-icon { width: 70px; height: 70px; border-radius: 50%; border: 2px solid; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+  .related-name { font-size: 1.125rem; font-weight: 600; color: var(--text-heading); margin: 0; }
+  .related-type { font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); }
+  .cta-section { text-align: center; padding: 4rem 2rem; border-radius: 24px; border: 1px solid; }
+  .cta-title { font-size: 2rem; font-weight: 700; color: var(--text-heading); margin-bottom: 1.5rem; }
+  .cta-button { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2.5rem; color: white; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+  .cta-button:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5); }
+</style>

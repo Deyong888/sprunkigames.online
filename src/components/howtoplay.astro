@@ -212,10 +212,30 @@ const t = translations[locale] || translations.en;
 
 <style>
   .how-to-play {
-    padding-top: clamp(4rem, 6vw, 6rem);
-    padding-bottom: clamp(4rem, 6vw, 6rem);
-    background: var(--bg-base);
-    margin-top: clamp(4rem, 5vw, 5rem);
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: linear-gradient(180deg, 
+      rgba(15, 15, 25, 0.5) 0%,
+      rgba(10, 10, 18, 0.8) 50%,
+      rgba(15, 15, 25, 0.5) 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  .how-to-play::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(139, 92, 246, 0.3), 
+      rgba(0, 224, 255, 0.3), 
+      rgba(139, 92, 246, 0.3), 
+      transparent
+    );
   }
 
   .steps-grid {

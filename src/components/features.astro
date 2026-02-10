@@ -219,17 +219,22 @@ const t = translations[locale] || translations.en;
   }
 
   h2 {
-    color: var(--text-heading);
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 0.4rem;
     font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 0%, #e0e0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .subheading {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.6);
     max-width: 780px;
     margin: 0.5rem auto 2.5rem;
     line-height: 1.7;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   }
 
   .feature-card {
