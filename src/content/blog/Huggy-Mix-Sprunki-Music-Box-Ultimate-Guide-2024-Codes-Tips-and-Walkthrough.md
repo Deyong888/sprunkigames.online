@@ -9,7 +9,7 @@ image: {
 publishDate: "2024-12-20 11:39"
 category: "Sprunki Games"
 author: "Sprunki Incredibox"
-tags: [Sprunki, Huggy Mix Sprunki Music Box, music game, rhythm game, game codes, walkthrough]
+tags: ["Sprunki", "Huggy Mix Sprunki Music Box", "music game", "rhythm game", "game codes", "walkthrough"]
 ---
 
 <a href="https://sprunkigames.online" target="_blank">Click to play Huggy Mix Sprunki Music Box Game</a> 
