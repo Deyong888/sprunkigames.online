@@ -3,7 +3,7 @@ draft: false
 title: " Sprunki Jigsaw Puzzle Game: A Musical and Visual Delight"
 snippet: "Play Sprunki Jigsaw ---a delightful puzzle game "
 image: {
-    src: "https://i.ytimg.com/vi/7G8bdZgIZhs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDMT5CbK-98Y0g8TDIH5k1I9RA7Qg",
+    src: "https://sprunkigames.online/characters/oren.webp",
     alt: "Where to Play Sprunki Game online"
 }
 publishDate: "2024-12-31 20:39"

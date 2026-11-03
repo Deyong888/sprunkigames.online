@@ -49,7 +49,6 @@ Whether you’re a seasoned explorer or a casual gamer, ** [Minecraft Sprunki In
 
 
 
-<iframe width="800" height="500" src="https://i.ytimg.com/vi/eU3J98Xk3AY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC50qshhfAdfyvipsb0KrS5NcU3sA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Gameplay  
 **Minecraft Sprunki Incredibox** is easy to pick up but offers a challenge for players of all skill levels. Here’s how the gameplay works:  

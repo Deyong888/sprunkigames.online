@@ -4,7 +4,7 @@ draft: false
 title: "Sprunki: Mr. Sun - The Radiant Flutist of Sprunki"
 snippet: "Bask in the musical glow of Mr. Sun, the flutist from Sprunki, and discover his role in bringing light and melody to the Incredibox mod."
 image: {
-    src: "https://i.ytimg.com/vi/WJ3_DWwJjl0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBN7hGM9aI6mD5rF0f5mYizurBxGQ",
+    src: "https://sprunkigames.online/characters/sun.webp",
     alt: "Sprunki: Mr. Sun"
 }
 publishDate: "2024-12-31 12:39"

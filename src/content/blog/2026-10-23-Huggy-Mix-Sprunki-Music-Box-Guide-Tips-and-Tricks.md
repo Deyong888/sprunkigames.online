@@ -3,7 +3,7 @@ draft: false
 title: "Huggy Mix Sprunki Music Box Guide Tips and Tricks"
 snippet: "Master the Huggy Mix Sprunki Music Box with our complete beginner guide. Learn how to drag characters, build loops, unlock bonus sounds and mix like a pro."
 image: {
-    src: "https://sprunkigames.online/images/huggy-mix-sprunki-music-box-guide.jpg",
+    src: "https://sprunkigames.online/characters/clukr.webp",
     alt: "Huggy Mix Sprunki Music Box gameplay screen showing colorful character icons and a looping music stage"
 }
 publishDate: "2026-1-20 11:39"
@@ -33,7 +33,6 @@ The idea is deceptively simple. You get a stage, a cast of animated characters, 
 
 This guide covers everything a new player needs: how the game works, the fastest way to build a clean mix, advanced layering tricks, and the mistakes that make your track sound muddy. If you want to skip straight to playing, head to <https://sprunkigames.online> and launch the game in your browser with no download required.
 
-![Huggy Mix Sprunki Music Box character selection screen with colorful animated figures](https://sprunkigames.online/images/sprunki-music-box-characters.jpg)
 
 ## What Is the Huggy Mix Sprunki Music Box
 
@@ -50,7 +49,6 @@ Unlike a full DAW (digital audio workstation), you do not need any music theory 
 - **Free to play** – No account, no paywall, no download.
 - **Shareable results** – Screen-record your mix and post it anywhere.
 
-![Sprunki Music Box stage with multiple characters performing loops in a row](https://sprunkigames.online/images/sprunki-stage-loops.jpg)
 
 ## How to Play Huggy Mix Sprunki Music Box Step by Step
 
@@ -80,7 +78,6 @@ The final slot or two should go to effect characters: risers, sweeps, vinyl crac
 
 The best habit in any Sprunki Music Box game is to toggle characters on and off instead of dragging them off the stage. This lets you create a build-up and a drop within a single loop, which instantly makes your track sound produced rather than assembled.
 
-![Player dragging a character icon onto the Sprunki Music Box stage to start a loop](https://sprunkigames.online/images/sprunki-drag-character.jpg)
 
 ## Best Character Combinations to Try First
 
@@ -96,7 +93,6 @@ One of the most searched questions about this game is simply which characters to
 
 Count your layers by role: **no more than two percussion, one bass, two melody, two vocal, two effect**. That is nine characters maximum. Most great Sprunki mixes use six to seven. Restraint is the skill ceiling in this game.
 
-![Close-up of Sprunki Music Box characters in different sound categories](https://sprunkigames.online/images/sprunki-character-categories.jpg)
 
 ## Common Mistakes That Ruin a Mix
 
@@ -120,7 +116,6 @@ The Sprunki community lives on short-form video, and the Huggy Mix Sprunki Music
 
 Clips that show the **build in real time** perform far better than clips that only show the finished mix. Viewers want to watch the track come together.
 
-![Screen recording of a Sprunki Music Box mix being shared on social media](https://sprunkigames.online/images/sprunki-share-mix.jpg)
 
 ## Is Huggy Mix Sprunki Music Box Safe and Free
 

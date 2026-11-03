@@ -4,7 +4,7 @@ draft: false
 title: "Sprunki Tan (Tunner) - The Violin Virtuoso of Sprunki"
 snippet: "Delve into the world of Sprunki and meet Tunner, the tan-violin master whose melodies add a rich texture to the mod's symphony."
 image: {
-    src: "https://i.ytimg.com/vi/n-LjLY8QSIo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLADvFTtS5YrzCv_u1fVw329rrjpFg",
+    src: "https://sprunkigames.online/characters/tunner.webp",
     alt: "Sprunki Tan (Tunner)"
 }
 publishDate: "2024-12-31 12:39"

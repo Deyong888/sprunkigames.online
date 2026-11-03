@@ -4,7 +4,7 @@ draft: false
 title: "Sprunki Green (Vineria) - The Pulse of Sprunki's Rhythm"
 snippet: "Dive into the world of Sprunki and meet Vineria, the king of rhythm, with a deep dive into his musical style and personality traits."
 image: {
-    src: "https://i.ytimg.com/vi/xERuvizM2jg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCuV2rb1c2dH98oufWXlNaRgo6dAA",
+    src: "https://sprunkigames.online/characters/vineria.webp",
     alt: "Sprunki Green (Vineria)"
 }
 publishDate: "2024-12-31 12:39"

@@ -4,7 +4,7 @@ draft: false
 title: "Sprunki Mr. Tree - The Arboreal Melodist of Sprunki"
 snippet: "Step into the forest of sound with Mr. Tree from Sprunki, and uncover his musical mystique and character charm."
 image: {
-    src: "https://i.ytimg.com/vi/PKIJ-BdQs-g/maxresdefault.jpg",
+    src: "https://sprunkigames.online/characters/tree.webp",
     alt: "Sprunki Mr. Tree"
 }
 publishDate: "2024-12-31 16:39"

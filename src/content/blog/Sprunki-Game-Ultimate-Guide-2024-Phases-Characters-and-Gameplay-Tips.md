@@ -174,9 +174,8 @@ Join the vibrant Sprunki community by sharing your creations, strategies, and di
 
 ## Related Articles
 
-- <a href="https://sprunkigames.online/sprunki-horror-mode-guide" target="_blank">Mastering Sprunki Horror Mode: Complete Phase 2 Guide</a>
-- <a href="https://sprunkigames.online/sprunki-mods-collection" target="_blank">Top 10 Sprunki Mods You Need to Try in 2024</a>
-- <a href="https://sprunkigames.online/incredibox-vs-sprunki" target="_blank">Incredibox vs Sprunki: Which Music Game is Right for You?</a>
-- <a href="https://sprunkigames.online/sprunki-character-guide" target="_blank">Complete Sprunki Character Guide and Sound Combinations</a>
+- <a href="https://sprunkigames.online/horror" target="_blank">Mastering Sprunki Horror Mode: Complete Phase 2 Guide</a>
+- <a href="https://sprunkigames.online/mods" target="_blank">Top 10 Sprunki Mods You Need to Try in 2024</a>
+- <a href="https://sprunkigames.online/characters/" target="_blank">Complete Sprunki Character Guide and Sound Combinations</a>
 
 *Note: All gameplay images and references are for educational purposes. Sprunki is a fan-made mod of Incredibox, and all original rights belong to their respective creators.*

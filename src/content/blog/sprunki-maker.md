@@ -32,7 +32,7 @@ In the vibrant world of online gaming and digital creation, tools that empower u
 
 ## What is Sprunki Maker?
 
-Sprunki Maker is a digital tool available on sprunkigames.online that enables users to design personalized Sprunki characters. These characters are known for their distinctive appearance and can be used in various creative projects. However, there seems to be an issue with accessing the specific Sprunki Maker page at [https://sprunkigames.online/public/games/sprunki-maker.html](https://sprunkigames.online/public/games/Sprunki%20Maker%20(Update).html). It's possible that there's a problem with the link or network connectivity. If you encounter difficulties accessing the page, please verify the link's validity and try again later.
+Sprunki Maker is a digital tool available on sprunkigames.online that enables users to design personalized Sprunki characters. These characters are known for their distinctive appearance and can be used in various creative projects. You can try it right in your browser: [Sprunki Maker](https://sprunkigames.online/games/sprunki-maker.html).
 
 ## The Process of Creating a Sprunki Character
 

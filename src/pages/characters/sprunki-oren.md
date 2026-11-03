@@ -4,7 +4,7 @@ draft: false
 title: "Sprunki Orange (Oren) - The Heartbeat of Sprunki"
 snippet: "Meet Oren, the rhythm master of Sprunki, and delve into his unique musical style and personality traits."
 image: {
-    src: "https://i.ytimg.com/vi/5WAXW0XoPHg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB1p0ryK78oRW8ZtMVyNKXTAwMV1A",
+    src: "https://sprunkigames.online/characters/oren.webp",
     alt: "Sprunki Orange (Oren)"
 }
 publishDate: "2024-12-25 12:39"

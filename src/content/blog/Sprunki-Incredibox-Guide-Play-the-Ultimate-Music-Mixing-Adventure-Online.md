@@ -3,7 +3,7 @@ draft: false
 title: "Sprunki Incredibox Guide: Play the Ultimate Music Mixing Adventure Online"
 snippet: "Discover the complete Sprunki Incredibox guide — learn how to play, explore the Huggy Mix Sprunki Music Box, unlock secret sounds, and master rhythm mixing in 2026."
 image: {
-    src: "https://sprunkigames.online/og/sprunki-incredibox-game.jpg",
+    src: "https://sprunkigames.online/characters/durple.webp",
     alt: "Sprunki Incredibox music mixing game interface showing colorful characters and sound controls"
 }
 publishDate: "2026-1-20 11:39"

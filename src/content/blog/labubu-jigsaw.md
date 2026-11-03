@@ -85,7 +85,6 @@ Here are the prominent members of "The Monsters" series:
 * **Vos:** Tycoco’s cousin and Labubu’s master, known for an extroverted and energetic personality.
 * **Yaya:** A lesser-known but equally charming character with pointed horns and a mischievous grin, who loves exploring new horizons.
 
-[![image.jpg](https://i.postimg.cc/BvCG1YVb/image.jpg)](https://postimg.cc/cK6zpmZG)
 
 
 ### Collaborations That Elevate: Labubu's Expanding Universe

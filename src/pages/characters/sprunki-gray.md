@@ -4,7 +4,7 @@ draft: false
 title: "Sprunki Gray - The Echo Queen of Sprunki"
 snippet: "Discover Sprunki Gray, the echo queen, and explore her unique musical talents and personality within the Sprunki mod."
 image: {
-    src: "https://i.ytimg.com/vi/aqqPRttlqsY/maxresdefault.jpg",
+    src: "https://sprunkigames.online/characters/gray.webp",
     alt: "Sprunki Gray"
 }
 publishDate: "2024-12-26 12:39"

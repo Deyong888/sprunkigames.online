@@ -4,7 +4,7 @@ draft: false
 title: "Sprunki Lime (OWAKCX) - The Layered Melodies of Sprunki"
 snippet: "Discover OWAKCX, the lime-green maestro from Sprunki, and explore his unique musical contributions and character profile."
 image: {
-    src: "https://i.ytimg.com/vi/uGFcFH1TfKs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAoGINng3c-1ptipKtP469rUuXGWA",
+    src: "https://sprunkigames.online/characters/owakcx.webp",
     alt: "Sprunki Lime (OWAKCX)"
 }
 publishDate: "2024-12-24 12:39"

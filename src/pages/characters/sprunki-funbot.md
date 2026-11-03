@@ -4,7 +4,7 @@ draft: false
 title: "Sprunki Fun Bot - The Joyful Rhythmician of Sprunki"
 snippet: "Dive into the world of Sprunki and meet Fun Bot, the embodiment of fun and rhythm, with insights into his musical prowess and character traits."
 image: {
-    src: "https://i.ytimg.com/vi/4SvdT8KJaxI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD4lZvIWKyPHhT1Wrg7Fe5J04UjdQ",
+    src: "https://sprunkigames.online/characters/funbot.webp",
     alt: "Sprunki Fun Bot"
 }
 publishDate: "2024-12-31 12:39"

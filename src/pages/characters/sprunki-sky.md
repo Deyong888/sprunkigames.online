@@ -4,7 +4,7 @@ draft: false
 title: "Sprunki Sky Blue (Sky) - The Aerial Harmony of Sprunki"
 snippet: "Uncover the essence of Sky, the sky blue character from Sprunki, and journey through his distinctive musical attributes and persona."
 image: {
-    src: "https://i.ytimg.com/vi/d6t9tL-w7vc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDFMALVnsTmGMwLXunRj3jiNN4oXQ",
+    src: "https://sprunkigames.online/characters/sky.webp",
     alt: "Sprunki Sky Blue (Sky)"
 }
 publishDate: "2024-12-31 17:39"

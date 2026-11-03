@@ -4,7 +4,7 @@ draft: false
 title: "Sprunki Purple (Durple) - The Enchanting Harpist of Sprunki"
 snippet: "Discover Durple, the mesmerizing harpist from Sprunki, and explore her ethereal melodies and captivating character."
 image: {
-    src: "https://i.ytimg.com/vi/T4DWLsTIotk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBNq1I94MiskG9XHFkCt3i-nTVGqg",
+    src: "https://sprunkigames.online/characters/durple.webp",
     alt: "Sprunki Purple (Durple)"
 }
 publishDate: "2024-12-31 18:39"

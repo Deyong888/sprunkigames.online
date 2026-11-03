@@ -4,7 +4,7 @@ draft: false
 title: "Delving into the World of Sprunki: Unmasking Red Raddy"
 snippet: "Red Raddy,The Enigmatic Raddy: A Sprunki Red Character Profile"
 image: {
-    src: "https://i.ytimg.com/vi/tZL4Kg_5yrE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBUokTe0qbW9s-F8PfH4iuQ8uepSg",
+    src: "https://sprunkigames.online/characters/raddy.webp",
     alt: "Sprunki Raddy"
 }
 publishDate: "2024-12-28 12:39"

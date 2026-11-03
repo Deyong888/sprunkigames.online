@@ -3,7 +3,7 @@ draft: false
 title: "Sprunki Incredibox 2026 Complete Guide to Beats Horror Mode and Hidden Secrets"
 snippet: "Discover Sprunki Incredibox 2026 with our complete guide covering new Huggy Mix mode, hidden characters, beat-making tips, and secret codes for the ultimate music game experience."
 image: {
-    src: "https://sprunkigames.online/images/sprunki-2026-guide.jpg",
+    src: "https://sprunkigames.online/characters/sun.webp",
     alt: "Sprunki Incredibox 2026 game interface showing colorful characters and beat mixing tools"
 }
 publishDate: "2026-1-20 11:39"

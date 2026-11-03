@@ -4,7 +4,7 @@ draft: false
 title: "Sprunki Yellow (Simon) - The Chord Enchantress of Sprunki"
 snippet: "Discover Simon, the vibrant yellow character from Sprunki, known for her enchanting guitar skills and captivating presence."
 image: {
-    src: "https://i.ytimg.com/vi/RYkIt3_ZJ-M/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBZWaYJat9hSZH8U4MBzkq1jo7w3w",
+    src: "https://sprunkigames.online/characters/simon.webp",
     alt: "Sprunki Yellow (Simon)"
 }
 publishDate: "2025-12-11 10:39"

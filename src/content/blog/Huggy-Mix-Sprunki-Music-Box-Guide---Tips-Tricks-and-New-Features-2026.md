@@ -3,7 +3,7 @@ draft: false
 title: "Huggy Mix Sprunki Music Box Guide - Tips Tricks and New Features 2026"
 snippet: "Discover everything about Huggy Mix Sprunki Music Box! Learn pro tips, hidden combos, exclusive sound recipes, and master the ultimate Sprunki music creation experience."
 image: {
-    src: "https://sprunkigames.online/sprunki-huggy-mix.jpg",
+    src: "https://sprunkigames.online/characters/simon.webp",
     alt: "Huggy Mix Sprunki Music Box gameplay interface showing colorful animated characters and music mixing controls"
 }
 publishDate: "2026-1-20 11:39"
