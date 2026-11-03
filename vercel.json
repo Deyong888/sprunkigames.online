@@ -1,1 +1,159 @@
-{"redirects":[{"destination":"/blog/:slug","permanent":true,"source":"/zh/blog/:slug"},{"destination":"/characters/:slug","permanent":true,"source":"/zh/characters/:slug"},{"destination":"/about","permanent":true,"source":"/zh/about"},{"destination":"/contact","permanent":true,"source":"/zh/contact"},{"destination":"/pricing","permanent":true,"source":"/zh/pricing"},{"destination":"/privacy","permanent":true,"source":"/zh/privacy"},{"destination":"/terms-of-service","permanent":true,"source":"/zh/terms-of-service"},{"destination":"/about","permanent":true,"source":"/es/about"},{"destination":"/blog","permanent":true,"source":"/es/blog"},{"destination":"/characters","permanent":true,"source":"/es/characters"},{"destination":"/contact","permanent":true,"source":"/es/contact"},{"destination":"/pricing","permanent":true,"source":"/es/pricing"},{"destination":"/privacy","permanent":true,"source":"/es/privacy"},{"destination":"/terms-of-service","permanent":true,"source":"/es/terms-of-service"},{"destination":"/about","permanent":true,"source":"/fil/about"},{"destination":"/blog","permanent":true,"source":"/fil/blog"},{"destination":"/characters","permanent":true,"source":"/fil/characters"},{"destination":"/contact","permanent":true,"source":"/fil/contact"},{"destination":"/pricing","permanent":true,"source":"/fil/pricing"},{"destination":"/privacy","permanent":true,"source":"/fil/privacy"},{"destination":"/terms-of-service","permanent":true,"source":"/fil/terms-of-service"},{"destination":"/privacy","permanent":true,"source":"/en/privacy"},{"destination":"/characters/","permanent":true,"source":"/characters/sprunki-black"},{"destination":"/characters/","permanent":true,"source":"/characters/sprunki-computer"},{"destination":"/characters/","permanent":true,"source":"/characters/sprunki-jevin"},{"destination":"/characters/","permanent":true,"source":"/characters/sprunki-pink"},{"destination":"/characters/","permanent":true,"source":"/characters/sprunki-wenda"}]}
+{
+  "redirects": [
+    {
+      "destination": "/blog/:slug",
+      "permanent": true,
+      "source": "/zh/blog/:slug"
+    },
+    {
+      "destination": "/characters/:slug",
+      "permanent": true,
+      "source": "/zh/characters/:slug"
+    },
+    {
+      "source": "/es/blog/:slug",
+      "destination": "/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/fil/blog/:slug",
+      "destination": "/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/es/characters/:slug",
+      "destination": "/characters/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/fil/characters/:slug",
+      "destination": "/characters/:slug",
+      "permanent": true
+    },
+    {
+      "destination": "/about",
+      "permanent": true,
+      "source": "/zh/about"
+    },
+    {
+      "destination": "/contact",
+      "permanent": true,
+      "source": "/zh/contact"
+    },
+    {
+      "destination": "/pricing",
+      "permanent": true,
+      "source": "/zh/pricing"
+    },
+    {
+      "destination": "/privacy",
+      "permanent": true,
+      "source": "/zh/privacy"
+    },
+    {
+      "destination": "/terms-of-service",
+      "permanent": true,
+      "source": "/zh/terms-of-service"
+    },
+    {
+      "destination": "/about",
+      "permanent": true,
+      "source": "/es/about"
+    },
+    {
+      "destination": "/blog",
+      "permanent": true,
+      "source": "/es/blog"
+    },
+    {
+      "destination": "/characters",
+      "permanent": true,
+      "source": "/es/characters"
+    },
+    {
+      "destination": "/contact",
+      "permanent": true,
+      "source": "/es/contact"
+    },
+    {
+      "destination": "/pricing",
+      "permanent": true,
+      "source": "/es/pricing"
+    },
+    {
+      "destination": "/privacy",
+      "permanent": true,
+      "source": "/es/privacy"
+    },
+    {
+      "destination": "/terms-of-service",
+      "permanent": true,
+      "source": "/es/terms-of-service"
+    },
+    {
+      "destination": "/about",
+      "permanent": true,
+      "source": "/fil/about"
+    },
+    {
+      "destination": "/blog",
+      "permanent": true,
+      "source": "/fil/blog"
+    },
+    {
+      "destination": "/characters",
+      "permanent": true,
+      "source": "/fil/characters"
+    },
+    {
+      "destination": "/contact",
+      "permanent": true,
+      "source": "/fil/contact"
+    },
+    {
+      "destination": "/pricing",
+      "permanent": true,
+      "source": "/fil/pricing"
+    },
+    {
+      "destination": "/privacy",
+      "permanent": true,
+      "source": "/fil/privacy"
+    },
+    {
+      "destination": "/terms-of-service",
+      "permanent": true,
+      "source": "/fil/terms-of-service"
+    },
+    {
+      "destination": "/privacy",
+      "permanent": true,
+      "source": "/en/privacy"
+    },
+    {
+      "destination": "/characters/",
+      "permanent": true,
+      "source": "/characters/sprunki-black"
+    },
+    {
+      "destination": "/characters/",
+      "permanent": true,
+      "source": "/characters/sprunki-computer"
+    },
+    {
+      "destination": "/characters/",
+      "permanent": true,
+      "source": "/characters/sprunki-jevin"
+    },
+    {
+      "destination": "/characters/",
+      "permanent": true,
+      "source": "/characters/sprunki-pink"
+    },
+    {
+      "destination": "/characters/",
+      "permanent": true,
+      "source": "/characters/sprunki-wenda"
+    }
+  ]
+}
